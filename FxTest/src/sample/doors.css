@@ -1,0 +1,22 @@
+.root {
+    -fx-background-image: url("background.jpg");
+}
+
+.button {
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#8bc8ef, #4886aa);
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(#4886aa, #8bc8ef);
+}
+
+.label #step {
+    -fx-border-color: black;
+    -fx-background-color: #e39a20;
+}
+
+.label #current-step {
+    -fx-border-color: black;
+    -fx-background-color: #8bc8ef;
+}
