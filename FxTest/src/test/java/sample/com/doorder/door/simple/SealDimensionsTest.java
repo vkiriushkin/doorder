@@ -3,7 +3,7 @@ package sample.com.doorder.door.simple;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MetalListDimensionsTest extends AngledDoorTest{
+public class SealDimensionsTest extends AngledDoorTest {
 
     @Before
     public void setUp() throws Exception {
@@ -11,30 +11,30 @@ public class MetalListDimensionsTest extends AngledDoorTest{
     }
 
     @Test(expected = UnsupportedDimensions.class)
-    public void testCalcMetalListWidthLessExceptions() throws Exception {
+    public void testCalcSealWidthLessExceptions() throws Exception {
         angledDoor.setHeight(2000);
         angledDoor.setWidth(499);
-        angledDoor.calcMetalList();
+        angledDoor.calcSeal(true);
     }
 
     @Test(expected = UnsupportedDimensions.class)
-    public void testCalcMetalListWidthMoreExceptions() throws Exception {
+    public void testCalcSealWidthMoreExceptions() throws Exception {
         angledDoor.setHeight(2000);
         angledDoor.setWidth(1201);
-        angledDoor.calcMetalList();
+        angledDoor.calcSeal(true);
     }
 
     @Test(expected = UnsupportedDimensions.class)
-    public void testCalcMetalListHeightLessExceptions() throws Exception {
+    public void testCalcSealHeightLessExceptions() throws Exception {
         angledDoor.setHeight(999);
         angledDoor.setWidth(1000);
-        angledDoor.calcMetalList();
+        angledDoor.calcSeal(true);
     }
 
     @Test(expected = UnsupportedDimensions.class)
-    public void testCalcMetalListHeightMoreExceptions() throws Exception {
+    public void testCalcSealHeightMoreExceptions() throws Exception {
         angledDoor.setHeight(2451);
         angledDoor.setWidth(1000);
-        angledDoor.calcMetalList();
+        angledDoor.calcSeal(true);
     }
 }

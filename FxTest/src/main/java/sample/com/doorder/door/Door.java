@@ -8,9 +8,9 @@ public interface Door {
 
     void calcHinge();
 
-    void calcHeater();
+    void calcHeater(boolean heaterNeeded);
 
-    void calcSeal();
+    void calcSeal(boolean sealNeeded);
 
     void calcOuterFacing();
 
