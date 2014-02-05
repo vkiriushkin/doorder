@@ -35,7 +35,7 @@ public class OuterDecorationTest extends Assert {
 
     @Test
     public void testCalcPaintinPF() throws Exception {
-        outerDecoration.calcPaintinPF(1000, 2000);
+        outerDecoration.calcPaintingPF(1000, 2000);
         assertEquals(88.80, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
     }
 

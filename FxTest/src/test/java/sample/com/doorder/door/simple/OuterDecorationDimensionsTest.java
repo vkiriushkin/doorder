@@ -22,4 +22,34 @@ public class OuterDecorationDimensionsTest extends Assert {
     public void testCalcSelfAdhesiveFilmWidthMoreExceptions() throws Exception {
         outerDecoration.calcSelfAdhesiveFilm(1201, 2000);
     }
+
+    @Test(expected = UnsupportedDimensions.class)
+    public void testCalcAntiLayerWidthLessExceptions() throws Exception {
+        outerDecoration.calcAntiLayer(499,2000);
+    }
+
+    @Test(expected = UnsupportedDimensions.class)
+    public void testCalcAntiLayerWidthMoreExceptions() throws Exception {
+        outerDecoration.calcAntiLayer(1201, 2000);
+    }
+
+    @Test(expected = UnsupportedDimensions.class)
+    public void testCalcMDF10WidthLessExceptions() throws Exception {
+        outerDecoration.calcMdf10(500,999);
+    }
+
+    @Test(expected = UnsupportedDimensions.class)
+    public void testCalcMDF10WidthMoreExceptions() throws Exception {
+        outerDecoration.calcMdf10(1200, 2351);
+    }
+
+    @Test(expected = UnsupportedDimensions.class)
+    public void testCalcMDF16WidthLessExceptions() throws Exception {
+        outerDecoration.calcMdf16(500,999);
+    }
+
+    @Test(expected = UnsupportedDimensions.class)
+    public void testCalcMDF16WidthMoreExceptions() throws Exception {
+        outerDecoration.calcMdf16(1200, 2351);
+    }
 }
