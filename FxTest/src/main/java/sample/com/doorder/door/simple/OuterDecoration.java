@@ -32,7 +32,8 @@ public class OuterDecoration {
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         if (width > 800 && width < 1201) {
-            selfAdhesiveFilm = 1.1 * 1.5 * height / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH();
+	        double material = 1.1 * 1.5 * height / 1000;
+            selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + ((width + height) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         LOGGER.info("Finish calculating outer decoration, self adhesive film price:{}", selfAdhesiveFilm);
@@ -71,7 +72,8 @@ public class OuterDecoration {
             throw new UnsupportedDimensions("Anti layer", height, width);
         LOGGER.info("Anti layer: dimension OK");
         if (width > 499 && width < 1201) {
-            antiLayer = 1.25 * height / 1000 * Price.ANTI_LAYER.getPriceInUAH();
+            double material = 1.25 * height / 1000;
+	        antiLayer = material * Price.ANTI_LAYER.getPriceInUAH() + ((width + height) * 2 *0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += antiLayer;
         }
         LOGGER.info("Finish calculating outer decoration, anti layer price:{}", antiLayer);
@@ -86,11 +88,13 @@ public class OuterDecoration {
             throw new UnsupportedDimensions("MDF_10", height, width);
         LOGGER.info("MDF_10: dimension OK");
         if (height > 999 && height < 2051) {
-            mdf10 = width * height / 1000000 * Price.MDF_10.getPriceInUAH();
+	        double material = width * height / 1000000;
+            mdf10 = material * Price.MDF_10.getPriceInUAH() + ((width + height) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += mdf10;
         }
-        if (width > 2050 && width < 2351) {
-            mdf10 = width * height / 1000000 * Price.MDF_10.getPriceInUAH() + 40;
+        if (height > 2050 && height < 2351) {
+	        double material = width * height / 1000000;
+            mdf10 = material * Price.MDF_10.getPriceInUAH() + 40 + ((width + height) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += mdf10;
         }
         LOGGER.info("Finish calculating outer decoration, MDF_10 price:{}", mdf10);
@@ -104,11 +108,13 @@ public class OuterDecoration {
             throw new UnsupportedDimensions("MDF_16", height, width);
         LOGGER.info("MDF_16: dimension OK");
         if (height > 999 && height < 2051) {
-            mdf16 = width * height / 1000000 * Price.MDF_16.getPriceInUAH();
+	        double material = width * height / 1000000;
+            mdf16 = material * Price.MDF_16.getPriceInUAH() + ((width + height) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += mdf16;
         }
-        if (width > 2050 && width < 2351) {
-            mdf16 = width * height / 1000000 * Price.MDF_16.getPriceInUAH() + 40;
+        if (height > 2050 && height < 2351) {
+	        double material = width * height / 1000000;
+            mdf16 = material * Price.MDF_16.getPriceInUAH() + 40 + ((width + height) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += mdf16;
         }
         LOGGER.info("Finish calculating outer decoration, MDF_16 price:{}", mdf16);

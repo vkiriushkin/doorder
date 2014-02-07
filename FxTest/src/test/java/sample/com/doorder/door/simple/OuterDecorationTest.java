@@ -18,7 +18,7 @@ public class OuterDecorationTest extends Assert {
     @Test
     public void testCalcSelfAdhesiveFilm() throws Exception {
         outerDecoration.calcSelfAdhesiveFilm(1000, 2000);
-        assertEquals(66.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
+        assertEquals(150.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
     }
 
     @Test
@@ -42,18 +42,18 @@ public class OuterDecorationTest extends Assert {
     @Test
     public void testCalcAntiLayer() throws Exception {
         outerDecoration.calcAntiLayer(1000, 2000);
-        assertEquals(30.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
+        assertEquals(114.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
     }
 
     @Test
     public void testCalcMdf10() throws Exception {
         outerDecoration.calcMdf10(1000, 2000);
-        assertEquals(200.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
+        assertEquals(284.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
     }
 
     @Test
     public void testCalcMdf16() throws Exception {
         outerDecoration.calcMdf16(1000, 2000);
-        assertEquals(400.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
+        assertEquals(484.0, outerDecoration.getTotalOuterDecorationPrice(), DELTA);
     }
 }
