@@ -17,7 +17,7 @@
   <children>
     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
       <children>
-        <Button id="welcome-button" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Welcome" VBox.vgrow="ALWAYS">
+        <Button id="welcome-button" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Выбор конструкции" VBox.vgrow="ALWAYS">
           <font>
             <Font size="15.0" />
           </font>
@@ -25,9 +25,9 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
           </VBox.margin>
         </Button>
-        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Door types" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Lock types" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Order" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#hideOrderPane" prefHeight="100.0" prefWidth="200.0" text="Door types" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#hideOrderPane" prefHeight="100.0" prefWidth="200.0" text="Lock types" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Order" VBox.margin="$x1" />
       </children>
     </VBox>
     <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -35,7 +35,7 @@
         <Image url="@logo.png" />
       </image>
     </ImageView>
-    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <Pane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
           <children>
@@ -50,7 +50,7 @@
         <VBox alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0">
           <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="600.0" text="Enter and select values" />
-            <Pane id="" prefHeight="400.0" prefWidth="600.0" styleClass="">
+            <Pane id="" prefHeight="400.0" prefWidth="600.0" styleClass="null">
               <children>
                 <Label layoutX="14.0" layoutY="34.0" prefHeight="30.0" prefWidth="50.0" text="Width:" wrapText="false" />
                 <Label layoutX="14.0" layoutY="64.0" prefHeight="30.0" prefWidth="50.0" text="Height:" wrapText="false" />
@@ -79,6 +79,42 @@
             </Pane>
           </children>
         </VBox>
+      </children>
+    </Pane>
+    <Pane id="orderPane" fx:id="doorTypesPane" prefHeight="200.0" prefWidth="200.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
+          <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="295.0" text="Конструкция металлических дверей" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="295.0" text="Конструкция противопожарных дверей" />
+          </children>
+        </HBox>
+        <ScrollPane layoutX="0.0" layoutY="50.0" prefHeight="436.0" prefWidth="590.0" style="-fx-background-color:transparent;">
+          <content>
+            <AnchorPane prefHeight="491.0" prefWidth="575.0">
+              <children>
+                <ImageView fx:id="andledDoorImageView" fitHeight="73.0" fitWidth="453.0" layoutX="27.0" layoutY="40.0" pickOnBounds="true" preserveRatio="false">
+                  <image>
+                    <Image url="@angledDoor.png" />
+                  </image>
+                </ImageView>
+                <Label layoutX="16.0" layoutY="14.0" prefHeight="26.0" prefWidth="279.0" text="Уголковая металлическая дверь :">
+                  <font>
+                    <Font name="System Bold" size="13.0" fx:id="x2" />
+                  </font>
+                </Label>
+                <TextArea editable="false" layoutX="14.0" layoutY="113.0" prefHeight="100.0" prefWidth="547.0" style="-fx-background-color:transparent; -fx-border-color:transparent;" text="Конструкция такой бронедвери состоит из наружного  листа стали, толщиной 2мм. Дверное полотно с внутренними рёбрами жёсткости изготовлено  из профильной трубы 40*20*2 мм. Дверная рама выполнена из уголка 50 мм. Данный тип конструкции оптимален для заполнения узких проемов (800 мм и меньше)." wrapText="true" />
+                <ImageView id="andledDoorImageView" fitHeight="74.0" fitWidth="452.0" layoutX="28.0" layoutY="239.0" pickOnBounds="true" preserveRatio="false">
+                  <image>
+                    <Image url="@angledWithTwo.png" />
+                  </image>
+                </ImageView>
+                <Label font="$x2" layoutX="16.0" layoutY="213.0" prefHeight="26.0" prefWidth="464.0" text="Уголковые металлические двери с двойным притвором:" />
+                <TextArea editable="false" layoutX="15.0" layoutY="312.0" prefHeight="165.0" prefWidth="547.0" style="-fx-background-color:transparent; -fx-border-color:transparent;" text="Конструкция такой бронедвери состоит из наружного  листа стали, толщиной 2мм. Дверное полотно с внутренними рёбрами жёсткости изготовлено  из профильной трубы 50*30*2 мм. Дверная рама выполнена из уголка 50 мм. Данный тип конструкции оптимален для заполнения узких проемов (800 мм и меньше). Особенностью этой конструкции является наличие двойного притвора. Дверная рама и полотно двери имеют два контура уплотнения и соприкосновения, что обеспечивает  повышенную  тепло и шумоизоляцию. Второй притвор изготавливается из профильной трубы 25*25*2 мм.  и приваривается к раме.." wrapText="true" />
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
       </children>
     </Pane>
     <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" text="Some information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
