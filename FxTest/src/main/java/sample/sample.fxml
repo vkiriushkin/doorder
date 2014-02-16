@@ -20,15 +20,15 @@
       <children>
         <Button id="welcome-button" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showDoorTypesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор конструкции" VBox.vgrow="ALWAYS">
           <font>
-            <Font size="15.0" />
+            <Font size="15.0" fx:id="x3" />
           </font>
           <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
           </VBox.margin>
         </Button>
-        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Door types" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Lock types" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Order" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showLockerTypesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор замков" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1" />
       </children>
     </VBox>
     <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -36,6 +36,11 @@
         <Image url="@logo.png" />
       </image>
     </ImageView>
+    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" text="Some information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+      <font>
+        <Font size="20.0" />
+      </font>
+    </Label>
     <Pane fx:id="orderPane" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
@@ -82,7 +87,7 @@
         </VBox>
       </children>
     </Pane>
-    <Pane id="orderPane" fx:id="doorTypesPane" prefHeight="200.0" prefWidth="200.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <Pane id="orderPane" fx:id="doorTypesPane" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
           <children>
@@ -93,11 +98,11 @@
         </HBox>
         <ScrollPane layoutX="0.0" layoutY="50.0" prefHeight="432.0" prefWidth="590.0" style="-fx-background-color:transparent;">
           <content>
-            <AnchorPane minWidth="550.0" prefHeight="432.0" prefWidth="550.0" visible="true">
+            <AnchorPane fx:id="doorsAnchorPane" minHeight="435.0" minWidth="550.0" prefHeight="435.0" prefWidth="550.0" visible="true">
               <children>
-                <Group id="metalGroup" fx:id="metalDoorGroup" layoutX="0.0" layoutY="0.0" visible="true">
+                <Group id="metalGroup" fx:id="metalDoorGroup" layoutX="0.0" layoutY="0.0" visible="false">
                   <children>
-                    <ImageView fx:id="andledDoorImageView" fitHeight="73.0" fitWidth="453.0" layoutX="8.0" layoutY="26.0" pickOnBounds="true" preserveRatio="false">
+                    <ImageView fitHeight="73.0" fitWidth="453.0" layoutX="8.0" layoutY="26.0" pickOnBounds="true" preserveRatio="false">
                       <image>
                         <Image url="@angledDoor.png" />
                       </image>
@@ -131,7 +136,7 @@
                     <TextArea editable="false" layoutX="4.0" layoutY="773.0" prefHeight="107.0" prefWidth="547.0" style="-fx-background-color:transparent; -fx-border-color:transparent;" text="Такая конструкция нужна в случаях, когда есть возможность  в  сужении дверного проема . Дверная коробка  изготавливается из стальной квадратной трубы 40x40*2. Дверное полотно и ребра жесткости выполнены из профильной трубы 40*20*2 мм.Преимущество данной конструкции в том, что дверная коробка  и полотно металлических дверей имеют цельно замкнутый контур из профильных труб, тем самым намного увеличивая жесткость конструкции." wrapText="true" />
                   </children>
                 </Group>
-                <Group fx:id="fireProofGroup" layoutX="3.0" layoutY="2.0" scaleX="1.0" scaleY="1.0" visible="false">
+                <Group fx:id="fireProofGroup" layoutX="3.0" layoutY="2.0" scaleX="1.0" scaleY="1.0" visible="true">
                   <children>
                     <ImageView id="andledDoorImageView" fitHeight="71.0" fitWidth="452.0" layoutX="8.0" layoutY="139.0" pickOnBounds="true" preserveRatio="false">
                       <image>
@@ -149,11 +154,171 @@
         </ScrollPane>
       </children>
     </Pane>
-    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" text="Some information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
-      <font>
-        <Font size="20.0" />
-      </font>
-    </Label>
+    <Pane id="orderPane" fx:id="lockerTypesPane" prefHeight="200.0" prefWidth="200.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#showMetalDoorGroup" prefHeight="50.0" prefWidth="260.0" text="Основные замки" />
+            <Separator orientation="HORIZONTAL" prefHeight="50.0" prefWidth="31.0" visible="false" />
+            <Button mnemonicParsing="false" onAction="#showFireProofGroup" prefHeight="50.0" prefWidth="260.0" text="Дополнительные замки" />
+          </children>
+        </HBox>
+        <ScrollPane layoutX="0.0" layoutY="50.0" prefHeight="1000.0" prefWidth="590.0" style="-fx-background-color:transparent;">
+          <content>
+            <AnchorPane fx:id="lockerAnchorPane" minHeight="518.0" minWidth="550.0" prefHeight="518.0" prefWidth="550.0" visible="true">
+              <children>
+                <Button layoutX="3.0" layoutY="14.0" mnemonicParsing="false" onAction="#showApecs2000Group" prefWidth="121.0" text="Apecs 2200" />
+                <Button layoutX="144.0" layoutY="14.0" mnemonicParsing="false" prefWidth="121.0" text="Kale 2000" />
+                <Button layoutX="285.0" layoutY="14.0" mnemonicParsing="false" prefWidth="121.0" text="Kale 252 R" />
+                <Button layoutX="426.0" layoutY="14.0" mnemonicParsing="false" text="Mottura 54.797" />
+                <Group id="Group" fx:id="apecs2000Group" layoutX="3.0" layoutY="44.0" visible="false">
+                  <children>
+                    <ImageView fitHeight="233.0" fitWidth="305.0" layoutX="120.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@apecs2200.png" />
+                      </image>
+                    </ImageView>
+                    <GridPane layoutX="0.0" layoutY="233.0" prefHeight="500.0" prefWidth="544.0">
+                      <children>
+                        <Label prefWidth="269.0" text="Тип крепления врезн. замка" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label prefWidth="269.0" text="Лицевая планка" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label prefWidth="269.0" text="Тип ригелей" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label prefWidth="269.0" text="Цилиндрические" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label prefWidth="269.0" text="Количество ригелей" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label prefWidth="269.0" text="Вылет ригелей" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label prefWidth="269.0" text="Диаметр ригеля" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Label prefWidth="269.0" text="Удаление ключевого отверстия (Backset)" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Label prefWidth="269.0" text="Тип механизма секретности" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                        <Label prefWidth="269.0" text="Тип цилиндрового механизма" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <Label prefWidth="269.0" text="Тип ключа" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                        <Label prefWidth="269.0" text="Количество ключей" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                        <Label prefWidth="269.0" text="Механизм постоянного ключа" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                        <Label prefWidth="269.0" text="Комплектация цилиндром" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                        <Label prefWidth="269.0" text="Типоразмер цилиндра" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                        <Label prefWidth="269.0" text="Материал цилиндра" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                        <Label prefWidth="269.0" text="Покрытие цилиндра" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                        <Label prefWidth="269.0" text="Цвет цилиндра" GridPane.columnIndex="0" GridPane.rowIndex="15" />
+                        <Label prefWidth="269.0" text="Дополнительный механизм секретности" GridPane.columnIndex="0" GridPane.rowIndex="16" />
+                        <Label prefWidth="269.0" text="Защелка" GridPane.columnIndex="0" GridPane.rowIndex="17" />
+                        <Label prefWidth="269.0" text="Межосевое" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+                        <Label prefWidth="269.0" text="Комплектация ручками" GridPane.columnIndex="0" GridPane.rowIndex="19" />
+                        <Label prefWidth="269.0" text="Автоматическое запирание" GridPane.columnIndex="0" GridPane.rowIndex="20" />
+                        <Label prefWidth="269.0" text="Количество точек запирания" GridPane.columnIndex="0" GridPane.rowIndex="21" />
+                        <Label prefWidth="269.0" text="Дополнительное запирание изнутри" GridPane.columnIndex="0" GridPane.rowIndex="22" />
+                        <Label prefWidth="269.0" text="Покрытие лицевой планки" GridPane.columnIndex="0" GridPane.rowIndex="23" />
+                        <Label prefWidth="269.0" text="Цвет лицевой планки" GridPane.columnIndex="0" GridPane.rowIndex="24" />
+                        <Label prefWidth="269.0" text="Тип защелки" GridPane.columnIndex="0" GridPane.rowIndex="25" />
+                        <Label prefWidth="269.0" text="3" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label prefWidth="269.0" text="20 мм" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label prefWidth="269.0" text="12 мм" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label prefWidth="269.0" text="45 мм" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label prefWidth="269.0" text="Цилиндровый" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label prefWidth="269.0" text="Евроцилиндр" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label prefWidth="269.0" text="Английский" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label prefWidth="269.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Label prefWidth="269.0" text="Нет" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Label prefWidth="269.0" text="Комплектуется" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Label prefWidth="269.0" text="30/30" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <Label prefWidth="269.0" text="Латунь" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <Label prefWidth="269.0" text="Гальваника" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                        <Label prefWidth="269.0" text="Хром" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                        <Label prefWidth="269.0" text="Нет" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                        <Label prefWidth="269.0" text="Классическая" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+                        <Label prefWidth="269.0" text="85" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                        <Label prefWidth="269.0" text="Не комплектуется" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+                        <Label prefWidth="269.0" text="Не автоматическое" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+                        <Label prefWidth="269.0" text="1" GridPane.columnIndex="1" GridPane.rowIndex="21" />
+                        <Label prefWidth="269.0" text="Нет" GridPane.columnIndex="1" GridPane.rowIndex="22" />
+                        <Label prefWidth="269.0" text="Гальваника" GridPane.columnIndex="1" GridPane.rowIndex="23" />
+                        <Label prefWidth="269.0" text="Хром" GridPane.columnIndex="1" GridPane.rowIndex="24" />
+                        <Label prefWidth="269.0" text="Универсальная" GridPane.columnIndex="1" GridPane.rowIndex="25" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </children>
+                </Group>
+                <GridPane layoutX="3.0" layoutY="663.0" prefHeight="499.9999000000025" prefWidth="543.9999000000025">
+                  <children>
+                    <Label prefWidth="269.0" text="Тип замка  " GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label prefWidth="269.0" text="цилиндровый" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label prefWidth="269.0" text="Класс безопасности  " GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label prefWidth="269.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label prefWidth="269.0" text="Количество ригелей" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label prefWidth="269.0" text="Бексет, мм  " GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label prefWidth="269.0" text="Размеры  " GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <Label prefWidth="269.0" text="Наличие защелки  " GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <Label prefWidth="269.0" text="Цвет" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <Label prefWidth="269.0" text="Тип ключа" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <Label prefWidth="269.0" text="3" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Label prefWidth="269.0" text="45 мм" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <Label prefWidth="269.0" text="см. чертеж" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <Label prefWidth="269.0" text="да" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    <Label prefWidth="269.0" text="латунь, хром" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                    <Label prefWidth="269.0" text="зависит от цил. механизма" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="27.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@kale2000_1.png" />
+                  </image>
+                </ImageView>
+                <ImageView fitHeight="310.0" fitWidth="382.0" layoutX="146.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@kale2000_2.png" />
+                  </image>
+                </ImageView>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+      </children>
+    </Pane>
   </children>
   <columnConstraints>
     <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
