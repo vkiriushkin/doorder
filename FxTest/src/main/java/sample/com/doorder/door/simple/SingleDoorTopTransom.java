@@ -2,13 +2,14 @@ package sample.com.doorder.door.simple;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sample.com.doorder.door.OuterDecorationType;
 import sample.com.doorder.door.Price;
 
 public class SingleDoorTopTransom extends AngledDoor {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(SingleDoorTopTransom.class);
 
-	private double heightTransom;
+	private int heightTransom;
 	private InnerDecoration innerDecoration;
 	private OuterDecoration outerDecoration;
 
@@ -107,19 +108,19 @@ public class SingleDoorTopTransom extends AngledDoor {
 		if (this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2030
 				&& this.getWidth() >= 500 && this.getWidth() <= 960) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1x2.getPriceInUAH() + (this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
+			this.metalListPrice = Price.LIST_1x2.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
 		} else if (this.getHeightTransom() >= 2031 && this.getHeightTransom() <= 2450
 				&& this.getWidth() >= 500 && this.getWidth() <= 960) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + (this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
 		} else if (this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2030
 				&& this.getWidth() >= 961 && this.getWidth() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + (this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
 		} else if (this.getHeightTransom() >= 2031 && this.getHeightTransom() <= 2450
 				&& this.getWidth() >= 961 && this.getWidth() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + (this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
 		} else
 			throw new UnsupportedDimensions("Metal list", this.getHeight(), this.getWidth());
 
@@ -159,15 +160,41 @@ public class SingleDoorTopTransom extends AngledDoor {
 		LOGGER.info("Finish calculating seal, price: {}, total price: {}", sealPrice, totalPrice);
 	}
 
-	public double getHeightTransom() {
+	public void calcOuterDecorationWithoutTopTransom(OuterDecorationType outerDecorationType) {
+		totalPrice -= outerDecorationPrice;
+		outerDecoration.clear();
+		switch (outerDecorationType) {
+			case SELF_ADHESIVE_FILM:
+				this.outerDecoration.calcSelfAdhesiveFilmWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+			case PAINTING_SHAGREEN:
+				this.outerDecoration.calcPaintingShagreenWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+			case PAINTING_ANTIC:
+				this.outerDecoration.calcPaintingAnticWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+			case PAINTING_PF:
+				this.outerDecoration.calcPaintingPFWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+			case ANTI_LAYER:
+				this.outerDecoration.calcAntiLayerWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+			case MDF10:
+				this.outerDecoration.calcMdf10WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+			case MDF16:
+				this.outerDecoration.calcMdf16WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+				break;
+		}
+		outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
+		totalPrice += outerDecorationPrice;
+	}
+
+	public int getHeightTransom() {
 		return heightTransom;
 	}
 
-	public void setHeightTransom(double heightTransom) {
+	public void setHeightTransom(int heightTransom) {
 		this.heightTransom = heightTransom;
-	}
-
-	public OuterDecoration getOuterDecoration() {
-		return outerDecoration;
 	}
 }
