@@ -1,7 +1,5 @@
 package sample.com.doorder.door;
 
-import java.math.BigDecimal;
-
 public abstract class SimpleDoor implements Door{
 
     protected double totalPrice;
@@ -14,12 +12,14 @@ public abstract class SimpleDoor implements Door{
     protected double hingePrice;
     protected double heaterPrice;
     protected double sealPrice;
-    protected double outerFacingPrice;
-    protected double innerFacingPrice;
+    protected double outerDecorationPrice;
+    protected double innerDecorationPrice;
     protected double platbandPrice;
     protected double accessoriesPrice;
-    private double width;
-    private double height;
+
+    private int width;
+    private int height;
+	private int pWidth;
 
     public SimpleDoor() {
         this.hingePrice = 0;
@@ -29,32 +29,40 @@ public abstract class SimpleDoor implements Door{
         this.metal_40x20_Price = 0;
         this.metal_20x20_Price = 0;
         this.metalListPrice = 0;
-        this.innerFacingPrice = 0;
+        this.innerDecorationPrice = 0;
         this.accessoriesPrice = 0;
         this.sealPrice = 0;
         this.platbandPrice = 0;
         this.heaterPrice = 0;
         this.totalPrice = 0;
-        this.outerFacingPrice = 0;
+        this.outerDecorationPrice = 0;
     }
 
-    public double getWidth() {
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public double getTotalPrice() {
+	public int getpWidth() {
+		return pWidth;
+	}
+
+	public void setpWidth(int pWidth) {
+		this.pWidth = pWidth;
+	}
+
+	public double getTotalPrice() {
         return totalPrice;
     }
 
@@ -94,12 +102,12 @@ public abstract class SimpleDoor implements Door{
         return sealPrice;
     }
 
-    public double getOuterFacingPrice() {
-        return outerFacingPrice;
+    public double getOuterDecorationPrice() {
+        return outerDecorationPrice;
     }
 
-    public double getInnerFacingPrice() {
-        return innerFacingPrice;
+    public double getInnerDecorationPrice() {
+        return innerDecorationPrice;
     }
 
     public double getPlatbandPrice() {

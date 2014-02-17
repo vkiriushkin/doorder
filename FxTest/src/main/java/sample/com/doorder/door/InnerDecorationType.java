@@ -1,0 +1,13 @@
+package sample.com.doorder.door;
+
+public enum InnerDecorationType {
+
+	PLASTIC,
+	LAMINATED_PLASTIC,
+	MDF10,
+	MDF16,
+	NO_DECORATION,
+	METAL_LIST_PAINTING_PF,
+	METAL_LIST_PAINTING_SHAGREEN,
+	METAL_LIST_PAINTING_ANTIC;
+}

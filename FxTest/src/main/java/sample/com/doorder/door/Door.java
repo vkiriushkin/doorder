@@ -12,11 +12,11 @@ public interface Door {
 
     void calcSeal(boolean sealNeeded);
 
-    void calcOuterFacing();
+    void calcOuterDecoration(OuterDecorationType outerDecorationType);
 
-    void calcInnerFacing();
+    void calcInnerDecoration(InnerDecorationType innerDecorationType);
 
-    void calcPlatband();
+    void calcPlatband(PlatbandType platbandType);
 
     void calcAccessories();
 

@@ -195,7 +195,7 @@ public class InnerDecoration {
 	    LOGGER.info("Finish calculating inner decoration, painting antic price:{}", paintingAntic);
     }
 
-    private void clear() {
+    public void clear() {
         plastic = 0;
         laminate = 0;
         mdf10 = 0;

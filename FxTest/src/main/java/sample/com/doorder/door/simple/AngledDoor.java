@@ -2,15 +2,22 @@ package sample.com.doorder.door.simple;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sample.com.doorder.door.Price;
-import sample.com.doorder.door.SimpleDoor;
+import sample.com.doorder.door.*;
 
 public class AngledDoor extends SimpleDoor {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(AngledDoor.class);
     public static final int HINGE_NUMBER = 2;
+
+	private InnerDecoration innerDecoration;
+	private OuterDecoration outerDecoration;
+	private Platband platband;
+
     public AngledDoor() {
         super();
+	    this.innerDecoration = new InnerDecoration();
+	    this.outerDecoration = new OuterDecoration();
+	    this.platband = new Platband();
     }
 
     @Override
@@ -149,18 +156,96 @@ public class AngledDoor extends SimpleDoor {
     }
 
     @Override
-    public void calcOuterFacing() {
-
+    public void calcOuterDecoration(OuterDecorationType outerDecorationType) {
+	    totalPrice -= outerDecorationPrice;
+	    outerDecoration.clear();
+		switch (outerDecorationType) {
+			case SELF_ADHESIVE_FILM:
+				this.outerDecoration.calcSelfAdhesiveFilm(this.getWidth(), this.getHeight());
+				break;
+			case PAINTING_SHAGREEN:
+				this.outerDecoration.calcPaintingShagreen(this.getWidth(), this.getHeight());
+				break;
+			case PAINTING_ANTIC:
+				this.outerDecoration.calcPaintingAntic(this.getWidth(), this.getHeight());
+				break;
+			case PAINTING_PF:
+				this.outerDecoration.calcPaintingPF(this.getWidth(), this.getHeight());
+				break;
+			case ANTI_LAYER:
+				this.outerDecoration.calcAntiLayer(this.getWidth(), this.getHeight());
+				break;
+			case MDF10:
+				this.outerDecoration.calcMdf10(this.getWidth(), this.getHeight());
+				break;
+			case MDF16:
+				this.outerDecoration.calcMdf16(this.getWidth(), this.getHeight());
+				break;
+		}
+	    outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
+	    totalPrice += outerDecorationPrice;
     }
 
     @Override
-    public void calcInnerFacing() {
-
+    public void calcInnerDecoration(InnerDecorationType innerDecorationType) {
+	    totalPrice -= innerDecorationPrice;
+	    innerDecoration.clear();
+	    switch (innerDecorationType) {
+		    case PLASTIC:
+			    this.innerDecoration.calcPlastic(this.getWidth(), this.getHeight());
+			    break;
+		    case LAMINATED_PLASTIC:
+			    this.innerDecoration.calcLaminate(this.getWidth(), this.getHeight());
+			    break;
+		    case MDF10:
+			    this.innerDecoration.calcMdf10(this.getWidth(), this.getHeight());
+			    break;
+		    case MDF16:
+			    this.innerDecoration.calcMdf16(this.getWidth(), this.getHeight());
+			    break;
+		    case NO_DECORATION:
+			    this.innerDecoration.calcWithoutDecoration(this.getWidth(), this.getHeight());
+			    break;
+		    case METAL_LIST_PAINTING_PF:
+			    this.innerDecoration.calcPaintingPF(this.getWidth(), this.getHeight());
+			    break;
+		    case METAL_LIST_PAINTING_SHAGREEN:
+			    this.innerDecoration.calcPaintingShagreen(this.getWidth(), this.getHeight());
+			    break;
+		    case METAL_LIST_PAINTING_ANTIC:
+			    this.innerDecoration.calcPaintingAntic(this.getWidth(), this.getHeight());
+			    break;
+	    }
+	    innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
+	    totalPrice += innerDecorationPrice;
     }
 
     @Override
-    public void calcPlatband() {
-
+    public void calcPlatband(PlatbandType platbandType) {
+	    totalPrice -= platbandPrice;
+	    platband.clear();
+	    switch (platbandType) {
+		    case WOODEN:
+			    this.platband.calcWoodenPlatband(this.getWidth(), this.getHeight());
+			    break;
+		    case METAL_PAINTING_PF:
+			    this.platband.calcMetalPlatbandPaintingPF(this.getWidth(), this.getHeight());
+			    break;
+		    case METAL_PAINTING_SHAGREEN:
+			    this.platband.calcMetalPlatbandPaintingShagreen(this.getWidth(), this.getHeight());
+			    break;
+		    case METAL_PAINTING_ANTIC:
+			    this.platband.calcMetalPlatbandPaintingAntic(this.getWidth(), this.getHeight());
+			    break;
+		    case MDF10:
+			    this.platband.calcMdf10Platband(this.getWidth(), this.getHeight(), this.getpWidth());
+			    break;
+		    case MDF16:
+			    this.platband.calcMdf16Platband(this.getWidth(), this.getHeight(), this.getpWidth());
+			    break;
+	    }
+	    platbandPrice = this.platband.getTotalPlatbandPrice();
+	    totalPrice += platbandPrice;
     }
 
     @Override

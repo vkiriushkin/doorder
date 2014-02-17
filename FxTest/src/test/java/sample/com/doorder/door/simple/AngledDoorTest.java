@@ -3,8 +3,9 @@ package sample.com.doorder.door.simple;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.math.BigDecimal;
+import sample.com.doorder.door.InnerDecorationType;
+import sample.com.doorder.door.OuterDecorationType;
+import sample.com.doorder.door.PlatbandType;
 
 public class AngledDoorTest extends Assert {
 
@@ -104,19 +105,89 @@ public class AngledDoorTest extends Assert {
         assertEquals(0, angledDoor.getTotalPrice(), DELTA);
     }
 
-    @org.junit.Test
-    public void testCalcOuterFacing() throws Exception {
-
+    @Test
+    public void testCalcOuterDecoration() throws Exception {
+	    angledDoor.setHeight(2000);
+	    angledDoor.setWidth(1000);
+	    assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.SELF_ADHESIVE_FILM);
+	    assertEquals(150, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(150, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.PAINTING_SHAGREEN);
+	    assertEquals(207.20, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(207.20, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.PAINTING_ANTIC);
+	    assertEquals(236.80, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(236.80, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.PAINTING_PF);
+	    assertEquals(88.80, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(88.80, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.ANTI_LAYER);
+	    assertEquals(114, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(114, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.MDF10);
+	    assertEquals(284, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(284, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcOuterDecoration(OuterDecorationType.MDF16);
+	    assertEquals(484, angledDoor.getOuterDecorationPrice(), DELTA);
+	    assertEquals(484, angledDoor.getTotalPrice(), DELTA);
     }
 
     @org.junit.Test
-    public void testCalcInnerFacing() throws Exception {
-
+    public void testCalcInnerDecoration() throws Exception {
+	    angledDoor.setHeight(2000);
+	    angledDoor.setWidth(1000);
+	    assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.PLASTIC);
+	    assertEquals(325.60, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(325.60, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.LAMINATED_PLASTIC);
+	    assertEquals(409.20, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(409.20, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.MDF10);
+	    assertEquals(188.16, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(188.16, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.MDF16);
+	    assertEquals(376.32, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(376.32, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.NO_DECORATION);
+	    assertEquals(60.00, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(60.00, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_PF);
+	    assertEquals(256.45, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(256.45, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_SHAGREEN);
+	    assertEquals(331.71, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(331.71, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_ANTIC);
+	    assertEquals(350.53, angledDoor.getInnerDecorationPrice(), DELTA);
+	    assertEquals(350.53, angledDoor.getTotalPrice(), DELTA);
     }
 
     @org.junit.Test
     public void testCalcPlatband() throws Exception {
-
+	    angledDoor.setHeight(2000);
+	    angledDoor.setWidth(1000);
+	    angledDoor.setpWidth(70);
+	    assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
+	    angledDoor.calcPlatband(PlatbandType.WOODEN);
+	    assertEquals(55, angledDoor.getPlatbandPrice(), DELTA);
+	    assertEquals(55, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcPlatband(PlatbandType.METAL_PAINTING_PF);
+	    assertEquals(120.50, angledDoor.getPlatbandPrice(), DELTA);
+	    assertEquals(120.50, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcPlatband(PlatbandType.METAL_PAINTING_SHAGREEN);
+	    assertEquals(134.50, angledDoor.getPlatbandPrice(), DELTA);
+	    assertEquals(134.50, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcPlatband(PlatbandType.METAL_PAINTING_ANTIC);
+	    assertEquals(138, angledDoor.getPlatbandPrice(), DELTA);
+	    assertEquals(138, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcPlatband(PlatbandType.MDF10);
+	    assertEquals(35, angledDoor.getPlatbandPrice(), DELTA);
+	    assertEquals(35, angledDoor.getTotalPrice(), DELTA);
+	    angledDoor.calcPlatband(PlatbandType.MDF16);
+	    assertEquals(70, angledDoor.getPlatbandPrice(), DELTA);
+	    assertEquals(70, angledDoor.getTotalPrice(), DELTA);
     }
 
     @org.junit.Test
