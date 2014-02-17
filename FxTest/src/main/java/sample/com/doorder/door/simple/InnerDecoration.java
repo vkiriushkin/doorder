@@ -11,15 +11,15 @@ public class InnerDecoration {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(InnerDecoration.class);
 
-    private double plastic;
-    private double laminate;
-    private double mdf10;
-    private double mdf16;
+    protected double plastic;
+    protected double laminate;
+    protected double mdf10;
+    protected double mdf16;
     private double withoutDecoration;
-    private double paintingPF;
-    private double paintingShagreen;
-    private double paintingAntic;
-    private double totalInnerDecorationPrice;
+    protected double paintingPF;
+    protected double paintingShagreen;
+    protected double paintingAntic;
+    protected double totalInnerDecorationPrice;
 
     public InnerDecoration() {
     }

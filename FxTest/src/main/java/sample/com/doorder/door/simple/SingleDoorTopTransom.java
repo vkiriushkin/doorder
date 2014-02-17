@@ -2,6 +2,7 @@ package sample.com.doorder.door.simple;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
 import sample.com.doorder.door.Price;
 
@@ -10,11 +11,11 @@ public class SingleDoorTopTransom extends AngledDoor {
 	public static final Logger LOGGER = LoggerFactory.getLogger(SingleDoorTopTransom.class);
 
 	private int heightTransom;
-	private InnerDecoration innerDecoration;
+	private SingleDoorInnerDecoration innerDecoration;
 	private OuterDecoration outerDecoration;
 
 	public SingleDoorTopTransom() {
-		this.innerDecoration = new InnerDecoration();
+		this.innerDecoration = new SingleDoorInnerDecoration();
 		this.outerDecoration = new OuterDecoration();
 	}
 
@@ -189,6 +190,70 @@ public class SingleDoorTopTransom extends AngledDoor {
 		outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
 		totalPrice += outerDecorationPrice;
 	}
+
+    @Override
+    public void calcInnerDecoration(InnerDecorationType innerDecorationType) {
+        totalPrice -= innerDecorationPrice;
+        innerDecoration.clear();
+        switch (innerDecorationType) {
+            case PLASTIC:
+                this.innerDecoration.calcPlastic(this.getWidth(), this.getHeight());
+                break;
+            case LAMINATED_PLASTIC:
+                this.innerDecoration.calcLaminate(this.getWidth(), this.getHeight());
+                break;
+            case MDF10:
+                this.innerDecoration.calcMdf10(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                break;
+            case MDF16:
+                this.innerDecoration.calcMdf16(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                break;
+            case NO_DECORATION:
+                this.innerDecoration.calcWithoutDecoration(this.getWidth(), this.getHeight());
+                break;
+            case METAL_LIST_PAINTING_PF:
+                this.innerDecoration.calcPaintingPF(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                break;
+            case METAL_LIST_PAINTING_SHAGREEN:
+                this.innerDecoration.calcPaintingShagreen(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                break;
+            case METAL_LIST_PAINTING_ANTIC:
+                this.innerDecoration.calcPaintingAntic(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                break;
+        }
+        innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
+        totalPrice += innerDecorationPrice;
+    }
+
+//    public void calcInnerDecorationWithoutTopTransom(InnerDecorationType innerDecorationType) {
+//        totalPrice -= innerDecorationPrice;
+//        innerDecoration.clear();
+//        switch (innerDecorationType) {
+//            case innerDecorationType:
+//                this.innerDecoration.calcSelfAdhesiveFilmWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//            case PAINTING_SHAGREEN:
+//                this.innerDecoration.calcPaintingShagreenWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//            case PAINTING_ANTIC:
+//                this.innerDecoration.calcPaintingAnticWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//            case PAINTING_PF:
+//                this.innerDecoration.calcPaintingPFWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//            case ANTI_LAYER:
+//                this.innerDecoration.calcAntiLayerWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//            case MDF10:
+//                this.innerDecoration.calcMdf10WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//            case MDF16:
+//                this.innerDecoration.calcMdf16WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+//                break;
+//        }
+//        innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
+//        totalPrice += innerDecorationPrice;
+//    }
 
 	public int getHeightTransom() {
 		return heightTransom;

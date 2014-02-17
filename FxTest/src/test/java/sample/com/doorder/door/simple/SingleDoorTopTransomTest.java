@@ -3,6 +3,7 @@ package sample.com.doorder.door.simple;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
 
 public class SingleDoorTopTransomTest extends Assert {
@@ -146,4 +147,36 @@ public class SingleDoorTopTransomTest extends Assert {
 		assertEquals(399, singleDoorTopTransom.getOuterDecorationPrice(), DELTA);
 		assertEquals(399, singleDoorTopTransom.getTotalPrice(), DELTA);
 	}
+
+    @org.junit.Test
+    public void testCalcInnerDecoration() throws Exception {
+        singleDoorTopTransom.setHeight(2000);
+        singleDoorTopTransom.setWidth(1000);
+        singleDoorTopTransom.setHeightTransom(1500);
+        assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.PLASTIC);
+        assertEquals(352, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(352, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.LAMINATED_PLASTIC);
+        assertEquals(435.60, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(435.60, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.MDF10);
+        assertEquals(188.16, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(188.16, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.MDF16);
+        assertEquals(376.32, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(376.32, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.NO_DECORATION);
+        assertEquals(60.00, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(60.00, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_PF);
+        assertEquals(281.45, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(281.45, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_SHAGREEN);
+        assertEquals(338.11, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(338.11, singleDoorTopTransom.getTotalPrice(), DELTA);
+        singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_ANTIC);
+        assertEquals(352.13, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+        assertEquals(352.13, singleDoorTopTransom.getTotalPrice(), DELTA);
+    }
 }
