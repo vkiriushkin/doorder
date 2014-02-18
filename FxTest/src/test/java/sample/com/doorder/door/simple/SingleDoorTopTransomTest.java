@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
+import sample.com.doorder.door.PlatbandType;
 
 public class SingleDoorTopTransomTest extends Assert {
 
@@ -179,4 +180,63 @@ public class SingleDoorTopTransomTest extends Assert {
         assertEquals(352.13, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
         assertEquals(352.13, singleDoorTopTransom.getTotalPrice(), DELTA);
     }
+
+	@org.junit.Test
+	public void testCalcInnerDecorationWithoutTopTransom() throws Exception {
+		singleDoorTopTransom.setHeight(2000);
+		singleDoorTopTransom.setWidth(1000);
+		singleDoorTopTransom.setHeightTransom(1500);
+		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.PLASTIC);
+		assertEquals(265.80, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(265.80, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.LAMINATED_PLASTIC);
+		assertEquals(328.50, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(328.50, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.MDF10);
+		assertEquals(155.16, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(155.16, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.MDF16);
+		assertEquals(295.32, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(295.32, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.NO_DECORATION);
+		assertEquals(60.00, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(60.00, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.METAL_LIST_PAINTING_PF);
+		assertEquals(257.05, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(257.05, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.METAL_LIST_PAINTING_SHAGREEN);
+		assertEquals(313.11, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(313.11, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.METAL_LIST_PAINTING_ANTIC);
+		assertEquals(327.13, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
+		assertEquals(327.13, singleDoorTopTransom.getTotalPrice(), DELTA);
+	}
+
+	@org.junit.Test
+	public void testCalcPlatband() throws Exception {
+		singleDoorTopTransom.setHeight(2000);
+		singleDoorTopTransom.setWidth(1000);
+		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setpWidth(70);
+		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
+		singleDoorTopTransom.calcPlatband(PlatbandType.WOODEN);
+		assertEquals(55, singleDoorTopTransom.getPlatbandPrice(), DELTA);
+		assertEquals(55, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcPlatband(PlatbandType.METAL_PAINTING_PF);
+		assertEquals(120.50, singleDoorTopTransom.getPlatbandPrice(), DELTA);
+		assertEquals(120.50, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcPlatband(PlatbandType.METAL_PAINTING_SHAGREEN);
+		assertEquals(134.50, singleDoorTopTransom.getPlatbandPrice(), DELTA);
+		assertEquals(134.50, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcPlatband(PlatbandType.METAL_PAINTING_ANTIC);
+		assertEquals(138, singleDoorTopTransom.getPlatbandPrice(), DELTA);
+		assertEquals(138, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcPlatband(PlatbandType.MDF10);
+		assertEquals(35, singleDoorTopTransom.getPlatbandPrice(), DELTA);
+		assertEquals(35, singleDoorTopTransom.getTotalPrice(), DELTA);
+		singleDoorTopTransom.calcPlatband(PlatbandType.MDF16);
+		assertEquals(70, singleDoorTopTransom.getPlatbandPrice(), DELTA);
+		assertEquals(70, singleDoorTopTransom.getTotalPrice(), DELTA);
+	}
 }
