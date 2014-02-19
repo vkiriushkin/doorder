@@ -9,8 +9,8 @@ public class AngledDoor extends SimpleDoor {
     public static final Logger LOGGER = LoggerFactory.getLogger(AngledDoor.class);
     public static final int HINGE_NUMBER = 2;
 
-	private InnerDecoration innerDecoration;
-	private OuterDecoration outerDecoration;
+	protected InnerDecoration innerDecoration;
+	protected OuterDecoration outerDecoration;
 	private Platband platband;
 
     public AngledDoor() {

@@ -11,14 +11,14 @@ public class OuterDecoration {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(OuterDecoration.class);
 
-    private double selfAdhesiveFilm;
-    private double paintingShagreen;
-    private double paintingAntic;
-    private double paintingPF;
-    private double antiLayer;
-    private double mdf10;
-    private double mdf16;
-    private double totalOuterDecorationPrice;
+    protected double selfAdhesiveFilm;
+    protected double paintingShagreen;
+    protected double paintingAntic;
+    protected double paintingPF;
+    protected double antiLayer;
+    protected double mdf10;
+    protected double mdf16;
+    protected double totalOuterDecorationPrice;
 
     public OuterDecoration() {
     }
