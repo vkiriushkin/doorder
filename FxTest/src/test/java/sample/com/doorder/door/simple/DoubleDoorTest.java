@@ -19,6 +19,7 @@ public class DoubleDoorTest extends Assert {
         doubleDoor.setWidth(1000);
         doubleDoor.setHeight(2000);
         doubleDoor.setSecondWidth(500);
+        doubleDoor.setpWidth(70);
     }
 
     @Test
@@ -110,8 +111,8 @@ public class DoubleDoorTest extends Assert {
         assertEquals(60.00, doubleDoor.getInnerDecorationPrice(), DELTA);
         assertEquals(60.00, doubleDoor.getTotalPrice(), DELTA);
         doubleDoor.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_PF);
-        assertEquals(255.48, doubleDoor.getInnerDecorationPrice(), DELTA);
-        assertEquals(255.48, doubleDoor.getTotalPrice(), DELTA);
+        assertEquals(255.58, doubleDoor.getInnerDecorationPrice(), DELTA);
+        assertEquals(255.58, doubleDoor.getTotalPrice(), DELTA);
         doubleDoor.calcInnerDecoration(InnerDecorationType.METAL_LIST_PAINTING_SHAGREEN);
         assertEquals(329.68, doubleDoor.getInnerDecorationPrice(), DELTA);
         assertEquals(329.68, doubleDoor.getTotalPrice(), DELTA);

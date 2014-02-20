@@ -10,6 +10,7 @@ public class DoubleDoor extends AngledDoor {
 
     public DoubleDoor() {
         outerDecoration = new DoubleDoorOuterDecoration();
+        innerDecoration = new DoubleDoorInnerDecoration();
     }
 
     @Override
