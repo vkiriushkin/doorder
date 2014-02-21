@@ -27,21 +27,29 @@ public class SingleDoorSideTransom extends AngledDoor {
     private void calcPipe20x20() {
         LOGGER.info("Checking dimensions for pipe 20x20");
         if (this.getHeight() >= 1000 && this.getHeight() <= 2060
-                && this.getWidth() >= 500 && this.getWidth() <= 900) {
+                && this.getWidth() >= 800 && this.getWidth() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (2 * this.getWidth() + this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+            this.metal_20x20_Price = (2 * this.getWidth() + 2 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
         } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
-                && this.getWidth() >= 500 && this.getWidth() <= 900) {
-            LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (3 * this.getWidth() + this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2060
-                && this.getWidth() >= 901 && this.getWidth() <= 1200) {
-            LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (this.getWidth() + this.getHeight()) * 2.2 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
-                && this.getWidth() >= 901 && this.getWidth() <= 1200) {
+                && this.getWidth() >= 800 && this.getWidth() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
             this.metal_20x20_Price = (3 * this.getWidth() + 2 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2060
+                && this.getWidth() >= 1201 && this.getWidth() <= 1500) {
+            LOGGER.info("Pipe 20x20: Dimensions OK");
+            this.metal_20x20_Price = (2 * this.getWidth() + 3 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
+                && this.getWidth() >= 1201 && this.getWidth() <= 1500) {
+            LOGGER.info("Pipe 20x20: Dimensions OK");
+            this.metal_20x20_Price = (3 * this.getWidth() + 3 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2060
+		        && this.getWidth() >= 1501 && this.getWidth() <= 1950) {
+	        LOGGER.info("Pipe 20x20: Dimensions OK");
+	        this.metal_20x20_Price = (2 * this.getWidth() + 4 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
+		        && this.getWidth() >= 1501 && this.getWidth() <= 1950) {
+	        LOGGER.info("Pipe 20x20: Dimensions OK");
+	        this.metal_20x20_Price = (3 * this.getWidth() + 4 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
         } else
             throw new UnsupportedDimensions("Pipe 20x20", this.getHeight(), this.getWidth());
 
@@ -51,28 +59,23 @@ public class SingleDoorSideTransom extends AngledDoor {
     }
 
     private void calcPipe40x20() {
-        LOGGER.info("Checking dimensions for pipe 40x20");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 3000
-                && this.getWidth() >= 500 && this.getWidth() <= 1200
-                && (this.getHeight() - this.getHeightTransom()) >= 60 && (this.getHeight() - this.getHeightTransom()) <= 1000
-                && this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2450) {
-            LOGGER.info("Pipe 40x20: Dimensions OK");
-            this.metal_40x20_Price = (this.getWidth() + this.getHeightTransom()) * 2 * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH();
-        } else
-            throw new UnsupportedDimensions("Pipe 40x20", this.getHeight(), this.getWidth());
-        metalFramesPartsTotalPrice += metal_40x20_Price;
-        totalPrice += metal_40x20_Price;
-        LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
+	    LOGGER.info("Checking dimensions for pipe 40x20");
+	    if (this.getHeight() >= 1000 && this.getHeight() <= 2450 && this.getWidth() >= 800 && this.getWidth() <= 1950
+			    && this.getHeightTransom() <= this.getHeight() - 150 && this.getHeightTransom() <= 1200) {
+		    LOGGER.info("Pipe 40x20: Dimensions OK");
+		    this.metal_40x20_Price = (this.getHeight() + this.getHeightTransom()) * 2 * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH();
+	    } else
+		    throw new UnsupportedDimensions("Pipe 40x20", this.getHeight(), this.getWidth());
+	    metalFramesPartsTotalPrice += metal_40x20_Price;
+	    totalPrice += metal_40x20_Price;
+	    LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
     }
 
     private void calcPipe40x40() {
         LOGGER.info("Checking dimensions for pipe 40x40");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 3000
-                && this.getWidth() >= 500 && this.getWidth() <= 1200
-                && (this.getHeight() - this.getHeightTransom()) >= 60 && (this.getHeight() - this.getHeightTransom()) <= 1000
-                && this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2450) {
+        if (this.getHeightTransom() <= this.getHeight() - 150) {
             LOGGER.info("Pipe 40x40: Dimensions OK");
-            this.metal_40x40_Price = this.getWidth() / 1000 * Price.PIPE_40x40.getPriceInUAH();
+            this.metal_40x40_Price = this.getHeight() / 1000 * Price.PIPE_40x40.getPriceInUAH();
         } else
             throw new UnsupportedDimensions("Pipe 40x40", this.getHeight(), this.getWidth());
 
@@ -83,10 +86,8 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     private void calcL50x4Part() {
         LOGGER.info("Checking dimensions for L50x4");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 3000
-                && this.getWidth() >= 500 && this.getWidth() <= 1200
-                && (this.getHeight() - this.getHeightTransom()) >= 60 && (this.getHeight() - this.getHeightTransom()) <= 1000
-                && this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2450) {
+        if (this.getHeight() >= 1000 && this.getHeight() <= 2450 && this.getWidth() >= 800 && this.getWidth() <= 1950
+		        && this.getHeightTransom() <= this.getHeight() - 150 && this.getHeightTransom() <= 1200) {
             LOGGER.info("L50x4: Dimensions OK");
             this.metal_L50x4_Price = (this.getWidth() + this.getHeight()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH();
         } else
@@ -101,22 +102,30 @@ public class SingleDoorSideTransom extends AngledDoor {
     public void calcMetalList() {
         LOGGER.info("Start calculating metal list price");
         LOGGER.info("Checking dimensions for metal list");
-        if (this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2030
-                && this.getWidth() >= 500 && this.getWidth() <= 960) {
+        if (this.getHeight() >= 1000 && this.getHeight() <= 2030
+                && this.getWidth() >= 800 && this.getWidth() <= 950) {
             LOGGER.info("Metal list: Dimensions OK");
-            this.metalListPrice = Price.LIST_1x2.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
-        } else if (this.getHeightTransom() >= 2031 && this.getHeightTransom() <= 2450
-                && this.getWidth() >= 500 && this.getWidth() <= 960) {
+            this.metalListPrice = Price.LIST_1x2.getPriceInUAH();
+        } else if (this.getHeight() >= 2031 && this.getHeight() <= 2450
+                && this.getWidth() >= 800 && this.getWidth() <= 950) {
             LOGGER.info("Metal list: Dimensions OK");
-            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
-        } else if (this.getHeightTransom() >= 1000 && this.getHeightTransom() <= 2030
-                && this.getWidth() >= 961 && this.getWidth() <= 1200) {
+            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2030
+                && this.getWidth() >= 951 && this.getWidth() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
-            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
-        } else if (this.getHeightTransom() >= 2031 && this.getHeightTransom() <= 2450
-                && this.getWidth() >= 961 && this.getWidth() <= 1200) {
+            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+        } else if (this.getHeight() >= 2031 && this.getHeight() <= 2450
+                && this.getWidth() >= 951 && this.getWidth() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
-            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() + ((double)this.getHeight() - this.getHeightTransom()) * this.getWidth() / 1000000 * Price.LIST_M2.getPriceInUAH();
+            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2030
+		        && this.getWidth() >= 1201 && this.getWidth() <= 1950) {
+	        LOGGER.info("Metal list: Dimensions OK");
+	        this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
+        } else if (this.getHeight() >= 2031 && this.getHeight() <= 2450
+		        && this.getWidth() >= 1201 && this.getWidth() <= 1950) {
+	        LOGGER.info("Metal list: Dimensions OK");
+	        this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
         } else
             throw new UnsupportedDimensions("Metal list", this.getHeight(), this.getWidth());
 

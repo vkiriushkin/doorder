@@ -16,9 +16,9 @@ public class SingleDoorSideTransomTest extends Assert {
     @Before
     public void setUp() throws Exception {
         singleDoorSideTransom = new SingleDoorSideTransom();
-        singleDoorSideTransom.setpWidth(1000);
+        singleDoorSideTransom.setWidth(1000);
         singleDoorSideTransom.setHeight(2000);
-        singleDoorSideTransom.setHeightTransom(1500);
+        singleDoorSideTransom.setHeightTransom(500);
         singleDoorSideTransom.setpWidth(70);
     }
 
