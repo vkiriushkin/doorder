@@ -1,18 +1,26 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import sample.com.doorder.door.LabelNames;
 
 import javax.swing.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable{
 
     public Pane doorTypesPane;
     public AnchorPane doorsAnchorPane;
@@ -25,6 +33,36 @@ public class Controller {
     public Group kale2000Group;
     public Group metalDoorGroup;
     public Group fireProofGroup;
+
+    public VBox step1;
+    public ComboBox<String> doorTypeCombo;
+    public ComboBox<String> doorStructureTypeCombo;
+
+    public VBox step2;
+    public VBox step3;
+    public VBox step4;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        doorTypeCombo.getItems().setAll(
+                LabelNames.metalDoor,
+                LabelNames.fireproofDoor);
+        doorTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
+                if (newValue.equalsIgnoreCase(LabelNames.metalDoor))
+                        doorStructureTypeCombo.setDisable(false);
+                if (newValue.equalsIgnoreCase(LabelNames.fireproofDoor))
+                        doorStructureTypeCombo.setDisable(true);
+            }
+        });
+        doorStructureTypeCombo.getItems().setAll(
+                LabelNames.angledDoor,
+                LabelNames.angledDoubleDoor,
+                LabelNames.door40x40,
+                LabelNames.door50x30);
+        doorStructureTypeCombo.setDisable(true);
+    }
 
     public void showDoorTypesPane(ActionEvent actionEvent) {
         orderPane.setVisible(false);
@@ -62,4 +100,5 @@ public class Controller {
         lockerTypesPane.setVisible(false);
         orderPane.setVisible(true);
     }
+
 }
