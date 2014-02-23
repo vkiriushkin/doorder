@@ -14,6 +14,11 @@ public class SingleDoorSideTransom extends AngledDoor {
     private SingleDoorInnerDecoration innerDecoration;
     private OuterDecoration outerDecoration;
 
+    public SingleDoorSideTransom() {
+        this.outerDecoration = new SingleDoorSideTransomOuterDecoration();
+        this.innerDecoration = new SingleDoorSideTransomInnerDesoration();
+    }
+
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
@@ -140,7 +145,7 @@ public class SingleDoorSideTransom extends AngledDoor {
         if (this.getHeight() >= 1000 && this.getHeight() <= 3000
                 && this.getWidth() >= 500 && this.getWidth() <= 1200) {
             LOGGER.info("Heater: Dimensions OK");
-            double heaterMultiplier = heaterNeeded ? this.getHeight() * this.getWidth() / 1000000 : 0.0;
+            double heaterMultiplier = heaterNeeded ? (double)this.getHeight() * this.getWidth() / 1000000 : 0.0;
             this.heaterPrice = heaterMultiplier * Price.HEATER.getPriceInUAH();
         } else
             throw new UnsupportedDimensions("Heater", this.getHeight(), this.getWidth());
@@ -150,19 +155,50 @@ public class SingleDoorSideTransom extends AngledDoor {
     }
 
     @Override
-    public void calcSeal(boolean heaterNeeded) {
+    public void calcSeal(boolean sealNeeded) {
         LOGGER.info("Start calculating seal price");
         LOGGER.info("Checking dimensions for seal");
         if (this.getHeight() >= 1000 && this.getHeight() <= 3000
                 && this.getWidth() >= 500 && this.getWidth() <= 1200) {
             LOGGER.info("Seal: Dimensions OK");
-            double heaterMultiplier = heaterNeeded ? (this.getHeightTransom() + this.getWidth()) * 2 / 1000 : 0.0;
+            double heaterMultiplier = sealNeeded ? (this.getHeightTransom() + this.getHeight()) * 2 / 1000 : 0.0;
             this.sealPrice = heaterMultiplier * Price.SEAL.getPriceInUAH();
         } else
             throw new UnsupportedDimensions("Seal", this.getHeight(), this.getWidth());
 
         totalPrice += sealPrice;
         LOGGER.info("Finish calculating seal, price: {}, total price: {}", sealPrice, totalPrice);
+    }
+
+    @Override
+    public void calcOuterDecoration(OuterDecorationType outerDecorationType) {
+        totalPrice -= outerDecorationPrice;
+        outerDecoration.clear();
+        switch (outerDecorationType) {
+            case SELF_ADHESIVE_FILM:
+                this.outerDecoration.calcSelfAdhesiveFilm(this.getWidth(), this.getHeight());
+                break;
+            case PAINTING_SHAGREEN:
+                this.outerDecoration.calcPaintingShagreen(this.getWidth(), this.getHeight());
+                break;
+            case PAINTING_ANTIC:
+                this.outerDecoration.calcPaintingAntic(this.getWidth(), this.getHeight());
+                break;
+            case PAINTING_PF:
+                this.outerDecoration.calcPaintingPF(this.getWidth(), this.getHeight());
+                break;
+            case ANTI_LAYER:
+                this.outerDecoration.calcAntiLayer(this.getWidth(), this.getHeight());
+                break;
+            case MDF10:
+                this.outerDecoration.calcMdf10(this.getWidth(), this.getHeight());
+                break;
+            case MDF16:
+                this.outerDecoration.calcMdf16(this.getWidth(), this.getHeight());
+                break;
+        }
+        outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
+        totalPrice += outerDecorationPrice;
     }
 
     public void calcOuterDecorationWithoutTopTransom(OuterDecorationType outerDecorationType) {

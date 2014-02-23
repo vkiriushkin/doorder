@@ -185,22 +185,22 @@ public class SingleDoorSideTransomTest extends Assert {
     public void testCalcPlatband() throws Exception {
         assertEquals(singleDoorSideTransom.getTotalPrice(), 0.0, DELTA);
         singleDoorSideTransom.calcPlatband(PlatbandType.WOODEN);
-        assertEquals(60.50, singleDoorSideTransom.getPlatbandPrice(), DELTA);
-        assertEquals(60.50, singleDoorSideTransom.getTotalPrice(), DELTA);
+        assertEquals(55, singleDoorSideTransom.getPlatbandPrice(), DELTA);
+        assertEquals(55, singleDoorSideTransom.getTotalPrice(), DELTA);
         singleDoorSideTransom.calcPlatband(PlatbandType.METAL_PAINTING_PF);
-        assertEquals(132.55, singleDoorSideTransom.getPlatbandPrice(), DELTA);
-        assertEquals(132.55, singleDoorSideTransom.getTotalPrice(), DELTA);
+        assertEquals(120.50, singleDoorSideTransom.getPlatbandPrice(), DELTA);
+        assertEquals(120.50, singleDoorSideTransom.getTotalPrice(), DELTA);
         singleDoorSideTransom.calcPlatband(PlatbandType.METAL_PAINTING_SHAGREEN);
-        assertEquals(147.95, singleDoorSideTransom.getPlatbandPrice(), DELTA);
-        assertEquals(147.95, singleDoorSideTransom.getTotalPrice(), DELTA);
+        assertEquals(134.50, singleDoorSideTransom.getPlatbandPrice(), DELTA);
+        assertEquals(134.50, singleDoorSideTransom.getTotalPrice(), DELTA);
         singleDoorSideTransom.calcPlatband(PlatbandType.METAL_PAINTING_ANTIC);
-        assertEquals(151.80, singleDoorSideTransom.getPlatbandPrice(), DELTA);
-        assertEquals(151.80, singleDoorSideTransom.getTotalPrice(), DELTA);
+        assertEquals(138, singleDoorSideTransom.getPlatbandPrice(), DELTA);
+        assertEquals(138, singleDoorSideTransom.getTotalPrice(), DELTA);
         singleDoorSideTransom.calcPlatband(PlatbandType.MDF10);
-        assertEquals(38.50, singleDoorSideTransom.getPlatbandPrice(), DELTA);
-        assertEquals(38.50, singleDoorSideTransom.getTotalPrice(), DELTA);
+        assertEquals(35, singleDoorSideTransom.getPlatbandPrice(), DELTA);
+        assertEquals(35, singleDoorSideTransom.getTotalPrice(), DELTA);
         singleDoorSideTransom.calcPlatband(PlatbandType.MDF16);
-        assertEquals(77, singleDoorSideTransom.getPlatbandPrice(), DELTA);
-        assertEquals(77, singleDoorSideTransom.getTotalPrice(), DELTA);
+        assertEquals(70, singleDoorSideTransom.getPlatbandPrice(), DELTA);
+        assertEquals(70, singleDoorSideTransom.getTotalPrice(), DELTA);
     }
 }
