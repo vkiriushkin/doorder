@@ -17,9 +17,9 @@ public abstract class SimpleDoor implements Door{
     protected double platbandPrice;
     protected double accessoriesPrice;
 
-    private int width;
-    private int height;
-	private int pWidth;
+    private int x;
+    private int y;
+	private int z;
 
     public SimpleDoor() {
         this.hingePrice = 0;
@@ -38,28 +38,28 @@ public abstract class SimpleDoor implements Door{
         this.outerDecorationPrice = 0;
     }
 
-    public int getWidth() {
-        return width;
+    public int getX() {
+        return x;
     }
 
-    public void setWidth(int width) {
-        this.width = width;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public int getHeight() {
-        return height;
+    public int getY() {
+        return y;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setY(int y) {
+        this.y = y;
     }
 
-	public int getpWidth() {
-		return pWidth;
+	public int getZ() {
+		return z;
 	}
 
-	public void setpWidth(int pWidth) {
-		this.pWidth = pWidth;
+	public void setZ(int z) {
+		this.z = z;
 	}
 
 	public double getTotalPrice() {

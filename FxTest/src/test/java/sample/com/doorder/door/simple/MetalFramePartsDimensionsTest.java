@@ -12,29 +12,29 @@ public class MetalFramePartsDimensionsTest extends AngledDoorTest {
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcMetalFramePartsWidthLessExceptions() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(499);
+        angledDoor.setY(2000);
+        angledDoor.setX(499);
         angledDoor.calcMetalFrameParts();
     }
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcMetalFramePartsWidthMoreExceptions() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1201);
+        angledDoor.setY(2000);
+        angledDoor.setX(1201);
         angledDoor.calcMetalFrameParts();
     }
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcMetalFramePartsHeightLessExceptions() throws Exception {
-        angledDoor.setHeight(999);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(999);
+        angledDoor.setX(1000);
         angledDoor.calcMetalFrameParts();
     }
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcMetalFramePartsHeightMoreExceptions() throws Exception {
-        angledDoor.setHeight(2451);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2451);
+        angledDoor.setX(1000);
         angledDoor.calcMetalFrameParts();
     }
 

@@ -8,7 +8,7 @@ public class UnsupportedDimensions extends RuntimeException {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(UnsupportedDimensions.class);
 
-    public UnsupportedDimensions(String stepName, double height, double width) {
-        LOGGER.error("Wrong dimensions for {}. Height:{}, width:{}", stepName, height, width);
+    public UnsupportedDimensions(String stepName, double y, double x) {
+        LOGGER.error("Wrong dimensions for {}. Height:{}, width:{}", stepName, y, x);
     }
 }

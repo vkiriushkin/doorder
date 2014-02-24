@@ -10,7 +10,7 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(SingleDoorTopTransom.class);
 
-    private int heightTransom;
+    private int x_1;
     private SingleDoorInnerDecoration innerDecoration;
     private OuterDecoration outerDecoration;
 
@@ -31,32 +31,32 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     private void calcPipe20x20() {
         LOGGER.info("Checking dimensions for pipe 20x20");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 2060
-                && this.getWidth() >= 800 && this.getWidth() <= 1200) {
+        if (this.getY() >= 1000 && this.getY() <= 2060
+                && this.getX() >= 800 && this.getX() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (2 * this.getWidth() + 2 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
-                && this.getWidth() >= 800 && this.getWidth() <= 1200) {
+            this.metal_20x20_Price = (2 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getY() >= 2061 && this.getY() <= 2450
+                && this.getX() >= 800 && this.getX() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (3 * this.getWidth() + 2 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2060
-                && this.getWidth() >= 1201 && this.getWidth() <= 1500) {
+            this.metal_20x20_Price = (3 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getY() >= 1000 && this.getY() <= 2060
+                && this.getX() >= 1201 && this.getX() <= 1500) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (2 * this.getWidth() + 3 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
-                && this.getWidth() >= 1201 && this.getWidth() <= 1500) {
+            this.metal_20x20_Price = (2 * this.getX() + 3 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getY() >= 2061 && this.getY() <= 2450
+                && this.getX() >= 1201 && this.getX() <= 1500) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (3 * this.getWidth() + 3 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2060
-		        && this.getWidth() >= 1501 && this.getWidth() <= 1950) {
+            this.metal_20x20_Price = (3 * this.getX() + 3 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getY() >= 1000 && this.getY() <= 2060
+		        && this.getX() >= 1501 && this.getX() <= 1950) {
 	        LOGGER.info("Pipe 20x20: Dimensions OK");
-	        this.metal_20x20_Price = (2 * this.getWidth() + 4 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
-        } else if (this.getHeight() >= 2061 && this.getHeight() <= 2450
-		        && this.getWidth() >= 1501 && this.getWidth() <= 1950) {
+	        this.metal_20x20_Price = (2 * this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+        } else if (this.getY() >= 2061 && this.getY() <= 2450
+		        && this.getX() >= 1501 && this.getX() <= 1950) {
 	        LOGGER.info("Pipe 20x20: Dimensions OK");
-	        this.metal_20x20_Price = (3 * this.getWidth() + 4 * this.getHeight()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+	        this.metal_20x20_Price = (3 * this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
         } else
-            throw new UnsupportedDimensions("Pipe 20x20", this.getHeight(), this.getWidth());
+            throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_20x20_Price;
         totalPrice += metal_20x20_Price;
@@ -65,12 +65,12 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     private void calcPipe40x20() {
 	    LOGGER.info("Checking dimensions for pipe 40x20");
-	    if (this.getHeight() >= 1000 && this.getHeight() <= 2450 && this.getWidth() >= 800 && this.getWidth() <= 1950
-			    && this.getHeightTransom() <= this.getHeight() - 150 && this.getHeightTransom() <= 1200) {
+	    if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 1950
+			    && this.getX_1() <= this.getY() - 150 && this.getX_1() <= 1200) {
 		    LOGGER.info("Pipe 40x20: Dimensions OK");
-		    this.metal_40x20_Price = (this.getHeight() + this.getHeightTransom()) * 2 * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH();
+		    this.metal_40x20_Price = (this.getY() + this.getX_1()) * 2 * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH();
 	    } else
-		    throw new UnsupportedDimensions("Pipe 40x20", this.getHeight(), this.getWidth());
+		    throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 	    metalFramesPartsTotalPrice += metal_40x20_Price;
 	    totalPrice += metal_40x20_Price;
 	    LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
@@ -78,11 +78,11 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     private void calcPipe40x40() {
         LOGGER.info("Checking dimensions for pipe 40x40");
-        if (this.getHeightTransom() <= this.getHeight() - 150) {
+        if (this.getX_1() <= this.getY() - 150) {
             LOGGER.info("Pipe 40x40: Dimensions OK");
-            this.metal_40x40_Price = this.getHeight() / 1000 * Price.PIPE_40x40.getPriceInUAH();
+            this.metal_40x40_Price = this.getY() / 1000 * Price.PIPE_40x40.getPriceInUAH();
         } else
-            throw new UnsupportedDimensions("Pipe 40x40", this.getHeight(), this.getWidth());
+            throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_40x40_Price;
         totalPrice += metal_40x40_Price;
@@ -91,12 +91,12 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     private void calcL50x4Part() {
         LOGGER.info("Checking dimensions for L50x4");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 2450 && this.getWidth() >= 800 && this.getWidth() <= 1950
-		        && this.getHeightTransom() <= this.getHeight() - 150 && this.getHeightTransom() <= 1200) {
+        if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 1950
+		        && this.getX_1() <= this.getY() - 150 && this.getX_1() <= 1200) {
             LOGGER.info("L50x4: Dimensions OK");
-            this.metal_L50x4_Price = (this.getWidth() + this.getHeight()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH();
+            this.metal_L50x4_Price = (this.getX() + this.getY()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH();
         } else
-            throw new UnsupportedDimensions("L50x4", this.getHeight(), this.getWidth());
+            throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_L50x4_Price;
         totalPrice += metal_L50x4_Price;
@@ -107,32 +107,32 @@ public class SingleDoorSideTransom extends AngledDoor {
     public void calcMetalList() {
         LOGGER.info("Start calculating metal list price");
         LOGGER.info("Checking dimensions for metal list");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 2030
-                && this.getWidth() >= 800 && this.getWidth() <= 950) {
+        if (this.getY() >= 1000 && this.getY() <= 2030
+                && this.getX() >= 800 && this.getX() <= 950) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1x2.getPriceInUAH();
-        } else if (this.getHeight() >= 2031 && this.getHeight() <= 2450
-                && this.getWidth() >= 800 && this.getWidth() <= 950) {
+        } else if (this.getY() >= 2031 && this.getY() <= 2450
+                && this.getX() >= 800 && this.getX() <= 950) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2030
-                && this.getWidth() >= 951 && this.getWidth() <= 1200) {
+        } else if (this.getY() >= 1000 && this.getY() <= 2030
+                && this.getX() >= 951 && this.getX() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-        } else if (this.getHeight() >= 2031 && this.getHeight() <= 2450
-                && this.getWidth() >= 951 && this.getWidth() <= 1200) {
+        } else if (this.getY() >= 2031 && this.getY() <= 2450
+                && this.getX() >= 951 && this.getX() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-        } else if (this.getHeight() >= 1000 && this.getHeight() <= 2030
-		        && this.getWidth() >= 1201 && this.getWidth() <= 1950) {
+        } else if (this.getY() >= 1000 && this.getY() <= 2030
+		        && this.getX() >= 1201 && this.getX() <= 1950) {
 	        LOGGER.info("Metal list: Dimensions OK");
 	        this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
-        } else if (this.getHeight() >= 2031 && this.getHeight() <= 2450
-		        && this.getWidth() >= 1201 && this.getWidth() <= 1950) {
+        } else if (this.getY() >= 2031 && this.getY() <= 2450
+		        && this.getX() >= 1201 && this.getX() <= 1950) {
 	        LOGGER.info("Metal list: Dimensions OK");
 	        this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
         } else
-            throw new UnsupportedDimensions("Metal list", this.getHeight(), this.getWidth());
+            throw new UnsupportedDimensions("Metal list", this.getY(), this.getX());
 
         totalPrice += metalListPrice;
         LOGGER.info("Finish calculating metal list, price: {}, total price: {}", metalListPrice, totalPrice);
@@ -142,13 +142,13 @@ public class SingleDoorSideTransom extends AngledDoor {
     public void calcHeater(boolean heaterNeeded) {
         LOGGER.info("Start calculating heater price");
         LOGGER.info("Checking dimensions for heater");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 3000
-                && this.getWidth() >= 500 && this.getWidth() <= 1200) {
+        if (this.getY() >= 1000 && this.getY() <= 3000
+                && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("Heater: Dimensions OK");
-            double heaterMultiplier = heaterNeeded ? (double)this.getHeight() * this.getWidth() / 1000000 : 0.0;
+            double heaterMultiplier = heaterNeeded ? (double)this.getY() * this.getX() / 1000000 : 0.0;
             this.heaterPrice = heaterMultiplier * Price.HEATER.getPriceInUAH();
         } else
-            throw new UnsupportedDimensions("Heater", this.getHeight(), this.getWidth());
+            throw new UnsupportedDimensions("Heater", this.getY(), this.getX());
 
         totalPrice += heaterPrice;
         LOGGER.info("Finish calculating heater, price: {}, total price: {}", heaterPrice, totalPrice);
@@ -158,13 +158,13 @@ public class SingleDoorSideTransom extends AngledDoor {
     public void calcSeal(boolean sealNeeded) {
         LOGGER.info("Start calculating seal price");
         LOGGER.info("Checking dimensions for seal");
-        if (this.getHeight() >= 1000 && this.getHeight() <= 3000
-                && this.getWidth() >= 500 && this.getWidth() <= 1200) {
+        if (this.getY() >= 1000 && this.getY() <= 3000
+                && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("Seal: Dimensions OK");
-            double heaterMultiplier = sealNeeded ? (this.getHeightTransom() + this.getHeight()) * 2 / 1000 : 0.0;
+            double heaterMultiplier = sealNeeded ? (this.getX_1() + this.getY()) * 2 / 1000 : 0.0;
             this.sealPrice = heaterMultiplier * Price.SEAL.getPriceInUAH();
         } else
-            throw new UnsupportedDimensions("Seal", this.getHeight(), this.getWidth());
+            throw new UnsupportedDimensions("Seal", this.getY(), this.getX());
 
         totalPrice += sealPrice;
         LOGGER.info("Finish calculating seal, price: {}, total price: {}", sealPrice, totalPrice);
@@ -176,25 +176,25 @@ public class SingleDoorSideTransom extends AngledDoor {
         outerDecoration.clear();
         switch (outerDecorationType) {
             case SELF_ADHESIVE_FILM:
-                this.outerDecoration.calcSelfAdhesiveFilm(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcSelfAdhesiveFilm(this.getX(), this.getY());
                 break;
             case PAINTING_SHAGREEN:
-                this.outerDecoration.calcPaintingShagreen(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcPaintingShagreen(this.getX(), this.getY());
                 break;
             case PAINTING_ANTIC:
-                this.outerDecoration.calcPaintingAntic(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcPaintingAntic(this.getX(), this.getY());
                 break;
             case PAINTING_PF:
-                this.outerDecoration.calcPaintingPF(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcPaintingPF(this.getX(), this.getY());
                 break;
             case ANTI_LAYER:
-                this.outerDecoration.calcAntiLayer(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcAntiLayer(this.getX(), this.getY());
                 break;
             case MDF10:
-                this.outerDecoration.calcMdf10(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcMdf10(this.getX(), this.getY());
                 break;
             case MDF16:
-                this.outerDecoration.calcMdf16(this.getWidth(), this.getHeight());
+                this.outerDecoration.calcMdf16(this.getX(), this.getY());
                 break;
         }
         outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
@@ -206,25 +206,25 @@ public class SingleDoorSideTransom extends AngledDoor {
         outerDecoration.clear();
         switch (outerDecorationType) {
             case SELF_ADHESIVE_FILM:
-                this.outerDecoration.calcSelfAdhesiveFilmWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcSelfAdhesiveFilmWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case PAINTING_SHAGREEN:
-                this.outerDecoration.calcPaintingShagreenWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcPaintingShagreenWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case PAINTING_ANTIC:
-                this.outerDecoration.calcPaintingAnticWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcPaintingAnticWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case PAINTING_PF:
-                this.outerDecoration.calcPaintingPFWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcPaintingPFWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case ANTI_LAYER:
-                this.outerDecoration.calcAntiLayerWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcAntiLayerWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF10:
-                this.outerDecoration.calcMdf10WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcMdf10WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF16:
-                this.outerDecoration.calcMdf16WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.outerDecoration.calcMdf16WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
         }
         outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
@@ -237,28 +237,28 @@ public class SingleDoorSideTransom extends AngledDoor {
         innerDecoration.clear();
         switch (innerDecorationType) {
             case PLASTIC:
-                this.innerDecoration.calcPlastic(this.getWidth(), this.getHeight());
+                this.innerDecoration.calcPlastic(this.getX(), this.getY());
                 break;
             case LAMINATED_PLASTIC:
-                this.innerDecoration.calcLaminate(this.getWidth(), this.getHeight());
+                this.innerDecoration.calcLaminate(this.getX(), this.getY());
                 break;
             case MDF10:
-                this.innerDecoration.calcMdf10(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcMdf10(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF16:
-                this.innerDecoration.calcMdf16(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcMdf16(this.getX(), this.getY(), this.getX_1());
                 break;
             case NO_DECORATION:
-                this.innerDecoration.calcWithoutDecoration(this.getWidth(), this.getHeight());
+                this.innerDecoration.calcWithoutDecoration(this.getX(), this.getY());
                 break;
             case METAL_LIST_PAINTING_PF:
-                this.innerDecoration.calcPaintingPF(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPaintingPF(this.getX(), this.getY(), this.getX_1());
                 break;
             case METAL_LIST_PAINTING_SHAGREEN:
-                this.innerDecoration.calcPaintingShagreen(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPaintingShagreen(this.getX(), this.getY(), this.getX_1());
                 break;
             case METAL_LIST_PAINTING_ANTIC:
-                this.innerDecoration.calcPaintingAntic(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPaintingAntic(this.getX(), this.getY(), this.getX_1());
                 break;
         }
         innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
@@ -270,40 +270,40 @@ public class SingleDoorSideTransom extends AngledDoor {
         innerDecoration.clear();
         switch (innerDecorationType) {
             case PLASTIC:
-                this.innerDecoration.calcPlasticWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPlasticWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case LAMINATED_PLASTIC:
-                this.innerDecoration.calcLaminateWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcLaminateWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF10:
-                this.innerDecoration.calcMdf10WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcMdf10WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF16:
-                this.innerDecoration.calcMdf16WithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcMdf16WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case NO_DECORATION:
-                this.innerDecoration.calcWithoutDecoration(this.getWidth(), this.getHeight());
+                this.innerDecoration.calcWithoutDecoration(this.getX(), this.getY());
                 break;
             case METAL_LIST_PAINTING_PF:
-                this.innerDecoration.calcPaintingPFWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPaintingPFWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case METAL_LIST_PAINTING_SHAGREEN:
-                this.innerDecoration.calcPaintingShagreenWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPaintingShagreenWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
             case METAL_LIST_PAINTING_ANTIC:
-                this.innerDecoration.calcPaintingAnticWithoutTopTransom(this.getWidth(), this.getHeight(), this.getHeightTransom());
+                this.innerDecoration.calcPaintingAnticWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
                 break;
         }
         innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
         totalPrice += innerDecorationPrice;
     }
 
-    public int getHeightTransom() {
-        return heightTransom;
+    public int getX_1() {
+        return x_1;
     }
 
-    public void setHeightTransom(int heightTransom) {
-        this.heightTransom = heightTransom;
+    public void setX_1(int x_1) {
+        this.x_1 = x_1;
     }
 
 

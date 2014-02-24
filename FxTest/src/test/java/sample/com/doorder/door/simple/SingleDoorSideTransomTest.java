@@ -16,10 +16,10 @@ public class SingleDoorSideTransomTest extends Assert {
     @Before
     public void setUp() throws Exception {
         singleDoorSideTransom = new SingleDoorSideTransom();
-        singleDoorSideTransom.setWidth(1000);
-        singleDoorSideTransom.setHeight(2000);
-        singleDoorSideTransom.setHeightTransom(500);
-        singleDoorSideTransom.setpWidth(70);
+        singleDoorSideTransom.setX(1000);
+        singleDoorSideTransom.setY(2000);
+        singleDoorSideTransom.setX_1(500);
+        singleDoorSideTransom.setZ(70);
     }
 
     @Test
@@ -152,8 +152,8 @@ public class SingleDoorSideTransomTest extends Assert {
 
     @org.junit.Test
     public void testCalcInnerDecorationWithoutTopTransom() throws Exception {
-        singleDoorSideTransom.setWidth(1500);
-        singleDoorSideTransom.setHeightTransom(1000);
+        singleDoorSideTransom.setX(1500);
+        singleDoorSideTransom.setX_1(1000);
         assertEquals(singleDoorSideTransom.getTotalPrice(), 0.0, DELTA);
         singleDoorSideTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.PLASTIC);
         assertEquals(352.65, singleDoorSideTransom.getInnerDecorationPrice(), DELTA);

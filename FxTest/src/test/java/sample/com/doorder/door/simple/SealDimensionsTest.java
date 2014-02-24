@@ -12,29 +12,29 @@ public class SealDimensionsTest extends AngledDoorTest {
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcSealWidthLessExceptions() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(499);
+        angledDoor.setY(2000);
+        angledDoor.setX(499);
         angledDoor.calcSeal(true);
     }
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcSealWidthMoreExceptions() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1201);
+        angledDoor.setY(2000);
+        angledDoor.setX(1201);
         angledDoor.calcSeal(true);
     }
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcSealHeightLessExceptions() throws Exception {
-        angledDoor.setHeight(999);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(999);
+        angledDoor.setX(1000);
         angledDoor.calcSeal(true);
     }
 
     @Test(expected = UnsupportedDimensions.class)
     public void testCalcSealHeightMoreExceptions() throws Exception {
-        angledDoor.setHeight(2451);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2451);
+        angledDoor.setX(1000);
         angledDoor.calcSeal(true);
     }
 }

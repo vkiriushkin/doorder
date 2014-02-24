@@ -16,10 +16,10 @@ public class DoubleDoorTest extends Assert {
     @Before
     public void setUp() throws Exception {
         doubleDoor = new DoubleDoor();
-        doubleDoor.setWidth(1000);
-        doubleDoor.setHeight(2000);
-        doubleDoor.setSecondWidth(500);
-        doubleDoor.setpWidth(70);
+        doubleDoor.setX(1000);
+        doubleDoor.setY(2000);
+        doubleDoor.setX_1(500);
+        doubleDoor.setZ(70);
     }
 
     @Test

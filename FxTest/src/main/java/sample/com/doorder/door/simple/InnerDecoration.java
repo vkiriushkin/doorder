@@ -24,101 +24,101 @@ public class InnerDecoration {
     public InnerDecoration() {
     }
 
-    public void calcPlastic(int width, int height) {
+    public void calcPlastic(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
-	    plastic = (width + height) * 2.2 * Price.START.getPriceInUAH() / 1000 + (width * height) * 1.1 * Price.PLASTIC.getPriceInUAH() / 1000000;
+	    plastic = (x + y) * 2.2 * Price.START.getPriceInUAH() / 1000 + (x * y) * 1.1 * Price.PLASTIC.getPriceInUAH() / 1000000;
 	    totalInnerDecorationPrice += plastic;
 	    LOGGER.info("Finish calculating inner decoration, plastic price:{}", plastic);
     }
 
-    public void calcLaminate(int width, int height) {
+    public void calcLaminate(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
-	    BigDecimal bd = new BigDecimal((width + height) * 2.2 * Price.START.getPriceInUAH() / 1000 + (width * height) * 1.1 * Price.LAMINATED_PLASTIC.getPriceInUAH() / 1000000);
+	    BigDecimal bd = new BigDecimal((x + y) * 2.2 * Price.START.getPriceInUAH() / 1000 + (x * y) * 1.1 * Price.LAMINATED_PLASTIC.getPriceInUAH() / 1000000);
 	    bd = bd.setScale(2, RoundingMode.HALF_UP);
 	    laminate = bd.doubleValue();
 	    totalInnerDecorationPrice += laminate;
 	    LOGGER.info("Finish calculating inner decoration, laminated plastic price:{}", laminate);
     }
 
-    public void calcMdf10(int width, int height) {
+    public void calcMdf10(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
 	    LOGGER.info("Checking dimensions for mdf10");
-	    if (height - 40 < 1000 || height - 40 > 2350)
-		    throw new UnsupportedDimensions("MDF_10", height, width);
+	    if (y - 40 < 1000 || y - 40 > 2350)
+		    throw new UnsupportedDimensions("MDF_10", y, x);
 	    LOGGER.info("MDF_10: dimension OK");
-	    if ((height - 40) > 999 && (height - 40) < 2051) {
-		    double material = ((double)(width - 40) * (height - 40)) / 1000000;
+	    if ((y - 40) > 999 && (y - 40) < 2051) {
+		    double material = ((double)(x - 40) * (y - 40)) / 1000000;
 		    mdf10 = material * Price.MDF_10.getPriceInUAH();
 		    totalInnerDecorationPrice += mdf10;
 	    }
-	    if ((height - 40) > 2050 && (height - 40) < 2351) {
-		    double material = (double)(width - 40) * (height - 40) / 1000000;
+	    if ((y - 40) > 2050 && (y - 40) < 2351) {
+		    double material = (double)(x - 40) * (y - 40) / 1000000;
 		    mdf10 = material * Price.MDF_10.getPriceInUAH() + 40;
 		    totalInnerDecorationPrice += mdf10;
 	    }
 	    LOGGER.info("Finish calculating inner decoration, MDF_10 price:{}", mdf10);
     }
 
-    public void calcMdf16(int width, int height) {
+    public void calcMdf16(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
 	    LOGGER.info("Checking dimensions for mdf16");
-	    if (height - 40 < 1000 || height - 40 > 2350)
-		    throw new UnsupportedDimensions("MDF_10", height, width);
+	    if (y - 40 < 1000 || y - 40 > 2350)
+		    throw new UnsupportedDimensions("MDF_10", y, x);
 	    LOGGER.info("MDF_16: dimension OK");
-	    if ((height - 40) > 999 && (height - 40) < 2051) {
-		    double material = ((double)(width - 40) * (height - 40)) / 1000000;
+	    if ((y - 40) > 999 && (y - 40) < 2051) {
+		    double material = ((double)(x - 40) * (y - 40)) / 1000000;
 		    mdf16 = material * Price.MDF_16.getPriceInUAH();
 		    totalInnerDecorationPrice += mdf16;
 	    }
-	    if ((height - 40) > 2050 && (height - 40) < 2351) {
-		    double material = (double)(width - 40) * (height - 40) / 1000000;
+	    if ((y - 40) > 2050 && (y - 40) < 2351) {
+		    double material = (double)(x - 40) * (y - 40) / 1000000;
 		    mdf16 = material * Price.MDF_16.getPriceInUAH() + 40;
 		    totalInnerDecorationPrice += mdf16;
 	    }
 	    LOGGER.info("Finish calculating inner decoration, MDF_16 price:{}", mdf16);
     }
 
-    public void calcWithoutDecoration(int width, int height) {
+    public void calcWithoutDecoration(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
-	    withoutDecoration = ((double)width * height) * Price.PAINTING_PF.getPriceInUAH() / 1000000;
+	    withoutDecoration = ((double)x * y) * Price.PAINTING_PF.getPriceInUAH() / 1000000;
 	    totalInnerDecorationPrice += withoutDecoration;
 	    LOGGER.info("Finish calculating inner decoration, without decoration price:{}", withoutDecoration);
     }
 
-    public void calcPaintingPF(int width, int height) {
+    public void calcPaintingPF(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
 	    LOGGER.info("Checking dimensions for painting PF");
-	    if (width - 40 < 500 || width - 40 > 1200 || height - 40 < 1000 || height - 40 > 2450)
-		    throw new UnsupportedDimensions("Painting PF", height, width);
+	    if (x - 40 < 500 || x - 40 > 1200 || y - 40 < 1000 || y - 40 > 2450)
+		    throw new UnsupportedDimensions("Painting PF", y, x);
 	    LOGGER.info("Painting PF: dimension OK");
-	    if ((width - 40) > 499 && (width - 40) < 961 && (height - 40) > 999 && (height - 40) < 2031) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 499 && (x - 40) < 961 && (y - 40) > 999 && (y - 40) < 2031) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingPF = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingPF;
 	    }
-	    if ((width - 40) > 499 && (width - 40) < 961 && (height - 40) > 2030 && (height - 40) < 2451) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_PF
+	    if ((x - 40) > 499 && (x - 40) < 961 && (y - 40) > 2030 && (y - 40) < 2451) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_PF
 				    .getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingPF = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingPF;
 	    }
-	    if ((width - 40) > 960 && (width - 40) < 1201 && (height - 40) > 999 && (height - 40) < 2031) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_PF
+	    if ((x - 40) > 960 && (x - 40) < 1201 && (y - 40) > 999 && (y - 40) < 2031) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_PF
 				    .getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingPF = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingPF;
 	    }
-	    if ((width - 40) > 960 && (width - 40) < 1201 && (height - 40) > 2030 && (height - 40) < 2451) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_PF
+	    if ((x - 40) > 960 && (x - 40) < 1201 && (y - 40) > 2030 && (y - 40) < 2451) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_PF
 				    .getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingPF = bd.doubleValue();
@@ -127,33 +127,33 @@ public class InnerDecoration {
 	    LOGGER.info("Finish calculating inner decoration, painting PF price:{}", paintingPF);
     }
 
-    public void calcPaintingShagreen(int width, int height) {
+    public void calcPaintingShagreen(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
 	    LOGGER.info("Checking dimensions for painting shagreen");
-	    if (width - 40 < 500 || width - 40 > 1200 || height - 40 < 1000 || height - 40 > 2450)
-		    throw new UnsupportedDimensions("Painting PF", height, width);
+	    if (x - 40 < 500 || x - 40 > 1200 || y - 40 < 1000 || y - 40 > 2450)
+		    throw new UnsupportedDimensions("Painting PF", y, x);
 	    LOGGER.info("Painting shagreen: dimension OK");
-	    if ((width - 40) > 499 && (width - 40) < 961 && (height - 40) > 999 && (height - 40) < 2031) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 499 && (x - 40) < 961 && (y - 40) > 999 && (y - 40) < 2031) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingShagreen = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingShagreen;
 	    }
-	    if ((width - 40) > 499 && (width - 40) < 961 && (height - 40) > 2030 && (height - 40) < 2451) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 499 && (x - 40) < 961 && (y - 40) > 2030 && (y - 40) < 2451) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingShagreen = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingShagreen;
 	    }
-	    if ((width - 40) > 960 && (width - 40) < 1201 && (height - 40) > 999 && (height - 40) < 2031) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 960 && (x - 40) < 1201 && (y - 40) > 999 && (y - 40) < 2031) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingShagreen = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingShagreen;
 	    }
-	    if ((width - 40) > 960 && (width - 40) < 1201 && (height - 40) > 2030 && (height - 40) < 2451) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 960 && (x - 40) < 1201 && (y - 40) > 2030 && (y - 40) < 2451) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingShagreen = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingShagreen;
@@ -161,33 +161,33 @@ public class InnerDecoration {
 	    LOGGER.info("Finish calculating inner decoration, painting shagreen price:{}", paintingShagreen);
     }
 
-    public void calcPaintingAntic(int width, int height) {
+    public void calcPaintingAntic(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
 	    LOGGER.info("Checking dimensions for painting antic");
-	    if (width - 40 < 500 || width - 40 > 1200 || height - 40 < 1000 || height - 40 > 2450)
-		    throw new UnsupportedDimensions("Painting PF", height, width);
+	    if (x - 40 < 500 || x - 40 > 1200 || y - 40 < 1000 || y - 40 > 2450)
+		    throw new UnsupportedDimensions("Painting PF", y, x);
 	    LOGGER.info("Painting antic: dimension OK");
-	    if ((width - 40) > 499 && (width - 40) < 961 && (height - 40) > 999 && (height - 40) < 2031) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 499 && (x - 40) < 961 && (y - 40) > 999 && (y - 40) < 2031) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingAntic = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingAntic;
 	    }
-	    if ((width - 40) > 499 && (width - 40) < 961 && (height - 40) > 2030 && (height - 40) < 2451) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 499 && (x - 40) < 961 && (y - 40) > 2030 && (y - 40) < 2451) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingAntic = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingAntic;
 	    }
-	    if ((width - 40) > 960 && (width - 40) < 1201 && (height - 40) > 999 && (height - 40) < 2031) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 960 && (x - 40) < 1201 && (y - 40) > 999 && (y - 40) < 2031) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingAntic = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingAntic;
 	    }
-	    if ((width - 40) > 960 && (width - 40) < 1201 && (height - 40) > 2030 && (height - 40) < 2451) {
-		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (width - 40) * (height - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
+	    if ((x - 40) > 960 && (x - 40) < 1201 && (y - 40) > 2030 && (y - 40) < 2451) {
+		    BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + (x - 40) * (y - 40) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000);
 		    bd = bd.setScale(2, RoundingMode.HALF_UP);
 		    paintingAntic = bd.doubleValue();
 		    totalInnerDecorationPrice += paintingAntic;

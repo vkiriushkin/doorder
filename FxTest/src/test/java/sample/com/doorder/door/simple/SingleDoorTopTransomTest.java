@@ -21,9 +21,9 @@ public class SingleDoorTopTransomTest extends Assert {
 	@Test
 	public void testCalcMetalFrameParts() throws Exception {
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		singleDoorTopTransom.calcMetalFrameParts();
 		assertEquals(66.66, singleDoorTopTransom.getMetal_L50x4_Price(), DELTA);
 		assertEquals(100, singleDoorTopTransom.getMetal_40x40_Price(),DELTA);
@@ -38,9 +38,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@Test
 	public void testCalcMetalList() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcMetalList();
 		assertEquals(175, singleDoorTopTransom.getMetalListPrice(), DELTA);
@@ -49,9 +49,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@Test
 	public void testCalcMetalList1() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(800);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(800);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcMetalList();
 		assertEquals(220, singleDoorTopTransom.getMetalListPrice(), DELTA);
@@ -60,9 +60,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@Test
 	public void testCalcHinge() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcHinge();
 		assertEquals(24, singleDoorTopTransom.getHingePrice(), DELTA);
@@ -71,9 +71,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@org.junit.Test
 	public void testCalcHeaterIncluded() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcHeater(true);
 		assertEquals(24, singleDoorTopTransom.getHeaterPrice(), DELTA);
@@ -82,9 +82,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@Test
 	public void testCalcSealIncluded() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcSeal(true);
 		assertEquals(60, singleDoorTopTransom.getSealPrice(), DELTA);
@@ -93,9 +93,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@Test
 	public void testCalcOuterDecoration() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcOuterDecoration(OuterDecorationType.SELF_ADHESIVE_FILM);
 		assertEquals(150, singleDoorTopTransom.getOuterDecorationPrice(), DELTA);
@@ -122,9 +122,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@Test
 	public void testCalcOuterDecorationWithoutTopTransom() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcOuterDecorationWithoutTopTransom(OuterDecorationType.SELF_ADHESIVE_FILM);
 		assertEquals(148.50, singleDoorTopTransom.getOuterDecorationPrice(), DELTA);
@@ -151,9 +151,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
     @org.junit.Test
     public void testCalcInnerDecoration() throws Exception {
-        singleDoorTopTransom.setHeight(2000);
-        singleDoorTopTransom.setWidth(1000);
-        singleDoorTopTransom.setHeightTransom(1500);
+        singleDoorTopTransom.setY(2000);
+        singleDoorTopTransom.setX(1000);
+        singleDoorTopTransom.setY_1(1500);
         assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
         singleDoorTopTransom.calcInnerDecoration(InnerDecorationType.PLASTIC);
         assertEquals(352, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
@@ -183,9 +183,9 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@org.junit.Test
 	public void testCalcInnerDecorationWithoutTopTransom() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(InnerDecorationType.PLASTIC);
 		assertEquals(265.80, singleDoorTopTransom.getInnerDecorationPrice(), DELTA);
@@ -215,10 +215,10 @@ public class SingleDoorTopTransomTest extends Assert {
 
 	@org.junit.Test
 	public void testCalcPlatband() throws Exception {
-		singleDoorTopTransom.setHeight(2000);
-		singleDoorTopTransom.setWidth(1000);
-		singleDoorTopTransom.setHeightTransom(1500);
-		singleDoorTopTransom.setpWidth(70);
+		singleDoorTopTransom.setY(2000);
+		singleDoorTopTransom.setX(1000);
+		singleDoorTopTransom.setY_1(1500);
+		singleDoorTopTransom.setZ(70);
 		assertEquals(singleDoorTopTransom.getTotalPrice(), 0.0, DELTA);
 		singleDoorTopTransom.calcPlatband(PlatbandType.WOODEN);
 		assertEquals(55, singleDoorTopTransom.getPlatbandPrice(), DELTA);

@@ -21,8 +21,8 @@ public class AngledDoorTest extends Assert {
     @org.junit.Test
     public void testCalcMetalFrameParts() throws Exception {
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2000);
+        angledDoor.setX(1000);
         angledDoor.calcMetalFrameParts();
         assertEquals(angledDoor.getMetal_L50x4_Price(), 66.66, DELTA);
         assertEquals(angledDoor.getMetal_40x40_Price(), 0.0, DELTA);
@@ -37,8 +37,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcBigMetalList() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2000);
+        angledDoor.setX(1000);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcMetalList();
         assertEquals(150, angledDoor.getMetalListPrice(), DELTA);
@@ -47,8 +47,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcSmallMetalList() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(900);
+        angledDoor.setY(2000);
+        angledDoor.setX(900);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcMetalList();
         assertEquals(200, angledDoor.getMetalListPrice(), DELTA);
@@ -57,8 +57,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcHinge() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(900);
+        angledDoor.setY(2000);
+        angledDoor.setX(900);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcHinge();
         assertEquals(24, angledDoor.getHingePrice(), DELTA);
@@ -67,8 +67,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcHeaterIncluded() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2000);
+        angledDoor.setX(1000);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcHeater(true);
         assertEquals(24, angledDoor.getHeaterPrice(), DELTA);
@@ -77,8 +77,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcHeaterExcluded() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2000);
+        angledDoor.setX(1000);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcHeater(false);
         assertEquals(0, angledDoor.getHeaterPrice(), DELTA);
@@ -87,8 +87,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcSealIncluded() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2000);
+        angledDoor.setX(1000);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcSeal(true);
         assertEquals(72, angledDoor.getSealPrice(), DELTA);
@@ -97,8 +97,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcSealExcluded() throws Exception {
-        angledDoor.setHeight(2000);
-        angledDoor.setWidth(1000);
+        angledDoor.setY(2000);
+        angledDoor.setX(1000);
         assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
         angledDoor.calcSeal(false);
         assertEquals(0, angledDoor.getSealPrice(), DELTA);
@@ -107,8 +107,8 @@ public class AngledDoorTest extends Assert {
 
     @Test
     public void testCalcOuterDecoration() throws Exception {
-	    angledDoor.setHeight(2000);
-	    angledDoor.setWidth(1000);
+	    angledDoor.setY(2000);
+	    angledDoor.setX(1000);
 	    assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
 	    angledDoor.calcOuterDecoration(OuterDecorationType.SELF_ADHESIVE_FILM);
 	    assertEquals(150, angledDoor.getOuterDecorationPrice(), DELTA);
@@ -135,8 +135,8 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcInnerDecoration() throws Exception {
-	    angledDoor.setHeight(2000);
-	    angledDoor.setWidth(1000);
+	    angledDoor.setY(2000);
+	    angledDoor.setX(1000);
 	    assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
 	    angledDoor.calcInnerDecoration(InnerDecorationType.PLASTIC);
 	    assertEquals(325.60, angledDoor.getInnerDecorationPrice(), DELTA);
@@ -166,9 +166,9 @@ public class AngledDoorTest extends Assert {
 
     @org.junit.Test
     public void testCalcPlatband() throws Exception {
-	    angledDoor.setHeight(2000);
-	    angledDoor.setWidth(1000);
-	    angledDoor.setpWidth(70);
+	    angledDoor.setY(2000);
+	    angledDoor.setX(1000);
+	    angledDoor.setZ(70);
 	    assertEquals(angledDoor.getTotalPrice(), 0.0, DELTA);
 	    angledDoor.calcPlatband(PlatbandType.WOODEN);
 	    assertEquals(55, angledDoor.getPlatbandPrice(), DELTA);
