@@ -24,7 +24,7 @@ public class Platband {
 		if (y < 1000 || y > 2150)
 			throw new UnsupportedDimensions("Wooden platband", y, x);
 		LOGGER.info("Wooden platband: dimension OK");
-		if (x > 999 && x < 2151) {
+		if (y >= 1000 && y <= 2150) {
 			woodenPlatband = (2 * y + x) * 1.1 / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH();
 			totalPlatbandPrice += woodenPlatband;
 		}
@@ -38,7 +38,7 @@ public class Platband {
 		if (y < 1000 || y > 2500)
 			throw new UnsupportedDimensions("Metal platband painting PF", y, x);
 		LOGGER.info("Metal platband painting PF: dimension OK");
-		if (x > 999 && x < 2501) {
+		if (y >= 1000 && y <= 2500) {
 			double material = (2 * y + x) * 1.1 / 1000;
 			metalPlatbandPaintingPF = material * Price.PLATBAND_METAL.getPriceInUAH() + (2 * y + x) * 0.07 * Price
 					.PAINTING_PF.getPriceInUAH() / 1000;
@@ -54,7 +54,7 @@ public class Platband {
 		if (y < 1000 || y > 2500)
 			throw new UnsupportedDimensions("Metal platband painting shagreen", y, x);
 		LOGGER.info("Metal platband painting shagreen: dimension OK");
-		if (x > 999 && x < 2501) {
+		if (y >= 1000 && y <= 2500) {
 			double material = (2 * y + x) * 1.1 / 1000;
 			metalPlatbandPaintingShagreen = material * Price.PLATBAND_METAL.getPriceInUAH() + (2 * y + x) * 0.07 * Price
 					.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
@@ -70,7 +70,7 @@ public class Platband {
 		if (y < 1000 || y > 2500)
 			throw new UnsupportedDimensions("Metal platband painting antic", y, x);
 		LOGGER.info("Metal platband painting antic: dimension OK");
-		if (x > 999 && x < 2501) {
+		if (y >= 1000 && y <= 2500) {
 			double material = (2 * y + x) * 1.1 / 1000;
 			metalPlatbandPaintingAntic = material * Price.PLATBAND_METAL.getPriceInUAH() + (2 * y + x) * 0.07 * Price
 					.PAINTING_ANTIC.getPriceInUAH() / 1000;
@@ -86,8 +86,8 @@ public class Platband {
 		if (y < 1000 || y > 2350)
 			throw new UnsupportedDimensions("Platband mdf10", y, x);
 		LOGGER.info("Platband mdf10: dimension OK");
-		if (x > 999 && x < 2351) {
-			double material = (2 * y + x) / 1000;
+		if (y >= 100 && y <= 2350) {
+			double material = ((double)2 * y + x) / 1000;
 			if (z >=30 && z <=60)
 				mdf10Platband = material * z * Price.MDF_10.getPriceInUAH() / 1000 + 60;
 			else if (z > 60 && z <=100)
@@ -106,8 +106,8 @@ public class Platband {
 		if (y < 1000 || y > 2350)
 			throw new UnsupportedDimensions("Platband mdf16", y, x);
 		LOGGER.info("Platband mdf16: dimension OK");
-		if (x > 999 && x < 2351) {
-			double material = (2 * y + x) / 1000;
+		if (y >= 1000 && y <= 2350) {
+			double material = ((double)2 * y + x) / 1000;
 			if (z >=30 && z <=60)
 				mdf16Platband = material * z * Price.MDF_16.getPriceInUAH() / 1000 + 60;
 			else if (z > 60 && z <=100)

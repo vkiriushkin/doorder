@@ -13,12 +13,12 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 		return x_1;
 	}
 
-	private SingleDoorSideTransomInnerDesoration innerDecoration;
+	private SingleDoorTopSideTransomInnerDecoration innerDecoration;
 	private SingleDoorTopSideTransomOuterDecoration outerDecoration;
 
 	public SingleDoorTopSideTransom() {
 		this.outerDecoration = new SingleDoorTopSideTransomOuterDecoration();
-		this.innerDecoration = new SingleDoorSideTransomInnerDesoration();
+		this.innerDecoration = new SingleDoorTopSideTransomInnerDecoration();
 	}
 
 	@Override
@@ -208,25 +208,25 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 		outerDecoration.clear();
 		switch (outerDecorationType) {
 			case SELF_ADHESIVE_FILM:
-				this.outerDecoration.calcSelfAdhesiveFilmWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcSelfAdhesiveFilmWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case PAINTING_SHAGREEN:
-				this.outerDecoration.calcPaintingShagreenWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcPaintingShagreenWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case PAINTING_ANTIC:
-				this.outerDecoration.calcPaintingAnticWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcPaintingAnticWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case PAINTING_PF:
-				this.outerDecoration.calcPaintingPFWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcPaintingPFWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case ANTI_LAYER:
-				this.outerDecoration.calcAntiLayerWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcAntiLayerWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case MDF10:
-				this.outerDecoration.calcMdf10WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcMdf10WithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case MDF16:
-				this.outerDecoration.calcMdf16WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.outerDecoration.calcMdf16WithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 		}
 		outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
@@ -239,28 +239,28 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 		innerDecoration.clear();
 		switch (innerDecorationType) {
 			case PLASTIC:
-				this.innerDecoration.calcPlastic(this.getX(), this.getY());
+				this.innerDecoration.calcPlastic(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case LAMINATED_PLASTIC:
-				this.innerDecoration.calcLaminate(this.getX(), this.getY());
+				this.innerDecoration.calcLaminate(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case MDF10:
-				this.innerDecoration.calcMdf10(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcMdf10(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case MDF16:
-				this.innerDecoration.calcMdf16(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcMdf16(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case NO_DECORATION:
 				this.innerDecoration.calcWithoutDecoration(this.getX(), this.getY());
 				break;
 			case METAL_LIST_PAINTING_PF:
-				this.innerDecoration.calcPaintingPF(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPaintingPF(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case METAL_LIST_PAINTING_SHAGREEN:
-				this.innerDecoration.calcPaintingShagreen(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPaintingShagreen(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case METAL_LIST_PAINTING_ANTIC:
-				this.innerDecoration.calcPaintingAntic(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPaintingAntic(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 		}
 		innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
@@ -272,28 +272,28 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 		innerDecoration.clear();
 		switch (innerDecorationType) {
 			case PLASTIC:
-				this.innerDecoration.calcPlasticWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPlasticWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case LAMINATED_PLASTIC:
-				this.innerDecoration.calcLaminateWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcLaminateWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case MDF10:
-				this.innerDecoration.calcMdf10WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcMdf10WithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case MDF16:
-				this.innerDecoration.calcMdf16WithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcMdf16WithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case NO_DECORATION:
 				this.innerDecoration.calcWithoutDecoration(this.getX(), this.getY());
 				break;
 			case METAL_LIST_PAINTING_PF:
-				this.innerDecoration.calcPaintingPFWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPaintingPFWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case METAL_LIST_PAINTING_SHAGREEN:
-				this.innerDecoration.calcPaintingShagreenWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPaintingShagreenWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 			case METAL_LIST_PAINTING_ANTIC:
-				this.innerDecoration.calcPaintingAnticWithoutTopTransom(this.getX(), this.getY(), this.getX_1());
+				this.innerDecoration.calcPaintingAnticWithoutTopSideTransom(this.getX(), this.getY(), this.getX_1(), this.getY_1());
 				break;
 		}
 		innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
