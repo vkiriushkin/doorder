@@ -12,10 +12,21 @@ import java.math.RoundingMode;
 
 public class SingleFireProofDoor extends FireProofDoorImpl {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(AngledDoor.class);
+	public static final Logger LOGGER = LoggerFactory.getLogger(SingleFireProofDoor.class);
 	public static final int HINGE_NUMBER = 3;
 
-	@Override
+    protected FireProofInnerDecoration innerDecoration;
+    protected FireProofOuterDecoration outerDecoration;
+    private Platband platband;
+
+    public SingleFireProofDoor() {
+        super();
+        this.innerDecoration = new FireProofInnerDecoration();
+        this.outerDecoration = new FireProofOuterDecoration();
+        this.platband = new Platband();
+    }
+
+    @Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
 		calcPipe40x40();
@@ -163,17 +174,77 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 
 	@Override
 	public void calcOuterDecoration(OuterDecorationType outerDecorationType) {
-		//To change body of implemented methods use File | Settings | File Templates.
+        totalPrice -= outerDecorationPrice;
+        outerDecoration.clear();
+        switch (outerDecorationType) {
+            case SELF_ADHESIVE_FILM:
+                this.outerDecoration.calcSelfAdhesiveFilm(this.getX(), this.getY());
+                break;
+            case PAINTING_SHAGREEN:
+                this.outerDecoration.calcPaintingShagreen(this.getX(), this.getY());
+                break;
+            case PAINTING_ANTIC:
+                this.outerDecoration.calcPaintingAntic(this.getX(), this.getY());
+                break;
+            case PAINTING_PF:
+                this.outerDecoration.calcPaintingPF(this.getX(), this.getY());
+                break;
+            case ANTI_LAYER:
+                this.outerDecoration.calcAntiLayer(this.getX(), this.getY());
+                break;
+            case MDF10:
+                this.outerDecoration.calcMdf10(this.getX(), this.getY());
+                break;
+            case MDF16:
+                this.outerDecoration.calcMdf16(this.getX(), this.getY());
+                break;
+        }
+        outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
+        totalPrice += outerDecorationPrice;
 	}
 
 	@Override
 	public void calcInnerDecoration(InnerDecorationType innerDecorationType) {
-		//To change body of implemented methods use File | Settings | File Templates.
+        totalPrice -= innerDecorationPrice;
+        innerDecoration.clear();
+        switch (innerDecorationType) {
+            case MDF10:
+                this.innerDecoration.calcMdf10(this.getX(), this.getY());
+                break;
+            case MDF16:
+                this.innerDecoration.calcMdf16(this.getX(), this.getY());
+                break;
+            case METAL_LIST_PAINTING_PF:
+                this.innerDecoration.calcPaintingPF(this.getX(), this.getY());
+                break;
+            case METAL_LIST_PAINTING_SHAGREEN:
+                this.innerDecoration.calcPaintingShagreen(this.getX(), this.getY());
+                break;
+            case METAL_LIST_PAINTING_ANTIC:
+                this.innerDecoration.calcPaintingAntic(this.getX(), this.getY());
+                break;
+        }
+        innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
+        totalPrice += innerDecorationPrice;
 	}
 
 	@Override
 	public void calcPlatband(PlatbandType platbandType) {
-		//To change body of implemented methods use File | Settings | File Templates.
+        totalPrice -= platbandPrice;
+        platband.clear();
+        switch (platbandType) {
+            case METAL_PAINTING_PF:
+                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY());
+                break;
+            case METAL_PAINTING_SHAGREEN:
+                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY());
+                break;
+            case METAL_PAINTING_ANTIC:
+                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY());
+                break;
+        }
+        platbandPrice = this.platband.getTotalPlatbandPrice();
+        totalPrice += platbandPrice;
 	}
 
 	@Override
