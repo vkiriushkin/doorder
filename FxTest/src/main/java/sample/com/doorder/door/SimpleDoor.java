@@ -1,6 +1,6 @@
 package sample.com.doorder.door;
 
-public abstract class SimpleDoor implements Door{
+public abstract class SimpleDoor implements MetalDoor {
 
     protected double totalPrice;
     protected double metalFramesPartsTotalPrice;

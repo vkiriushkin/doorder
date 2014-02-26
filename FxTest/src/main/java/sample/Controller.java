@@ -6,21 +6,24 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import sample.com.doorder.door.Door;
+import sample.com.doorder.door.MetalDoor;
 import sample.com.doorder.door.LabelNames;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
-public class Controller implements Initializable{
+public class Controller implements Initializable {
 
     public Pane doorTypesPane;
     public AnchorPane doorsAnchorPane;
@@ -56,6 +59,8 @@ public class Controller implements Initializable{
     public TextField outerConfiguration;
     public TextField innerColor;
     public TextField innerConfiguration;
+    public ComboBox<String> platbandTypeCombo;
+    public TextField platbandWidth;
 
     public VBox step3VBox;
     public Label step3Label;
@@ -80,7 +85,11 @@ public class Controller implements Initializable{
         initStepLabels();
 
         step1VBox.setVisible(true);
+        step2VBox.setVisible(false);
+        step3VBox.setVisible(false);
+        step4VBox.setVisible(false);
 
+        //step1
         doorTypeCombo.getItems().setAll(
                 LabelNames.metalDoor,
                 LabelNames.fireproofDoor);
@@ -104,6 +113,32 @@ public class Controller implements Initializable{
         doorOpeningSideCombo.getItems().setAll(
                 LabelNames.leftOpeningDoor,
                 LabelNames.rightOpeningDoor
+        );
+
+        //step2
+        outerDecorationTypeCombo.getItems().setAll(
+                LabelNames.outerselfAdhesiveFilm,
+                LabelNames.outerantiLayer,
+                LabelNames.outerpaintingShagreen,
+                LabelNames.outerpaintingAntic,
+                LabelNames.outerpaintingPF,
+                LabelNames.outermdf10,
+                LabelNames.outermdf16
+        );
+        innerDecorationTypeCombo.getItems().setAll(
+                LabelNames.innerPaintingPF,
+                LabelNames.innerPaintingShagreen,
+                LabelNames.innerPaintingAntic,
+                LabelNames.innermdf10,
+                LabelNames.innermdf16
+        );
+        platbandTypeCombo.getItems().setAll(
+                LabelNames.platbandWooden,
+                LabelNames.platbandShagreen,
+                LabelNames.platbandPF,
+                LabelNames.platbendAntic,
+                LabelNames.platbandMdf10,
+                LabelNames.platbandMdf16
         );
 
         //step3
@@ -176,10 +211,11 @@ public class Controller implements Initializable{
 
     private void updateDoorStructureTypeComboBox() {
         doorStructureTypeCombo.getItems().setAll(
-                LabelNames.angledDoor,
-                LabelNames.angledDoubleDoor,
-                LabelNames.door40x40,
-                LabelNames.door50x30);
+                LabelNames.angledDoor
+//                LabelNames.angledDoubleDoor,
+//                LabelNames.door40x40,
+//                LabelNames.door50x30
+        );
     }
 
     private void updateComplexityCategoryComboBox(String doorType) {
@@ -189,9 +225,9 @@ public class Controller implements Initializable{
                     LabelNames.singleDoor,
                     LabelNames.doubleDoor,
                     LabelNames.singleDoorSideTransom,
-                    LabelNames.singleDoorTwoSideTransoms,
+//                    LabelNames.singleDoorTwoSideTransoms,
                     LabelNames.singleDoorTopTransom,
-                    LabelNames.doubleDoorTopTransom,
+//                    LabelNames.doubleDoorTopTransom,
                     LabelNames.singleDoorTopSideTransoms
             );
         } else if (doorType.equalsIgnoreCase(LabelNames.fireproofDoor)) {
@@ -241,8 +277,26 @@ public class Controller implements Initializable{
     }
 
     public void showStepNotification(ActionEvent actionEvent) {
-        Label clickedLabel = (Label)actionEvent.getSource();
+        Label clickedLabel = (Label) actionEvent.getSource();
         System.out.println("Label clicked: " + clickedLabel.getText());
+    }
+
+    public void calculateDoorPrice(ActionEvent actionEvent) {
+        StringBuffer output = new StringBuffer();
+
+        DoorFactory.createDoor(
+                doorTypeCombo.getSelectionModel().getSelectedItem(),
+                doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
+                doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
+                x, y, x_1, y_1, x_2, x_3, platbandWidth,
+                innerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                outerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                platbandTypeCombo.getSelectionModel().getSelectedItem()
+        );
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(new Group(new TextArea("Result"))));
+        stage.show();
     }
 
 }

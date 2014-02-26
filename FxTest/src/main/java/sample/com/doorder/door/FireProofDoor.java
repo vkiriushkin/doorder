@@ -1,6 +1,6 @@
 package sample.com.doorder.door;
 
-public interface FireProofDoor {
+public interface FireProofDoor extends Door {
 
 	void calcMetalFrameParts();
 
