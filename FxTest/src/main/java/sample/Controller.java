@@ -126,6 +126,8 @@ public class Controller implements Initializable {
                 LabelNames.outermdf16
         );
         innerDecorationTypeCombo.getItems().setAll(
+                LabelNames.innerPlastic,
+                LabelNames.innerLaminatedPlastic,
                 LabelNames.innerPaintingPF,
                 LabelNames.innerPaintingShagreen,
                 LabelNames.innerPaintingAntic,
@@ -225,9 +227,9 @@ public class Controller implements Initializable {
                     LabelNames.singleDoor,
                     LabelNames.doubleDoor,
                     LabelNames.singleDoorSideTransom,
-//                    LabelNames.singleDoorTwoSideTransoms,
+                    LabelNames.singleDoorTwoSideTransoms,
                     LabelNames.singleDoorTopTransom,
-//                    LabelNames.doubleDoorTopTransom,
+                    LabelNames.doubleDoorTopTransom,
                     LabelNames.singleDoorTopSideTransoms
             );
         } else if (doorType.equalsIgnoreCase(LabelNames.fireproofDoor)) {
@@ -282,9 +284,7 @@ public class Controller implements Initializable {
     }
 
     public void calculateDoorPrice(ActionEvent actionEvent) {
-        StringBuffer output = new StringBuffer();
-
-        DoorFactory.createDoor(
+        String resultString = DoorFactory.createDoor(
                 doorTypeCombo.getSelectionModel().getSelectedItem(),
                 doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
                 doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
@@ -295,7 +295,12 @@ public class Controller implements Initializable {
         );
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(new Group(new TextArea("Result"))));
+        TextArea textArea = new TextArea(resultString);
+        textArea.setPrefWidth(300);
+        textArea.setPrefHeight(300);
+        stage.setHeight(300);
+        stage.setWidth(300);
+        stage.setScene(new Scene(textArea));
         stage.show();
     }
 

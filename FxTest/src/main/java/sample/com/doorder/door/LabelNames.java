@@ -13,9 +13,9 @@ public class LabelNames {
     public static final String singleDoor = "Одностворчатая дверь";
     public static final String doubleDoor = "Двухстворчатая дверь";
     public static final String singleDoorSideTransom = "Одностворчатая дверь с боковой фрамугой";
-//    public static final String singleDoorTwoSideTransoms = "Одностворчатая дверь с двумя боковыми фрамугами";
+    public static final String singleDoorTwoSideTransoms = "Одностворчатая дверь с двумя боковыми фрамугами";
     public static final String singleDoorTopTransom = "Одностворчатая дверь с фрамугой сверху";
-//    public static final String doubleDoorTopTransom = "Двухстворчатая дверь с фрамугой сверху";
+    public static final String doubleDoorTopTransom = "Двухстворчатая дверь с фрамугой сверху";
     public static final String singleDoorTopSideTransoms = "Одностворчатая дверь с двумя боковыми и верхней фрамугой";
 
     public static final String singleFireProofDoor = "Одностворчатая дверь";
@@ -32,6 +32,8 @@ public class LabelNames {
     public static final String outermdf10 = "Панель МДФ 10";
     public static final String outermdf16 = "Панель МДФ 16";
 
+    public static final String innerPlastic = "Пластик";
+    public static final String innerLaminatedPlastic = "Ламинат";
     public static final String innerPaintingPF = "Лист металла покраска ПФ";
     public static final String innerPaintingShagreen = "Лист металла покраска шагрень";
     public static final String innerPaintingAntic = "Лист металла покраска антик";

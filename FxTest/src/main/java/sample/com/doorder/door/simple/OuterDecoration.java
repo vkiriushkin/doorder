@@ -30,11 +30,13 @@ public class OuterDecoration {
         if (x < 500 || x > 1200)
             throw new UnsupportedDimensions("Self adhesive film", y, x);
         LOGGER.info("Self adhesive film: dimension OK");
-        if (x > 499 && x < 801) {
-            selfAdhesiveFilm = 1.1 * y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH();
+        if (x >= 500 && x <= 800) {
+            BigDecimal bd = new BigDecimal(1.1 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
-        if (x > 800 && x < 1201) {
+        if (x > 800 && x <= 1200) {
 	        double material = 1.1 * 1.5 * y / 1000;
             selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + ((x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += selfAdhesiveFilm;
@@ -49,12 +51,12 @@ public class OuterDecoration {
 		if (x < 500 || x > 1200)
 			throw new UnsupportedDimensions("Self adhesive film, without top transom", y, x);
 		LOGGER.info("Self adhesive film, without top transom: dimension OK");
-		if (x > 499 && x < 801) {
+		if (x >= 500 && x <= 800) {
 			double material = 1.1 * y_1 / 1000;
 			selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000 + ((x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
 			totalOuterDecorationPrice += selfAdhesiveFilm;
 		}
-		if (x > 800 && x < 1201) {
+		if (x > 800 && x <= 1200) {
 			double material = 1.1 * 1.5 * y_1 / 1000;
 			selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000 + ((x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
 			totalOuterDecorationPrice += selfAdhesiveFilm;
@@ -130,7 +132,7 @@ public class OuterDecoration {
         if (x < 500 || x > 1200)
             throw new UnsupportedDimensions("Anti layer", y, x);
         LOGGER.info("Anti layer: dimension OK");
-        if (x > 499 && x < 1201) {
+        if (x >= 500 && x <= 1200) {
             double material = 1.25 * y / 1000;
 	        antiLayer = material * Price.ANTI_LAYER.getPriceInUAH() + ((x + y) * 2 *0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             totalOuterDecorationPrice += antiLayer;
@@ -145,7 +147,7 @@ public class OuterDecoration {
 		if (x < 500 || x > 1200)
 			throw new UnsupportedDimensions("Anti layer without top transom", y, x);
 		LOGGER.info("Anti layer: dimension OK without top transom");
-		if (x > 499 && x < 1201) {
+		if (x >= 500 && x <= 1200) {
 			double material = 1.25 * y_1 / 1000;
 			antiLayer = material * Price.ANTI_LAYER.getPriceInUAH() + (y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000 + ((x + y) * 2 *0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
 			totalOuterDecorationPrice += antiLayer;

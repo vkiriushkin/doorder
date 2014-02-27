@@ -4,6 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.*;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class AngledDoor extends SimpleDoor {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(AngledDoor.class);
@@ -36,19 +39,27 @@ public class AngledDoor extends SimpleDoor {
         if (this.getY() >= 1000 && this.getY() <= 2060
                 && this.getX() >= 500 && this.getX() <= 900) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (2 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+            BigDecimal bd = new BigDecimal((double)(2 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
         } else if (this.getY() >= 2061 && this.getY() <= 2450
                 && this.getX() >= 500 && this.getX() <= 900) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (3 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+            BigDecimal bd = new BigDecimal(((double)3 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
         } else if (this.getY() >= 1000 && this.getY() <= 2060
                 && this.getX() >= 901 && this.getX() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+            BigDecimal bd = new BigDecimal((double)(this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
         } else if (this.getY() >= 2061 && this.getY() <= 2450
                 && this.getX() >= 901 && this.getX() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            this.metal_20x20_Price = (3 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH();
+            BigDecimal bd = new BigDecimal((double)(3 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
@@ -61,7 +72,9 @@ public class AngledDoor extends SimpleDoor {
         if (this.getY() >= 1000 && this.getY() <= 2450
                 && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("Pipe 40x20: Dimensions OK");
-            this.metal_40x20_Price = (this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_40x20.getPriceInUAH();
+            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_40x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_40x20_Price =bd.doubleValue() ;
         } else
             throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
         metalFramesPartsTotalPrice += metal_40x20_Price;
@@ -80,7 +93,9 @@ public class AngledDoor extends SimpleDoor {
         if (this.getY() >= 1000 && this.getY() <= 2450
                 && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("L50x4: Dimensions OK");
-            this.metal_L50x4_Price = (this.getX() + this.getY()) * 2.2 / 1000 * Price.ANGLE_50x20.getPriceInUAH();
+            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.ANGLE_50x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_L50x4_Price = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
@@ -130,8 +145,10 @@ public class AngledDoor extends SimpleDoor {
         if (this.getY() >= 1000 && this.getY() <= 2450
                 && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("Heater: Dimensions OK");
-            double heaterMultiplier = heaterNeeded ? this.getY() * this.getX() / 1000000 : 0.0;
-            this.heaterPrice = heaterMultiplier * Price.HEATER.getPriceInUAH();
+            BigDecimal bd = new BigDecimal((double)this.getY() * this.getX() / 1000000 * Price.HEATER.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            double price = heaterNeeded ? bd.doubleValue() : 0.0;
+            this.heaterPrice = price ;
         } else
             throw new UnsupportedDimensions("Heater", this.getY(), this.getX());
 
@@ -146,8 +163,10 @@ public class AngledDoor extends SimpleDoor {
         if (this.getY() >= 1000 && this.getY() <= 2450
                 && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("Seal: Dimensions OK");
-            double sealMultiplier = sealNeeded ? (this.getY() + this.getX()) * 2 / 1000 : 0.0;
-            this.sealPrice = sealMultiplier * Price.SEAL.getPriceInUAH();
+            BigDecimal bd = new BigDecimal(((double)this.getY() + this.getX()) * 2 / 1000 * Price.SEAL.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            double price = sealNeeded ? bd.doubleValue() : 0.0;
+            this.sealPrice = price;
         } else
             throw new UnsupportedDimensions("Seal", this.getY(), this.getX());
 

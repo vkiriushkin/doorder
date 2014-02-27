@@ -117,4 +117,25 @@ public abstract class SimpleDoor implements MetalDoor {
     public double getAccessoriesPrice() {
         return accessoriesPrice;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer();
+        sb.append("x=").append(x).append("\n");
+        sb.append("y=").append(y).append("\n");
+        sb.append("z=").append(z).append("\n");
+        sb.append("metalFramesPartsTotalPrice=").append(metalFramesPartsTotalPrice).append("\n");
+        sb.append("metal_L50x4_Price=").append(metal_L50x4_Price).append("\n");
+        sb.append("metal_40x40_Price=").append(metal_40x40_Price).append("\n");
+        sb.append("metal_40x20_Price=").append(metal_40x20_Price).append("\n");
+        sb.append("metal_20x20_Price=").append(metal_20x20_Price).append("\n");
+        sb.append("metalListPrice=").append(metalListPrice).append("\n");
+        sb.append("hingePrice=").append(hingePrice).append("\n");
+        sb.append("heaterPrice=").append(heaterPrice).append("\n");
+        sb.append("sealPrice=").append(sealPrice).append("\n");
+        sb.append("outerDecorationPrice=").append(outerDecorationPrice).append("\n");
+        sb.append("innerDecorationPrice=").append(innerDecorationPrice).append("\n");
+        sb.append("platbandPrice=").append(platbandPrice).append("\n");
+        return sb.toString();
+    }
 }

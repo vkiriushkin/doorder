@@ -185,4 +185,25 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 	public void setAccessoriesPrice(double accessoriesPrice) {
 		this.accessoriesPrice = accessoriesPrice;
 	}
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer();
+        sb.append("x=").append(x).append("\n");
+        sb.append("y=").append(y).append("\n");
+        sb.append("x_1=").append(x_1).append("\n");
+        sb.append("metal_40x40_Price=").append(metal_40x40_Price).append("\n");
+        sb.append("metal_40x20_Price=").append(metal_40x20_Price).append("\n");
+        sb.append("innerMetalListPrice=").append(innerMetalListPrice).append("\n");
+        sb.append("outerMetalListPrice=").append(outerMetalListPrice).append("\n");
+        sb.append("hingePrice=").append(hingePrice).append("\n");
+        sb.append("ograskPrice=").append(ograskPrice).append("\n");
+        sb.append("dryWallPrice=").append(dryWallPrice).append("\n");
+        sb.append("mineralWoolPrice=").append(mineralWoolPrice).append("\n");
+        sb.append("sealPrice=").append(sealPrice).append("\n");
+        sb.append("outerDecorationPrice=").append(outerDecorationPrice).append("\n");
+        sb.append("innerDecorationPrice=").append(innerDecorationPrice).append("\n");
+        sb.append("platbandPrice=").append(platbandPrice).append("\n");
+        return sb.toString();
+    }
 }
