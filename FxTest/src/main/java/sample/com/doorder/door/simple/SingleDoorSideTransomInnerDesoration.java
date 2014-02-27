@@ -136,7 +136,7 @@ public class SingleDoorSideTransomInnerDesoration extends SingleDoorInnerDecorat
         LOGGER.info("Start calculating inner decoration");
         clear();
         LOGGER.info("Checking dimensions for painting PF");
-        if (x - 50 < 500 || x - 50 > 1200 || y - 50 < 1000 || y - 50 > 2450)
+        if (x - 50 < 800 || x - 50 > 1200 || y - 50 < 1000 || y - 50 > 2450)
             throw new UnsupportedDimensions("Painting PF", y, x);
         LOGGER.info("Painting PF: dimension OK");
         if ((x - 50) >= 800 && (x - 50) <= 950 && (y - 50) >=1000 && (y - 50) <= 2030) {
@@ -153,14 +153,14 @@ public class SingleDoorSideTransomInnerDesoration extends SingleDoorInnerDecorat
             paintingPF = bd.doubleValue();
             totalInnerDecorationPrice += paintingPF;
         }
-        if ((x - 50) > 951 && (x - 50) <= 1200 && (y - 50) >=1000 && (y - 50) <= 2030) {
+        if ((x - 50) > 950 && (x - 50) <= 1200 && (y - 50) >=1000 && (y - 50) <= 2030) {
             BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + ((double)x - 50) * (y - 50) * Price.PAINTING_PF
                     .getPriceInUAH() / 1000000);
             bd = bd.setScale(2, RoundingMode.CEILING);
             paintingPF = bd.doubleValue();
             totalInnerDecorationPrice += paintingPF;
         }
-        if ((x - 50) > 951 && (x - 50) <= 1200 && (y - 50) > 2030 && (y - 50) <= 2450) {
+        if ((x - 50) > 950 && (x - 50) <= 1200 && (y - 50) > 2030 && (y - 50) <= 2450) {
             BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() + ((double)x - 50) * (y - 50) * Price.PAINTING_PF
                     .getPriceInUAH() / 1000000);
             bd = bd.setScale(2, RoundingMode.CEILING);

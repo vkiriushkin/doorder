@@ -10,7 +10,7 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(SingleDoorTopTransom.class);
 
-    private int x_1;
+    protected int x_1;
     private SingleDoorInnerDecoration innerDecoration;
     private OuterDecoration outerDecoration;
 
