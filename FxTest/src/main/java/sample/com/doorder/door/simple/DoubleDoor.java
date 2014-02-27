@@ -1,12 +1,16 @@
 package sample.com.doorder.door.simple;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 
 public class DoubleDoor extends AngledDoor {
 
+	public static final Logger LOGGER = LoggerFactory.getLogger(DoubleDoor.class);
+
     public static final int HINGE_NUMBER = 4;
 
-    private int x_1;
+    protected int x_1;
 
     public DoubleDoor() {
         outerDecoration = new DoubleDoorOuterDecoration();
@@ -21,7 +25,7 @@ public class DoubleDoor extends AngledDoor {
         calcPipe40x20();
         calcPipe20x20();
         totalPrice += metalFramesPartsTotalPrice;
-        LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+        LOGGER.info("Finish calculating metapl frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
     }
 
     private void calcPipe20x20() {

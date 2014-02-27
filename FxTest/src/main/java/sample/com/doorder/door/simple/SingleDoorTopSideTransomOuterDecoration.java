@@ -11,7 +11,7 @@ public class SingleDoorTopSideTransomOuterDecoration extends OuterDecoration {
 		LOGGER.info("Start calculating outer decoration");
 		clear();
 		LOGGER.info("Checking dimensions for self adhesive film");
-		if (x < 800 || x > 1950)
+		if (x < 800 || x > 3000)
 			throw new UnsupportedDimensions("Self adhesive film", y, x);
 		LOGGER.info("Self adhesive film: dimension OK");
 		if (x >= 800 && x <= 1200) {
@@ -132,7 +132,7 @@ public class SingleDoorTopSideTransomOuterDecoration extends OuterDecoration {
 		LOGGER.info("Start calculating outer decoration");
 		clear();
 		LOGGER.info("Checking dimensions for anti layer");
-		if (x < 800 || x > 1950)
+		if (x < 800 || x > 3000)
 			throw new UnsupportedDimensions("Anti layer", y, x);
 		LOGGER.info("Anti layer: dimension OK");
 		if (x >= 800 && x <= 1200) {

@@ -1,20 +1,23 @@
 package sample.com.doorder.door.simple;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
 import sample.com.doorder.door.Price;
 
-public class SingleDoorTopSideTransom extends AngledDoor {
+public class DoubleDoorTopTransom extends SingleDoorTopSideTransom {
 
-	protected int x_1;
-	protected int y_1;
+	public static final Logger LOGGER = LoggerFactory.getLogger(DoubleDoorTopTransom.class);
+	public static final int HINGE_NUMBER = 4;
 
-	private SingleDoorTopSideTransomInnerDecoration innerDecoration;
-	private SingleDoorTopSideTransomOuterDecoration outerDecoration;
+	private DoubleDoorTopTransomInnerDecoration innerDecoration;
+	private DoubleDoorTopTransomOuterDecoration outerDecoration;
 
-	public SingleDoorTopSideTransom() {
-		this.outerDecoration = new SingleDoorTopSideTransomOuterDecoration();
-		this.innerDecoration = new SingleDoorTopSideTransomInnerDecoration();
+	public DoubleDoorTopTransom() {
+		super();
+		innerDecoration = new DoubleDoorTopTransomInnerDecoration();
+		outerDecoration = new DoubleDoorTopTransomOuterDecoration();
 	}
 
 	@Override
@@ -71,12 +74,13 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 
 	private void calcPipe40x20() {
 		LOGGER.info("Checking dimensions for pipe 40x20");
-		if (this.getY() >= 1000 && this.getY() <= 3000 && this.getX() >= 800 && this.getX() <= 3000
-				&& this.getX_1() >= 500 && this.getX_1() <= 1250
-				&& this.getY() - this.getY_1() >= 60 && this.getY() - this.getY_1() <= 1000
-				&& this.getY_1() >= 1000 && this.getY_1() <= 2450) {
+		if (this.getX() >= 800 && this.getX() <= 1950
+				&& this.getY() >= 1000 && this.getY() <= 3000
+				&& x_1 >= this.getX() / 2 && x_1 <= 1200
+				&& y_1 >= 1000 && y_1 <= 2450
+				&& this.getY() - y_1 >= 60 && this.getY() - y_1 <= 1000) {
 			LOGGER.info("Pipe 40x20: Dimensions OK");
-			this.metal_40x20_Price = ((double) this.getY_1() + this.getX_1()) * 2 / 1000 * Price.PIPE_40x20.getPriceInUAH();
+			this.metal_40x20_Price = ((double) 2 * this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH();
 		} else
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 		metalFramesPartsTotalPrice += metal_40x20_Price;
@@ -86,12 +90,13 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 
 	private void calcPipe40x40() {
 		LOGGER.info("Checking dimensions for pipe 40x40");
-		if (this.getY() >= 1000 && this.getY() <= 3000 && this.getX() >= 800 && this.getX() <= 3000
-				&& this.getX_1() >= 500 && this.getX_1() <= 1250
-				&& this.getY() - this.getY_1() >= 60 && this.getY() - this.getY_1() <= 1000
-				&& this.getY_1() >= 1000 && this.getY_1() <= 2450) {
+		if (this.getX() >= 800 && this.getX() <= 1950
+				&& this.getY() >= 1000 && this.getY() <= 3000
+				&& x_1 >= this.getX() / 2 && x_1 <= 1200
+				&& y_1 >= 1000 && y_1 <= 2450
+				&& this.getY() - y_1 >= 60 && this.getY() - y_1 <= 1000) {
 			LOGGER.info("Pipe 40x40: Dimensions OK");
-			this.metal_40x40_Price = ((double) this.getX() + 2 * this.getY_1()) / 1000 * Price.PIPE_40x40.getPriceInUAH();
+			this.metal_40x40_Price = (double) this.getX() / 1000 * Price.PIPE_40x40.getPriceInUAH();
 		} else
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
@@ -102,10 +107,12 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 
 	private void calcL50x4Part() {
 		LOGGER.info("Checking dimensions for L50x4");
-		if (this.getY() >= 1000 && this.getY() <= 3000 && this.getX() >= 800 && this.getX() <= 3000
-				&& this.getX_1() >= 500 && this.getX_1() <= 1250
-				&& this.getY() - this.getY_1() >= 60 && this.getY() - this.getY_1() <= 1000
-				&& this.getY_1() >= 1000 && this.getY_1() <= 2450) {
+		if (this.getX() >= 800 && this.getX() <= 1950
+				&& this.getY() >= 1000 && this.getY() <= 3000
+				&& this.getX_1() >= this.getX() / 2 && this.getX_1() <= 1200
+				&& this.getY_1() >= 1000 && this.getY_1() <= 2450
+				&& this.getY() - this.getY_1() >= 60
+				&& this.getY() - this.getY_1() <= 1000) {
 			LOGGER.info("L50x4: Dimensions OK");
 			this.metal_L50x4_Price = ((double) this.getX() + this.getY()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH();
 		} else
@@ -120,49 +127,54 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 	public void calcMetalList() {
 		LOGGER.info("Start calculating metal list price");
 		LOGGER.info("Checking dimensions for metal list");
-		if (this.getY() >= 1000 && this.getY() <= 2030
+		if (this.getY_1() >= 1000 && this.getY_1() <= 2000
 				&& this.getX() >= 800 && this.getX() <= 950) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1x2.getPriceInUAH();
-		} else if (this.getY() >= 2031 && this.getY() <= 2450
+			this.metalListPrice = Price.LIST_1x2.getPriceInUAH()
+					+ ((this.getY() - this.getY_1()) * this.getX()) * Price.LIST_M2.getPriceInUAH() / 1000000;
+		} else if (this.getY_1() >= 2001 && this.getY_1() <= 2450
 				&& this.getX() >= 800 && this.getX() <= 950) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-		} else if (this.getY() >= 1000 && this.getY() <= 2030
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH()
+					+ ((this.getY() - this.getY_1()) * this.getX()) * Price.LIST_M2.getPriceInUAH() / 1000000;
+		} else if (this.getY_1() >= 1000 && this.getY_1() <= 2000
 				&& this.getX() >= 951 && this.getX() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-		} else if (this.getY() >= 2031 && this.getY() <= 2450
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH()
+					+ ((this.getY() - this.getY_1()) * this.getX()) * Price.LIST_M2.getPriceInUAH() / 1000000;
+		} else if (this.getY_1() >= 2001 && this.getY_1() <= 2450
 				&& this.getX() >= 951 && this.getX() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-		} else if (this.getY() >= 1000 && this.getY() <= 2030
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH()
+					+ ((this.getY() - this.getY_1()) * this.getX()) * Price.LIST_M2.getPriceInUAH() / 1000000;
+		} else if (this.getY_1() >= 1000 && this.getY_1() <= 2000
 				&& this.getX() >= 1201 && this.getX() <= 1950) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
-		} else if (this.getY() >= 2031 && this.getY() <= 2450
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5
+					+ ((this.getY() - this.getY_1()) * this.getX()) * Price.LIST_M2.getPriceInUAH() / 1000000;
+		} else if (this.getY_1() >= 2001 && this.getY_1() <= 2450
 				&& this.getX() >= 1201 && this.getX() <= 1950) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
+			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5
+					+ ((this.getY() - this.getY_1()) * this.getX()) * Price.LIST_M2.getPriceInUAH() / 1000000;
 		} else
-			throw new UnsupportedDimensions("Metal list", this.getY(), this.getX());
+			throw new UnsupportedDimensions("Metal list", this.getY_1(), this.getX());
 
 		totalPrice += metalListPrice;
 		LOGGER.info("Finish calculating metal list, price: {}, total price: {}", metalListPrice, totalPrice);
 	}
 
 	@Override
-	public void calcHeater(boolean heaterNeeded) {
-		LOGGER.info("Start calculating heater price");
-		double heaterMultiplier = heaterNeeded ? (double) this.getY() * this.getX() / 1000000 : 0.0;
-		this.heaterPrice = heaterMultiplier * Price.HEATER.getPriceInUAH();
-		totalPrice += heaterPrice;
-		LOGGER.info("Finish calculating heater, price: {}, total price: {}", heaterPrice, totalPrice);
+	public void calcHinge() {
+		LOGGER.info("Start calculating hinge price");
+		this.hingePrice = HINGE_NUMBER * Price.HINGE.getPriceInUAH();
+		totalPrice += hingePrice;
+		LOGGER.info("Finish calculating hinge, price: {}, total price: {}", hingePrice, totalPrice);
 	}
 
 	@Override
 	public void calcSeal(boolean sealNeeded) {
-		double heaterMultiplier = sealNeeded ? (this.getX_1() + this.getY_1()) * 2 / 1000 : 0.0;
+		double heaterMultiplier = sealNeeded ? (2 * this.getX() + 3 * this.getY()) / 1000 : 0.0;
 		this.sealPrice = heaterMultiplier * Price.SEAL.getPriceInUAH();
 		totalPrice += sealPrice;
 		LOGGER.info("Finish calculating seal, price: {}, total price: {}", sealPrice, totalPrice);
@@ -294,21 +306,5 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 		}
 		innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
 		totalPrice += innerDecorationPrice;
-	}
-
-	public int getX_1() {
-		return x_1;
-	}
-
-	public void setX_1(int x_1) {
-		this.x_1 = x_1;
-	}
-
-	public int getY_1() {
-		return y_1;
-	}
-
-	public void setY_1(int y_1) {
-		this.y_1 = y_1;
 	}
 }
