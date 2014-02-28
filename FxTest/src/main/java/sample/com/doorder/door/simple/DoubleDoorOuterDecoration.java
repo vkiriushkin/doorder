@@ -16,20 +16,24 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
             throw new UnsupportedDimensions("Self adhesive film", y, x);
         LOGGER.info("Self adhesive film: dimension OK");
         if (x >= 800 && x <= 1200) {
-            selfAdhesiveFilm = 1.1 * 1.5 * y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
-                    +((x + y) * 2 * 0.1 + (4 * y + 2 * x) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+	        BigDecimal bd = new BigDecimal(1.1 * 1.5 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
+			        +(((double)x + y) * 2 * 0.1 + (4 * (double)y + 2 * x) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+            selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         if (x >= 1201 && x <= 1400) {
-            double material = 1.1 * 2 * y / 1000;
-            selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
-                    +((x + y) * 2 * 0.1 + (4 * y + 2 * x) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+	        BigDecimal bd = new BigDecimal(1.1 * 2 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
+			        +(((double)x + y) * 2 * 0.1 + (4 * (double)y + 2 * x) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+            selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         if (x >= 1401 && x <= 1950) {
-            double material = 1.1 * 3 * y / 1000;
-            selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
-                    +((x + y) * 2 * 0.1 + (4 * y + 2 * x) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+	        BigDecimal bd = new BigDecimal(1.1 * 3 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
+			        +(((double)x + y) * 2 * 0.1 + (4 * (double)y + 2 * x) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+            selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         LOGGER.info("Finish calculating outer decoration, self adhesive film price:{}", selfAdhesiveFilm);
@@ -39,10 +43,10 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
     public void calcPaintingShagreen(int x, int y) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal(((double)x * y) / 1000000 + (x + y) * 2 * 0.1 / 1000
-                + (2 * x + 4 * y) * 0.06 / 1000);
+        BigDecimal bd = new BigDecimal((((double)x * y) / 1000000 + (x + y) * 2 * 0.1 / 1000
+                + (2 * x + 4 * y) * 0.06 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        paintingShagreen = bd.doubleValue() * Price.PAINTING_SHAGREEN.getPriceInUAH();
+        paintingShagreen = bd.doubleValue();
         totalOuterDecorationPrice += paintingShagreen;
         LOGGER.info("Finish calculating outer decoration, painting shagreen price:{}", paintingShagreen);
     }
@@ -51,10 +55,10 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
     public void calcPaintingAntic(int x, int y) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal(((double)x * y) / 1000000 + (x + y) * 2 * 0.1 / 1000
-                + (2 * x + 4 * y) * 0.06 / 1000);
+        BigDecimal bd = new BigDecimal((((double)x * y) / 1000000 + ((double)x + y) * 2 * 0.1 / 1000
+                + (2 * (double)x + 4 * y) * 0.06 / 1000) * Price.PAINTING_ANTIC.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        paintingAntic = bd.doubleValue() * Price.PAINTING_ANTIC.getPriceInUAH();
+        paintingAntic = bd.doubleValue();
         totalOuterDecorationPrice += paintingAntic;
         LOGGER.info("Finish calculating outer decoration, painting antic price:{}", paintingAntic);
     }
@@ -63,10 +67,10 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
     public void calcPaintingPF(int x, int y) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal(((double)x * y) / 1000000 + (x + y) * 2 * 0.1 / 1000
-                + (2 * x + 4 * y) * 0.06 / 1000);
+        BigDecimal bd = new BigDecimal((((double)x * y) / 1000000 + ((double)x + y) * 2 * 0.1 / 1000
+                + (2 * (double)x + 4 * y) * 0.06 / 1000) * Price.PAINTING_PF.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
-        paintingPF = bd.doubleValue() * Price.PAINTING_PF.getPriceInUAH();
+        paintingPF = bd.doubleValue();
         totalOuterDecorationPrice += paintingPF;
         LOGGER.info("Finish calculating outer decoration, painting PF price:{}", paintingPF);
     }
@@ -80,21 +84,24 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
             throw new UnsupportedDimensions("Anti layer", y, x);
         LOGGER.info("Anti layer: dimension OK");
         if (x >= 800 && x <= 1200) {
-            double material = 1.25 * y / 1000;
-            antiLayer = material * Price.ANTI_LAYER.getPriceInUAH()
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+	        BigDecimal bd = new BigDecimal(1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+            antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 1201 && x <= 1400) {
-            double material = 1.4 * y / 1000;
-            antiLayer = material * Price.ANTI_LAYER.getPriceInUAH()
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+	        BigDecimal bd = new BigDecimal(1.4 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+            antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 1401 && x <= 1950) {
-            double material = 2 * 1.25 * y / 1000;
-            antiLayer = material * Price.ANTI_LAYER.getPriceInUAH()
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+	        BigDecimal bd = new BigDecimal(2 * 1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+            antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
         }
         LOGGER.info("Finish calculating outer decoration, anti layer price:{}", antiLayer);
@@ -109,17 +116,17 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
             throw new UnsupportedDimensions("MDF_10", y, x);
         LOGGER.info("MDF_10: dimension OK");
         if (y > 999 && y < 2051) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
+            BigDecimal bd = new BigDecimal((double)x * y / 1000000 * Price.MDF_10.getPriceInUAH()
+		            + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            mdf10 = bd.doubleValue() * Price.MDF_10.getPriceInUAH()
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+            mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
         }
         if (y > 2050 && y < 2351) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
+            BigDecimal bd = new BigDecimal((double)x * y / 1000000 * Price.MDF_10.getPriceInUAH() + 40
+		            + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            mdf10 = bd.doubleValue() * Price.MDF_10.getPriceInUAH() + 40
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+            mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
         }
         LOGGER.info("Finish calculating outer decoration, MDF_10 price:{}", mdf10);
@@ -134,17 +141,17 @@ public class DoubleDoorOuterDecoration extends OuterDecoration{
             throw new UnsupportedDimensions("MDF_16", y, x);
         LOGGER.info("MDF_16: dimension OK");
         if (y > 999 && y < 2051) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
+            BigDecimal bd = new BigDecimal((double)x * y / 1000000 * Price.MDF_16.getPriceInUAH()
+		            + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            mdf16 = bd.doubleValue() * Price.MDF_16.getPriceInUAH()
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+            mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
         }
         if (y > 2050 && y < 2351) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
+            BigDecimal bd = new BigDecimal((double)x * y / 1000000 * Price.MDF_16.getPriceInUAH() + 40
+		            + (((double)x + y) * 2 * 0.1 + (2 * (double)x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            mdf16 = bd.doubleValue() * Price.MDF_16.getPriceInUAH() + 40
-                    + ((x + y) * 2 * 0.1 + (2 * x + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+            mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
         }
         LOGGER.info("Finish calculating outer decoration, MDF_16 price:{}", mdf16);
