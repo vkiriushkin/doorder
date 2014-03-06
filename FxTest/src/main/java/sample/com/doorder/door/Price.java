@@ -66,4 +66,8 @@ public enum Price {
 	public double getPriceInUAH() {
 		return priceInUAH;
 	}
+
+    public void setPriceInUAH(double priceInUAH) {
+        this.priceInUAH = priceInUAH;
+    }
 }

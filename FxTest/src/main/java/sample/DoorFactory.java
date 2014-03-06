@@ -135,7 +135,7 @@ public class DoorFactory {
             }
 
         } else if (doorType.equalsIgnoreCase(LabelNames.fireproofDoor)) {
-            if (doorStructure.equalsIgnoreCase(LabelNames.singleFireProofDoor)) {
+            if (doorComplexity.equalsIgnoreCase(LabelNames.singleFireProofDoor)) {
                 SingleFireProofDoor singleFireProofDoor = new SingleFireProofDoor();
                 singleFireProofDoor.setX(Integer.parseInt(x.getText()));
                 singleFireProofDoor.setX_1(Integer.parseInt(x_1.getText()));

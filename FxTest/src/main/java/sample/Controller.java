@@ -3,25 +3,20 @@ package sample;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import sample.com.doorder.door.Door;
-import sample.com.doorder.door.MetalDoor;
 import sample.com.doorder.door.LabelNames;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 public class Controller implements Initializable {
 
@@ -42,6 +37,10 @@ public class Controller implements Initializable {
     public ComboBox<String> doorTypeCombo;
     public ComboBox<String> doorStructureTypeCombo;
     public ComboBox<String> doorComplexityCategoryCombo;
+    public Button goToNextStep2Button;
+
+    public VBox step2VBox;
+    public Label step2Label;
     public ComboBox<String> doorOpeningSideCombo;
     public ImageView selectedDoorImage;
     public TextField x;
@@ -50,9 +49,11 @@ public class Controller implements Initializable {
     public TextField y_1;
     public TextField x_2;
     public TextField x_3;
+    public Button goToPreviousStep1Button;
+    public Button goToNextStep3Button;
 
-    public VBox step2VBox;
-    public Label step2Label;
+    public VBox step3VBox;
+    public Label step3Label;
     public ComboBox<String> outerDecorationTypeCombo;
     public ComboBox<String> innerDecorationTypeCombo;
     public TextField outerColor;
@@ -61,9 +62,11 @@ public class Controller implements Initializable {
     public TextField innerConfiguration;
     public ComboBox<String> platbandTypeCombo;
     public TextField platbandWidth;
+    public Button goToPreviousStep2Button;
+    public Button goToNextStep4Button;
 
-    public VBox step3VBox;
-    public Label step3Label;
+    public VBox step4VBox;
+    public Label step4Label;
     public ComboBox<String> shippingCombo;
     public TextField shippingCostInput;
     public ToggleGroup packagingGroup = new ToggleGroup();
@@ -72,22 +75,25 @@ public class Controller implements Initializable {
     public ToggleGroup installationGroup = new ToggleGroup();
     public RadioButton installationYes;
     public RadioButton installationNo;
+    public Button goToPreviousStep3Button;
+    public Button goToNextStep5Button;
 
-    public VBox step4VBox;
-    public Label step4Label;
+    public VBox step5VBox;
+    public Label step5Label;
     public TextField personalName;
     public TextArea personalAddress;
     public TextField personalPhone;
     public TextArea personalNotes;
+    public Button goToPreviousStep4Button;
+    public Button createOrderButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initStepLabels();
-
         step1VBox.setVisible(true);
         step2VBox.setVisible(false);
         step3VBox.setVisible(false);
         step4VBox.setVisible(false);
+        step5VBox.setVisible(false);
 
         //step1
         doorTypeCombo.getItems().setAll(
@@ -114,8 +120,15 @@ public class Controller implements Initializable {
                 LabelNames.leftOpeningDoor,
                 LabelNames.rightOpeningDoor
         );
+        doorOpeningSideCombo.getSelectionModel().selectFirst();
+        doorOpeningSideCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
+                updateDoorImage();
+            }
+        });
 
-        //step2
+        //step3
         outerDecorationTypeCombo.getItems().setAll(
                 LabelNames.outerselfAdhesiveFilm,
                 LabelNames.outerantiLayer,
@@ -143,62 +156,56 @@ public class Controller implements Initializable {
                 LabelNames.platbandMdf16
         );
 
-        //step3
-        initStep3();
+        //step4
+        initStep4();
 
     }
 
-    private void initStepLabels() {
-        //        step1Label.setStyle("#current-step");
-        step1Label.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                System.out.println("Step 1 clicked");
-                step2VBox.setVisible(false);
-                step3VBox.setVisible(false);
-                step4VBox.setVisible(false);
-                step1VBox.setVisible(true);
-            }
-        });
-
-        step2Label.getStyleClass().add("#current-step");
-        step2Label.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                System.out.println("Step 2 clicked");
-                step1VBox.setVisible(false);
-                step3VBox.setVisible(false);
-                step4VBox.setVisible(false);
-                step2VBox.setVisible(true);
-            }
-        });
-
-//        step3Label.setStyle("#step");
-        step3Label.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                System.out.println("Step 3 clicked");
-                step1VBox.setVisible(false);
-                step2VBox.setVisible(false);
-                step4VBox.setVisible(false);
-                step3VBox.setVisible(true);
-            }
-        });
-
-//        step4Label.setStyle("#step");
-        step4Label.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                System.out.println("Step 4 clicked");
-                step1VBox.setVisible(false);
-                step2VBox.setVisible(false);
-                step3VBox.setVisible(false);
-                step4VBox.setVisible(true);
-            }
-        });
+    public void goToNextStep2() {
+        step1VBox.setVisible(false);
+        step2VBox.setVisible(true);
+        //set proper picture of the door
+        updateDoorImage();
     }
 
-    private void initStep3() {
+    private void updateDoorImage() {
+        Image newImage = DoorType.selectDoorBy(doorTypeCombo.getSelectionModel().getSelectedItem(),
+                doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
+                doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
+                doorOpeningSideCombo.getSelectionModel().getSelectedItem()).getDoorImage();
+        selectedDoorImage.setImage(newImage);
+    }
+
+    public void goToNextStep3() {
+        step2VBox.setVisible(false);
+        step3VBox.setVisible(true);
+    }
+    public void goToNextStep4() {
+        step3VBox.setVisible(false);
+        step4VBox.setVisible(true);
+    }
+    public void goToNextStep5() {
+        step4VBox.setVisible(false);
+        step5VBox.setVisible(true);
+    }
+    public void goToPreviousStep1() {
+        step2VBox.setVisible(false);
+        step1VBox.setVisible(true);
+    }
+    public void goToPreviousStep2() {
+        step3VBox.setVisible(false);
+        step2VBox.setVisible(true);
+    }
+    public void goToPreviousStep3() {
+        step4VBox.setVisible(false);
+        step3VBox.setVisible(true);
+    }
+    public void goToPreviousStep4() {
+        step5VBox.setVisible(false);
+        step4VBox.setVisible(true);
+    }
+
+    private void initStep4() {
         packagingYes.setToggleGroup(packagingGroup);
         packagingNo.setToggleGroup(packagingGroup);
         installationYes.setToggleGroup(installationGroup);
