@@ -38,7 +38,7 @@
     </ImageView>
     <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" text="Some information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
       <font>
-        <Font size="20.0" />
+        <Font size="20.0" fx:id="x2" />
       </font>
     </Label>
     <Pane fx:id="orderPane" prefHeight="500.0" prefWidth="600.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -63,6 +63,11 @@
                 <ComboBox id="doorTypeCombo" fx:id="doorStructureTypeCombo" layoutX="228.0" layoutY="58.0" prefWidth="357.999977929685" />
                 <Label layoutX="14.0" layoutY="94.0" prefHeight="30.0" prefWidth="214.0" text="Выберите категорию сложности" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="doorComplexityCategoryCombo" layoutX="228.0" layoutY="98.0" prefWidth="357.999977929685" />
+                <Label fx:id="brokenPriceLabel" alignment="CENTER" contentDisplay="CENTER" disable="false" layoutX="57.0" layoutY="190.0" prefHeight="57.0" prefWidth="487.0" text="Прайс поврежден" textAlignment="LEFT" textFill="WHITE" visible="false">
+                  <font>
+                    <Font name="System Bold" size="20.0" />
+                  </font>
+                </Label>
               </children>
             </Pane>
           </children>
@@ -98,6 +103,12 @@
                 <TextField fx:id="x_2" alignment="CENTER" layoutX="262.0" layoutY="190.0" prefWidth="50.0" text="" />
                 <TextField fx:id="x_3" alignment="CENTER" layoutX="262.0" layoutY="220.0" prefWidth="50.0" text="" />
                 <ComboBox id="doorTypeCombo" fx:id="doorOpeningSideCombo" layoutX="228.0" layoutY="28.0" prefWidth="143.99997792968497" />
+                <Label fx:id="xDimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="66.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
+                <Label fx:id="yDimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="96.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
+                <Label fx:id="x1Dimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="126.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
+                <Label fx:id="y1Dimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="156.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
+                <Label fx:id="x2Dimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="186.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
+                <Label fx:id="x3Dimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="216.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
               </children>
             </Pane>
           </children>
@@ -120,21 +131,21 @@
                 <Label layoutX="114.0" layoutY="130.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
                 <TextField fx:id="innerColor" layoutX="242.0" layoutY="134.0" prefWidth="200.0" />
                 <TextField fx:id="innerConfiguration" layoutX="242.0" layoutY="164.0" prefWidth="200.0" />
-                <Label layoutX="14.0" layoutY="218.0" prefHeight="30.0" prefWidth="214.0" text="Выбырите основной замок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="222.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="248.0" prefHeight="30.0" prefWidth="228.0" text="Выберите дополнительный замок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="252.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="278.0" prefHeight="30.0" prefWidth="214.0" text="Выберите ручку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="282.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="308.0" prefHeight="30.0" prefWidth="214.0" text="Выберите глазок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="312.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="338.0" prefHeight="30.0" prefWidth="214.0" text="Выберите броненакладку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="342.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="368.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="242.0" layoutY="372.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="189.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
-                <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="242.0" layoutY="190.0" prefWidth="100.0" />
-                <Label layoutX="348.0" layoutY="186.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
+                <Label layoutX="14.0" layoutY="243.0" prefHeight="30.0" prefWidth="214.0" text="Выбырите основной замок" wrapText="false" />
+                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="247.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="273.0" prefHeight="30.0" prefWidth="228.0" text="Выберите дополнительный замок" wrapText="false" />
+                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="277.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="303.0" prefHeight="30.0" prefWidth="214.0" text="Выберите ручку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="307.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="333.0" prefHeight="30.0" prefWidth="214.0" text="Выберите глазок" wrapText="false" />
+                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="337.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="363.0" prefHeight="30.0" prefWidth="214.0" text="Выберите броненакладку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" layoutX="242.0" layoutY="367.0" prefWidth="343.999977929685" />
+                <Label layoutX="114.0" layoutY="212.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
+                <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="242.0" layoutY="218.0" prefWidth="100.0" text="0" />
+                <Label layoutX="348.0" layoutY="214.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
+                <Label layoutX="14.0" layoutY="185.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="242.0" layoutY="190.0" prefWidth="343.999977929685" />
               </children>
             </Pane>
           </children>

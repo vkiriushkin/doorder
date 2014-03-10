@@ -138,7 +138,7 @@ public class DoorFactory {
             if (doorComplexity.equalsIgnoreCase(LabelNames.singleFireProofDoor)) {
                 SingleFireProofDoor singleFireProofDoor = new SingleFireProofDoor();
                 singleFireProofDoor.setX(Integer.parseInt(x.getText()));
-                singleFireProofDoor.setX_1(Integer.parseInt(x_1.getText()));
+//                singleFireProofDoor.setX_1(Integer.parseInt(x_1.getText()));
                 singleFireProofDoor.setY(Integer.parseInt(y.getText()));
                 singleFireProofDoor.calcMetalFrameParts();
                 singleFireProofDoor.calcInnerMetalList();
@@ -152,7 +152,7 @@ public class DoorFactory {
                 calcOuterDecorationFireProof(singleFireProofDoor, outerDecoration);
                 calcPlatbandFireProof(singleFireProofDoor, platbandType);
                 result = singleFireProofDoor.toString();
-            } else if (doorStructure.equalsIgnoreCase(LabelNames.doubleFireProofDoor)) {
+            } else if (doorComplexity.equalsIgnoreCase(LabelNames.doubleFireProofDoor)) {
                 DoubleFireProofDoor doubleFireProofDoor = new DoubleFireProofDoor();
                 doubleFireProofDoor.setX(Integer.parseInt(x.getText()));
                 doubleFireProofDoor.setX_1(Integer.parseInt(x_1.getText()));
@@ -173,7 +173,6 @@ public class DoorFactory {
         }
         return result;
     }
-
 
     private static void calcPlatband(AngledDoor angledDoor, String platbandType) {
         if (platbandType.equalsIgnoreCase(LabelNames.platbandWooden))

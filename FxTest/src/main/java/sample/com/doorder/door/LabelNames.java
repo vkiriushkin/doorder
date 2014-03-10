@@ -50,4 +50,6 @@ public class LabelNames {
     public static final String shippingSelf = "самовывоз";
     public static final String shippingVendor = "доставка автоперевозчиком";
     public static final String shippingCompany = "доставка транспортом предприятия";
+
+
 }

@@ -1,6 +1,8 @@
 package price;
 
 import org.apache.commons.codec.binary.Base64;
+import sample.Controller;
+import sample.com.doorder.door.Price;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -22,19 +24,28 @@ public class Decryptor {
             byte[] decValue = c.doFinal(decodedValue);
             String decryptedValue = new String(decValue);
 
-            //TODO: populate Price enum with proper values
+            System.out.println(decryptedValue);
+            String[] pricesArray = decryptedValue.split(";");
+            for (int i = 0; i < pricesArray.length; i++) {
+                String shortName = pricesArray[i].split(":")[0];
+                String value = pricesArray[i].split(":")[1];
+                Price.lookupPriceByShortName(shortName).setPriceInUAH(Double.parseDouble(value));
+            }
 
+            for (Price price : Price.values()) {
+                System.out.println(price.toString());
+            }
 
         } catch (IllegalBlockSizeException ex) {
-//			Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+            Controller.showBrokenPriceLabel();
         } catch (BadPaddingException ex) {
-//			Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+            Controller.showBrokenPriceLabel();
         } catch (InvalidKeyException ex) {
-//			Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+            Controller.showBrokenPriceLabel();
         } catch (NoSuchAlgorithmException ex) {
-//			Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+            Controller.showBrokenPriceLabel();
         } catch (NoSuchPaddingException ex) {
-//			Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
+            Controller.showBrokenPriceLabel();
         }
     }
 }
