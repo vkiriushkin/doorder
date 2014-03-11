@@ -1,5 +1,8 @@
 package sample.com.doorder.door;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
 public class LabelNames {
 
     public static final String metalDoor = "Входная металлическая дверь";
@@ -51,5 +54,23 @@ public class LabelNames {
     public static final String shippingVendor = "доставка автоперевозчиком";
     public static final String shippingCompany = "доставка транспортом предприятия";
 
-
+    public static final String kale257 = "Замок \"KALE\" 257L верхн/шт";
+    public static final String kale189 = "Замок \"KALE\" 189 4 MF верхн/шт";
+    public static final String elbor = "Замок Эльбор \"Кремень\" 1.04.02.К верхн/шт";
+    public static final String noSecondaryLock = "Без замка";
+    public static final String kale252 = "Замок \"KALE\" 252R нижн/шт";
+    public static final String mottura = "Замок \"MOTTURA\" 54797 нижн/шт";
+    public static final String apecs2200 = "Замок \"Apecs\" 2200 нижн/шт";
+    public static final String kale2000 = "Замок \"KALE\" 2000 нижн/шт";
+    public static final String apecsProtector = "Броненакладка Apecs Protector/шт";
+    public static final String noProtector = "Без броненакладки";
+    public static final String apecsCrome = "Ручки раздельные \"Apecs\" хром/комплект";
+    public static final String apecsGold = "Ручки раздельные \"Apecs\" золото/комплект";
+    public static final String apecsCromePlank = "Ручки на планке \"Apecs\" хром/комплект";
+    public static final String apecsGoldPlank = "Ручки на планке \"Apecs\" золото/комплект";
+    public static final String aydemirBrown = "Ручки \"Aydemir\" коричневые/комплект";
+    public static final String aydemirBlack = "Ручки \"Aydemir\" черные/комплект";
+    public static final String noSpy = "Без глазка";
+    public static final String spy200 = "Глазок ГДШ 200/шт";
+    public static final String spy10200 = "Глазок ГДШ 10-200/шт";
 }

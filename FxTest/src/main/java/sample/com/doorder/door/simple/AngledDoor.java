@@ -15,12 +15,14 @@ public class AngledDoor extends SimpleDoor {
 	protected InnerDecoration innerDecoration;
 	protected OuterDecoration outerDecoration;
 	private Platband platband;
+    protected Accessories accessories;
 
     public AngledDoor() {
         super();
 	    this.innerDecoration = new InnerDecoration();
 	    this.outerDecoration = new OuterDecoration();
 	    this.platband = new Platband();
+        this.accessories = new Accessories();
     }
 
     @Override
@@ -268,7 +270,44 @@ public class AngledDoor extends SimpleDoor {
     }
 
     @Override
-    public void calcAccessories() {
-
+    public void calcMainLock(AccessoriesType mainLockType) {
+        totalPrice -= accessories.getMainLockPrice();
+        accessories.calcMainLock(mainLockType);
+        mainLockPrice = this.accessories.getMainLockPrice();
+        totalPrice += mainLockPrice;
     }
+
+    @Override
+    public void calcSecondaryLock(AccessoriesType secondaryLockType) {
+        totalPrice -= accessories.getSecondaryLockPrice();
+        accessories.calcSecondaryLock(secondaryLockType);
+        secondaryLockPrice = this.accessories.getSecondaryLockPrice();
+        totalPrice += secondaryLockPrice;
+    }
+
+    @Override
+    public void calcHandle(AccessoriesType handleType) {
+        totalPrice -= accessories.getHandlePrice();
+        accessories.calcHandle(handleType);
+        handlePrice = this.accessories.getHandlePrice();
+        totalPrice += handlePrice;
+    }
+
+    @Override
+    public void calcProtector(AccessoriesType protectorType) {
+        totalPrice -= accessories.getProtectorPrice();
+        accessories.calcProtector(protectorType);
+        protectorPrice = this.accessories.getProtectorPrice();
+        totalPrice += protectorPrice;
+    }
+
+    @Override
+    public void calcSpyHole(AccessoriesType spyHoleType) {
+        totalPrice -= accessories.getSpyHolePrice();
+        accessories.calcSpyHolder(spyHoleType);
+        spyHolePrice = this.accessories.getSpyHolePrice();
+        totalPrice += spyHolePrice;
+    }
+
+
 }

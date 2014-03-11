@@ -80,6 +80,11 @@ public class Controller implements Initializable {
     public TextField innerConfiguration;
     public ComboBox<String> platbandTypeCombo;
     public TextField platbandWidth;
+    public ComboBox<String> mainLockCombo;
+    public ComboBox<String> secondaryLockCombo;
+    public ComboBox<String> handleCombo;
+    public ComboBox<String> spyHoleCombo;
+    public ComboBox<String> armourStrapCombo;
     public Button goToPreviousStep2Button;
     public Button goToNextStep4Button;
 
@@ -352,6 +357,40 @@ public class Controller implements Initializable {
             }
         });
 
+        mainLockCombo.getItems().setAll(
+                LabelNames.kale257,
+                LabelNames.kale189,
+                LabelNames.elbor
+        );
+
+        secondaryLockCombo.getItems().setAll(
+                LabelNames.kale252,
+                LabelNames.mottura,
+                LabelNames.apecs2200,
+                LabelNames.kale2000,
+                LabelNames.noSecondaryLock
+        );
+
+        handleCombo.getItems().setAll(
+                LabelNames.apecsCrome,
+                LabelNames.apecsGold,
+                LabelNames.apecsCromePlank,
+                LabelNames.apecsGoldPlank,
+                LabelNames.aydemirBrown,
+                LabelNames.aydemirBlack
+        );
+
+        armourStrapCombo.getItems().setAll(
+                LabelNames.apecsProtector,
+                LabelNames.noProtector
+                );
+
+        spyHoleCombo.getItems().setAll(
+                LabelNames.spy200,
+                LabelNames.spy10200,
+                LabelNames.noSpy
+        );
+
         innerColor.setDisable(true);
         outerColor.setDisable(true);
         innerConfiguration.setDisable(true);
@@ -495,7 +534,12 @@ public class Controller implements Initializable {
                 x, y, x_1, y_1, x_2, x_3, platbandWidth,
                 innerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
                 outerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
-                platbandTypeCombo.getSelectionModel().getSelectedItem()
+                platbandTypeCombo.getSelectionModel().getSelectedItem(),
+                mainLockCombo.getSelectionModel().getSelectedItem(),
+                secondaryLockCombo.getSelectionModel().getSelectedItem(),
+                handleCombo.getSelectionModel().getSelectedItem(),
+                armourStrapCombo.getSelectionModel().getSelectedItem(),
+                spyHoleCombo.getSelectionModel().getSelectedItem()
         );
 
         Stage stage = new Stage();

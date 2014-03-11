@@ -15,7 +15,11 @@ public abstract class SimpleDoor implements MetalDoor {
     protected double outerDecorationPrice;
     protected double innerDecorationPrice;
     protected double platbandPrice;
-    protected double accessoriesPrice;
+    protected double mainLockPrice;
+    protected double secondaryLockPrice;
+    protected double handlePrice;
+    protected double protectorPrice;
+    protected double spyHolePrice;
 
     private int x;
     private int y;
@@ -30,7 +34,11 @@ public abstract class SimpleDoor implements MetalDoor {
         this.metal_20x20_Price = 0;
         this.metalListPrice = 0;
         this.innerDecorationPrice = 0;
-        this.accessoriesPrice = 0;
+        this.mainLockPrice = 0;
+        this.secondaryLockPrice = 0;
+        this.handlePrice = 0;
+        this.protectorPrice = 0;
+        this.spyHolePrice = 0;
         this.sealPrice = 0;
         this.platbandPrice = 0;
         this.heaterPrice = 0;
@@ -114,8 +122,24 @@ public abstract class SimpleDoor implements MetalDoor {
         return platbandPrice;
     }
 
-    public double getAccessoriesPrice() {
-        return accessoriesPrice;
+    public double getMainLockPrice() {
+        return mainLockPrice;
+    }
+
+    public double getSecondaryLockPrice() {
+        return secondaryLockPrice;
+    }
+
+    public double getHandlePrice() {
+        return handlePrice;
+    }
+
+    public double getProtectorPrice() {
+        return protectorPrice;
+    }
+
+    public double getSpyHolePrice() {
+        return spyHolePrice;
     }
 
     @Override
@@ -136,6 +160,11 @@ public abstract class SimpleDoor implements MetalDoor {
         sb.append("outerDecorationPrice=").append(outerDecorationPrice).append("\n");
         sb.append("innerDecorationPrice=").append(innerDecorationPrice).append("\n");
         sb.append("platbandPrice=").append(platbandPrice).append("\n");
+        sb.append("mainLockPrice=").append(mainLockPrice).append("\n");
+        sb.append("secondaryLockPrice=").append(secondaryLockPrice).append("\n");
+        sb.append("handlePrice=").append(handlePrice).append("\n");
+        sb.append("protectorPrice=").append(protectorPrice).append("\n");
+        sb.append("spyHolePrice=").append(spyHolePrice).append("\n");
         return sb.toString();
     }
 }

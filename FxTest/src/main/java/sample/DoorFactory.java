@@ -8,12 +8,14 @@ public class DoorFactory {
 
 
     public static String createDoor(String doorType, String doorStructure, String doorComplexity,
-                                  TextField x, TextField y,
-                                  TextField x_1, TextField y_1,
-                                  TextField x_2, TextField x_3,
-                                  TextField platbandWidth,
-                                  String innerDecoration, String outerDecoration,
-                                  String platbandType) {
+                                    TextField x, TextField y,
+                                    TextField x_1, TextField y_1,
+                                    TextField x_2, TextField x_3,
+                                    TextField platbandWidth,
+                                    String innerDecoration, String outerDecoration,
+                                    String platbandType,
+                                    String mainLockType, String secondaryLockType,
+                                    String handleType, String protectorType, String spyHoleType) {
         String result = null;
 
         if (doorType.equalsIgnoreCase(LabelNames.metalDoor)) {
@@ -32,6 +34,11 @@ public class DoorFactory {
                     calcInnerDecoration(angledDoor, innerDecoration);
                     calcOuterDecoration(angledDoor, outerDecoration);
                     calcPlatband(angledDoor, platbandType);
+                    calcMainLock(angledDoor, mainLockType);
+                    calcSecondaryLock(angledDoor, secondaryLockType);
+                    calcHandle(angledDoor, handleType);
+                    calcProtector(angledDoor, protectorType);
+                    calcSpyHole(angledDoor, spyHoleType);
                     result = angledDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
@@ -260,5 +267,58 @@ public class DoorFactory {
             fireProofDoor.calcInnerDecoration(InnerDecorationType.MDF10);
         if (innerDecoration.equalsIgnoreCase(LabelNames.innermdf16))
             fireProofDoor.calcInnerDecoration(InnerDecorationType.MDF16);
+    }
+
+    private static void calcMainLock(AngledDoor angledDoor, String mainLock) {
+        if (mainLock.equalsIgnoreCase(LabelNames.kale257))
+            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_KALE_257L);
+        if (mainLock.equalsIgnoreCase(LabelNames.kale189))
+            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_KALE_1894);
+        if (mainLock.equalsIgnoreCase(LabelNames.elbor))
+            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_ELBOR);
+    }
+
+    private static void calcSecondaryLock(AngledDoor angledDoor, String secondaryLock) {
+        if (secondaryLock.equalsIgnoreCase(LabelNames.noSecondaryLock))
+            angledDoor.calcSecondaryLock(AccessoriesType.NO_SECONDARY_LOCKER);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.kale252))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_KALE_25R);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.mottura))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_MOTTURA_54797);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.apecs2200))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_APECS_2200);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.kale2000))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_KALE_2000);
+    }
+
+    private static void calcHandle(AngledDoor angledDoor, String handle) {
+        if (handle.equalsIgnoreCase(LabelNames.apecsCrome))
+            angledDoor.calcHandle(AccessoriesType.HANDLE_APECS_CHROME);
+        if (handle.equalsIgnoreCase(LabelNames.apecsGold))
+            angledDoor.calcHandle(AccessoriesType.HANDLE_APECS_GOLD);
+        if (handle.equalsIgnoreCase(LabelNames.apecsCromePlank))
+            angledDoor.calcHandle(AccessoriesType.HANDLE_APECS_PLAT_CHROME);
+        if (handle.equalsIgnoreCase(LabelNames.apecsGoldPlank))
+            angledDoor.calcHandle(AccessoriesType.HANDLE_APECS_PLAT_GOLD);
+        if (handle.equalsIgnoreCase(LabelNames.aydemirBrown))
+            angledDoor.calcHandle(AccessoriesType.HANDLE_AYDEMIR_BROWN);
+        if (handle.equalsIgnoreCase(LabelNames.aydemirBlack))
+            angledDoor.calcHandle(AccessoriesType.HANDLE_AYDEMIR_BLACK);
+    }
+
+    private static void calcProtector(AngledDoor angledDoor, String protector) {
+        if (protector.equalsIgnoreCase(LabelNames.noProtector))
+            angledDoor.calcProtector(AccessoriesType.NO_PROTECTOR);
+        if (protector.equalsIgnoreCase(LabelNames.apecsProtector))
+            angledDoor.calcProtector(AccessoriesType.PROTECTOR_APECS);
+    }
+
+    private static void calcSpyHole(AngledDoor angledDoor, String spyHole) {
+        if (spyHole.equalsIgnoreCase(LabelNames.spy200))
+            angledDoor.calcSpyHole(AccessoriesType.SPY_HOLE_200);
+        if (spyHole.equalsIgnoreCase(LabelNames.spy10200))
+            angledDoor.calcSpyHole(AccessoriesType.SPY_HOLE_10_200);
+        if (spyHole.equalsIgnoreCase(LabelNames.noSpy))
+            angledDoor.calcSpyHole(AccessoriesType.NO_SPY_HOLE);
     }
 }
