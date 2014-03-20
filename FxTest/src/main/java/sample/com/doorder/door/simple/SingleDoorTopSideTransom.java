@@ -162,29 +162,33 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 		LOGGER.info("Start calculating metal list price");
 		LOGGER.info("Checking dimensions for metal list");
 		if (this.getY_1() >= 1000 && this.getY_1() <= 2030
-				&& this.getX_1() >= 800 && this.getX_1() <= 950) {
+				&& this.getX_1() >= 500 && this.getX_1() <= 960) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1x2.getPriceInUAH();
+            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+                    + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+                    + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
-				&& this.getX_1() >= 800 && this.getX_1() <= 950) {
+				&& this.getX_1() >= 500 && this.getX_1() <= 960) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+                    + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+                    + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metalListPrice = bd.doubleValue();
 		} else if (this.getY_1() >= 1000 && this.getY_1() <= 2030
-				&& this.getX_1() >= 951 && this.getX_1() <= 1200) {
+				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
 			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
 		} else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
-				&& this.getX_1() >= 951 && this.getX_1() <= 1200) {
+				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-		} else if (this.getY_1() >= 1000 && this.getY_1() <= 2030
-				&& this.getX_1() >= 1201 && this.getX_1() <= 1950) {
-			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
-		} else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
-				&& this.getX_1() >= 1201 && this.getX_1() <= 1950) {
-			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH() * 1.5;
+            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+                    + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+                    + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metalListPrice = bd.doubleValue();
 		} else
 			throw new UnsupportedDimensions("Metal list", this.getY_1(), this.getX_1());
 

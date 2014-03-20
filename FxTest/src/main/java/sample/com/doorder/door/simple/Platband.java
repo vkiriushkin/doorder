@@ -65,17 +65,6 @@ public class Platband {
                 totalPlatbandPrice += metalPlatbandPaintingPF;
             }
         }
-
-		if (y < 1000 || y > 2500)
-			throw new UnsupportedDimensions("Metal platband painting PF", y, x);
-		LOGGER.info("Metal platband painting PF: dimension OK");
-		if (y >= 1000 && y <= 2500) {
-            BigDecimal bd = new BigDecimal(((double)2 * y + x) * 1.1 / 1000 * Price.PLATBAND_METAL.getPriceInUAH()
-                    + (2 * (double)y + x) * 0.07 * Price.PAINTING_PF.getPriceInUAH() / 1000);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-			metalPlatbandPaintingPF = bd.doubleValue();
-			totalPlatbandPrice += metalPlatbandPaintingPF;
-		}
 		LOGGER.info("Finish calculating platband, metal platband painting PF price:{}", metalPlatbandPaintingPF);
 	}
 
@@ -108,17 +97,6 @@ public class Platband {
                 totalPlatbandPrice += metalPlatbandPaintingShagreen;
             }
         }
-
-		if (y < 1000 || y > 2500)
-			throw new UnsupportedDimensions("Metal platband painting shagreen", y, x);
-		LOGGER.info("Metal platband painting shagreen: dimension OK");
-		if (y >= 1000 && y <= 2500) {
-            BigDecimal bd = new BigDecimal(((double)2 * y + x) * 1.1 / 1000 * Price.PLATBAND_METAL.getPriceInUAH()
-                    + (2 * (double)y + x) * 0.07 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            metalPlatbandPaintingShagreen = bd.doubleValue();
-			totalPlatbandPrice += metalPlatbandPaintingShagreen;
-		}
 		LOGGER.info("Finish calculating platband, metal platband painting shagreen price:{}", metalPlatbandPaintingShagreen);
 	}
 
@@ -151,16 +129,6 @@ public class Platband {
                 totalPlatbandPrice += metalPlatbandPaintingAntic;
             }
         }
-		if (y < 1000 || y > 2500)
-			throw new UnsupportedDimensions("Metal platband painting antic", y, x);
-		LOGGER.info("Metal platband painting antic: dimension OK");
-		if (y >= 1000 && y <= 2500) {
-            BigDecimal bd = new BigDecimal(((double)2 * y + x) * 1.1 / 1000 * Price.PLATBAND_METAL.getPriceInUAH()
-                    + (2 * (double)y + x) * 0.07 * Price.PAINTING_ANTIC.getPriceInUAH() / 1000);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            metalPlatbandPaintingAntic = bd.doubleValue();
-			totalPlatbandPrice += metalPlatbandPaintingAntic;
-		}
 		LOGGER.info("Finish calculating platband, metal platband painting antic price:{}", metalPlatbandPaintingAntic);
 	}
 

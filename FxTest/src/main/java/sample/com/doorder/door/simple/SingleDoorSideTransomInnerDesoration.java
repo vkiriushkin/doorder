@@ -151,7 +151,7 @@ public class SingleDoorSideTransomInnerDesoration extends SingleDoorInnerDecorat
         LOGGER.info("Start calculating inner decoration");
         clear();
         LOGGER.info("Checking dimensions for painting PF");
-        if (x - 50 < 800 || x - 50 > 1200 || y - 50 < 1000 || y - 50 > 2450)
+        if (x - 50 < 800 || x - 50 > 1950 || y - 50 < 1000 || y - 50 > 2450)
             throw new UnsupportedDimensions("Painting PF", y, x);
         LOGGER.info("Painting PF: dimension OK");
         if ((x - 50) >= 800 && (x - 50) <= 950 && (y - 50) >=1000 && (y - 50) <= 2030) {

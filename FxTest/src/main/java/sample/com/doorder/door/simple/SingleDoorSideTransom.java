@@ -15,8 +15,8 @@ public class SingleDoorSideTransom extends AngledDoor {
     public static final Logger LOGGER = LoggerFactory.getLogger(SingleDoorTopTransom.class);
 
     protected int x_1;
-    private SingleDoorInnerDecoration innerDecoration;
-    private OuterDecoration outerDecoration;
+    private SingleDoorSideTransomInnerDesoration innerDecoration;
+    private SingleDoorSideTransomOuterDecoration outerDecoration;
 
     public SingleDoorSideTransom() {
         this.outerDecoration = new SingleDoorSideTransomOuterDecoration();
@@ -26,11 +26,17 @@ public class SingleDoorSideTransom extends AngledDoor {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
         calcL50x4Part();
         calcPipe40x40();
         calcPipe40x20();
         calcPipe20x20();
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+    }
+
+    private void checkDimensions() {
+        if (x_1 > this.getX() - 150)
+            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + "x: " + this.getX()));
     }
 
     private void calcPipe20x20() {
@@ -82,7 +88,7 @@ public class SingleDoorSideTransom extends AngledDoor {
     private void calcPipe40x20() {
         LOGGER.info("Checking dimensions for pipe 40x20");
         if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() <= this.getY() - 150 && this.getX_1() <= 1200) {
+                && this.getX_1() <= this.getX() - 150 && this.getX_1() <= 1200) {
             LOGGER.info("Pipe 40x20: Dimensions OK");
             BigDecimal bd = new BigDecimal(((double) this.getY() + this.getX_1()) * 2 * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -96,7 +102,7 @@ public class SingleDoorSideTransom extends AngledDoor {
 
     private void calcPipe40x40() {
         LOGGER.info("Checking dimensions for pipe 40x40");
-        if (this.getX_1() <= this.getY() - 150) {
+        if (this.getX_1() <= this.getX() - 150) {
             LOGGER.info("Pipe 40x40: Dimensions OK");
             BigDecimal bd = new BigDecimal((double) this.getY() / 1000 * Price.PIPE_40x40.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -112,7 +118,7 @@ public class SingleDoorSideTransom extends AngledDoor {
     private void calcL50x4Part() {
         LOGGER.info("Checking dimensions for L50x4");
         if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() <= this.getY() - 150 && this.getX_1() <= 1200) {
+                && this.getX_1() <= this.getX() - 150 && this.getX_1() <= 1200) {
             LOGGER.info("L50x4: Dimensions OK");
             BigDecimal bd = new BigDecimal(((double) this.getX() + this.getY()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);

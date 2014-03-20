@@ -254,7 +254,7 @@ public class SingleDoorInnerDecoration extends InnerDecoration {
         }
         if ((x - 40) >= 500 && (x - 40) <= 960 && (y_1 - 40) > 2030 && (y_1 - 40) <= 2450) {
             BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-		            + ((double)x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+		            + ((double)x - 40) * (y_1 - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
                     + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
 		            + ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -263,7 +263,7 @@ public class SingleDoorInnerDecoration extends InnerDecoration {
         }
         if ((x - 40) > 960 && (x - 40) <= 1200 && (y_1 - 40) >=1000 && (y_1 - 40) <= 2030) {
             BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-		            + ((double)x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+		            + ((double)x - 40) * (y_1 - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
                     + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
 		            + ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -272,7 +272,7 @@ public class SingleDoorInnerDecoration extends InnerDecoration {
         }
         if ((x - 40) > 960 && (x - 40) <= 1200 && (y_1 - 40) > 2030 && (y_1 - 40) <= 2450) {
             BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-		            + ((double)x - 40) * (y - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+		            + ((double)x - 40) * (y_1 - 40) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
                     + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
 		            + ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
