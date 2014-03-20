@@ -16,14 +16,17 @@ public class FireProofOuterDecoration extends OuterDecoration {
             throw new UnsupportedDimensions("Self adhesive film", y, x);
         LOGGER.info("Self adhesive film: dimension OK");
         if (x >= 500 && x <= 890) {
-            selfAdhesiveFilm = 1.1 * y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
-                    + ((x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal(1.1 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         if (x > 890 && x <= 1100) {
-            double material = 1.1 * 1.5 * y / 1000;
-            selfAdhesiveFilm = material * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
-                    + ((x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal(1.1 * 1.5 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         LOGGER.info("Finish calculating outer decoration, self adhesive film price:{}", selfAdhesiveFilm);
@@ -74,8 +77,10 @@ public class FireProofOuterDecoration extends OuterDecoration {
             throw new UnsupportedDimensions("Anti layer", y, x);
         LOGGER.info("Anti layer: dimension OK");
         if (x >= 500 && x <= 1100) {
-            double material = 1.25 * y / 1000;
-            antiLayer = material * Price.ANTI_LAYER.getPriceInUAH() + ((x + y) * 2 *0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal(1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
+			        +  + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
         }
         LOGGER.info("Finish calculating outer decoration, anti layer price:{}", antiLayer);
@@ -90,15 +95,17 @@ public class FireProofOuterDecoration extends OuterDecoration {
             throw new UnsupportedDimensions("MDF_10", y, x);
         LOGGER.info("MDF_10: dimension OK");
         if (y >= 1000 && y <= 2050) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
-            bd = bd.multiply(new BigDecimal(Price.MDF_10.getPriceInUAH())).setScale(2, RoundingMode.HALF_UP);
-            mdf10 = bd.doubleValue() + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
         }
         if (y > 2050 && y <= 2350) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
-            bd = bd.multiply(new BigDecimal(Price.MDF_10.getPriceInUAH())).setScale(2, RoundingMode.HALF_UP);
-            mdf10 = bd.doubleValue() + 40 + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH() + 40
+			        + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
         }
         LOGGER.info("Finish calculating outer decoration, MDF_10 price:{}", mdf10);
@@ -113,15 +120,17 @@ public class FireProofOuterDecoration extends OuterDecoration {
             throw new UnsupportedDimensions("MDF_16", y, x);
         LOGGER.info("MDF_16: dimension OK");
         if (y >= 1000 && y <= 2050) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
-            bd = bd.multiply(new BigDecimal(Price.MDF_16.getPriceInUAH())).setScale(2, RoundingMode.HALF_UP);
-            mdf16 = bd.doubleValue() + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH()
+			        + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
         }
         if (y > 2050 && y <= 2350) {
-            BigDecimal bd = new BigDecimal((double)x * y / 1000000);
-            bd = bd.multiply(new BigDecimal(Price.MDF_16.getPriceInUAH())).setScale(2, RoundingMode.HALF_UP);
-            mdf16 = bd.doubleValue() + 40 + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+	        BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH() + 40
+			        + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
         }
         LOGGER.info("Finish calculating outer decoration, MDF_16 price:{}", mdf16);

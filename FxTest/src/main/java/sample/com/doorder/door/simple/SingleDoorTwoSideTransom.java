@@ -6,6 +6,9 @@ import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
 import sample.com.doorder.door.Price;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(SingleDoorTwoSideTransom.class);
@@ -28,39 +31,39 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 	}
 
 	private void calcPipe20x20() {
-		double part1 = 0;
-		double part2 = 0;
+		BigDecimal part1;
+		BigDecimal part2;
 
 		LOGGER.info("Checking dimensions for pipe 20x20");
 		if (this.getX() >= 800 && this.getX() <= 1200) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part1 = 2 * (double) this.getY() * 1.1 / 1000;
+			part1 = new BigDecimal(2 * (double) this.getY() * 1.1 / 1000);
 		} else if (this.getX() >= 1201 && this.getX() <= 1500) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part1 = 3 * (double) this.getY() * 1.1 / 1000;
+			part1 = new BigDecimal(3 * (double) this.getY() * 1.1 / 1000);
 		} else if (this.getX() >= 1501 && this.getX() <= 2000) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part1 = 4 * (double) this.getY() * 1.1 / 1000;
+			part1 = new BigDecimal(4 * (double) this.getY() * 1.1 / 1000);
 		} else if (this.getX() >= 2001 && this.getX() <= 2500) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part1 = 5 * (double) this.getY() * 1.1 / 1000;
+			part1 = new BigDecimal(5 * (double) this.getY() * 1.1 / 1000);
 		} else if (this.getX() >= 2501 && this.getX() <= 3000) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part1 = 6 * (double) this.getY() * 1.1 / 1000;
+			part1 = new BigDecimal(6 * (double) this.getY() * 1.1 / 1000);
 		} else
 			throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
 		LOGGER.info("Checking dimensions for pipe 20x20");
 		if (this.getY() >= 1000 && this.getY() <= 2060) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part2 = 2 * (double) this.getX() * 1.1 / 1000;
+			part2 = new BigDecimal(2 * (double) this.getX() * 1.1 / 1000);
 		} else if (this.getY() >= 2061 && this.getY() <= 2450) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			part2 = 3 * (double) this.getX() * 1.1 / 1000;
+			part2 = new BigDecimal(3 * (double) this.getX() * 1.1 / 1000);
 		} else
 			throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
-		this.metal_20x20_Price = (part1 + part2) * Price.PIPE_20x20.getPriceInUAH();
+		this.metal_20x20_Price = part1.add(part2).multiply(new BigDecimal(Price.PIPE_20x20.getPriceInUAH())).setScale(2, RoundingMode.HALF_UP).doubleValue();
 		metalFramesPartsTotalPrice += metal_20x20_Price;
 		totalPrice += metal_20x20_Price;
 		LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
@@ -71,7 +74,9 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 		if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 3000
 				&& this.getX_1() >= 500 && this.getX_1() <= 1250) {
 			LOGGER.info("Pipe 40x20: Dimensions OK");
-			this.metal_40x20_Price = (this.getY() + this.getX_1()) * 2 / 1000 * Price.PIPE_40x20.getPriceInUAH();
+			BigDecimal bd = new BigDecimal(((double)this.getY() + this.getX_1()) * 2 / 1000 * Price.PIPE_40x20.getPriceInUAH());
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metal_40x20_Price = bd.doubleValue() ;
 		} else
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 		metalFramesPartsTotalPrice += metal_40x20_Price;
@@ -84,7 +89,9 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 		if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 3000
 				&& this.getX_1() >= 500 && this.getX_1() <= 1250) {
 			LOGGER.info("Pipe 40x40: Dimensions OK");
-			this.metal_40x40_Price = this.getY() * 2 / 1000 * Price.PIPE_40x40.getPriceInUAH();
+			BigDecimal bd = new BigDecimal((double)this.getY() * 2 / 1000 * Price.PIPE_40x40.getPriceInUAH());
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metal_40x40_Price = bd.doubleValue() ;
 		} else
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
@@ -98,7 +105,9 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 		if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 3000
 				&& this.getX_1() >= 500 && this.getX_1() <= 1250) {
 			LOGGER.info("L50x4: Dimensions OK");
-			this.metal_L50x4_Price = (this.getX() + this.getY()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH();
+			BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH());
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metal_L50x4_Price = bd.doubleValue();
 		} else
 			throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
@@ -114,23 +123,31 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 		if (this.getY() >= 1000 && this.getY() <= 2030
 				&& this.getX_1() >= 500 && this.getX_1() <= 960) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1x2.getPriceInUAH()
-					+ (this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000;
+			BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+					+ ((double)this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000);
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY() >= 2031 && this.getY() <= 2450
 				&& this.getX_1() >= 500 && this.getX_1() <= 960) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH()
-					+ (this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000;
+			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+					+ ((double)this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000);
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY() >= 1000 && this.getY() <= 2030
 				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH()
-					+ (this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000;
+			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+					+ ((double)this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000);
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY() >= 2031 && this.getY() <= 2450
 				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
 			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH()
-					+ (this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000;
+			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+					+ ((double)this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000);
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			this.metalListPrice = bd.doubleValue();
 		} else
 			throw new UnsupportedDimensions("Metal list", this.getY(), this.getX_1());
 

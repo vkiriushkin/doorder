@@ -27,7 +27,7 @@ public class InnerDecoration {
     public void calcPlastic(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
-	    BigDecimal bd = new BigDecimal((double)(x + y) * 2.2 * Price.START.getPriceInUAH() / 1000 + (x * y) * 1.1 * Price.PLASTIC.getPriceInUAH() / 1000000);
+	    BigDecimal bd = new BigDecimal(((double)x + y) * 2.2 * Price.START.getPriceInUAH() / 1000 + ((double)x * y) * 1.1 * Price.PLASTIC.getPriceInUAH() / 1000000);
 	    bd = bd.setScale(2, RoundingMode.HALF_UP);
 	    plastic = bd.doubleValue();
 	    totalInnerDecorationPrice += plastic;
@@ -37,7 +37,7 @@ public class InnerDecoration {
     public void calcLaminate(int x, int y) {
 	    LOGGER.info("Start calculating inner decoration");
 	    clear();
-	    BigDecimal bd = new BigDecimal(((double)x + y) * 2.2 * Price.START.getPriceInUAH() / 1000 + (x * y) * 1.1 * Price.LAMINATED_PLASTIC.getPriceInUAH() / 1000000);
+	    BigDecimal bd = new BigDecimal(((double)x + y) * 2.2 * Price.START.getPriceInUAH() / 1000 + ((double)x * y) * 1.1 * Price.LAMINATED_PLASTIC.getPriceInUAH() / 1000000);
 	    bd = bd.setScale(2, RoundingMode.HALF_UP);
 	    laminate = bd.doubleValue();
 	    totalInnerDecorationPrice += laminate;

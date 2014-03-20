@@ -150,7 +150,9 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 	@Override
 	public void calcDryWall() {
 		LOGGER.info("Start calculating dryWall price");
-		this.dryWallPrice = ((double)this.getX() * this.getY()) * 2 / 1000000 * Price.DRYWALL.getPriceInUAH();
+		BigDecimal bd = new BigDecimal(((double)this.getX() * this.getY()) * 2 / 1000000 * Price.DRYWALL.getPriceInUAH());
+		bd = bd.setScale(2, RoundingMode.HALF_UP);
+		this.dryWallPrice = bd.doubleValue();
 		totalPrice += dryWallPrice;
 		LOGGER.info("Finish calculating dryWall, price: {}, total price: {}", dryWallPrice, totalPrice);
 	}
@@ -158,7 +160,9 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 	@Override
 	public void calcMineralWool() {
 		LOGGER.info("Start calculating mineral wool price");
-		this.mineralWoolPrice = ((double)this.getX() * this.getY()) / 1000000 * Price.MINERAL_WOOL.getPriceInUAH();
+		BigDecimal bd = new BigDecimal(((double)this.getX() * this.getY()) / 1000000 * Price.MINERAL_WOOL.getPriceInUAH());
+		bd = bd.setScale(2, RoundingMode.HALF_UP);
+		this.mineralWoolPrice = bd.doubleValue();
 		totalPrice += mineralWoolPrice;
 		LOGGER.info("Finish calculating mineral wool, price: {}, total price: {}", mineralWoolPrice, totalPrice);
 	}
@@ -166,8 +170,9 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 	@Override
 	public void calcSeal() {
 		LOGGER.info("Start calculating seal price");
-		double sealMultiplier = ((double)this.getY() + this.getX()) * 2 / 1000;
-		this.sealPrice = sealMultiplier * Price.SEAL.getPriceInUAH();
+		BigDecimal bd = new BigDecimal((((double)this.getY() + this.getX()) * 2 / 1000) * Price.SEAL.getPriceInUAH());
+		bd = bd.setScale(2, RoundingMode.HALF_UP);
+		this.sealPrice = bd.doubleValue();
 		totalPrice += sealPrice;
 		LOGGER.info("Finish calculating seal, price: {}, total price: {}", sealPrice, totalPrice);
 	}

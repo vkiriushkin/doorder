@@ -16,13 +16,15 @@ public class DoubleFireProofInnerDecoration extends FireProofInnerDecoration{
             throw new UnsupportedDimensions("MDF_10", y, x);
         LOGGER.info("MDF_10: dimension OK");
         if ((y - 40) >=1000 && (y - 40) <= 2050) {
-            double material = ((double)(x - 40) * (y - 40)) / 1000000;
-            mdf10 = material * Price.MDF_10.getPriceInUAH();
+	        BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_10.getPriceInUAH());
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf10 = bd.doubleValue();
             totalInnerDecorationPrice += mdf10;
         }
         if ((y - 40) > 2050 && (y - 40) <= 2350) {
-            double material = (double)(x - 40) * (y - 40) / 1000000;
-            mdf10 = material * Price.MDF_10.getPriceInUAH() + 80;
+	        BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_10.getPriceInUAH() + 80);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf10 = bd.doubleValue();
             totalInnerDecorationPrice += mdf10;
         }
         LOGGER.info("Finish calculating inner decoration, MDF_10 price:{}", mdf10);
@@ -37,13 +39,15 @@ public class DoubleFireProofInnerDecoration extends FireProofInnerDecoration{
             throw new UnsupportedDimensions("MDF_10", y, x);
         LOGGER.info("MDF_16: dimension OK");
         if ((y - 40) >=1000 && (y - 40) <= 2050) {
-            double material = ((double)(x - 40) * (y - 40)) / 1000000;
-            mdf16 = material * Price.MDF_16.getPriceInUAH();
+	        BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_16.getPriceInUAH());
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf16 = bd.doubleValue();
             totalInnerDecorationPrice += mdf16;
         }
         if ((y - 40) > 2050 && (y - 40) <= 2350) {
-            double material = (double)(x - 40) * (y - 40) / 1000000;
-            mdf16 = material * Price.MDF_16.getPriceInUAH() + 80;
+	        BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_16.getPriceInUAH() + 80);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        mdf16 = bd.doubleValue();
             totalInnerDecorationPrice += mdf16;
         }
         LOGGER.info("Finish calculating inner decoration, MDF_16 price:{}", mdf16);

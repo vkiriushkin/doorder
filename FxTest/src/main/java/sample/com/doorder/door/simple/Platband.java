@@ -28,7 +28,9 @@ public class Platband {
 			throw new UnsupportedDimensions("Wooden platband", y, x);
 		LOGGER.info("Wooden platband: dimension OK");
 		if (y >= 1000 && y <= 2150) {
-			woodenPlatband = (2 * y + x) * 1.1 / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH();
+			BigDecimal bd = new BigDecimal((2 * y + x) * 1.1 / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH());
+			bd = bd.setScale(2, RoundingMode.HALF_UP);
+			woodenPlatband = bd.doubleValue();
 			totalPlatbandPrice += woodenPlatband;
 		}
 		LOGGER.info("Finish calculating platband, wooden platband price:{}", woodenPlatband);
@@ -43,7 +45,7 @@ public class Platband {
 		LOGGER.info("Metal platband painting PF: dimension OK");
 		if (y >= 1000 && y <= 2500) {
             BigDecimal bd = new BigDecimal(((double)2 * y + x) * 1.1 / 1000 * Price.PLATBAND_METAL.getPriceInUAH()
-                    + (2 * y + x) * 0.07 * Price.PAINTING_PF.getPriceInUAH() / 1000);
+                    + (2 * (double)y + x) * 0.07 * Price.PAINTING_PF.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
 			metalPlatbandPaintingPF = bd.doubleValue();
 			totalPlatbandPrice += metalPlatbandPaintingPF;
@@ -60,7 +62,7 @@ public class Platband {
 		LOGGER.info("Metal platband painting shagreen: dimension OK");
 		if (y >= 1000 && y <= 2500) {
             BigDecimal bd = new BigDecimal(((double)2 * y + x) * 1.1 / 1000 * Price.PLATBAND_METAL.getPriceInUAH()
-                    + (2 * y + x) * 0.07 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (2 * (double)y + x) * 0.07 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             metalPlatbandPaintingShagreen = bd.doubleValue();
 			totalPlatbandPrice += metalPlatbandPaintingShagreen;
@@ -77,7 +79,7 @@ public class Platband {
 		LOGGER.info("Metal platband painting antic: dimension OK");
 		if (y >= 1000 && y <= 2500) {
             BigDecimal bd = new BigDecimal(((double)2 * y + x) * 1.1 / 1000 * Price.PLATBAND_METAL.getPriceInUAH()
-                    + (2 * y + x) * 0.07 * Price.PAINTING_ANTIC.getPriceInUAH() / 1000);
+                    + (2 * (double)y + x) * 0.07 * Price.PAINTING_ANTIC.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             metalPlatbandPaintingAntic = bd.doubleValue();
 			totalPlatbandPrice += metalPlatbandPaintingAntic;
@@ -94,11 +96,15 @@ public class Platband {
 		LOGGER.info("Platband mdf10: dimension OK");
 		if (y >= 100 && y <= 2350) {
 			double material = ((double)2 * y + x) / 1000;
-			if (z >=30 && z <=60)
-				mdf10Platband = material * z * Price.MDF_10.getPriceInUAH() / 1000 + 60;
-			else if (z > 60 && z <=100)
-				mdf10Platband = material * z * Price.MDF_10.getPriceInUAH() / 1000;
-			else
+			if (z >=30 && z <=60) {
+				BigDecimal bd = new BigDecimal(material * z * Price.MDF_10.getPriceInUAH() / 1000 + 60);
+				bd = bd.setScale(2, RoundingMode.HALF_UP);
+				mdf10Platband = bd.doubleValue();
+			} else if (z > 60 && z <=100) {
+				BigDecimal bd = new BigDecimal(material * z * Price.MDF_10.getPriceInUAH() / 1000);
+				bd = bd.setScale(2, RoundingMode.HALF_UP);
+				mdf10Platband = bd.doubleValue();
+			} else
 				throw new UnsupportedDimensions("Platband mdf10 (platband)", 0, z);
 			totalPlatbandPrice += mdf10Platband;
 		}
@@ -114,11 +120,15 @@ public class Platband {
 		LOGGER.info("Platband mdf16: dimension OK");
 		if (y >= 1000 && y <= 2350) {
 			double material = ((double)2 * y + x) / 1000;
-			if (z >=30 && z <=60)
-				mdf16Platband = material * z * Price.MDF_16.getPriceInUAH() / 1000 + 60;
-			else if (z > 60 && z <=100)
-				mdf16Platband = material * z * Price.MDF_16.getPriceInUAH() / 1000;
-			else
+			if (z >=30 && z <=60) {
+				BigDecimal bd = new BigDecimal(material * z * Price.MDF_16.getPriceInUAH() / 1000 + 60);
+				bd = bd.setScale(2, RoundingMode.HALF_UP);
+				mdf16Platband = bd.doubleValue();
+			} else if (z > 60 && z <=100) {
+				BigDecimal bd = new BigDecimal(material * z * Price.MDF_16.getPriceInUAH() / 1000);
+				bd = bd.setScale(2, RoundingMode.HALF_UP);
+				mdf16Platband = bd.doubleValue();
+			} else
 				throw new UnsupportedDimensions("Platband mdf16 (platband)", 0, z);
 			totalPlatbandPrice += mdf16Platband;
 		}

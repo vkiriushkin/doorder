@@ -76,7 +76,7 @@ public class AngledDoor extends SimpleDoor {
             LOGGER.info("Pipe 40x20: Dimensions OK");
             BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_40x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_40x20_Price =bd.doubleValue() ;
+            this.metal_40x20_Price = bd.doubleValue() ;
         } else
             throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
         metalFramesPartsTotalPrice += metal_40x20_Price;
