@@ -81,7 +81,7 @@ public class DoubleFireProofOuterDecoration extends FireProofOuterDecoration {
         LOGGER.info("Start calculating outer decoration");
         clear();
         LOGGER.info("Checking dimensions for anti layer");
-        if (x < 800 || x > 1100)
+        if (x < 800 || x > 2000)
             throw new UnsupportedDimensions("Anti layer", y, x);
         LOGGER.info("Anti layer: dimension OK");
         if (x >= 800 && x <= 1200) {

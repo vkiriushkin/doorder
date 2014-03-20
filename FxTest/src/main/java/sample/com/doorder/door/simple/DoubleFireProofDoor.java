@@ -29,10 +29,17 @@ public class DoubleFireProofDoor extends SingleFireProofDoor {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
         calcPipe40x40();
         calcPipe40x20();
         totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+    }
+
+    private void checkDimensions() {
+        if (this.getX_1() < (this.getX() / 2))
+            throw new UnsupportedDimensions("Metal parts", "x1<x/2",
+                    String.valueOf("x:" + this.getX() + ",x1:"+this.getX_1()));
     }
 
     private void calcPipe40x40() {
@@ -218,6 +225,8 @@ public class DoubleFireProofDoor extends SingleFireProofDoor {
 
     @Override
     public void calcOuterDecoration(OuterDecorationType outerDecorationType) {
+        if (outerDecorationType.equals(OuterDecorationType.MDF10) || outerDecorationType.equals(InnerDecorationType.MDF16) && this.getY() > 2350)
+            throw new UnsupportedDimensions("Outer decoration", "Can't apply MDF decoration", String.valueOf(this.getY()));
         totalPrice -= outerDecorationPrice;
         outerDecoration.clear();
         switch (outerDecorationType) {
@@ -249,6 +258,8 @@ public class DoubleFireProofDoor extends SingleFireProofDoor {
 
     @Override
     public void calcInnerDecoration(InnerDecorationType innerDecorationType) {
+        if (innerDecorationType.equals(InnerDecorationType.MDF10) || innerDecorationType.equals(InnerDecorationType.MDF16) && this.getY() > 2350)
+            throw new UnsupportedDimensions("Inner decoration", "Can't apply MDF decoration", String.valueOf(this.getY()));
         totalPrice -= innerDecorationPrice;
         innerDecoration.clear();
         switch (innerDecorationType) {
@@ -278,13 +289,13 @@ public class DoubleFireProofDoor extends SingleFireProofDoor {
         platband.clear();
         switch (platbandType) {
             case METAL_PAINTING_PF:
-                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY());
+                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY(), this.getClass());
                 break;
             case METAL_PAINTING_SHAGREEN:
-                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY());
+                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY(), this.getClass());
                 break;
             case METAL_PAINTING_ANTIC:
-                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY());
+                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
                 break;
         }
         platbandPrice = this.platband.getTotalPlatbandPrice();

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
+import sample.com.doorder.door.PlatbandType;
 import sample.com.doorder.door.Price;
 
 import java.math.BigDecimal;
@@ -55,10 +56,22 @@ public class SingleDoorTopTransom extends AngledDoor {
 		} else if (this.getY() >= 2061 && this.getY() <= 2450
 				&& this.getX() >= 901 && this.getX() <= 1200) {
 			LOGGER.info("Pipe 20x20: Dimensions OK");
-			BigDecimal bd = new BigDecimal((double)(3 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
-			bd = bd.setScale(2, RoundingMode.HALF_UP);
-			this.metal_20x20_Price = bd.doubleValue();
-		} else
+            BigDecimal bd = new BigDecimal((double)(3 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
+		} else if (this.getY() > 2450
+                && this.getX() >= 500 && this.getX() <= 900) {
+            LOGGER.info("Pipe 20x20: Dimensions OK");
+            BigDecimal bd = new BigDecimal((double)(4 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
+        } else if (this.getY() > 2450
+                && this.getX() >= 901 && this.getX() <= 1200) {
+            LOGGER.info("Pipe 20x20: Dimensions OK");
+            BigDecimal bd = new BigDecimal((double)(4 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metal_20x20_Price = bd.doubleValue();
+        } else
 			throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_20x20_Price;
@@ -289,6 +302,13 @@ public class SingleDoorTopTransom extends AngledDoor {
         }
         innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
         totalPrice += innerDecorationPrice;
+    }
+
+    @Override
+    public void calcPlatband(PlatbandType platbandType) {
+        if (this.getY() > 3000)
+            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+        super.calcPlatband(platbandType);
     }
 
 	public int getY_1() {

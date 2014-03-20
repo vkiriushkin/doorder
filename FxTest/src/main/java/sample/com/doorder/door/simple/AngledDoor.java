@@ -247,22 +247,22 @@ public class AngledDoor extends SimpleDoor {
 	    platband.clear();
 	    switch (platbandType) {
 		    case WOODEN:
-			    this.platband.calcWoodenPlatband(this.getX(), this.getY());
+			    this.platband.calcWoodenPlatband(this.getX(), this.getY(), this.getClass());
 			    break;
 		    case METAL_PAINTING_PF:
-			    this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY());
+			    this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY(), this.getClass());
 			    break;
 		    case METAL_PAINTING_SHAGREEN:
-			    this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY());
+			    this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY(), this.getClass());
 			    break;
 		    case METAL_PAINTING_ANTIC:
-			    this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY());
+			    this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
 			    break;
 		    case MDF10:
-			    this.platband.calcMdf10Platband(this.getX(), this.getY(), this.getZ());
+			    this.platband.calcMdf10Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
 			    break;
 		    case MDF16:
-			    this.platband.calcMdf16Platband(this.getX(), this.getY(), this.getZ());
+			    this.platband.calcMdf16Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
 			    break;
 	    }
 	    platbandPrice = this.platband.getTotalPlatbandPrice();

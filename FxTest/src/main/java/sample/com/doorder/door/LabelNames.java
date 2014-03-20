@@ -34,6 +34,8 @@ public class LabelNames {
     public static final String outerpaintingPF = "Покраска ПФ";
     public static final String outermdf10 = "Панель МДФ 10";
     public static final String outermdf16 = "Панель МДФ 16";
+    public static final String outerNoTransomDecoration = "Без отделки";
+    public static final String outerWithTransomDecoration = "С отделкой";
 
     public static final String innerPlastic = "Пластик";
     public static final String innerLaminatedPlastic = "Ламинат";
@@ -42,6 +44,8 @@ public class LabelNames {
     public static final String innerPaintingAntic = "Лист металла покраска антик";
     public static final String innermdf10 = "Панель МДФ 10";
     public static final String innermdf16 = "Панель МДФ 16";
+    public static final String innerNoTransomDecoration = "Без отделки";
+    public static final String innerWithTransomDecoration = "С отделкой";
 
     public static final String platbandWooden = "Дер. Наличник";
     public static final String platbandPF = "Мет. Наличник покраска ПФ";

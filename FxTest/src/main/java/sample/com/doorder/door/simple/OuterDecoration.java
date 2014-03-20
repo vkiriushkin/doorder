@@ -31,7 +31,8 @@ public class OuterDecoration {
 			throw new UnsupportedDimensions("Self adhesive film", y, x);
 		LOGGER.info("Self adhesive film: dimension OK");
 		if (x >= 500 && x <= 800) {
-			BigDecimal bd = new BigDecimal(1.1 * (double) y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH());
+			BigDecimal bd = new BigDecimal(1.1 * (double) y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
+                    + (((double)x + y) * 2 * 0.2 * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000));
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			selfAdhesiveFilm = bd.doubleValue();
 			totalOuterDecorationPrice += selfAdhesiveFilm;

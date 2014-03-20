@@ -45,11 +45,12 @@
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
           <children>
-            <Label id="step" fx:id="step1Label" alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="Конструкция" textAlignment="CENTER" />
-            <Label id="step" fx:id="step2Label" alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="Размеры" textAlignment="CENTER" />
-            <Label id="step" fx:id="step3Label" alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="Отделка и&#10;фурнитура" textAlignment="CENTER" />
-            <Label id="step" fx:id="step4Label" alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="Доставка и &#10;установка" textAlignment="CENTER" />
-            <Label id="step" fx:id="step5Label" alignment="CENTER" prefHeight="50.0" prefWidth="120.0" text="Данные &#10;заказчика" textAlignment="CENTER" />
+            <Label id="step" fx:id="step1Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Конструкция" textAlignment="CENTER" />
+            <Label id="step" fx:id="step2Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Размеры" textAlignment="CENTER" />
+            <Label id="step" fx:id="step3Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Отделка" textAlignment="CENTER" />
+            <Label id="step" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Фурнитура" textAlignment="CENTER" />
+            <Label id="step" fx:id="step4Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Доставка и &#10;установка" textAlignment="CENTER" />
+            <Label id="step" fx:id="step5Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Данные &#10;заказчика" textAlignment="CENTER" />
           </children>
         </HBox>
         <VBox id="s" fx:id="step1VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
@@ -58,7 +59,7 @@
               <children>
                 <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="200.0" text="Выберите тип дверного блока" wrapText="false" />
                 <ComboBox fx:id="doorTypeCombo" layoutX="228.0" layoutY="18.0" prefWidth="357.999977929685" />
-                <Button fx:id="goToNextStep2Button" layoutX="442.0" layoutY="382.0" mnemonicParsing="false" onAction="#goToNextStep2" prefHeight="30.0" prefWidth="144.0" text="Далее" />
+                <Button fx:id="goToNextStep2Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep2" prefHeight="30.0" prefWidth="144.0" text="Далее" />
                 <Label layoutX="14.0" layoutY="54.0" prefHeight="30.0" prefWidth="200.0" text="Выберите тип конструкции" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="doorStructureTypeCombo" layoutX="228.0" layoutY="58.0" prefWidth="357.999977929685" />
                 <Label layoutX="14.0" layoutY="94.0" prefHeight="30.0" prefWidth="214.0" text="Выберите категорию сложности" wrapText="false" />
@@ -76,8 +77,8 @@
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null" visible="true">
               <children>
-                <Button fx:id="goToPreviousStep1Button" layoutX="14.0" layoutY="376.0" mnemonicParsing="false" onAction="#goToPreviousStep1" prefHeight="30.0" prefWidth="144.0" text="Назад" />
-                <Button fx:id="goToNextStep3Button" layoutX="442.0" layoutY="376.0" mnemonicParsing="false" onAction="#goToNextStep3" prefHeight="30.0" prefWidth="144.0" text="Далее" />
+                <Button fx:id="goToPreviousStep1Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep1" prefHeight="30.0" prefWidth="144.0" text="Назад" />
+                <Button fx:id="goToNextStep3Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep3" prefHeight="30.0" prefWidth="144.0" text="Далее" />
                 <Label layoutX="14.0" layoutY="23.0" prefHeight="30.0" prefWidth="214.0" text="Выберите сторону открывания" wrapText="false" />
                 <ImageView fx:id="selectedDoorImage" fitHeight="250.0" fitWidth="170.0" layoutX="25.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" x="0.0">
                   <image>
@@ -113,51 +114,72 @@
             </Pane>
           </children>
         </VBox>
-        <VBox id="s" fx:id="step3VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="44.0" prefHeight="450.0" prefWidth="600.0" visible="true">
+        <VBox id="s" fx:id="step3VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null" visible="true">
               <children>
-                <Label layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="200.0" text="Выберите наружную отделку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="outerDecorationTypeCombo" layoutX="242.0" layoutY="14.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наружную отделку" wrapText="false">
+                  <font>
+                    <Font name="System Bold" size="13.0" fx:id="x4" />
+                  </font>
+                </Label>
+                <ComboBox id="doorTypeCombo" fx:id="outerDecorationTypeCombo" layoutX="140.0" layoutY="40.0" prefWidth="199.99997792968497" />
                 <Button fx:id="goToPreviousStep2Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep2" prefHeight="30.0" prefWidth="144.0" text="Назад" />
                 <Button fx:id="goToNextStep4Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep4" prefHeight="30.0" prefWidth="144.0" text="Далее" />
-                <Label layoutX="114.0" layoutY="70.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
-                <Label layoutX="114.0" layoutY="40.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
-                <TextField fx:id="outerColor" layoutX="242.0" layoutY="44.0" prefWidth="200.0" />
-                <TextField fx:id="outerConfiguration" layoutX="242.0" layoutY="74.0" prefWidth="200.0" />
-                <Label layoutX="14.0" layoutY="100.0" prefHeight="30.0" prefWidth="214.0" text="Выберите внутреннею отделку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="innerDecorationTypeCombo" layoutX="242.0" layoutY="104.0" prefWidth="343.999977929685" />
-                <Label layoutX="114.0" layoutY="160.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
-                <Label layoutX="114.0" layoutY="130.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
-                <TextField fx:id="innerColor" layoutX="242.0" layoutY="134.0" prefWidth="200.0" />
-                <TextField fx:id="innerConfiguration" layoutX="242.0" layoutY="164.0" prefWidth="200.0" />
-                <Label layoutX="14.0" layoutY="243.0" prefHeight="30.0" prefWidth="214.0" text="Выбырите основной замок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="mainLockCombo" layoutX="242.0" layoutY="247.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="273.0" prefHeight="30.0" prefWidth="228.0" text="Выберите дополнительный замок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="secondaryLockCombo" layoutX="242.0" layoutY="277.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="303.0" prefHeight="30.0" prefWidth="214.0" text="Выберите ручку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="handleCombo" layoutX="242.0" layoutY="307.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="333.0" prefHeight="30.0" prefWidth="214.0" text="Выберите глазок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="spyHoleCombo" layoutX="242.0" layoutY="337.0" prefWidth="343.999977929685" />
-                <Label layoutX="14.0" layoutY="363.0" prefHeight="30.0" prefWidth="214.0" text="Выберите броненакладку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="armourStrapCombo" layoutX="242.0" layoutY="367.0" prefWidth="343.999977929685" />
-                <Label layoutX="114.0" layoutY="212.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
-                <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="242.0" layoutY="218.0" prefWidth="100.0" text="0" />
-                <Label layoutX="348.0" layoutY="214.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
-                <Label layoutX="14.0" layoutY="185.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="242.0" layoutY="190.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="95.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
+                <Label layoutX="14.0" layoutY="66.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
+                <TextField fx:id="outerColor" layoutX="140.0" layoutY="70.0" prefWidth="200.0" />
+                <TextField fx:id="outerConfiguration" layoutX="140.0" layoutY="99.0" prefWidth="200.0" />
+                <Label font="$x4" layoutX="14.0" layoutY="160.0" prefHeight="30.0" prefWidth="214.0" text="Выберите внутреннею отделку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="innerDecorationTypeCombo" layoutX="140.0" layoutY="194.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="245.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
+                <Label layoutX="14.0" layoutY="218.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
+                <TextField fx:id="innerColor" layoutX="140.0" layoutY="222.0" prefWidth="200.0" />
+                <TextField fx:id="innerConfiguration" layoutX="140.0" layoutY="249.0" prefWidth="200.0" />
+                <Label layoutX="14.0" layoutY="362.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
+                <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="140.0" layoutY="366.0" prefWidth="100.0" text="0" />
+                <Label layoutX="246.0" layoutY="362.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
+                <Label font="$x4" layoutX="14.0" layoutY="305.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="140.0" layoutY="336.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="40.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="outerTransomDecorationTypeCombo" layoutX="140.0" layoutY="129.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="125.0" prefHeight="30.0" prefWidth="126.0" text="Отделка фрамуги" wrapText="false" />
+                <Label layoutX="14.0" layoutY="190.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="innerTransomDecorationTypeCombo" layoutX="140.0" layoutY="279.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="275.0" prefHeight="30.0" prefWidth="126.0" text="Отделка фрамуги" wrapText="false" />
+                <Label layoutX="14.0" layoutY="332.0" prefHeight="30.0" prefWidth="100.0" text="Вид наличника" wrapText="false" />
               </children>
             </Pane>
           </children>
         </VBox>
-        <VBox id="s" fx:id="step4VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="44.0" prefHeight="450.0" prefWidth="600.0" visible="false">
+        <VBox id="s" fx:id="step4VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
+          <children>
+            <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null" visible="true">
+              <children>
+                <Button id="goToPreviousStep2Button" fx:id="goToPreviousStep3Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep3" prefHeight="30.0" prefWidth="144.0" text="Назад" />
+                <Button id="goToNextStep4Button" fx:id="goToNextStep5Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep5" prefHeight="30.0" prefWidth="144.0" text="Далее" />
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="214.0" text="Выбырите основной замок" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="mainLockCombo" layoutX="242.0" layoutY="18.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="228.0" text="Выберите дополнительный замок" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="secondaryLockCombo" layoutX="242.0" layoutY="48.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="214.0" text="Выберите ручку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="handleCombo" layoutX="242.0" layoutY="78.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="104.0" prefHeight="30.0" prefWidth="214.0" text="Выберите глазок" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="spyHoleCombo" layoutX="242.0" layoutY="108.0" prefWidth="343.999977929685" />
+                <Label layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="214.0" text="Выберите броненакладку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="armourStrapCombo" layoutX="242.0" layoutY="138.0" prefWidth="343.999977929685" />
+              </children>
+            </Pane>
+          </children>
+        </VBox>
+        <VBox id="s" fx:id="step5VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null">
               <children>
                 <Label layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="200.0" text="Способ доставки" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="shippingCombo" layoutX="150.0" layoutY="14.0" prefWidth="143.99997792968497" />
-                <Button fx:id="goToPreviousStep3Button" layoutX="14.0" layoutY="376.0" mnemonicParsing="false" onAction="#goToPreviousStep3" prefHeight="30.0" prefWidth="144.0" text="Назад" />
-                <Button fx:id="goToNextStep5Button" layoutX="442.0" layoutY="376.0" mnemonicParsing="false" onAction="#goToNextStep5" prefHeight="30.0" prefWidth="144.0" text="Далее" />
+                <Button id="goToPreviousStep3Button" fx:id="goToPreviousStep4Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep4" prefHeight="30.0" prefWidth="144.0" text="Назад" />
+                <Button id="goToNextStep5Button" fx:id="goToNextStep6Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep6" prefHeight="30.0" prefWidth="144.0" text="Далее" />
                 <Label layoutX="58.0" layoutY="40.0" prefHeight="30.0" prefWidth="70.0" text="Стоимость" wrapText="false" />
                 <TextField id="outerColor" fx:id="shippingCostInput" disable="true" editable="true" layoutX="150.0" layoutY="44.0" prefWidth="144.0" />
                 <Label layoutX="14.0" layoutY="100.0" prefHeight="30.0" prefWidth="114.0" text="Упаковка" wrapText="false" />
@@ -167,17 +189,18 @@
                 <RadioButton fx:id="installationYes" layoutX="150.0" layoutY="167.0" mnemonicParsing="false" text="Да" />
                 <RadioButton fx:id="installationNo" layoutX="150.0" layoutY="189.0" mnemonicParsing="false" text="Нет" />
                 <Button layoutX="150.0" layoutY="236.0" mnemonicParsing="false" onAction="#calculateDoorPrice" prefHeight="30.0" prefWidth="150.0" text="Просчитать" />
+                <Label fx:id="errorLabel" layoutX="14.0" layoutY="293.0" prefHeight="30.0" prefWidth="572.0" text="" wrapText="false" />
               </children>
             </Pane>
           </children>
         </VBox>
-        <VBox id="s" fx:id="step5VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="44.0" prefHeight="450.0" prefWidth="600.0" visible="false">
+        <VBox id="s" fx:id="step6VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null">
               <children>
                 <Label layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="114.0" text="Данные клиента" wrapText="false" />
-                <Button fx:id="goToPreviousStep4Button" layoutX="14.0" layoutY="376.0" mnemonicParsing="false" onAction="#goToPreviousStep4" prefHeight="30.0" prefWidth="144.0" text="Назад" />
-                <Button fx:id="createOrderButton" layoutX="442.0" layoutY="376.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="144.0" text="Оформить заказ" />
+                <Button id="goToPreviousStep4Button" fx:id="goToPreviousStep5Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep5" prefHeight="30.0" prefWidth="144.0" text="Назад" />
+                <Button fx:id="createOrderButton" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="144.0" text="Оформить заказ" />
                 <Label layoutX="38.0" layoutY="55.0" prefHeight="30.0" prefWidth="70.0" text="ФИО" wrapText="false" />
                 <TextField id="outerColor" fx:id="personalName" disable="false" editable="true" layoutX="128.0" layoutY="59.0" prefWidth="314.0" />
                 <Label layoutX="38.0" layoutY="100.0" prefHeight="30.0" prefWidth="70.0" text="Адрес" wrapText="false" />

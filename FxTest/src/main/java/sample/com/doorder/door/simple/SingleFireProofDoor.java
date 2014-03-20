@@ -86,22 +86,22 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 		LOGGER.info("Checking dimensions for inner metal list");
 		if (this.getY() - 40 >= 1000 && this.getY() - 40 <= 2060
 				&& this.getX() - 40 >= 500 && this.getX() - 40 <= 1050) {
-			LOGGER.info("Outer metal list: Dimensions OK");
+			LOGGER.info("Inner metal list: Dimensions OK");
 			this.innerMetalListPrice = Price.LIST_1x2x1_5.getPriceInUAH();
 		} else if (this.getY() - 40 >= 2061 && this.getY() - 40 <= 2550
 				&& this.getX() - 40 >= 500 && this.getX() - 40 <= 1050) {
-			LOGGER.info("Outer metal list: Dimensions OK");
+			LOGGER.info("Inner metal list: Dimensions OK");
 			this.innerMetalListPrice = Price.LIST_1_25x2_5x1_5.getPriceInUAH();
 		} else if (this.getY() - 40 >= 1000 && this.getY() - 40 <= 2060
 				&& this.getX() - 40 >= 1051 && this.getX() - 40 <= 1100) {
-			LOGGER.info("Outer metal list: Dimensions OK");
+			LOGGER.info("Inner metal list: Dimensions OK");
 			this.innerMetalListPrice = Price.LIST_1_25x2_5x1_5.getPriceInUAH();
 		} else if (this.getY() - 40 >= 2061 && this.getY() - 40 <= 2550
 				&& this.getX() - 40 >= 1051 && this.getX() - 40 <= 1100) {
-			LOGGER.info("Outer metal list: Dimensions OK");
+			LOGGER.info("Inner metal list: Dimensions OK");
 			this.innerMetalListPrice = Price.LIST_1_25x2_5x1_5.getPriceInUAH();
 		} else
-			throw new UnsupportedDimensions("Outer metal list", this.getY(), this.getX());
+			throw new UnsupportedDimensions("Inner metal list", this.getY(), this.getX());
 		totalPrice += innerMetalListPrice;
 		LOGGER.info("Finish calculating inner metal list, price: {}, total price: {}", innerMetalListPrice, totalPrice);
 	}
@@ -179,6 +179,8 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 
 	@Override
 	public void calcOuterDecoration(OuterDecorationType outerDecorationType) {
+        if (outerDecorationType.equals(InnerDecorationType.MDF10) || outerDecorationType.equals(InnerDecorationType.MDF16) && this.getY() > 2350)
+            throw new UnsupportedDimensions("Outer decoration", "Can't apply MDF decoration", String.valueOf(this.getY()));
         totalPrice -= outerDecorationPrice;
         outerDecoration.clear();
         switch (outerDecorationType) {
@@ -210,6 +212,8 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 
 	@Override
 	public void calcInnerDecoration(InnerDecorationType innerDecorationType) {
+        if (innerDecorationType.equals(InnerDecorationType.MDF10) || innerDecorationType.equals(InnerDecorationType.MDF16) && this.getY() > 2350)
+            throw new UnsupportedDimensions("Inner decoration", "Can't apply MDF decoration", String.valueOf(this.getY()));
         totalPrice -= innerDecorationPrice;
         innerDecoration.clear();
         switch (innerDecorationType) {
@@ -239,13 +243,13 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
         platband.clear();
         switch (platbandType) {
             case METAL_PAINTING_PF:
-                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY());
+                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY(), this.getClass());
                 break;
             case METAL_PAINTING_SHAGREEN:
-                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY());
+                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY(), this.getClass());
                 break;
             case METAL_PAINTING_ANTIC:
-                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY());
+                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
                 break;
         }
         platbandPrice = this.platband.getTotalPlatbandPrice();

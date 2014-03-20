@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.InnerDecorationType;
 import sample.com.doorder.door.OuterDecorationType;
+import sample.com.doorder.door.PlatbandType;
 import sample.com.doorder.door.Price;
 
 import java.math.BigDecimal;
@@ -348,4 +349,11 @@ public class DoubleDoorTopTransom extends SingleDoorTopSideTransom {
 		innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
 		totalPrice += innerDecorationPrice;
 	}
+
+    @Override
+    public void calcPlatband(PlatbandType platbandType) {
+        if (this.getY() > 3000)
+            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+        super.calcPlatband(platbandType);
+    }
 }

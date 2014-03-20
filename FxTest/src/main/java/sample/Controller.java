@@ -5,7 +5,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -20,10 +19,7 @@ import sample.com.doorder.door.LabelNames;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -74,22 +70,28 @@ public class Controller implements Initializable {
     public Label step3Label;
     public ComboBox<String> outerDecorationTypeCombo;
     public ComboBox<String> innerDecorationTypeCombo;
+    public ComboBox<String> outerTransomDecorationTypeCombo;
+    public ComboBox<String> innerTransomDecorationTypeCombo;
     public TextField outerColor;
     public TextField outerConfiguration;
     public TextField innerColor;
     public TextField innerConfiguration;
     public ComboBox<String> platbandTypeCombo;
     public TextField platbandWidth;
+    public Button goToPreviousStep2Button;
+    public Button goToNextStep4Button;
+
+    public VBox step4VBox;
     public ComboBox<String> mainLockCombo;
     public ComboBox<String> secondaryLockCombo;
     public ComboBox<String> handleCombo;
     public ComboBox<String> spyHoleCombo;
     public ComboBox<String> armourStrapCombo;
-    public Button goToPreviousStep2Button;
-    public Button goToNextStep4Button;
+    public Button goToPreviousStep3Button;
+    public Button goToNextStep5Button;
 
-    public VBox step4VBox;
-    public Label step4Label;
+    public VBox step5VBox;
+    public Label step5Label;
     public ComboBox<String> shippingCombo;
     public TextField shippingCostInput;
     public ToggleGroup packagingGroup = new ToggleGroup();
@@ -98,17 +100,19 @@ public class Controller implements Initializable {
     public ToggleGroup installationGroup = new ToggleGroup();
     public RadioButton installationYes;
     public RadioButton installationNo;
-    public Button goToPreviousStep3Button;
-    public Button goToNextStep5Button;
+    public Button goToPreviousStep4Button;
+    public Button goToNextStep6Button;
 
-    public VBox step5VBox;
-    public Label step5Label;
+    public VBox step6VBox;
+    public Label step6Label;
     public TextField personalName;
     public TextArea personalAddress;
     public TextField personalPhone;
     public TextArea personalNotes;
-    public Button goToPreviousStep4Button;
+    public Button goToPreviousStep5Button;
+
     public Button createOrderButton;
+    public static Label errorLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -120,6 +124,7 @@ public class Controller implements Initializable {
         step3VBox.setVisible(false);
         step4VBox.setVisible(false);
         step5VBox.setVisible(false);
+        step6VBox.setVisible(false);
 
         //step1
         doorTypeCombo.getItems().setAll(
@@ -147,6 +152,23 @@ public class Controller implements Initializable {
         });
         doorStructureTypeCombo.setDisable(true);
 
+        doorComplexityCategoryCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
+                if (newValue.equalsIgnoreCase(LabelNames.singleDoorTopTransom)
+                        || newValue.equalsIgnoreCase(LabelNames.singleDoorSideTransom)
+                        || newValue.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)
+                        || newValue.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)
+                        || newValue.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
+                    outerTransomDecorationTypeCombo.setDisable(false);
+                    innerTransomDecorationTypeCombo.setDisable(false);
+                } else {
+                    outerTransomDecorationTypeCombo.setDisable(true);
+                    innerTransomDecorationTypeCombo.setDisable(true);
+                }
+            }
+        });
+
         doorOpeningSideCombo.getItems().setAll(
                 LabelNames.leftOpeningDoor,
                 LabelNames.rightOpeningDoor
@@ -164,6 +186,9 @@ public class Controller implements Initializable {
 
         //step4
         initStep4();
+
+        //step5
+        initStep5();
 
     }
 
@@ -268,6 +293,10 @@ public class Controller implements Initializable {
         step4VBox.setVisible(false);
         step5VBox.setVisible(true);
     }
+    public void goToNextStep6() {
+        step5VBox.setVisible(false);
+        step6VBox.setVisible(true);
+    }
     public void goToPreviousStep1() {
         step2VBox.setVisible(false);
         step1VBox.setVisible(true);
@@ -283,6 +312,11 @@ public class Controller implements Initializable {
     public void goToPreviousStep4() {
         step5VBox.setVisible(false);
         step4VBox.setVisible(true);
+    }
+
+    public void goToPreviousStep5() {
+        step6VBox.setVisible(false);
+        step5VBox.setVisible(true);
     }
 
     private void initStep3() {
@@ -313,6 +347,11 @@ public class Controller implements Initializable {
             }
         });
 
+        outerTransomDecorationTypeCombo.getItems().setAll(
+            LabelNames.outerWithTransomDecoration,
+            LabelNames.outerNoTransomDecoration
+        );
+
         innerDecorationTypeCombo.getItems().setAll(
                 LabelNames.innerPlastic,
                 LabelNames.innerLaminatedPlastic,
@@ -338,6 +377,11 @@ public class Controller implements Initializable {
             }
         });
 
+        innerTransomDecorationTypeCombo.getItems().setAll(
+                LabelNames.innerWithTransomDecoration,
+                LabelNames.innerNoTransomDecoration
+        );
+
         platbandTypeCombo.getItems().setAll(
                 LabelNames.platbandWooden,
                 LabelNames.platbandShagreen,
@@ -357,6 +401,14 @@ public class Controller implements Initializable {
             }
         });
 
+        innerColor.setDisable(true);
+        outerColor.setDisable(true);
+        innerConfiguration.setDisable(true);
+        outerConfiguration.setDisable(true);
+        platbandWidth.setDisable(true);
+    }
+
+    private void initStep4() {
         mainLockCombo.getItems().setAll(
                 LabelNames.kale257,
                 LabelNames.kale189,
@@ -390,15 +442,9 @@ public class Controller implements Initializable {
                 LabelNames.spy10200,
                 LabelNames.noSpy
         );
-
-        innerColor.setDisable(true);
-        outerColor.setDisable(true);
-        innerConfiguration.setDisable(true);
-        outerConfiguration.setDisable(true);
-        platbandWidth.setDisable(true);
     }
 
-    private void initStep4() {
+    private void initStep5() {
         packagingYes.setToggleGroup(packagingGroup);
         packagingNo.setToggleGroup(packagingGroup);
         installationYes.setToggleGroup(installationGroup);
@@ -451,7 +497,8 @@ public class Controller implements Initializable {
                     LabelNames.innerPaintingShagreen,
                     LabelNames.innerPaintingAntic,
                     LabelNames.innermdf10,
-                    LabelNames.innermdf16
+                    LabelNames.innermdf16,
+                    LabelNames.innerNoTransomDecoration
             );
         } else if (doorType.equalsIgnoreCase(LabelNames.fireproofDoor)) {
             innerDecorationTypeCombo.getItems().clear();
@@ -460,7 +507,8 @@ public class Controller implements Initializable {
                     LabelNames.innerPaintingShagreen,
                     LabelNames.innerPaintingAntic,
                     LabelNames.innermdf10,
-                    LabelNames.innermdf16
+                    LabelNames.innermdf16,
+                    LabelNames.innerNoTransomDecoration
             );
         }
     }
@@ -527,6 +575,7 @@ public class Controller implements Initializable {
     }
 
     public void calculateDoorPrice(ActionEvent actionEvent) {
+        errorLabel.setText("");
         String resultString = DoorFactory.createDoor(
                 doorTypeCombo.getSelectionModel().getSelectedItem(),
                 doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
@@ -534,12 +583,14 @@ public class Controller implements Initializable {
                 x, y, x_1, y_1, x_2, x_3, platbandWidth,
                 innerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
                 outerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
-                platbandTypeCombo.getSelectionModel().getSelectedItem(),
-                mainLockCombo.getSelectionModel().getSelectedItem(),
-                secondaryLockCombo.getSelectionModel().getSelectedItem(),
-                handleCombo.getSelectionModel().getSelectedItem(),
-                armourStrapCombo.getSelectionModel().getSelectedItem(),
-                spyHoleCombo.getSelectionModel().getSelectedItem()
+                innerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                outerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                platbandTypeCombo.getSelectionModel().getSelectedItem()
+//                mainLockCombo.getSelectionModel().getSelectedItem(),
+//                secondaryLockCombo.getSelectionModel().getSelectedItem(),
+//                handleCombo.getSelectionModel().getSelectedItem(),
+//                armourStrapCombo.getSelectionModel().getSelectedItem(),
+//                spyHoleCombo.getSelectionModel().getSelectedItem()
         );
 
         Stage stage = new Stage();
