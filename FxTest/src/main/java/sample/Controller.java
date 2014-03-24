@@ -16,6 +16,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import price.Decryptor;
 import sample.com.doorder.door.LabelNames;
+import sample.com.doorder.door.types.DoorType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -459,8 +460,8 @@ public class Controller implements Initializable {
 
     private void updateDoorStructureTypeComboBox() {
         doorStructureTypeCombo.getItems().setAll(
-                LabelNames.angledDoor
-//                LabelNames.angledDoubleDoor,
+                LabelNames.angledDoor,
+                LabelNames.angledDoubleDoor
 //                LabelNames.door40x40,
 //                LabelNames.door50x30
         );

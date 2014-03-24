@@ -2,7 +2,15 @@ package sample;
 
 import javafx.scene.control.TextField;
 import sample.com.doorder.door.*;
-import sample.com.doorder.door.simple.*;
+import sample.com.doorder.door.angled.*;
+import sample.com.doorder.door.doubleframe.AngledDoubleFrameDoor;
+import sample.com.doorder.door.fireproof.DoubleFireProofDoor;
+import sample.com.doorder.door.fireproof.FireProofDoorImpl;
+import sample.com.doorder.door.fireproof.SingleFireProofDoor;
+import sample.com.doorder.door.types.AccessoriesType;
+import sample.com.doorder.door.types.InnerDecorationType;
+import sample.com.doorder.door.types.OuterDecorationType;
+import sample.com.doorder.door.types.PlatbandType;
 
 public class DoorFactory {
 
@@ -42,6 +50,178 @@ public class DoorFactory {
 //                    calcProtector(angledDoor, protectorType);
 //                    calcSpyHole(angledDoor, spyHoleType);
                     result = angledDoor.toString();
+                }
+                if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
+                    DoubleDoor doubleDoor = new DoubleDoor();
+                    doubleDoor.setX(Integer.parseInt(x.getText()));
+                    doubleDoor.setX_1(Integer.parseInt(x_1.getText()));
+                    doubleDoor.setY(Integer.parseInt(y.getText()));
+                    doubleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleDoor.calcMetalFrameParts();
+                    doubleDoor.calcMetalList();
+                    doubleDoor.calcSeal(true);
+                    doubleDoor.calcHeater(true);
+                    doubleDoor.calcHinge();
+                    calcInnerDecoration(doubleDoor, innerDecoration);
+                    calcOuterDecoration(doubleDoor, outerDecoration);
+                    calcPlatband(doubleDoor, platbandType);
+                    result = doubleDoor.toString();
+                }
+                if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorSideTransom)) {
+                    SingleDoorSideTransom singleDoorSideTransom = new SingleDoorSideTransom();
+                    singleDoorSideTransom.setX(Integer.parseInt(x.getText()));
+                    singleDoorSideTransom.setX_1(Integer.parseInt(x_1.getText()));
+                    singleDoorSideTransom.setY(Integer.parseInt(y.getText()));
+                    singleDoorSideTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorSideTransom.calcMetalFrameParts();
+                    singleDoorSideTransom.calcMetalList();
+                    singleDoorSideTransom.calcSeal(true);
+                    singleDoorSideTransom.calcHeater(true);
+                    singleDoorSideTransom.calcHinge();
+                    if (innerTransomDecoration.equals(LabelNames.innerWithTransomDecoration)) {
+                        calcInnerDecoration(singleDoorSideTransom, innerDecoration);
+                    } else {
+                        singleDoorSideTransom.calcInnerDecorationWithoutTopTransom(innerDecorationTypeBySelectedItem(innerDecoration));
+                    }
+                    if (outerTransomDecoration.equals(LabelNames.outerWithTransomDecoration)) {
+                        calcOuterDecoration(singleDoorSideTransom, outerDecoration);
+                    } else {
+                        singleDoorSideTransom.calcOuterDecorationWithoutTopTransom(outerDecorationTypeBySelectedItem(outerDecoration));
+                    }
+                    calcPlatband(singleDoorSideTransom, platbandType);
+                    result = singleDoorSideTransom.toString();
+                }
+                if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopTransom)) {
+                    SingleDoorTopTransom singleDoorTopTransom = new SingleDoorTopTransom();
+                    singleDoorTopTransom.setX(Integer.parseInt(x.getText()));
+                    singleDoorTopTransom.setY(Integer.parseInt(y.getText()));
+                    singleDoorTopTransom.setY_1(Integer.parseInt(y_1.getText()));
+                    singleDoorTopTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorTopTransom.calcMetalFrameParts();
+                    singleDoorTopTransom.calcMetalList();
+                    singleDoorTopTransom.calcSeal(true);
+                    singleDoorTopTransom.calcHeater(true);
+                    singleDoorTopTransom.calcHinge();
+                    if (innerTransomDecoration.equals(LabelNames.innerWithTransomDecoration)) {
+                        calcInnerDecoration(singleDoorTopTransom, innerDecoration);
+                    } else {
+                        singleDoorTopTransom.calcInnerDecorationWithoutTopTransom(innerDecorationTypeBySelectedItem(innerDecoration));
+                    }
+                    if (outerTransomDecoration.equals(LabelNames.outerWithTransomDecoration)) {
+                        calcOuterDecoration(singleDoorTopTransom, outerDecoration);
+                    } else {
+                        singleDoorTopTransom.calcOuterDecorationWithoutTopTransom(outerDecorationTypeBySelectedItem(outerDecoration));
+                    }
+                    calcPlatband(singleDoorTopTransom, platbandType);
+                    result = singleDoorTopTransom.toString();
+                }
+                if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)) {
+                    SingleDoorTopSideTransom singleDoorTopSideTransom = new SingleDoorTopSideTransom();
+                    singleDoorTopSideTransom.setX(Integer.parseInt(x.getText()));
+                    singleDoorTopSideTransom.setX_1(Integer.parseInt(x_1.getText()));
+                    singleDoorTopSideTransom.setY(Integer.parseInt(y.getText()));
+                    singleDoorTopSideTransom.setY_1(Integer.parseInt(y_1.getText()));
+                    singleDoorTopSideTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorTopSideTransom.setX_2(Integer.parseInt(x_2.getText()));
+                    singleDoorTopSideTransom.setX_3(Integer.parseInt(x_3.getText()));
+                    singleDoorTopSideTransom.calcMetalFrameParts();
+                    singleDoorTopSideTransom.calcMetalList();
+                    singleDoorTopSideTransom.calcSeal(true);
+                    singleDoorTopSideTransom.calcHeater(true);
+                    singleDoorTopSideTransom.calcHinge();
+                    if (innerTransomDecoration.equals(LabelNames.innerWithTransomDecoration)) {
+                        calcInnerDecoration(singleDoorTopSideTransom, innerDecoration);
+                    } else {
+                        singleDoorTopSideTransom.calcInnerDecorationWithoutTopSideTransom(innerDecorationTypeBySelectedItem(innerDecoration));
+                    }
+                    if (outerTransomDecoration.equals(LabelNames.outerWithTransomDecoration)) {
+                        calcOuterDecoration(singleDoorTopSideTransom, outerDecoration);
+                    } else {
+                        singleDoorTopSideTransom.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
+                    }
+                    calcInnerDecoration(singleDoorTopSideTransom, innerDecoration);
+                    calcOuterDecoration(singleDoorTopSideTransom, outerDecoration);
+                    calcPlatband(singleDoorTopSideTransom, platbandType);
+                    result = singleDoorTopSideTransom.toString();
+                }
+                if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
+                    DoubleDoorTopTransom doubleDoorTopTransom = new DoubleDoorTopTransom();
+                    doubleDoorTopTransom.setX(Integer.parseInt(x.getText()));
+                    doubleDoorTopTransom.setX_1(Integer.parseInt(x_1.getText()));
+                    doubleDoorTopTransom.setY(Integer.parseInt(y.getText()));
+                    doubleDoorTopTransom.setY_1(Integer.parseInt(y_1.getText()));
+                    doubleDoorTopTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleDoorTopTransom.calcMetalFrameParts();
+                    doubleDoorTopTransom.calcMetalList();
+                    doubleDoorTopTransom.calcSeal(true);
+                    doubleDoorTopTransom.calcHeater(true);
+                    doubleDoorTopTransom.calcHinge();
+                    if (innerTransomDecoration.equals(LabelNames.innerWithTransomDecoration)) {
+                        calcInnerDecoration(doubleDoorTopTransom, innerDecoration);
+                    } else {
+                        doubleDoorTopTransom.calcInnerDecorationWithoutTopSideTransom(innerDecorationTypeBySelectedItem(innerDecoration));
+                    }
+                    if (outerTransomDecoration.equals(LabelNames.outerWithTransomDecoration)) {
+                        calcOuterDecoration(doubleDoorTopTransom, outerDecoration);
+                    } else {
+                        doubleDoorTopTransom.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
+                    }
+                    calcInnerDecoration(doubleDoorTopTransom, innerDecoration);
+                    calcOuterDecoration(doubleDoorTopTransom, outerDecoration);
+                    calcPlatband(doubleDoorTopTransom, platbandType);
+                    result = doubleDoorTopTransom.toString();
+                }
+                if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)) {
+                    SingleDoorTwoSideTransom singleDoorTwoSideTransom = new SingleDoorTwoSideTransom();
+                    singleDoorTwoSideTransom.setX(Integer.parseInt(x.getText()));
+                    singleDoorTwoSideTransom.setX_1(Integer.parseInt(x_1.getText()));
+                    singleDoorTwoSideTransom.setY(Integer.parseInt(y.getText()));
+                    singleDoorTwoSideTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorTwoSideTransom.setX_2(Integer.parseInt(x_2.getText()));
+                    singleDoorTwoSideTransom.setX_3(Integer.parseInt(x_3.getText()));
+                    singleDoorTwoSideTransom.calcMetalFrameParts();
+                    singleDoorTwoSideTransom.calcMetalList();
+                    singleDoorTwoSideTransom.calcSeal(true);
+                    singleDoorTwoSideTransom.calcHeater(true);
+                    singleDoorTwoSideTransom.calcHinge();
+                    if (innerTransomDecoration.equals(LabelNames.innerWithTransomDecoration)) {
+                        calcInnerDecoration(singleDoorTwoSideTransom, innerDecoration);
+                    } else {
+                        singleDoorTwoSideTransom.calcInnerDecorationWithoutTopTransom(innerDecorationTypeBySelectedItem(innerDecoration));
+                    }
+                    if (outerTransomDecoration.equals(LabelNames.outerWithTransomDecoration)) {
+                        calcOuterDecoration(singleDoorTwoSideTransom, outerDecoration);
+                    } else {
+                        singleDoorTwoSideTransom.calcOuterDecorationWithoutTopTransom(outerDecorationTypeBySelectedItem(outerDecoration));
+                    }
+                    calcInnerDecoration(singleDoorTwoSideTransom, innerDecoration);
+                    calcOuterDecoration(singleDoorTwoSideTransom, outerDecoration);
+                    calcPlatband(singleDoorTwoSideTransom, platbandType);
+                    result = singleDoorTwoSideTransom.toString();
+                }
+            }
+
+            //angled door double frame
+            if (doorStructure.equalsIgnoreCase(LabelNames.angledDoubleDoor)) {
+                if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoor)) {
+                    AngledDoubleFrameDoor angledDoubleFrameDoor = new AngledDoubleFrameDoor();
+                    angledDoubleFrameDoor.setX(Integer.parseInt(x.getText()));
+                    angledDoubleFrameDoor.setY(Integer.parseInt(y.getText()));
+                    angledDoubleFrameDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    angledDoubleFrameDoor.calcMetalFrameParts();
+                    angledDoubleFrameDoor.calcMetalList();
+                    angledDoubleFrameDoor.calcSeal(true);
+                    angledDoubleFrameDoor.calcHeater(true);
+                    angledDoubleFrameDoor.calcHinge();
+                    calcInnerDecoration(angledDoubleFrameDoor, innerDecoration);
+                    calcOuterDecoration(angledDoubleFrameDoor, outerDecoration);
+                    calcPlatband(angledDoubleFrameDoor, platbandType);
+//                    calcMainLock(angledDoubleFrameDoor, mainLockType);
+//                    calcSecondaryLock(angledDoubleFrameDoor, secondaryLockType);
+//                    calcHandle(angledDoubleFrameDoor, handleType);
+//                    calcProtector(angledDoubleFrameDoor, protectorType);
+//                    calcSpyHole(angledDoubleFrameDoor, spyHoleType);
+                    result = angledDoubleFrameDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
                     DoubleDoor doubleDoor = new DoubleDoor();
@@ -233,7 +413,7 @@ public class DoorFactory {
         return result;
     }
 
-    private static void calcPlatband(AngledDoor angledDoor, String platbandType) {
+    private static void calcPlatband(SimpleDoor angledDoor, String platbandType) {
         if (platbandType.equalsIgnoreCase(LabelNames.platbandWooden))
             angledDoor.calcPlatband(PlatbandType.WOODEN);
         if (platbandType.equalsIgnoreCase(LabelNames.platbandShagreen))
@@ -257,7 +437,7 @@ public class DoorFactory {
             fireProofDoor.calcPlatband(PlatbandType.METAL_PAINTING_ANTIC);
     }
 
-    private static void calcOuterDecoration(AngledDoor angledDoor, String outerDecoration) {
+    private static void calcOuterDecoration(SimpleDoor angledDoor, String outerDecoration) {
         if (outerDecoration.equalsIgnoreCase(LabelNames.outerselfAdhesiveFilm))
             angledDoor.calcOuterDecoration(OuterDecorationType.SELF_ADHESIVE_FILM);
         if (outerDecoration.equalsIgnoreCase(LabelNames.outerantiLayer))
@@ -274,7 +454,7 @@ public class DoorFactory {
             angledDoor.calcOuterDecoration(OuterDecorationType.MDF16);
     }
 
-    private static void calcInnerDecoration(AngledDoor angledDoor, String innerDecoration) {
+    private static void calcInnerDecoration(SimpleDoor angledDoor, String innerDecoration) {
         if (innerDecoration.equalsIgnoreCase(LabelNames.innerPlastic))
             angledDoor.calcInnerDecoration(InnerDecorationType.PLASTIC);
         if (innerDecoration.equalsIgnoreCase(LabelNames.innerLaminatedPlastic))

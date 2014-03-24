@@ -1,5 +1,10 @@
 package sample.com.doorder.door;
 
+import sample.com.doorder.door.types.AccessoriesType;
+import sample.com.doorder.door.types.InnerDecorationType;
+import sample.com.doorder.door.types.OuterDecorationType;
+import sample.com.doorder.door.types.PlatbandType;
+
 public interface MetalDoor extends Door {
 
     void calcMetalFrameParts();
