@@ -6,7 +6,7 @@ import sample.com.doorder.door.UnsupportedDimensions;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class SingleTopTransomDoubleFrameOuterDecoration extends AngledDoubleFrameOuterDecoration {
+public class DoubleFrameSingleTopTransomDoorOuterDecoration extends DoubleFrameAngledDoorOuterDecoration {
 
     public void calcSelfAdhesiveFilmWithoutTopTransom(int x, int y, int y_1) {
         LOGGER.info("Start calculating outer decoration without top transom");

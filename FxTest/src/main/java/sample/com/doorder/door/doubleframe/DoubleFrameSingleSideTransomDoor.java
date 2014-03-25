@@ -4,27 +4,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.SingleDoorSideTransomInnerDesoration;
-import sample.com.doorder.door.angled.SingleDoorSideTransomOuterDecoration;
-import sample.com.doorder.door.angled.SingleDoorTopTransom;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class SingleSideTransomDoubleFrame extends AngledDoubleFrameDoor {
+public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(SingleSideTransomDoubleFrame.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(DoubleFrameSingleSideTransomDoor.class);
     public static final int HINGE_NUMBER = 2;
 
     protected int x_1;
-    private SingleSideTransomDoubleFrameInnerDecoration innerDecoration;
-    private SingleSideTransomDoubleFrameOuterDecoration outerDecoration;
+    private DoubleFrameSingleSideTransomDoorInnerDecoration innerDecoration;
+    private DoubleFrameSingleSideTransomDoorOuterDecoration outerDecoration;
 
-    public SingleSideTransomDoubleFrame() {
-        this.outerDecoration = new SingleSideTransomDoubleFrameOuterDecoration();
-        this.innerDecoration = new SingleSideTransomDoubleFrameInnerDecoration();
+    public DoubleFrameSingleSideTransomDoor() {
+        this.outerDecoration = new DoubleFrameSingleSideTransomDoorOuterDecoration();
+        this.innerDecoration = new DoubleFrameSingleSideTransomDoorInnerDecoration();
     }
 
     @Override

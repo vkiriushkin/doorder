@@ -7,7 +7,7 @@ import sample.com.doorder.door.angled.InnerDecoration;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class DoubleDoubleFrameInnerDecoration extends InnerDecoration {
+public class DoubleFrameDoubleDoorInnerDecoration extends InnerDecoration {
 
     @Override
     public void calcPlastic(int x, int y) {

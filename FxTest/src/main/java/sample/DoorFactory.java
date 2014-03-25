@@ -3,7 +3,7 @@ package sample;
 import javafx.scene.control.TextField;
 import sample.com.doorder.door.*;
 import sample.com.doorder.door.angled.*;
-import sample.com.doorder.door.doubleframe.AngledDoubleFrameDoor;
+import sample.com.doorder.door.doubleframe.DoubleFrameAngledDoor;
 import sample.com.doorder.door.fireproof.DoubleFireProofDoor;
 import sample.com.doorder.door.fireproof.FireProofDoorImpl;
 import sample.com.doorder.door.fireproof.SingleFireProofDoor;
@@ -204,24 +204,24 @@ public class DoorFactory {
             //angled door double frame
             if (doorStructure.equalsIgnoreCase(LabelNames.angledDoubleDoor)) {
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoor)) {
-                    AngledDoubleFrameDoor angledDoubleFrameDoor = new AngledDoubleFrameDoor();
-                    angledDoubleFrameDoor.setX(Integer.parseInt(x.getText()));
-                    angledDoubleFrameDoor.setY(Integer.parseInt(y.getText()));
-                    angledDoubleFrameDoor.setZ(Integer.parseInt(platbandWidth.getText()));
-                    angledDoubleFrameDoor.calcMetalFrameParts();
-                    angledDoubleFrameDoor.calcMetalList();
-                    angledDoubleFrameDoor.calcSeal(true);
-                    angledDoubleFrameDoor.calcHeater(true);
-                    angledDoubleFrameDoor.calcHinge();
-                    calcInnerDecoration(angledDoubleFrameDoor, innerDecoration);
-                    calcOuterDecoration(angledDoubleFrameDoor, outerDecoration);
-                    calcPlatband(angledDoubleFrameDoor, platbandType);
-//                    calcMainLock(angledDoubleFrameDoor, mainLockType);
-//                    calcSecondaryLock(angledDoubleFrameDoor, secondaryLockType);
-//                    calcHandle(angledDoubleFrameDoor, handleType);
-//                    calcProtector(angledDoubleFrameDoor, protectorType);
-//                    calcSpyHole(angledDoubleFrameDoor, spyHoleType);
-                    result = angledDoubleFrameDoor.toString();
+                    DoubleFrameAngledDoor doubleFrameAngledDoor = new DoubleFrameAngledDoor();
+                    doubleFrameAngledDoor.setX(Integer.parseInt(x.getText()));
+                    doubleFrameAngledDoor.setY(Integer.parseInt(y.getText()));
+                    doubleFrameAngledDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameAngledDoor.calcMetalFrameParts();
+                    doubleFrameAngledDoor.calcMetalList();
+                    doubleFrameAngledDoor.calcSeal(true);
+                    doubleFrameAngledDoor.calcHeater(true);
+                    doubleFrameAngledDoor.calcHinge();
+                    calcInnerDecoration(doubleFrameAngledDoor, innerDecoration);
+                    calcOuterDecoration(doubleFrameAngledDoor, outerDecoration);
+                    calcPlatband(doubleFrameAngledDoor, platbandType);
+//                    calcMainLock(doubleFrameAngledDoor, mainLockType);
+//                    calcSecondaryLock(doubleFrameAngledDoor, secondaryLockType);
+//                    calcHandle(doubleFrameAngledDoor, handleType);
+//                    calcProtector(doubleFrameAngledDoor, protectorType);
+//                    calcSpyHole(doubleFrameAngledDoor, spyHoleType);
+                    result = doubleFrameAngledDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
                     DoubleDoor doubleDoor = new DoubleDoor();

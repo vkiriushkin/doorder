@@ -7,7 +7,7 @@ import sample.com.doorder.door.UnsupportedDimensions;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class SingleTopTransomDoubleFrameInnerDecoration extends AngledDoubleFrameInnerDecoration {
+public class DoubleFrameSingleTopTransomDoorInnerDecoration extends DoubleFrameAngledDoorInnerDecoration {
 
     public void calcPlastic(int x, int y) {
         LOGGER.info("Start calculating inner decoration");

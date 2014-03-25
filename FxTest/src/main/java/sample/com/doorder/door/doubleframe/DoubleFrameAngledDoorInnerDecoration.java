@@ -9,9 +9,9 @@ import sample.com.doorder.door.angled.InnerDecoration;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class AngledDoubleFrameInnerDecoration extends InnerDecoration{
+public class DoubleFrameAngledDoorInnerDecoration extends InnerDecoration{
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(AngledDoubleFrameInnerDecoration.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(DoubleFrameAngledDoorInnerDecoration.class);
 
     protected double plastic;
     protected double laminate;
@@ -23,7 +23,7 @@ public class AngledDoubleFrameInnerDecoration extends InnerDecoration{
     protected double paintingAntic;
     protected double totalInnerDecorationPrice;
 
-    public AngledDoubleFrameInnerDecoration() {
+    public DoubleFrameAngledDoorInnerDecoration() {
     }
 
     public void calcPlastic(int x, int y) {

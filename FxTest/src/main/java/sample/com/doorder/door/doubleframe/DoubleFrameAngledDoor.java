@@ -2,7 +2,6 @@ package sample.com.doorder.door.doubleframe;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sample.com.doorder.door.Accessories;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
 import sample.com.doorder.door.angled.Platband;
@@ -13,21 +12,20 @@ import sample.com.doorder.door.types.PlatbandType;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
+public class DoubleFrameAngledDoor extends DoubleFrameDoor {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(DoubleDoubleFrameDoor.class);
-    public static final int HINGE_NUMBER = 4;
+    public static final Logger LOGGER = LoggerFactory.getLogger(DoubleFrameAngledDoor.class);
+    public static final int HINGE_NUMBER = 2;
 
-    protected int x_1;
-
-    protected DoubleDoubleFrameInnerDecoration innerDecoration;
-    protected DoubleDoubleFrameOuterDecoration outerDecoration;
+    protected DoubleFrameAngledDoorInnerDecoration innerDecoration;
+    protected DoubleFrameAngledDoorOuterDecoration outerDecoration;
     private Platband platband;
 
-    public DoubleDoubleFrameDoor() {
+
+    public DoubleFrameAngledDoor() {
         super();
-        this.innerDecoration = new DoubleDoubleFrameInnerDecoration();
-        this.outerDecoration = new DoubleDoubleFrameOuterDecoration();
+        this.innerDecoration = new DoubleFrameAngledDoorInnerDecoration();
+        this.outerDecoration = new DoubleFrameAngledDoorOuterDecoration();
         this.platband = new Platband();
     }
 
@@ -46,11 +44,9 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
     private void calcL50x4Part() {
         LOGGER.info("Checking dimensions for L50x4");
         if (this.getY() >= 1000 && this.getY() <= 2450
-                && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() >= getX() / 2 && this.getX_1() <= 1200
-                && this.getX() - this.getX_1() >= 150) {
+                && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("L50x4: Dimensions OK");
-            BigDecimal bd = new BigDecimal(((double) this.getX() + this.getY()) * 2 * 1.1 / 1000 * Price.ANGLE_50x20.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.ANGLE_50x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_L50x4_Price = bd.doubleValue();
         } else
@@ -70,56 +66,42 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
     private void calcPipe50x30() {
         LOGGER.info("Checking dimensions for 50x30");
         if (this.getY() >= 1000 && this.getY() <= 2450
-                && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() >= getX() / 2 && this.getX_1() <= 1200
-                && this.getX() - this.getX_1() >= 150) {
+                && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("50x30: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_50x30_Price = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("50x30", this.getY(), this.getX());
 
-        metalFramesPartsTotalPrice += metal_L50x4_Price;
+        metalFramesPartsTotalPrice += metal_50x30_Price;
         LOGGER.info("Finish calculating metal 50x30 parts, price: {}, total price: {}", metal_50x30_Price, totalPrice);
     }
 
     private void calcPipe20x20() {
         LOGGER.info("Checking dimensions for pipe 20x20");
         if (this.getY() >= 1000 && this.getY() <= 2060
-                && this.getX() >= 1201 && this.getX() <= 1500) {
+                && this.getX() >= 500 && this.getX() <= 900) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 3 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            BigDecimal bd = new BigDecimal((double)(2 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_20x20_Price = bd.doubleValue();
         } else if (this.getY() >= 2061 && this.getY() <= 2450
-                && this.getX() >= 1201 && this.getX() <= 1500) {
+                && this.getX() >= 500 && this.getX() <= 900) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            BigDecimal bd = new BigDecimal((3 * (double) this.getX() + 3 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(((double)3 * this.getX() + this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_20x20_Price = bd.doubleValue();
         } else if (this.getY() >= 1000 && this.getY() <= 2060
-                && this.getX() >= 800 && this.getX() <= 1200) {
+                && this.getX() >= 901 && this.getX() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            BigDecimal bd = new BigDecimal((double)(this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_20x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_20x20_Price = bd.doubleValue();
         } else if (this.getY() >= 2061 && this.getY() <= 2450
-                && this.getX() >= 800 && this.getX() <= 1200) {
+                && this.getX() >= 901 && this.getX() <= 1200) {
             LOGGER.info("Pipe 20x20: Dimensions OK");
-            BigDecimal bd = new BigDecimal((3 * (double) this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_20x20_Price = bd.doubleValue();
-        } else if (this.getY() >= 1000 && this.getY() <= 2060
-                && this.getX() >= 1501 && this.getX() <= 1950) {
-            LOGGER.info("Pipe 20x20: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_20x20_Price = bd.doubleValue();
-        } else if (this.getY() >= 2061 && this.getY() <= 2450
-                && this.getX() >= 1501 && this.getX() <= 1950) {
-            LOGGER.info("Pipe 20x20: Dimensions OK");
-            BigDecimal bd = new BigDecimal((3 * (double) this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
+            BigDecimal bd = new BigDecimal((double)(3 * this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_20x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_20x20_Price = bd.doubleValue();
         } else
@@ -132,11 +114,9 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
     private void calcPipe25x25() {
         LOGGER.info("Checking dimensions for 25x25");
         if (this.getY() >= 1000 && this.getY() <= 2450
-                && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() >= getX() / 2 && this.getX_1() <= 1200
-                && this.getX() - this.getX_1() >= 150) {
+                && this.getX() >= 500 && this.getX() <= 1200) {
             LOGGER.info("25x25: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_25x25.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_25x25_Price = bd.doubleValue();
         } else
@@ -151,33 +131,21 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
         LOGGER.info("Start calculating metal list price");
         LOGGER.info("Checking dimensions for metal list");
         if (this.getY() >= 1000 && this.getY() <= 2030
-                && this.getX() >= 800 && this.getX() <= 950) {
+                && this.getX() >= 500 && this.getX() <= 960) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1x2.getPriceInUAH();
         } else if (this.getY() >= 2031 && this.getY() <= 2450
-                && this.getX() >= 800 && this.getX() <= 950) {
+                && this.getX() >= 500 && this.getX() <= 960) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
         } else if (this.getY() >= 1000 && this.getY() <= 2030
-                && this.getX() >= 951 && this.getX() <= 1200) {
+                && this.getX() >= 961 && this.getX() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
         } else if (this.getY() >= 2031 && this.getY() <= 2450
-                && this.getX() >= 951 && this.getX() <= 1200) {
+                && this.getX() >= 961 && this.getX() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
             this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
-        } else if (this.getY() >= 1000 && this.getY() <= 2030
-                && this.getX() >= 1201 && this.getX() <= 1950) {
-            LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() * 1.5);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metalListPrice = bd.doubleValue();
-        } else if (this.getY() >= 2031 && this.getY() <= 2450
-                && this.getX() >= 1201 && this.getX() <= 1950) {
-            LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH() * 1.5);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metalListPrice = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("Metal list", this.getY(), this.getX());
 
@@ -196,19 +164,33 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
     @Override
     public void calcHeater(boolean heaterNeeded) {
         LOGGER.info("Start calculating heater price");
-        BigDecimal bd = new BigDecimal((double) this.getY() * this.getX() / 1000000 * Price.HEATER.getPriceInUAH());
-        bd = bd.setScale(2, RoundingMode.HALF_UP);
-        double price = heaterNeeded ? bd.doubleValue() : 0.0;
-        this.heaterPrice = price;
+        LOGGER.info("Checking dimensions for heater");
+        if (this.getY() >= 1000 && this.getY() <= 2450
+                && this.getX() >= 500 && this.getX() <= 1200) {
+            LOGGER.info("Heater: Dimensions OK");
+            BigDecimal bd = new BigDecimal((double)this.getY() * this.getX() / 1000000 * Price.HEATER.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            double price = heaterNeeded ? bd.doubleValue() : 0.0;
+            this.heaterPrice = price ;
+        } else
+            throw new UnsupportedDimensions("Heater", this.getY(), this.getX());
+
     }
 
     @Override
     public void calcSeal(boolean sealNeeded) {
         LOGGER.info("Start calculating seal price");
-        BigDecimal bd = new BigDecimal((3 * (double) this.getY() + 2 * this.getX()) * 2 / 1000 * Price.SEAL.getPriceInUAH());
-        bd = bd.setScale(2, RoundingMode.HALF_UP);
-        double price = sealNeeded ? bd.doubleValue() : 0.0;
-        this.sealPrice = price;
+        LOGGER.info("Checking dimensions for seal");
+        if (this.getY() >= 1000 && this.getY() <= 2450
+                && this.getX() >= 500 && this.getX() <= 1200) {
+            LOGGER.info("Seal: Dimensions OK");
+            BigDecimal bd = new BigDecimal(((double)this.getY() + this.getX()) * 4 * 1.1 / 1000 * Price.SEAL.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            double price = sealNeeded ? bd.doubleValue() : 0.0;
+            this.sealPrice = price;
+        } else
+            throw new UnsupportedDimensions("Seal", this.getY(), this.getX());
+
         totalPrice += sealPrice;
         LOGGER.info("Finish calculating seal, price: {}, total price: {}", sealPrice, totalPrice);
 
@@ -270,8 +252,7 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
                 break;
         }
         innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
-        totalPrice += innerDecorationPrice;
-    }
+        totalPrice += innerDecorationPrice;    }
 
     @Override
     public void calcPlatband(PlatbandType platbandType) {
@@ -301,7 +282,4 @@ public class DoubleDoubleFrameDoor extends DoubleFrameDoor {
         totalPrice += platbandPrice;
     }
 
-    public int getX_1() {
-        return x_1;
-    }
 }

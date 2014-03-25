@@ -11,17 +11,17 @@ import sample.com.doorder.door.types.PlatbandType;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class SingleTopTransomDoubleFrame extends AngledDoubleFrameDoor {
+public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(SingleTopTransomDoubleFrame.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(DoubleFrameSingleTopTransomDoor.class);
 
     private int y_1;
-    private SingleTopTransomDoubleFrameInnerDecoration innerDecoration;
-    private SingleTopTransomDoubleFrameOuterDecoration outerDecoration;
+    private DoubleFrameSingleTopTransomDoorInnerDecoration innerDecoration;
+    private DoubleFrameSingleTopTransomDoorOuterDecoration outerDecoration;
 
-    public SingleTopTransomDoubleFrame() {
-        this.innerDecoration = new SingleTopTransomDoubleFrameInnerDecoration();
-        this.outerDecoration = new SingleTopTransomDoubleFrameOuterDecoration();
+    public DoubleFrameSingleTopTransomDoor() {
+        this.innerDecoration = new DoubleFrameSingleTopTransomDoorInnerDecoration();
+        this.outerDecoration = new DoubleFrameSingleTopTransomDoorOuterDecoration();
     }
 
     @Override

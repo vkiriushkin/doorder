@@ -241,7 +241,7 @@ public class SingleDoorTopSideTransomOuterDecoration extends OuterDecoration {
 		if (y_1 < 1000 || y_1 > 2350)
 			throw new UnsupportedDimensions("MDF_10", y, x);
 		LOGGER.info("MDF_10: dimension OK");
-		if (y_1 >= 100 && y_1 <= 2050) {
+		if (y_1 >= 1000 && y_1 <= 2050) {
 			BigDecimal bd = new BigDecimal(((double) x * y / 1000000) * Price.MDF_10.getPriceInUAH()
 					+ (((double)x + y) * 2 * 0.1
 					+ ((double)y_1 + x_1) * 2 * 0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
