@@ -229,7 +229,7 @@ public class DoubleDoorTopTransomOuterDecoration extends SingleDoorTopSideTranso
 		if (x >= 800 && x <= 1200) {
 			double material = 1.25 * y_1 / 1000 * Price.ANTI_LAYER.getPriceInUAH()
 					+ (((double) y - y_1) * x + (x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
-					+ (((double) x + y) * 2 * 0.1 + (x_1 + y_1) * 2 * 0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+					+ (((double) x + y) * 2 * 0.1 + (x_1 + y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
 			antiLayer = material;
 			totalOuterDecorationPrice += antiLayer;
 		}
