@@ -151,14 +151,14 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY() >= 1000 && this.getY() <= 2030
-				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
+				&& this.getX_1() >= 961 && this.getX_1() <= 1250) {
 			LOGGER.info("Metal list: Dimensions OK");
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
 					+ ((double)this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY() >= 2031 && this.getY() <= 2450
-				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
+				&& this.getX_1() >= 961 && this.getX_1() <= 1250) {
 			LOGGER.info("Metal list: Dimensions OK");
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
 					+ ((double)this.getX() - x_1) * this.getY() * Price.LIST_M2.getPriceInUAH() / 1000000);

@@ -175,10 +175,10 @@ public class SingleDoorSideTransomOuterDecoration extends OuterDecoration {
         LOGGER.info("Start calculating outer decoration without top transom");
         clear();
         LOGGER.info("Checking dimensions for anti layer without top transom");
-        if (x < 500 || x > 1200)
+        if (x_1 < 500 || x_1 > 1200)
             throw new UnsupportedDimensions("Anti layer without top transom", y, x);
         LOGGER.info("Anti layer: dimension OK without top transom");
-        if (x >= 500 && x <= 1200) {
+        if (x_1 >= 500 && x_1 <= 1200) {
 	        BigDecimal bd = new BigDecimal(1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
 			        + ((double)x - x_1) * y* Price.PAINTING_PF.getPriceInUAH() / 1000000
 			        + (((double)x + y) * 2 * 0.1

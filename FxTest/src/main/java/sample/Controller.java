@@ -508,8 +508,7 @@ public class Controller implements Initializable {
                     LabelNames.innerPaintingShagreen,
                     LabelNames.innerPaintingAntic,
                     LabelNames.innermdf10,
-                    LabelNames.innermdf16,
-                    LabelNames.innerNoTransomDecoration
+                    LabelNames.innermdf16
             );
         }
     }
