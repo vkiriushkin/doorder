@@ -16,7 +16,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import price.Decryptor;
 import sample.com.doorder.door.LabelNames;
-import sample.com.doorder.door.types.DoorType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,8 +31,20 @@ public class Controller implements Initializable {
     public AnchorPane doorsAnchorPane;
     public Pane lockerTypesPane;
     public AnchorPane lockerAnchorPane;
+
     public Pane accessoriesPane;
+    public Button showSeparateHandlersPane;
+    public Button showHandlersOnPlankPane;
+    public Button showArmouredPane;
+    public Button showSpyHolePane;
+    public Pane separateHandlersPane;
+    public Pane handlersOnPlankPane;
+    public Pane armouredPane;
+    public Pane spyHolePane;
+
     public Pane orderPane;
+
+
 
     public Group apecs2000Group;
     public Group kale2000Group;

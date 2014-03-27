@@ -41,7 +41,7 @@
         <Font size="20.0" fx:id="x2" />
       </font>
     </Label>
-    <Pane fx:id="orderPane" prefHeight="500.0" prefWidth="600.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <Pane fx:id="orderPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
           <children>
@@ -213,6 +213,51 @@
             </Pane>
           </children>
         </VBox>
+      </children>
+    </Pane>
+    <Pane id="orderPane" fx:id="accessoriesPane" prefHeight="500.0" prefWidth="600.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
+          <children>
+            <Button fx:id="showSeparateHandlersPane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Ручки раздельные" />
+            <Button fx:id="showHandlersOnPlankPane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Ручки на планке" />
+            <Button fx:id="showArmouredPane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Броненакладки" />
+            <Button fx:id="showSpyHolePane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Глазки" />
+          </children>
+        </HBox>
+        <Pane fx:id="separateHandlersPane" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0">
+          <children>
+            <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="439.0" prefWidth="600.0">
+              <children>
+                <ImageView fitHeight="261.0" fitWidth="261.0" focusTraversable="false" layoutX="20.0" layoutY="8.0" mouseTransparent="false" pickOnBounds="false" preserveRatio="true">
+                  <image>
+                    <Image url="@apecsChrome.png" />
+                  </image>
+                </ImageView>
+                <ImageView fitHeight="261.0" fitWidth="261.0" layoutX="325.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@apecsGold.png" />
+                  </image>
+                </ImageView>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="314.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Ручка раздельная Apecs золото" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Ручка раздельная Apecs хром" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="15.0" layoutY="220.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="259.0" prefHeight="26.0" prefWidth="200.0" text="Материал внутренней розетки" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="285.0" prefHeight="26.0" prefWidth="200.0" text="Тип установки накладки" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="337.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="363.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="389.0" prefHeight="26.0" prefWidth="200.0" text="Комбинированный цвет" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="232.0" layoutY="259.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="232.0" layoutY="285.0" prefHeight="26.0" prefWidth="200.0" text="С резьбой" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Алюминий" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="337.0" prefHeight="26.0" prefWidth="200.0" text="Гальваника" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="363.0" prefHeight="26.0" prefWidth="200.0" text="Хром/Золото" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="232.0" layoutY="389.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+              </children>
+            </AnchorPane>
+          </children>
+        </Pane>
       </children>
     </Pane>
   </children>
