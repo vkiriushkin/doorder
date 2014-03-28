@@ -472,8 +472,8 @@ public class Controller implements Initializable {
     private void updateDoorStructureTypeComboBox() {
         doorStructureTypeCombo.getItems().setAll(
                 LabelNames.angledDoor,
-                LabelNames.angledDoubleDoor
-//                LabelNames.door40x40,
+                LabelNames.angledDoubleDoor,
+                LabelNames.door40x40
 //                LabelNames.door50x30
         );
     }

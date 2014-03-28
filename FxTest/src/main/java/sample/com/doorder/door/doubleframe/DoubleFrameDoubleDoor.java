@@ -303,4 +303,8 @@ public class DoubleFrameDoubleDoor extends DoubleFrameDoor {
     public int getX_1() {
         return x_1;
     }
+
+	public void setX_1(int x_1) {
+		this.x_1 = x_1;
+	}
 }

@@ -1,10 +1,10 @@
 package sample.com.doorder.door.armour4040;
 
 import sample.com.doorder.door.Accessories;
-import sample.com.doorder.door.MetalDoor;
+import sample.com.doorder.door.SimpleDoor;
 import sample.com.doorder.door.types.AccessoriesType;
 
-public abstract class Armour4040Door implements MetalDoor {
+public abstract class Armour4040Door extends SimpleDoor {
 
 	protected double totalPrice;
 	protected double metalFramesPartsTotalPrice;
