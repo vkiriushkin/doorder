@@ -263,8 +263,7 @@ public class DoubleFrameSingleTwoSideAndTopTransomDoorOuterDecoration extends Ou
             BigDecimal bd = new BigDecimal(((double) y_1 * x_1 / 1000000) * Price.MDF_10.getPriceInUAH()
                     + (((double)y - y_1) * x
                     + ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.1
-                    + ((double)x_1 + y_1) * 2 * 0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.07) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;

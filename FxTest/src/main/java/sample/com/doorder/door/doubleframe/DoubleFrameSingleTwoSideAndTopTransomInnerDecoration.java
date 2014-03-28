@@ -143,7 +143,7 @@ public class DoubleFrameSingleTwoSideAndTopTransomInnerDecoration extends InnerD
         LOGGER.info("Start calculating inner decoration");
         clear();
         LOGGER.info("Checking dimensions for painting shagreen");
-        if (x_1 - 40 < 500 || x_1 - 40 > 1950 || y_1 - 40 < 1000 || y_1 - 40 > 2450)
+        if (x_1 - 40 < 500 || x_1 - 40 > 1200 || y_1 - 40 < 1000 || y_1 - 40 > 2450)
             throw new UnsupportedDimensions("Painting PF", y, x);
         LOGGER.info("Painting shagreen: dimension OK");
         if ((x_1 - 40) >= 500 && (x_1 - 40) <= 960 && (y_1 - 40) >= 1000 && (y_1 - 40) <= 2030) {
@@ -235,7 +235,7 @@ public class DoubleFrameSingleTwoSideAndTopTransomInnerDecoration extends InnerD
         LOGGER.info("Start calculating inner decoration");
         clear();
         LOGGER.info("Checking dimensions for painting antic");
-        if (x_1 - 40 < 500 || x_1 - 40 > 1950 || y_1 - 40 < 1000 || y_1 - 40 > 2450)
+        if (x_1 - 40 < 500 || x_1 - 40 > 1200 || y_1 - 40 < 1000 || y_1 - 40 > 2450)
             throw new UnsupportedDimensions("Painting PF", y, x);
         LOGGER.info("Painting antic: dimension OK");
         if ((x_1 - 40) >= 500 && (x_1 - 40) <= 960 && (y_1 - 40) >= 1000 && (y_1 - 40) <= 2030) {
