@@ -18,8 +18,6 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
     public static final int HINGE_NUMBER = 4;
 
     protected int x_1;
-    protected int x_2;
-    protected int x_3;
     protected int y_1;
 
     protected DoubleFrameDoubleTopTransomDoorInnerDecoration innerDecoration;
@@ -37,7 +35,6 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
-        checkDimensions();
         calcL50x4Part();
         calcPipe40x40();
         calcPipe50x30();
@@ -45,16 +42,6 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
         calcPipe25x25();
         totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
-    }
-
-    private void checkDimensions() {
-        if (x_2 < 150)
-            throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
-        if (x_3 < 150)
-            throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
-        if (this.getX() != (x_1 + x_2 + x_3))
-            throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
-                    String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
     }
 
     private void calcL50x4Part() {
@@ -424,22 +411,6 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
 
     public void setX_1(int x_1) {
         this.x_1 = x_1;
-    }
-
-    public int getX_2() {
-        return x_2;
-    }
-
-    public void setX_2(int x_2) {
-        this.x_2 = x_2;
-    }
-
-    public int getX_3() {
-        return x_3;
-    }
-
-    public void setX_3(int x_3) {
-        this.x_3 = x_3;
     }
 
     public int getY_1() {

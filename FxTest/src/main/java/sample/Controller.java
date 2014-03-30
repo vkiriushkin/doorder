@@ -28,15 +28,13 @@ public class Controller implements Initializable {
     public static Stage primaryStage;
 
     public Pane doorTypesPane;
-    public AnchorPane doorsAnchorPane;
+    public Pane angledDoorsPane;
+    public Pane fireproofDoorsPane;
+
     public Pane lockerTypesPane;
     public AnchorPane lockerAnchorPane;
 
     public Pane accessoriesPane;
-    public Button showSeparateHandlersPane;
-    public Button showHandlersOnPlankPane;
-    public Button showArmouredPane;
-    public Button showSpyHolePane;
     public Pane separateHandlersPane;
     public Pane handlersOnPlankPane;
     public Pane armouredPane;
@@ -545,25 +543,6 @@ public class Controller implements Initializable {
         }
     }
 
-    public void showDoorTypesPane(ActionEvent actionEvent) {
-        orderPane.setVisible(false);
-        lockerTypesPane.setVisible(false);
-        doorTypesPane.setVisible(true);
-    }
-
-    public void showMetalDoorGroup(ActionEvent actionEvent) {
-        fireProofGroup.setVisible(false);
-        metalDoorGroup.setVisible(true);
-        doorsAnchorPane.setPrefHeight(metalDoorGroup.getLayoutBounds().getHeight());
-    }
-
-    public void showFireProofGroup(ActionEvent actionEvent) {
-        metalDoorGroup.setVisible(false);
-        fireProofGroup.setVisible(true);
-        doorsAnchorPane.setPrefHeight(fireProofGroup.getLayoutBounds().getHeight());
-        doorsAnchorPane.setMaxHeight(fireProofGroup.getLayoutBounds().getHeight());
-    }
-
     public void showLockerTypesPane(ActionEvent actionEvent) {
         orderPane.setVisible(false);
         doorTypesPane.setVisible(false);
@@ -579,10 +558,64 @@ public class Controller implements Initializable {
         brokenPriceLabel.setVisible(true);
     }
 
+    public void showDoorTypesPane(ActionEvent actionEvent) {
+        orderPane.setVisible(false);
+        accessoriesPane.setVisible(false);
+//        lockerTypesPane.setVisible(false);
+        doorTypesPane.setVisible(true);
+    }
+
+    public void showMetalDoorPane(ActionEvent actionEvent) {
+        fireproofDoorsPane.setVisible(false);
+        angledDoorsPane.setVisible(true);
+    }
+
+    public void showFireProofPane(ActionEvent actionEvent) {
+        angledDoorsPane.setVisible(false);
+        fireproofDoorsPane.setVisible(true);
+    }
+
     public void showOrderPane(ActionEvent actionEvent) {
+//        doorTypesPane.setVisible(false);
+//        lockerTypesPane.setVisible(false);
+        accessoriesPane.setVisible(false);
         doorTypesPane.setVisible(false);
-        lockerTypesPane.setVisible(false);
         orderPane.setVisible(true);
+    }
+
+    public void showAccessoriesPane(ActionEvent actionEvent) {
+//        lockerTypesPane.setVisible(false);
+        doorTypesPane.setVisible(false);
+        orderPane.setVisible(false);
+        accessoriesPane.setVisible(true);
+    }
+
+    public void showSeparateHandlersPane(ActionEvent actionEvent) {
+        handlersOnPlankPane.setVisible(false);
+        armouredPane.setVisible(false);
+        spyHolePane.setVisible(false);
+        separateHandlersPane.setVisible(true);
+    }
+
+    public void showHandlersOnPanePane(ActionEvent actionEvent) {
+        separateHandlersPane.setVisible(false);
+        armouredPane.setVisible(false);
+        spyHolePane.setVisible(false);
+        handlersOnPlankPane.setVisible(true);
+    }
+
+    public void showArmourPane(ActionEvent actionEvent) {
+        separateHandlersPane.setVisible(false);
+        spyHolePane.setVisible(false);
+        handlersOnPlankPane.setVisible(false);
+        armouredPane.setVisible(true);
+    }
+
+    public void showSpyHolePane(ActionEvent actionEvent) {
+        separateHandlersPane.setVisible(false);
+        armouredPane.setVisible(false);
+        handlersOnPlankPane.setVisible(false);
+        spyHolePane.setVisible(true);
     }
 
     public void calculateDoorPrice(ActionEvent actionEvent) {

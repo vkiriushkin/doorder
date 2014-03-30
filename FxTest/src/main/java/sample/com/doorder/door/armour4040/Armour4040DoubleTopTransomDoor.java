@@ -37,22 +37,11 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 	@Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
-		checkDimensions();
 		calcPipe40x40();
 		calcPipe40x20();
 		calcPipe20x20();
 		totalPrice += metalFramesPartsTotalPrice;
 		LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
-	}
-
-	private void checkDimensions() {
-		if (x_2 < 150)
-			throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
-		if (x_3 < 150)
-			throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
-		if (this.getX() != (x_1 + x_2 + x_3))
-			throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
-					String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
 	}
 
 	private void calcPipe40x40() {

@@ -27,7 +27,7 @@
           </VBox.margin>
         </Button>
         <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showLockerTypesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор замков" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showAccessoriesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
         <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1" />
       </children>
     </VBox>
@@ -41,6 +41,119 @@
         <Font size="20.0" fx:id="x2" />
       </font>
     </Label>
+    <Pane id="accessoriesPane" fx:id="doorTypesPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
+          <children>
+            <Button mnemonicParsing="false" onAction="#showMetalDoorPane" prefHeight="40.0" prefWidth="280.0" text="Конструкция металлических дверей">
+              <font>
+                <Font size="12.0" fx:id="x4" />
+              </font>
+              <HBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+              </HBox.margin>
+            </Button>
+            <Button font="$x4" mnemonicParsing="false" onAction="#showFireProofPane" prefHeight="40.0" prefWidth="280.0" text="Конструкция противопожарных дверей">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <Pane fx:id="angledDoorsPane" layoutX="0.0" layoutY="50.0" prefHeight="452.0" prefWidth="610.0" visible="false">
+          <children>
+            <TabPane layoutX="0.0" layoutY="0.0" prefHeight="452.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" text="Уголковые металлические двери ">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="74.0" fitWidth="453.0" layoutX="74.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@angledDoor.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="74.0" fitWidth="452.0" layoutX="74.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@angledWithTwo.png" />
+                          </image>
+                        </ImageView>
+                        <TextArea layoutX="10.0" layoutY="279.0" prefHeight="137.0" prefWidth="581.0" text="&#9;Конструкция такой бронедвери состоит из наружного  листа стали, толщиной 2мм. Дверное полотно с внутренними рёбрами жёсткости изготовлено  из профильной трубы 50*30*2 мм. Дверная рама выполнена из уголка 50 мм. Данный тип конструкции оптимален для заполнения узких проемов (800 мм и меньше). Особенностью этой конструкции является наличие двойного притвора. Дверная рама и полотно двери имеют два контура уплотнения и соприкосновения, что обеспечивает  повышенную  тепло и шумоизоляцию. Второй притвор изготавливается из профильной трубы 25*25*2 мм.  и приваривается к раме." wrapText="true" />
+                        <TextArea layoutX="14.0" layoutY="101.0" prefHeight="73.0" prefWidth="577.0" text="&#9;Конструкция такой бронедвери состоит из наружного  листа стали, толщиной 2мм. Дверное полотно с внутренними рёбрами жёсткости изготовлено  из профильной трубы 40*20*2 мм. Дверная рама выполнена из уголка 50 мм. Данный тип конструкции оптимален для заполнения узких проемов (800 мм и меньше)." wrapText="true" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="182.0" prefHeight="22.0" prefWidth="400.0" text="Уголковые металлические двери с двойным притвором">
+                          <font>
+                            <Font name="System Bold" size="13.0" fx:id="x6" />
+                          </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" font="$x6" layoutX="100.0" layoutY="6.0" prefHeight="22.0" prefWidth="400.0" text="Уголковая металлическая дверь " textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Бронедвери из профильной  трубы">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="10.0" layoutY="329.0" prefHeight="73.0" prefWidth="581.0" text="&#9;Каркас дверного полотна и ребра жесткости изготовлены из прямоугольной трубы 40х20 мм. Дверная коробка выполнена из  прямоугольных  труб  50х30 мм. Такая конструкция входной двери имеет  повышенную взломостойкость,  двойной притвор и высокие  шумо- и теплоизоляционные свойства.." wrapText="true" />
+                        <TextArea layoutX="14.0" layoutY="103.0" prefHeight="108.0" prefWidth="577.0" text="&#9;Такая конструкция нужна в случаях, когда есть возможность  в  сужении дверного проема . Дверная коробка  изготавливается из стальной квадратной трубы 40x40*2. Дверное полотно и ребра жесткости выполнены из профильной трубы 40*20*2 мм.Преимущество данной конструкции в том, что дверная коробка  и полотно металлических дверей имеют цельно замкнутый контур из профильных труб, тем самым намного увеличивая жесткость конструкции." wrapText="true" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" font="$x6" layoutX="94.0" layoutY="216.0" prefHeight="22.0" prefWidth="413.0" text="Бронедверь  из профильной  трубы с двойным притвором" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" font="$x6" layoutX="100.0" layoutY="3.0" prefHeight="22.0" prefWidth="400.0" text="Бронедверь  из профильной  трубы" textAlignment="CENTER" />
+                        <ImageView fitHeight="70.0" fitWidth="452.0" layoutX="74.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@profilePipeDoor.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="90.0" fitWidth="450.0" layoutX="75.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@profilePipeWithTwoDoor.png" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
+        <Pane fx:id="fireproofDoorsPane" layoutX="0.0" layoutY="48.0" prefHeight="469.00019155273185" prefWidth="620.000244140625" visible="false">
+          <children>
+            <TabPane layoutX="0.0" layoutY="0.0" prefHeight="452.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" text="Конструкция входных противопожарных дверей">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="10.0" layoutY="192.0" prefHeight="225.0" prefWidth="581.0" text="&#9;Данная конструкция имеет толщину дверного полотна 43 мм. Дверная коробка изготавливается из профильной трубы 40х40мм. Сам корпус дверного полотна производится из 2-х листов металла толщиной 1,5 мм, сваренных между собой. По всему периметру используется уплотнитель &quot;Огракс&quot;, который под воздействием высокой температуры имеет способность расширяться, блокируя таким образом доступ огня в соседние помещения. Внутри дверь заполнена специальным теплоизоляционным наполнением. Вес  1 кв.м двери со степенью огнестойкости 30 минут - 50 кг.&#10;&#9;Противопожарные входные двери поставляются в следующей комплектации:Дверное полотно, коробка, замок с ручками, доводчик, комплект ключей, завесы, уплотнитель, огракс. В дополнительную комплектацию входит наличник по желанию заказчика. Дверные блоки поставляются огрунтованными (в серый цвет), упакованными, маркированными. По согласованию двери могут быть окрашены в другой цвет по RAL катологу." wrapText="true" />
+                        <ImageView fitHeight="71.0" fitWidth="452.0" layoutX="74.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@fireProofDoor.png" />
+                          </image>
+                        </ImageView>
+                        <TextArea layoutX="14.0" layoutY="10.0" prefHeight="100.0" prefWidth="572.0" text="&#9;&#9;&#9;&#9;ДВЕРИ МЕТАЛЛИЧЕСКИЕ ПРОТИВОПОЖАРНЫЕ  Ei-30&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;(ДСТУ Б В.2.6-77:2009)&#10;&#9;&#9;&#9;&#9;&#9;&#9;(предел огнестойкости 0,5 часа) &#10;&#9;Данный тип дверей используется для заполнения проемов в противопожарных перегородках, стенах  зданий и сооружений." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Категории сложности">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="236.0" fitWidth="318.0" layoutX="141.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@fireproofCategories.png" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
+      </children>
+    </Pane>
     <Pane fx:id="orderPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
@@ -118,11 +231,7 @@
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null" visible="true">
               <children>
-                <Label layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наружную отделку" wrapText="false">
-                  <font>
-                    <Font name="System Bold" size="13.0" fx:id="x4" />
-                  </font>
-                </Label>
+                <Label font="$x6" layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наружную отделку" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="outerDecorationTypeCombo" layoutX="140.0" layoutY="40.0" prefWidth="199.99997792968497" />
                 <Button fx:id="goToPreviousStep2Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep2" prefHeight="30.0" prefWidth="144.0" text="Назад" />
                 <Button fx:id="goToNextStep4Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep4" prefHeight="30.0" prefWidth="144.0" text="Далее" />
@@ -130,7 +239,7 @@
                 <Label layoutX="14.0" layoutY="66.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
                 <TextField fx:id="outerColor" layoutX="140.0" layoutY="70.0" prefWidth="200.0" />
                 <TextField fx:id="outerConfiguration" layoutX="140.0" layoutY="99.0" prefWidth="200.0" />
-                <Label font="$x4" layoutX="14.0" layoutY="160.0" prefHeight="30.0" prefWidth="214.0" text="Выберите внутреннею отделку" wrapText="false" />
+                <Label font="$x6" layoutX="14.0" layoutY="160.0" prefHeight="30.0" prefWidth="214.0" text="Выберите внутреннею отделку" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="innerDecorationTypeCombo" layoutX="140.0" layoutY="194.0" prefWidth="199.99997792968497" />
                 <Label layoutX="14.0" layoutY="245.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
                 <Label layoutX="14.0" layoutY="218.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
@@ -139,7 +248,7 @@
                 <Label layoutX="14.0" layoutY="362.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
                 <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="140.0" layoutY="366.0" prefWidth="100.0" text="0" />
                 <Label layoutX="246.0" layoutY="362.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
-                <Label font="$x4" layoutX="14.0" layoutY="305.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
+                <Label font="$x6" layoutX="14.0" layoutY="305.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="140.0" layoutY="336.0" prefWidth="199.99997792968497" />
                 <Label layoutX="14.0" layoutY="40.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="outerTransomDecorationTypeCombo" layoutX="140.0" layoutY="129.0" prefWidth="199.99997792968497" />
@@ -215,33 +324,49 @@
         </VBox>
       </children>
     </Pane>
-    <Pane id="orderPane" fx:id="accessoriesPane" prefHeight="500.0" prefWidth="600.0" visible="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <Pane fx:id="accessoriesPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
           <children>
-            <Button fx:id="showSeparateHandlersPane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Ручки раздельные" />
-            <Button fx:id="showHandlersOnPlankPane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Ручки на планке" />
-            <Button fx:id="showArmouredPane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Броненакладки" />
-            <Button fx:id="showSpyHolePane" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Глазки" />
+            <Button id="showSeparateHandlersPane" font="$x4" mnemonicParsing="false" onAction="#showSeparateHandlersPane" prefHeight="40.0" prefWidth="140.0" text="Ручки раздельные">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
+            <Button id="showHandlersOnPlankPane" font="$x4" mnemonicParsing="false" onAction="#showHandlersOnPanePane" prefHeight="40.0" prefWidth="140.0" text="Ручки на планке">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
+            <Button id="showArmouredPane" font="$x4" mnemonicParsing="false" onAction="#showArmourPane" prefHeight="40.0" prefWidth="140.0" text="Броненакладки">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
+            <Button id="showSpyHolePane" font="$x4" mnemonicParsing="false" onAction="#showSpyHolePane" prefHeight="40.0" prefWidth="140.0" text="Глазки">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
           </children>
         </HBox>
-        <Pane fx:id="separateHandlersPane" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0">
+        <Pane fx:id="separateHandlersPane" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
           <children>
             <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="439.0" prefWidth="600.0">
               <children>
-                <ImageView fitHeight="261.0" fitWidth="261.0" focusTraversable="false" layoutX="20.0" layoutY="8.0" mouseTransparent="false" pickOnBounds="false" preserveRatio="true">
+                <ImageView fitHeight="200.0" fitWidth="200.0" focusTraversable="false" layoutX="56.0" layoutY="20.0" mouseTransparent="false" pickOnBounds="false" preserveRatio="true">
                   <image>
                     <Image url="@apecsChrome.png" />
                   </image>
                 </ImageView>
-                <ImageView fitHeight="261.0" fitWidth="261.0" layoutX="325.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="350.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@apecsGold.png" />
                   </image>
                 </ImageView>
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="314.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Ручка раздельная Apecs золото" textAlignment="CENTER" />
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="39.0" prefWidth="272.0" text="Ручка раздельная Apecs хром" textAlignment="CENTER" />
-                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="15.0" layoutY="220.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="220.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="259.0" prefHeight="26.0" prefWidth="200.0" text="Материал внутренней розетки" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="285.0" prefHeight="26.0" prefWidth="200.0" text="Тип установки накладки" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
@@ -254,6 +379,154 @@
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="337.0" prefHeight="26.0" prefWidth="200.0" text="Гальваника" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="363.0" prefHeight="26.0" prefWidth="200.0" text="Хром/Золото" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="232.0" layoutY="389.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+              </children>
+            </AnchorPane>
+          </children>
+        </Pane>
+        <Pane id="separateHandlersPane" fx:id="handlersOnPlankPane" layoutX="0.0" layoutY="50.0" prefHeight="452.0" prefWidth="610.0" visible="false">
+          <children>
+            <TabPane layoutX="0.0" layoutY="0.0" prefHeight="452.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" text="Aydemir">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="100.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@handlerPlankBrown.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="350.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@handlerPlankBlack.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="209.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Способ установки ручки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Тип планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Тип упаковки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="Межосевое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="14.0" layoutY="311.0" prefHeight="39.0" prefWidth="233.0" text="Дополнительное запирание&#10;изнутри" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Саморезы" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Отверстие для ЦМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Коробка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="85" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="Напыление" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Коричневый/Черный" textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab closable="false" text="Apecs">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@handlerPlankChrome.png" />
+                          </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="300.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@handlerPlankGold.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="209.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Способ установки ручки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Тип планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Тип упаковки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="Межосевое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="14.0" layoutY="311.0" prefHeight="39.0" prefWidth="233.0" text="Дополнительное запирание&#10;изнутри" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Стяжки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Отверстие для ЦМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Коробка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="85" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="PVD" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Хром/Золото" textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
+        <Pane id="separateHandlersPane" fx:id="armouredPane" layoutX="0.0" layoutY="50.0" prefHeight="459.9999000000025" prefWidth="610.0001220703125" visible="false">
+          <children>
+            <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="439.0" prefWidth="600.0">
+              <children>
+                <ImageView fitHeight="200.0" fitWidth="200.0" focusTraversable="false" layoutX="50.0" layoutY="70.0" mouseTransparent="false" pickOnBounds="false" preserveRatio="true">
+                  <image>
+                    <Image url="@armourChrome.png" />
+                  </image>
+                </ImageView>
+                <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="330.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@armourGold.png" />
+                  </image>
+                </ImageView>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="22.0" prefHeight="39.0" prefWidth="272.0" text="Броненакладка Apecs Protector золото" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="22.0" prefHeight="39.0" prefWidth="272.0" text="Броненакладка Apecs Protector хром" textAlignment="CENTER" />
+              </children>
+            </AnchorPane>
+          </children>
+        </Pane>
+        <Pane id="separateHandlersPane" fx:id="spyHolePane" layoutX="0.0" layoutY="50.0" prefHeight="460.0" prefWidth="610.0" visible="false">
+          <children>
+            <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="439.0" prefWidth="600.0">
+              <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="256.0" prefHeight="26.0" prefWidth="200.0" text="1 ГДШ-200 с заслонкой" textAlignment="CENTER">
+                  <font>
+                    <Font name="System Bold" size="12.0" fx:id="x7" />
+                  </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="275.0" prefHeight="26.0" prefWidth="199.9998779296875" text="от 160° до 180° " textAlignment="CENTER">
+                  <font>
+                    <Font size="10.0" fx:id="x5" />
+                  </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="174.0" layoutY="294.0" prefHeight="26.0" prefWidth="200.0" text="от 35 до 50" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="174.0" layoutY="313.0" prefHeight="26.0" prefWidth="199.9998779296875" text="Ø31х60 (глазок), Ø34,5х6 (заслонка)" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="174.0" layoutY="332.0" prefHeight="39.0" prefWidth="200.0" text="пластмасса" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="175.0" layoutY="367.0" prefHeight="26.0" prefWidth="199.9998779296875" text="оптическое стекло" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="175.0" layoutY="386.0" prefHeight="26.0" prefWidth="199.9998779296875" text="черный" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="175.0" layoutY="404.0" prefHeight="26.0" prefWidth="199.9998779296875" text="0,025" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="14.0" layoutY="275.0" prefHeight="26.0" prefWidth="200.0" text="Угол обзора" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="13.0" layoutY="294.0" prefHeight="26.0" prefWidth="200.0" text="Толщина двери, мм" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="13.0" layoutY="313.0" prefHeight="26.0" prefWidth="200.0" text="Габаритные размеры, мм" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="13.0" layoutY="332.0" prefHeight="40.0" prefWidth="200.0" text="Материал внутренних&#10; линз" textAlignment="LEFT" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="14.0" layoutY="367.0" prefHeight="26.0" prefWidth="200.0" text="Наружная линза" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="14.0" layoutY="386.0" prefHeight="26.0" prefWidth="200.0" text="Цвет корпуса" textAlignment="CENTER" />
+                <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x4" layoutX="14.0" layoutY="404.0" prefHeight="26.0" prefWidth="200.0" text="Масса" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x7" layoutX="386.0" layoutY="256.0" prefHeight="26.0" prefWidth="200.0" text="2ГДШ-10-200 с заслонкой" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="275.0" prefHeight="26.0" prefWidth="199.9998779296875" text="от 160° до 170° " textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="385.0" layoutY="294.0" prefHeight="26.0" prefWidth="200.0" text="от 35 до 50" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="385.0" layoutY="313.0" prefHeight="26.0" prefWidth="199.9998779296875" text="Ø31х60 (глазок), Ø34,5х6 (заслонка)" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="385.0" layoutY="332.0" prefHeight="39.0" prefWidth="200.0" text="пластмасса" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="367.0" prefHeight="26.0" prefWidth="199.9998779296875" text="оптическое стекло" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="386.0" prefHeight="26.0" prefWidth="199.9998779296875" text="под золото" textAlignment="CENTER" />
+                <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="404.0" prefHeight="26.0" prefWidth="199.9998779296875" text="0,022" textAlignment="CENTER" />
+                <ImageView fitHeight="97.0" fitWidth="113.0" layoutX="219.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@spyHole200.png" />
+                  </image>
+                </ImageView>
+                <ImageView fitHeight="97.0" fitWidth="113.0" layoutX="429.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@spyHole10-200.png" />
+                  </image>
+                </ImageView>
+                <TextArea editable="false" focusTraversable="true" layoutX="13.0" layoutY="14.0" prefHeight="136.0" prefWidth="573.0" style="-fx-border-color: none;" text="&#9;Глазки дверные широкоугольные с заслонкой ГДШ предназначены для рассматривания пространства перед дверью помещения и устанавливается в дверь с толщиной полотна 35-100 мм. &#10;&#9;Высококачественная стеклянная и стеклянно-полимерная оптика глазка обеспечивает прекрасный и практически полный обзор (порядка 200°) наблюдаемого пространства перед дверью. Наличие стопорного устройства предохраняют глазок от вывинчивания с наружной стороны двери." wrapText="true" />
               </children>
             </AnchorPane>
           </children>
