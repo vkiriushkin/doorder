@@ -154,6 +154,339 @@
         </Pane>
       </children>
     </Pane>
+    <Pane id="accessoriesPane" fx:id="lockerTypesPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
+          <children>
+            <Button font="$x4" mnemonicParsing="false" onAction="#showMetalDoorPane" prefHeight="40.0" prefWidth="280.0" text="Основные замки">
+              <HBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+              </HBox.margin>
+            </Button>
+            <Button font="$x4" mnemonicParsing="false" onAction="#showFireProofPane" prefHeight="40.0" prefWidth="280.0" text="Дополнительные замки">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <Pane id="angledDoorsPane" fx:id="mainLockerTypesPane" layoutX="0.0" layoutY="50.0" prefHeight="452.0" prefWidth="610.0" visible="false">
+          <children>
+            <TabPane layoutX="0.0" layoutY="0.0" prefHeight="452.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" text="Apecs 2200">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="233.0" fitWidth="305.0" layoutX="294.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@apecs2200.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="30.0" layoutY="4.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="38.0" prefHeight="26.0" prefWidth="159.0" text="Тип крепления врезн. замка" textAlignment="CENTER">
+                          <font>
+                            <Font size="11.0" fx:id="x8" />
+                          </font>
+                        </Label>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="56.0" prefHeight="26.0" prefWidth="145.0" text="Тип ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="38.0" prefHeight="26.0" prefWidth="159.0" text="Лицевая планка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="56.0" prefHeight="26.0" prefWidth="145.0" text="Цилиндрические" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="91.0" prefHeight="26.0" prefWidth="145.0" text="Вылет ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="91.0" prefHeight="26.0" prefWidth="145.0" text="20 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="109.0" prefHeight="26.0" prefWidth="159.0" text="Диаметр ригеля" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="132.0" prefHeight="26.0" prefWidth="169.0" text="Удаление ключевого&#10;отверстия (Backset)" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="109.0" prefHeight="26.0" prefWidth="159.0" text="12 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="127.0" prefHeight="26.0" prefWidth="145.0" text="45 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="155.0" prefHeight="26.0" prefWidth="159.0" text="Тип механизма секретности" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="173.0" prefHeight="26.0" prefWidth="169.0" text="Тип цилиндрового механизма" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="155.0" prefHeight="26.0" prefWidth="159.0" text="Цилиндровый" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="173.0" prefHeight="26.0" prefWidth="145.0" text="Евроцилиндр" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="191.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="209.0" prefHeight="26.0" prefWidth="169.0" text="Количество ключей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="191.0" prefHeight="26.0" prefWidth="159.0" text="Английский" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="209.0" prefHeight="26.0" prefWidth="145.0" text="5" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="227.0" prefHeight="26.0" prefWidth="169.0" text="Механизм постоянного ключа" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="245.0" prefHeight="26.0" prefWidth="169.0" text="Комплектация цилиндром" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="227.0" prefHeight="26.0" prefWidth="159.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="245.0" prefHeight="26.0" prefWidth="145.0" text="Комплектуется" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="263.0" prefHeight="26.0" prefWidth="159.0" text="Типоразмер цилиндра" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="281.0" prefHeight="26.0" prefWidth="169.0" text="Материал цилиндра" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="263.0" prefHeight="26.0" prefWidth="159.0" text="30/30" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="281.0" prefHeight="26.0" prefWidth="145.0" text="Латунь" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="298.0" prefHeight="26.0" prefWidth="159.0" text="Цвет цилиндра" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="322.0" prefHeight="26.0" prefWidth="169.0" text="Дополнительный механизм &#10;секретности" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="298.0" prefHeight="26.0" prefWidth="159.0" text="Хром" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="319.0" prefHeight="26.0" prefWidth="145.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="345.0" prefHeight="26.0" prefWidth="169.0" text="Защелка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="363.0" prefHeight="26.0" prefWidth="169.0" text="Межосевое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="345.0" prefHeight="26.0" prefWidth="159.0" text="Классическая" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="363.0" prefHeight="26.0" prefWidth="145.0" text="85" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="381.0" prefHeight="26.0" prefWidth="159.0" text="Комплектация ручками" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="245.0" prefHeight="26.0" prefWidth="169.0" text="Автоматическое запирание" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="381.0" prefHeight="26.0" prefWidth="159.0" text="Не комплектуется" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="245.0" prefHeight="26.0" prefWidth="109.0" text="Не автоматическое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="263.0" prefHeight="26.0" prefWidth="169.0" text="Количество точек запирания" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="263.0" prefHeight="26.0" prefWidth="109.0" text="1" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="287.0" prefHeight="26.0" prefWidth="169.0" text="Дополнительное &#10;запирание изнутри" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="283.0" prefHeight="26.0" prefWidth="109.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="311.0" prefHeight="26.0" prefWidth="169.0" text="Покрытие лицевой планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="311.0" prefHeight="26.0" prefWidth="109.0" text="Гальваника" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="331.0" prefHeight="26.0" prefWidth="169.0" text="Цвет лицевой планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="331.0" prefHeight="26.0" prefWidth="109.0" text="Хром" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="349.0" prefHeight="26.0" prefWidth="169.0" text="Тип защелки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="349.0" prefHeight="26.0" prefWidth="109.0" text="Универсальная" textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Kale 2000">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="230.0" fitWidth="382.0" layoutX="46.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale2000_2.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="66.0" layoutY="225.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="259.0" prefHeight="26.0" prefWidth="159.0" text="Тип замка  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="277.0" prefHeight="26.0" prefWidth="145.0" text="Класс безопасности  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="259.0" prefHeight="26.0" prefWidth="159.0" text="цилиндровый" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="277.0" prefHeight="26.0" prefWidth="145.0" text="2" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="294.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="312.0" prefHeight="26.0" prefWidth="145.0" text="Бексет, мм  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="294.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="312.0" prefHeight="26.0" prefWidth="145.0" text="45 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="330.0" prefHeight="26.0" prefWidth="159.0" text="Наличие защелки  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="348.0" prefHeight="26.0" prefWidth="169.0" text="Цвет" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="330.0" prefHeight="26.0" prefWidth="159.0" text="да" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="348.0" prefHeight="26.0" prefWidth="145.0" text="латунь, хром" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="368.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="368.0" prefHeight="26.0" prefWidth="159.0" text="зависит от цил. механизма" textAlignment="CENTER" />
+                        <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="443.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale2000_1.png" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Kale 252 R">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="230.0" fitWidth="382.0" layoutX="55.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale252r_2.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Тип замка  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Класс безопасности  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="цилиндровый" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="4 высший " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Диаметр ригелей, мм " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="16" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Наличие защелки  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="343.0" prefHeight="26.0" prefWidth="169.0" text="Цвет" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="да" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="343.0" prefHeight="26.0" prefWidth="145.0" text="никель" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="зависит от цил. механизма" textAlignment="CENTER" />
+                        <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="452.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale252r_1.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="Количество ключей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Mottura 54.797">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="233.0" fitWidth="305.0" layoutX="294.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@mottura_1.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="30.0" layoutY="4.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="38.0" prefHeight="26.0" prefWidth="159.0" text="Тип крепления врезн. замка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="56.0" prefHeight="26.0" prefWidth="145.0" text="Тип ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="38.0" prefHeight="26.0" prefWidth="159.0" text="Лицевая планка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="56.0" prefHeight="26.0" prefWidth="145.0" text="Цилиндрические" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="91.0" prefHeight="26.0" prefWidth="145.0" text="Вылет ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="73.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="91.0" prefHeight="26.0" prefWidth="145.0" text="40 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="109.0" prefHeight="26.0" prefWidth="159.0" text="Диаметр ригеля" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="132.0" prefHeight="26.0" prefWidth="169.0" text="Удаление ключевого&#10;отверстия (Backset)" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="109.0" prefHeight="26.0" prefWidth="159.0" text="18 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="127.0" prefHeight="26.0" prefWidth="145.0" text="63.5 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="183.0" prefHeight="26.0" prefWidth="159.0" text="Тип механизма секретности" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="159.0" prefHeight="26.0" prefWidth="169.0" text="Тип дополнительного &#10;механизма секретности" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="183.0" prefHeight="26.0" prefWidth="190.0" text="Сувальдный с двойной бородкой" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="156.0" prefHeight="26.0" prefWidth="145.0" text="Евроцилиндр" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="201.0" prefHeight="26.0" prefWidth="169.0" text="Количество ключей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="201.0" prefHeight="26.0" prefWidth="145.0" text="5" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="222.0" prefHeight="26.0" prefWidth="169.0" text="Возможность замены &#10;мех.секр." textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="245.0" prefHeight="26.0" prefWidth="169.0" text="Комплектация цилиндром" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="222.0" prefHeight="26.0" prefWidth="159.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="245.0" prefHeight="26.0" prefWidth="145.0" text="Не комплектуется" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="268.0" prefHeight="26.0" prefWidth="169.0" text="Дополнительный механизм &#10;секретности" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="265.0" prefHeight="26.0" prefWidth="145.0" text="Есть" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="291.0" prefHeight="26.0" prefWidth="169.0" text="Защелка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="309.0" prefHeight="26.0" prefWidth="169.0" text="Межосевое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="291.0" prefHeight="26.0" prefWidth="159.0" text="Классическая" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="309.0" prefHeight="26.0" prefWidth="145.0" text="85" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="327.0" prefHeight="26.0" prefWidth="159.0" text="Комплектация ручками" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="349.0" prefHeight="26.0" prefWidth="169.0" text="Автоматическое запирание" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="327.0" prefHeight="26.0" prefWidth="159.0" text="Не комплектуется" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="349.0" prefHeight="26.0" prefWidth="109.0" text="Не автоматическое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="10.0" layoutY="367.0" prefHeight="26.0" prefWidth="169.0" text="Количество точек запирания" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="192.0" layoutY="367.0" prefHeight="26.0" prefWidth="109.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="245.0" prefHeight="26.0" prefWidth="169.0" text="Покрытие лицевой планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="245.0" prefHeight="26.0" prefWidth="109.0" text="Гальваника" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="265.0" prefHeight="26.0" prefWidth="169.0" text="Цвет лицевой планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="265.0" prefHeight="26.0" prefWidth="109.0" text="Никель" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="283.0" prefHeight="26.0" prefWidth="169.0" text="Тип защелки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="283.0" prefHeight="26.0" prefWidth="109.0" text="Не универсальная" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="304.0" prefHeight="26.0" prefWidth="169.0" text="Возможность перекодировки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="304.0" prefHeight="26.0" prefWidth="109.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="322.0" prefHeight="26.0" prefWidth="169.0" text="Левый/Правый" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="322.0" prefHeight="26.0" prefWidth="109.0" text="Левый" textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
+        <Pane id="angledDoorsPane" fx:id="secondaryLockerTypesPane" layoutX="-5.0" layoutY="50.0" prefHeight="462.0000999999975" prefWidth="624.9999000000025" visible="false">
+          <children>
+            <TabPane layoutX="5.0" layoutY="-5.0" prefHeight="457.0" prefWidth="595.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Kale 189 4 MF">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="230.0" fitWidth="382.0" layoutX="55.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale189_2.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Тип замка  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Класс безопасности  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="крестообразный " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="2" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Бексет, мм " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="4" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="52" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Наличие защелки  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="343.0" prefHeight="26.0" prefWidth="169.0" text="Цвет" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="343.0" prefHeight="26.0" prefWidth="145.0" text="латунь" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="крестообразный " textAlignment="CENTER" />
+                        <ImageView fitHeight="277.0" fitWidth="127.0" layoutX="452.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale189_1.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="Количество ключей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Эльбор &quot;КРЕМЕНЬ&quot; 1.04.02.К">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="230.0" fitWidth="382.0" layoutX="55.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@elbor_2.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Габаритные размеры" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Механизм секретности" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="255.0" prefHeight="26.0" prefWidth="159.0" text="109,5х104х18 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="273.0" prefHeight="26.0" prefWidth="145.0" text="сувальдный" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество сувальд" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Диаметр стержня" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="290.0" prefHeight="26.0" prefWidth="159.0" text="6 шт" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="308.0" prefHeight="26.0" prefWidth="145.0" text="14 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Выход стержней" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="347.0" prefHeight="26.0" prefWidth="169.0" text="Общая площадь поперечного &#10;сечения стержней" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="326.0" prefHeight="26.0" prefWidth="159.0" text="21,5 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="348.0" prefHeight="26.0" prefWidth="145.0" text="461,58 мм2" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="367.0" prefHeight="26.0" prefWidth="159.0" text="Класс замка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="368.0" prefHeight="26.0" prefWidth="184.0" text="3 класс по ГОСТ Р 52582-2006" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="388.0" prefHeight="26.0" prefWidth="159.0" text="Масса брутто одного замка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="389.0" prefHeight="26.0" prefWidth="159.0" text="0.89 кг" textAlignment="CENTER" />
+                        <ImageView fitHeight="257.0" fitWidth="187.0" layoutX="394.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@elbor_1.png" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Kale 257 L">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <ImageView fitHeight="230.0" fitWidth="382.0" layoutX="56.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale_257_2.png" />
+                          </image>
+                        </ImageView>
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Тип замка  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Класс безопасности  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="сувальдный" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Диаметр ригелей, мм " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="16" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Наличие защелки  " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="343.0" prefHeight="26.0" prefWidth="169.0" text="Цвет" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="343.0" prefHeight="26.0" prefWidth="145.0" text="никель" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="сувальдный" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="Количество ключей" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                        <ImageView fitHeight="259.0" fitWidth="173.0" layoutX="382.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                            <Image url="@kale_257_1.png" />
+                          </image>
+                        </ImageView>
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
+      </children>
+    </Pane>
     <Pane fx:id="orderPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">

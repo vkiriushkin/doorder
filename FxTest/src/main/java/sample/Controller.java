@@ -32,7 +32,8 @@ public class Controller implements Initializable {
     public Pane fireproofDoorsPane;
 
     public Pane lockerTypesPane;
-    public AnchorPane lockerAnchorPane;
+    public Pane mainLockerTypesPane;
+    public Pane secondaryLockerTypesPane;
 
     public Pane accessoriesPane;
     public Pane separateHandlersPane;
@@ -41,13 +42,6 @@ public class Controller implements Initializable {
     public Pane spyHolePane;
 
     public Pane orderPane;
-
-
-
-    public Group apecs2000Group;
-    public Group kale2000Group;
-    public Group metalDoorGroup;
-    public Group fireProofGroup;
 
     public VBox step1VBox;
     public Label step1Label;
@@ -547,11 +541,6 @@ public class Controller implements Initializable {
         orderPane.setVisible(false);
         doorTypesPane.setVisible(false);
         lockerTypesPane.setVisible(true);
-    }
-
-    public void showApecs2000Group(ActionEvent actionEvent) {
-        apecs2000Group.setVisible(true);
-        lockerAnchorPane.setPrefHeight(apecs2000Group.getLayoutBounds().getHeight());
     }
 
     public static void showBrokenPriceLabel() {
