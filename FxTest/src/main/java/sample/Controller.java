@@ -540,7 +540,18 @@ public class Controller implements Initializable {
     public void showLockerTypesPane(ActionEvent actionEvent) {
         orderPane.setVisible(false);
         doorTypesPane.setVisible(false);
+        accessoriesPane.setVisible(false);
         lockerTypesPane.setVisible(true);
+    }
+
+    public void showMainLockersPane(ActionEvent actionEvent) {
+        secondaryLockerTypesPane.setVisible(false);
+        mainLockerTypesPane.setVisible(true);
+    }
+
+    public void showSecondaryLockersPane(ActionEvent actionEvent) {
+        mainLockerTypesPane.setVisible(false);
+        secondaryLockerTypesPane.setVisible(true);
     }
 
     public static void showBrokenPriceLabel() {
@@ -550,7 +561,7 @@ public class Controller implements Initializable {
     public void showDoorTypesPane(ActionEvent actionEvent) {
         orderPane.setVisible(false);
         accessoriesPane.setVisible(false);
-//        lockerTypesPane.setVisible(false);
+        lockerTypesPane.setVisible(false);
         doorTypesPane.setVisible(true);
     }
 
@@ -565,15 +576,14 @@ public class Controller implements Initializable {
     }
 
     public void showOrderPane(ActionEvent actionEvent) {
-//        doorTypesPane.setVisible(false);
-//        lockerTypesPane.setVisible(false);
+        lockerTypesPane.setVisible(false);
         accessoriesPane.setVisible(false);
         doorTypesPane.setVisible(false);
         orderPane.setVisible(true);
     }
 
     public void showAccessoriesPane(ActionEvent actionEvent) {
-//        lockerTypesPane.setVisible(false);
+        lockerTypesPane.setVisible(false);
         doorTypesPane.setVisible(false);
         orderPane.setVisible(false);
         accessoriesPane.setVisible(true);

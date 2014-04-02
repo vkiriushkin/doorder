@@ -158,12 +158,12 @@
       <children>
         <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
           <children>
-            <Button font="$x4" mnemonicParsing="false" onAction="#showMetalDoorPane" prefHeight="40.0" prefWidth="280.0" text="Основные замки">
+            <Button font="$x4" mnemonicParsing="false" onAction="#showMainLockersPane" prefHeight="40.0" prefWidth="280.0" text="Основные замки">
               <HBox.margin>
                 <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
               </HBox.margin>
             </Button>
-            <Button font="$x4" mnemonicParsing="false" onAction="#showFireProofPane" prefHeight="40.0" prefWidth="280.0" text="Дополнительные замки">
+            <Button font="$x4" mnemonicParsing="false" onAction="#showSecondaryLockersPane" prefHeight="40.0" prefWidth="280.0" text="Дополнительные замки">
               <HBox.margin>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
               </HBox.margin>
