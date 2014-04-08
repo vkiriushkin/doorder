@@ -175,7 +175,7 @@ public class Armour4040DoubleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for painting shagreen");
-		if (x - 80 < 800 || x - 80 > 2000 || y_1 - 80 < 1000 || y_1 - 80 > 2550)
+		if (x - 80 < 800 || x - 80 > 2000 || y_1 - 80 < 1000 || y_1 - 80 > 2450)
 			throw new UnsupportedDimensions("Painting PF", y, x);
 		LOGGER.info("Painting shagreen: dimension OK");
 		if ((x - 80) >= 800 && (x - 80) <= 950 && (y_1 - 80) >= 1000 && (y_1 - 80) <= 2000) {
