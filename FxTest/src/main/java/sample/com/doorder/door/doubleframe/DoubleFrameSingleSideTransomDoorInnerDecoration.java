@@ -49,7 +49,7 @@ public class DoubleFrameSingleSideTransomDoorInnerDecoration extends InnerDecora
         LOGGER.info("Start calculating inner decoration without top transom");
         clear();
         BigDecimal bd = new BigDecimal(((double)y + x_1) * 2.2 * Price.START.getPriceInUAH() / 1000
-                + ((double)y * x_1) * 1.1 * Price.PLASTIC.getPriceInUAH() / 1000000
+                + ((double)y * x_1) * 1.1 * Price.LAMINATED_PLASTIC.getPriceInUAH() / 1000000
                 + ((double)x - x_1 - 40) * (y - 40) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         laminate = bd.doubleValue();

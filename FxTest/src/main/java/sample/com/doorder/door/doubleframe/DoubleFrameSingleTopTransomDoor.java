@@ -81,11 +81,12 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             LOGGER.info("L50x4: Dimensions OK");
             BigDecimal bd = new BigDecimal(((double) this.getX() + this.getY_1()) * 2.2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_L50x4_Price = bd.doubleValue();
+            this.metal_50x30_Price = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
-        metalFramesPartsTotalPrice += metal_L50x4_Price;
+        metalFramesPartsTotalPrice += metal_50x30_Price;
+        totalPrice += metal_50x30_Price;
         LOGGER.info("Finish calculating metal 50x30 parts, price: {}, total price: {}", metal_50x30_Price, totalPrice);
     }
 
@@ -131,6 +132,7 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_20x20_Price;
+        totalPrice += metal_20x20_Price;
         LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
     }
 
@@ -143,11 +145,12 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             LOGGER.info("L50x4: Dimensions OK");
             BigDecimal bd = new BigDecimal(((double) this.getX() + this.getY_1()) * 2.2 / 1000 * Price.PIPE_25x25.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_L50x4_Price = bd.doubleValue();
+            this.metal_25x25_Price = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
-        metalFramesPartsTotalPrice += metal_L50x4_Price;
+        metalFramesPartsTotalPrice += metal_25x25_Price;
+        totalPrice += metal_25x25_Price;
         LOGGER.info("Finish calculating metal 25x25 parts, price: {}, total price: {}", metal_25x25_Price, totalPrice);
     }
 

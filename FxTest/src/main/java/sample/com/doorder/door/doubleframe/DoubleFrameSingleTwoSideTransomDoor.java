@@ -23,13 +23,12 @@ public class DoubleFrameSingleTwoSideTransomDoor extends DoubleFrameDoor {
     protected int x_1;
     protected int x_2;
     protected int x_3;
-    private Platband platband;
 
     public DoubleFrameSingleTwoSideTransomDoor() {
         this.outerDecoration = new DoubleFrameSingleTwoSideTransomDoorOuterDecoration();
         this.innerDecoration = new DoubleFrameSingleTwoSideTransomDoorInnerDecoration();
-        this.platband = new Platband();
     }
+
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
@@ -335,34 +334,6 @@ public class DoubleFrameSingleTwoSideTransomDoor extends DoubleFrameDoor {
         }
         innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
         totalPrice += innerDecorationPrice;
-    }
-
-    @Override
-    public void calcPlatband(PlatbandType platbandType) {
-        totalPrice -= platbandPrice;
-        platband.clear();
-        switch (platbandType) {
-            case WOODEN:
-                this.platband.calcWoodenPlatband(this.getX(), this.getY(), this.getClass());
-                break;
-            case METAL_PAINTING_PF:
-                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY(), this.getClass());
-                break;
-            case METAL_PAINTING_SHAGREEN:
-                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY(), this.getClass());
-                break;
-            case METAL_PAINTING_ANTIC:
-                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
-                break;
-            case MDF10:
-                this.platband.calcMdf10Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
-                break;
-            case MDF16:
-                this.platband.calcMdf16Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
-                break;
-        }
-        platbandPrice = this.platband.getTotalPlatbandPrice();
-        totalPrice += platbandPrice;
     }
 
     public int getX_1() {

@@ -156,6 +156,13 @@ public class Controller implements Initializable {
         });
         doorStructureTypeCombo.setDisable(true);
 
+        doorStructureTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
+                updateInnerDecorationComboBoxNoMDF(newValue);
+            }
+        });
+
         doorComplexityCategoryCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
@@ -279,7 +286,15 @@ public class Controller implements Initializable {
         if (doorType.equals(DoorType.ANGLED_SINGLE_TWO_SIDE_LEFT)
                 || doorType.equals(DoorType.ANGLED_SINGLE_TWO_SIDE_RIGHT)
                 || doorType.equals(DoorType.ANGLED_SINGLE_TOP_SIDE_LEFT)
-                || doorType.equals(DoorType.ANGLED_SINGLE_TOP_SIDE_RIGHT)) {
+                || doorType.equals(DoorType.ANGLED_SINGLE_TOP_SIDE_RIGHT)
+                || doorType.equals(DoorType.DOUBLEFRAME_SINGLE_TWO_SIDE_LEFT)
+                || doorType.equals(DoorType.DOUBLEFRAME_SINGLE_TWO_SIDE_RIGHT)
+                || doorType.equals(DoorType.DOUBLEFRAME_SINGLE_TOP_SIDE_LEFT)
+                || doorType.equals(DoorType.DOUBLEFRAME_SINGLE_TOP_SIDE_RIGHT)
+                || doorType.equals(DoorType.ARMOUR40_40_SINGLE_TWO_SIDE_LEFT)
+                || doorType.equals(DoorType.ARMOUR40_40_SINGLE_TWO_SIDE_RIGHT)
+                || doorType.equals(DoorType.ARMOUR40_40_SINGLE_TOP_SIDE_LEFT)
+                || doorType.equals(DoorType.ARMOUR40_40_SINGLE_TOP_SIDE_RIGHT)) {
             x_2.setDisable(false);
             x_3.setDisable(false);
         }
@@ -465,8 +480,8 @@ public class Controller implements Initializable {
         doorStructureTypeCombo.getItems().setAll(
                 LabelNames.angledDoor,
                 LabelNames.angledDoubleDoor,
-                LabelNames.door40x40
-//                LabelNames.door50x30
+                LabelNames.door40x40,
+                LabelNames.door50x30
         );
     }
 
@@ -494,6 +509,7 @@ public class Controller implements Initializable {
     private void updateInnerDecorationComboBox(String doorType) {
         if (doorType.equalsIgnoreCase(LabelNames.metalDoor)) {
             innerDecorationTypeCombo.getItems().clear();
+
             innerDecorationTypeCombo.getItems().setAll(
                     LabelNames.innerPlastic,
                     LabelNames.innerLaminatedPlastic,
@@ -512,6 +528,32 @@ public class Controller implements Initializable {
                     LabelNames.innerPaintingAntic,
                     LabelNames.innermdf10,
                     LabelNames.innermdf16
+            );
+        }
+    }
+
+    private void updateInnerDecorationComboBoxNoMDF(String doorStructure) {
+        if (doorStructure.equalsIgnoreCase(LabelNames.angledDoubleDoor)) {
+            innerDecorationTypeCombo.getItems().clear();
+            innerDecorationTypeCombo.getItems().setAll(
+                    LabelNames.innerPlastic,
+                    LabelNames.innerLaminatedPlastic,
+                    LabelNames.innerPaintingPF,
+                    LabelNames.innerPaintingShagreen,
+                    LabelNames.innerPaintingAntic,
+                    LabelNames.innerNoTransomDecoration
+            );
+        } else  {
+            innerDecorationTypeCombo.getItems().clear();
+            innerDecorationTypeCombo.getItems().setAll(
+                    LabelNames.innerPlastic,
+                    LabelNames.innerLaminatedPlastic,
+                    LabelNames.innerPaintingPF,
+                    LabelNames.innerPaintingShagreen,
+                    LabelNames.innerPaintingAntic,
+                    LabelNames.innermdf10,
+                    LabelNames.innermdf16,
+                    LabelNames.innerNoTransomDecoration
             );
         }
     }

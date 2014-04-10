@@ -2,17 +2,21 @@ package sample.com.doorder.door.doubleframe;
 
 import sample.com.doorder.door.Accessories;
 import sample.com.doorder.door.SimpleDoor;
+import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.AccessoriesType;
+import sample.com.doorder.door.types.PlatbandType;
 
 public abstract class DoubleFrameDoor extends SimpleDoor {
 
     protected Accessories accessories;
+    protected Platband platband;
     protected double metal_50x30_Price;
     protected double metal_25x25_Price;
 
     protected DoubleFrameDoor() {
         super();
         this.accessories = new Accessories();
+        this.platband = new DoubleFrameDoorPlatband();
         this.metal_50x30_Price = 0;
         this.metal_25x25_Price = 0;
     }
@@ -62,6 +66,34 @@ public abstract class DoubleFrameDoor extends SimpleDoor {
 
     public double getMetal_25x25_Price() {
         return metal_25x25_Price;
+    }
+
+    @Override
+    public void calcPlatband(PlatbandType platbandType) {
+        totalPrice -= platbandPrice;
+        platband.clear();
+        switch (platbandType) {
+            case WOODEN:
+                this.platband.calcWoodenPlatband(this.getX(), this.getY(), this.getClass());
+                break;
+            case METAL_PAINTING_PF:
+                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY(), this.getClass());
+                break;
+            case METAL_PAINTING_SHAGREEN:
+                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY(), this.getClass());
+                break;
+            case METAL_PAINTING_ANTIC:
+                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
+                break;
+            case MDF10:
+                this.platband.calcMdf10Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
+                break;
+            case MDF16:
+                this.platband.calcMdf16Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
+                break;
+        }
+        platbandPrice = this.platband.getTotalPlatbandPrice();
+        totalPrice += platbandPrice;
     }
 
     @Override

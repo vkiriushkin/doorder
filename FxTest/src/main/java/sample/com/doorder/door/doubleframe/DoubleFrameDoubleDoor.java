@@ -21,13 +21,11 @@ public class DoubleFrameDoubleDoor extends DoubleFrameDoor {
 
     protected DoubleFrameDoubleDoorInnerDecoration innerDecoration;
     protected DoubleFrameDoubleDoorOuterDecoration outerDecoration;
-    private Platband platband;
 
     public DoubleFrameDoubleDoor() {
         super();
         this.innerDecoration = new DoubleFrameDoubleDoorInnerDecoration();
         this.outerDecoration = new DoubleFrameDoubleDoorOuterDecoration();
-        this.platband = new Platband();
     }
 
     @Override
@@ -135,7 +133,7 @@ public class DoubleFrameDoubleDoor extends DoubleFrameDoor {
                 && this.getX_1() >= getX() / 2 && this.getX_1() <= 1200
                 && this.getX() - this.getX_1() >= 150) {
             LOGGER.info("25x25: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 2 * this.getY()) * 1.1 / 1000 * Price.PIPE_25x25.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_25x25_Price = bd.doubleValue();
         } else
@@ -270,34 +268,6 @@ public class DoubleFrameDoubleDoor extends DoubleFrameDoor {
         }
         innerDecorationPrice = this.innerDecoration.getTotalInnerDecorationPrice();
         totalPrice += innerDecorationPrice;
-    }
-
-    @Override
-    public void calcPlatband(PlatbandType platbandType) {
-        totalPrice -= platbandPrice;
-        platband.clear();
-        switch (platbandType) {
-            case WOODEN:
-                this.platband.calcWoodenPlatband(this.getX(), this.getY(), this.getClass());
-                break;
-            case METAL_PAINTING_PF:
-                this.platband.calcMetalPlatbandPaintingPF(this.getX(), this.getY(), this.getClass());
-                break;
-            case METAL_PAINTING_SHAGREEN:
-                this.platband.calcMetalPlatbandPaintingShagreen(this.getX(), this.getY(), this.getClass());
-                break;
-            case METAL_PAINTING_ANTIC:
-                this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
-                break;
-            case MDF10:
-                this.platband.calcMdf10Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
-                break;
-            case MDF16:
-                this.platband.calcMdf16Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
-                break;
-        }
-        platbandPrice = this.platband.getTotalPlatbandPrice();
-        totalPrice += platbandPrice;
     }
 
     public int getX_1() {

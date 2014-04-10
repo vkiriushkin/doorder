@@ -119,7 +119,7 @@ public class Armour5030SingleSideTransomDoorInnerDecoration extends InnerDecorat
         if ((y - 30) > 2050 && (y - 30) <= 2350) {
             BigDecimal bd = new BigDecimal(((double)x - 30) * (y - 30) / 1000000 * Price.MDF_16.getPriceInUAH() + 80);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            mdf10 = bd.doubleValue();
+            mdf16 = bd.doubleValue();
             totalInnerDecorationPrice += mdf16;
         }
         LOGGER.info("Finish calculating inner decoration, MDF_16 price:{}", mdf16);

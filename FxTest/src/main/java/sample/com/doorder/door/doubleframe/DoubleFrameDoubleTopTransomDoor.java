@@ -35,6 +35,7 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
         calcL50x4Part();
         calcPipe40x40();
         calcPipe50x30();
@@ -42,6 +43,11 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
         calcPipe25x25();
         totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+    }
+
+    private void checkDimensions() {
+        if (x_1 > this.getX() - 150)
+            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
     }
 
     private void calcL50x4Part() {
@@ -86,7 +92,6 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
     private void calcPipe50x30() {
         LOGGER.info("Checking dimensions for 50x30");
         if (this.getY() >= 1000 && this.getY() <= 3000 && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() >= 500 && this.getX_1() <= 1250
                 && this.getX_1() >= this.getX()/2 && this.getX_1() <= 1200
                 && this.getY() - this.getY_1() >= 60 && this.getY() - this.getY_1() <= 1000
                 && this.getY_1() >= 1000 && this.getY_1() <= 2450) {
@@ -153,7 +158,9 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
         } else
             throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
-        this.metal_20x20_Price = (part1 + part2) * Price.PIPE_20x20.getPriceInUAH();
+        BigDecimal sum = new BigDecimal((part1 + part2) * Price.PIPE_20x20.getPriceInUAH());
+        sum = sum.setScale(2, RoundingMode.HALF_UP);
+        this.metal_20x20_Price = sum.doubleValue();
         metalFramesPartsTotalPrice += metal_20x20_Price;
         totalPrice += metal_20x20_Price;
         LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
@@ -162,7 +169,6 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
     private void calcPipe25x25() {
         LOGGER.info("Checking dimensions for 25x25");
         if (this.getY() >= 1000 && this.getY() <= 3000 && this.getX() >= 800 && this.getX() <= 1950
-                && this.getX_1() >= 500 && this.getX_1() <= 1250
                 && this.getX_1() >= this.getX()/2 && this.getX_1() <= 1200
                 && this.getY() - this.getY_1() >= 60 && this.getY() - this.getY_1() <= 1000
                 && this.getY_1() >= 1000 && this.getY_1() <= 2450) {

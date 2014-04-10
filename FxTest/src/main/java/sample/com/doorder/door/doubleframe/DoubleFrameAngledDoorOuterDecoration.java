@@ -67,7 +67,7 @@ public class DoubleFrameAngledDoorOuterDecoration extends OuterDecoration{
         clear();
         BigDecimal bd = new BigDecimal((((double) x * y) / 1000000
                 + ((double)x + y) * 2 * 0.16 / 1000
-                + ((double)x + y) * 2 * 0.07 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH());
+                + ((double)x + y) * 2 * 0.07 / 1000) * Price.PAINTING_ANTIC.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingAntic = bd.doubleValue();
         totalOuterDecorationPrice += paintingAntic;
@@ -79,7 +79,7 @@ public class DoubleFrameAngledDoorOuterDecoration extends OuterDecoration{
         clear();
         BigDecimal bd = new BigDecimal((((double) x * y) / 1000000
                 + ((double)x + y) * 2 * 0.16 / 1000
-                + ((double)x + y) * 2 * 0.07 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH());
+                + ((double)x + y) * 2 * 0.07 / 1000) * Price.PAINTING_PF.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingPF = bd.doubleValue();
         totalOuterDecorationPrice += paintingPF;

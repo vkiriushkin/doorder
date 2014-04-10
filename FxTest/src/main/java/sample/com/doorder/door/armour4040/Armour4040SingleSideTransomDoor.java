@@ -31,12 +31,18 @@ public class Armour4040SingleSideTransomDoor extends Armour4040Door {
 	@Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
 		calcPipe40x40();
 		calcPipe40x20();
 		calcPipe20x20();
 		totalPrice += metalFramesPartsTotalPrice;
 		LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
 	}
+
+    private void checkDimensions() {
+        if (x_1 < this.getX() / 2)
+            throw new UnsupportedDimensions("Metal parts", "x1 < x/2", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+    }
 
 	private void calcPipe40x40() {
 		LOGGER.info("Checking dimensions for pipe 40x40");

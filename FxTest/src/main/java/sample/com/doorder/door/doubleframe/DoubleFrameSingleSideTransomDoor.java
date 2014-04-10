@@ -38,7 +38,9 @@ public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
 
     private void checkDimensions() {
         if (x_1 > this.getX() - 150)
-            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + "x: " + this.getX()));
+            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+        if (x_1 < this.getX() / 2)
+            throw new UnsupportedDimensions("Metal parts", "x1 < x/2", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
     }
 
     private void calcL50x4Part() {

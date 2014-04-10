@@ -12,14 +12,14 @@ public class Platband {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(Platband.class);
 
-	private double woodenPlatband;
-	private double metalPlatbandPaintingPF;
-	private double metalPlatbandPaintingShagreen;
-	private double metalPlatbandPaintingAntic;
+	protected double woodenPlatband;
+	protected double metalPlatbandPaintingPF;
+	protected double metalPlatbandPaintingShagreen;
+	protected double metalPlatbandPaintingAntic;
 	private double mdf10Platband;
 	private double mdf16Platband;
 
-	private double totalPlatbandPrice;
+	protected double totalPlatbandPrice;
 
 	public void calcWoodenPlatband(int x, int y, Class caller) {
 		LOGGER.info("Start calculating platband");

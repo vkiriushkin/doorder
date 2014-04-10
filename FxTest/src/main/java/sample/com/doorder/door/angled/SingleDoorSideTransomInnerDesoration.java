@@ -118,7 +118,7 @@ public class SingleDoorSideTransomInnerDesoration extends SingleDoorInnerDecorat
         if ((y - 40) > 2050 && (y - 40) <= 2350) {
 	        BigDecimal bd = new BigDecimal(((double)x - 40) * (y - 40) / 1000000 * Price.MDF_16.getPriceInUAH() + 80);
 	        bd = bd.setScale(2, RoundingMode.HALF_UP);
-	        mdf10 = bd.doubleValue();
+            mdf16 = bd.doubleValue();
             totalInnerDecorationPrice += mdf16;
         }
         LOGGER.info("Finish calculating inner decoration, MDF_16 price:{}", mdf16);

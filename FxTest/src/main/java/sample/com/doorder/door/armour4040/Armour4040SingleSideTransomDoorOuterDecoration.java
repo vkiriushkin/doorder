@@ -84,9 +84,8 @@ public class Armour4040SingleSideTransomDoorOuterDecoration extends OuterDecorat
 	public void calcPaintingShagreenWithoutTopTransom(int x, int y, int x_1) {
 		LOGGER.info("Start calculating outer decoration without top transom");
 		clear();
-		BigDecimal bd = new BigDecimal((((double)y * x_1) / 1000000
-				+ ((double)y + x_1) * 2 * 0.12 / 1000 + (4 * (double)y + 2 * x_1) * 2 * 0.08 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH()
-				+ ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+		BigDecimal bd = new BigDecimal((((double)x_1 * y) / 1000000 + ((double)x + y) * 2 * 0.12 / 1000 +((double)y + x_1) * 2 * 0.08 / 1000)
+                * Price.PAINTING_SHAGREEN.getPriceInUAH() + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		paintingShagreen = bd.doubleValue();
 		totalOuterDecorationPrice += paintingShagreen;
@@ -107,11 +106,9 @@ public class Armour4040SingleSideTransomDoorOuterDecoration extends OuterDecorat
 	public void calcPaintingAnticWithoutTopTransom(int x, int y, int x_1) {
 		LOGGER.info("Start calculating outer decoration without top transom");
 		clear();
-		BigDecimal bd = new BigDecimal((((double)y * x_1) / 1000000
-				+ ((double)x_1 + y) * 2 * 0.12 / 1000
-				+ (4 * (double)y + 2 * x_1) * 2 * 0.08 / 1000)  * Price.PAINTING_ANTIC.getPriceInUAH()
-				+ ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
-		bd = bd.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal bd = new BigDecimal((((double)x_1 * y) / 1000000 + ((double)x + y) * 2 * 0.12 / 1000 +((double)y + x_1) * 2 * 0.08 / 1000)
+                * Price.PAINTING_ANTIC.getPriceInUAH() + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
 		paintingAntic = bd.doubleValue();
 		totalOuterDecorationPrice += paintingAntic;
 		LOGGER.info("Finish calculating outer decoration, painting antic price without top transom:{}", paintingAntic);
@@ -132,9 +129,8 @@ public class Armour4040SingleSideTransomDoorOuterDecoration extends OuterDecorat
 	public void calcPaintingPFWithoutTopTransom(int x, int y, int x_1) {
 		LOGGER.info("Start calculating outer decoration without top transom");
 		clear();
-		BigDecimal bd = new BigDecimal((((double)y * x_1) / 1000000
-				+ ((double)x_1 + y) * 2 * 0.12 / 1000 + (4 * (double)y + 2 * x_1) * 2 * 0.08 / 1000)  * Price.PAINTING_PF.getPriceInUAH()
-				+ ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+        BigDecimal bd = new BigDecimal((((double)x_1 * y) / 1000000 + ((double)x + y) * 2 * 0.12 / 1000 +((double)y + x_1) * 2 * 0.08 / 1000)
+                * Price.PAINTING_PF.getPriceInUAH() + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		paintingPF = bd.doubleValue();
 		totalOuterDecorationPrice += paintingPF;

@@ -61,17 +61,17 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for mdf10");
-		if (y_1 - 80 < 1000 || y_1 - 80 > 2350)
+		if (y_1 - 40 < 1000 || y_1 - 40 > 2350)
 			throw new UnsupportedDimensions("MDF_10", y, x);
 		LOGGER.info("MDF_10: dimension OK");
-		if ((y_1 - 80) >=1000 && (y_1 - 80) <= 2050) {
-			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 80)) / 1000000) * Price.MDF_10.getPriceInUAH());
+		if ((y_1 - 40) >=1000 && (y_1 - 40) <= 2050) {
+			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_10.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf10 = bd.doubleValue();
 			totalInnerDecorationPrice += mdf10;
 		}
-		if ((y_1 - 80) > 2050 && (y_1 - 80) <= 2350) {
-			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 80)) / 1000000) * Price.MDF_10.getPriceInUAH() + 40);
+		if ((y_1 - 40) > 2050 && (y_1 - 40) <= 2350) {
+			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_10.getPriceInUAH() + 40);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf10 = bd.doubleValue();
 			totalInnerDecorationPrice += mdf10;
@@ -83,18 +83,18 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration without top transom");
 		clear();
 		LOGGER.info("Checking dimensions for mdf10 without top transom");
-		if (y_1 - 80 < 1000 || y_1 - 80 > 2350)
+		if (y_1 - 40 < 1000 || y_1 - 40 > 2350)
 			throw new UnsupportedDimensions("MDF_10 without top transom", y, x);
 		LOGGER.info("MDF_10 without top transom: dimension OK");
-		if ((y_1 - 80) >=1000 && (y_1 - 80) <= 2050) {
-			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 80) / 1000000 * Price.MDF_10.getPriceInUAH()
+		if ((y_1 - 40) >=1000 && (y_1 - 40) <= 2050) {
+			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 40) / 1000000 * Price.MDF_10.getPriceInUAH()
 					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf10 = bd.doubleValue();
 			totalInnerDecorationPrice += mdf10;
 		}
-		if ((y_1 - 80) > 2050 && (y_1 - 80) <= 2350) {
-			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 80) / 1000000 * Price.MDF_10.getPriceInUAH() + 40
+		if ((y_1 - 40) > 2050 && (y_1 - 40) <= 2350) {
+			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 40) / 1000000 * Price.MDF_10.getPriceInUAH() + 40
 					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf10 = bd.doubleValue();
@@ -107,17 +107,17 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for mdf16");
-		if (y_1 - 80 < 1000 || y_1 - 80 > 2350)
+		if (y_1 - 40 < 1000 || y_1 - 40 > 2350)
 			throw new UnsupportedDimensions("MDF_16", y, x);
 		LOGGER.info("MDF_16: dimension OK");
-		if ((y_1 - 80) >=1000 && (y_1 - 80) <= 2050) {
-			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 80)) / 1000000) * Price.MDF_16.getPriceInUAH());
+		if ((y_1 - 40) >=1000 && (y_1 - 40) <= 2050) {
+			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_16.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf16 = bd.doubleValue();
 			totalInnerDecorationPrice += mdf16;
 		}
-		if ((y_1 - 80) > 2050 && (y_1 - 80) <= 2350) {
-			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 80)) / 1000000) * Price.MDF_16.getPriceInUAH() + 40);
+		if ((y_1 - 40) > 2050 && (y_1 - 40) <= 2350) {
+			BigDecimal bd = new BigDecimal((((double) (x - 40) * (y - 40)) / 1000000) * Price.MDF_16.getPriceInUAH() + 40);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf16 = bd.doubleValue();
 			totalInnerDecorationPrice += mdf16;
@@ -129,18 +129,18 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration without top transom");
 		clear();
 		LOGGER.info("Checking dimensions for mdf16 without top transom");
-		if (y_1 - 80 < 1000 || y_1 - 80 > 2350)
+		if (y_1 - 40 < 1000 || y_1 - 40 > 2350)
 			throw new UnsupportedDimensions("MDF_16 without top transom", y, x);
 		LOGGER.info("MDF_16 without top transom: dimension OK");
-		if ((y_1 - 80) >=1000 && (y_1 - 80) <= 2050) {
-			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 80) / 1000000 * Price.MDF_16.getPriceInUAH()
+		if ((y_1 - 40) >=1000 && (y_1 - 40) <= 2050) {
+			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 40) / 1000000 * Price.MDF_16.getPriceInUAH()
 					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf16 = bd.doubleValue();
 			totalInnerDecorationPrice += mdf16;
 		}
-		if ((y_1 - 80) > 2050 && (y_1 - 80) <= 2350) {
-			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 80) / 1000000 * Price.MDF_16.getPriceInUAH() + 40
+		if ((y_1 - 40) > 2050 && (y_1 - 40) <= 2350) {
+			BigDecimal bd = new BigDecimal(((double)x - 40) * (y_1 - 40) / 1000000 * Price.MDF_16.getPriceInUAH() + 40
 					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf16 = bd.doubleValue();
@@ -158,7 +158,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for painting PF");
-		if (x - 80 < 500 || x - 80 > 1200 || y_1 - 80 < 1000 || y_1 - 80 > 2450)
+		if (x - 80 < 500 || x - 80 > 1300 || y_1 - 80 < 1000 || y_1 - 80 > 2550)
 			throw new UnsupportedDimensions("Painting PF", y, x);
 		LOGGER.info("Painting PF: dimension OK");
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
@@ -185,7 +185,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 			paintingPF = bd.doubleValue();
 			totalInnerDecorationPrice += paintingPF;
 		}
-		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y - 80) > 2060 && (y - 80) <= 2550) {
+		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) > 2060 && (y - 80) <= 2550) {
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
 					+ ((double)x - 80) * (y - 80) * Price.PAINTING_PF.getPriceInUAH() / 1000000
 					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
@@ -227,7 +227,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 			paintingPF = bd.doubleValue();
 			totalInnerDecorationPrice += paintingPF;
 		}
-		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y - 80) > 2060 && (y - 80) <= 2550) {
+		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
 					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_PF.getPriceInUAH() / 1000000
 					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
@@ -242,42 +242,38 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for painting shagreen");
-		if (x - 80 < 500 || x - 80 > 1200 || y_1 - 80 < 1000 || y_1 - 80 > 2450)
+		if (x - 80 < 500 || x - 80 > 1300 || y_1 - 80 < 1000 || y_1 - 80 > 2550)
 			throw new UnsupportedDimensions("Painting PF", y, x);
 		LOGGER.info("Painting shagreen: dimension OK");
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
 			totalInnerDecorationPrice += paintingShagreen;
 		}
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
-			bd = bd.setScale(2, RoundingMode.HALF_UP);
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
 			totalInnerDecorationPrice += paintingShagreen;
 		}
 		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
-			bd = bd.setScale(2, RoundingMode.HALF_UP);
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
 			totalInnerDecorationPrice += paintingShagreen;
 		}
 		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
-			bd = bd.setScale(2, RoundingMode.HALF_UP);
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
 			totalInnerDecorationPrice += paintingShagreen;
 		}
@@ -288,7 +284,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration without top transom");
 		clear();
 		LOGGER.info("Checking dimensions for painting shagreen without top transom");
-		if (x - 80 < 500 || x - 80 > 1200 || y_1 - 80 < 1000 || y_1 - 80 > 2450)
+		if (x - 80 < 500 || x - 80 > 1200 || y_1 - 80 < 1000 || y_1 - 80 > 2550)
 			throw new UnsupportedDimensions("Painting PF without top transom", y, x);
 		LOGGER.info("Painting shagreen without top transom: dimension OK");
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
@@ -301,7 +297,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		}
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
 					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
@@ -309,7 +305,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		}
 		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
 					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
@@ -317,7 +313,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		}
 		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
 			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
+					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000000
 					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingShagreen = bd.doubleValue();
@@ -330,41 +326,37 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for painting antic");
-		if (x - 80 < 500 || x - 80 > 1200 || y_1 - 80 < 1000 || y_1 - 80 > 2450)
+		if (x - 80 < 500 || x - 80 > 1300 || y_1 - 80 < 1000 || y_1 - 80 > 2550)
 			throw new UnsupportedDimensions("Painting PF", y, x);
 		LOGGER.info("Painting antic: dimension OK");
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
-			bd = bd.setScale(2, RoundingMode.HALF_UP);
+            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingAntic = bd.doubleValue();
 			totalInnerDecorationPrice += paintingAntic;
 		}
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingAntic = bd.doubleValue();
 			totalInnerDecorationPrice += paintingAntic;
 		}
 		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingAntic = bd.doubleValue();
 			totalInnerDecorationPrice += paintingAntic;
 		}
 		if ((x - 80) > 1050 && (x - 80) <= 1300 && (y_1 - 80) > 2060 && (y_1 - 80) <= 2550) {
-			BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
-					+ ((double)x - 80) * (y_1 - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
-					+ ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH()
-					+ ((double)y - y_1) * x / 1000000 * Price.PAINTING_PF.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)x - 80) * (y - 80) * Price.PAINTING_ANTIC.getPriceInUAH() / 1000000
+                    + ((double)y - y_1) * x / 1000000 * Price.LIST_M2.getPriceInUAH());
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			paintingAntic = bd.doubleValue();
 			totalInnerDecorationPrice += paintingAntic;
@@ -376,7 +368,7 @@ public class Armour4040SingleTopTransomDoorInnerDecoration extends InnerDecorati
 		LOGGER.info("Start calculating inner decoration");
 		clear();
 		LOGGER.info("Checking dimensions for painting antic");
-		if (x - 80 < 500 || x - 80 > 1200 || y_1 - 80 < 1000 || y_1 - 80 > 2450)
+		if (x - 80 < 500 || x - 80 > 1300 || y_1 - 80 < 1000 || y_1 - 80 > 2550)
 			throw new UnsupportedDimensions("Painting PF", y, x);
 		LOGGER.info("Painting antic: dimension OK");
 		if ((x - 80) >= 500 && (x - 80) <= 1050 && (y_1 - 80) >=1000 && (y_1 - 80) <= 2060) {

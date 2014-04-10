@@ -37,12 +37,18 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 	@Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
 		calcPipe40x40();
 		calcPipe40x20();
 		calcPipe20x20();
 		totalPrice += metalFramesPartsTotalPrice;
 		LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
 	}
+
+    private void checkDimensions() {
+        if (x_1 > this.getX() - 150)
+            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+    }
 
 	private void calcPipe40x40() {
 		LOGGER.info("Checking dimensions for pipe 40x40");
@@ -206,7 +212,7 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 
 	@Override
 	public void calcSeal(boolean sealNeeded) {
-		BigDecimal bd = new BigDecimal(((2 * (double)this.getX() + 3 * this.getY()) / 1000) * Price.SEAL.getPriceInUAH());
+		BigDecimal bd = new BigDecimal(((2 * (double)this.getX() + 3 * this.getY_1()) / 1000) * Price.SEAL.getPriceInUAH());
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		double price = sealNeeded ? bd.doubleValue() : 0.0;
 		this.sealPrice = price;

@@ -140,8 +140,6 @@ public class DoorFactory {
                     } else {
                         singleDoorTopSideTransom.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
                     }
-                    calcInnerDecoration(singleDoorTopSideTransom, innerDecoration);
-                    calcOuterDecoration(singleDoorTopSideTransom, outerDecoration);
                     calcPlatband(singleDoorTopSideTransom, platbandType);
                     result = singleDoorTopSideTransom.toString();
                 }
@@ -167,8 +165,6 @@ public class DoorFactory {
                     } else {
                         doubleDoorTopTransom.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
                     }
-                    calcInnerDecoration(doubleDoorTopTransom, innerDecoration);
-                    calcOuterDecoration(doubleDoorTopTransom, outerDecoration);
                     calcPlatband(doubleDoorTopTransom, platbandType);
                     result = doubleDoorTopTransom.toString();
                 }
@@ -195,8 +191,6 @@ public class DoorFactory {
                     } else {
                         singleDoorTwoSideTransom.calcOuterDecorationWithoutTopTransom(outerDecorationTypeBySelectedItem(outerDecoration));
                     }
-                    calcInnerDecoration(singleDoorTwoSideTransom, innerDecoration);
-                    calcOuterDecoration(singleDoorTwoSideTransom, outerDecoration);
                     calcPlatband(singleDoorTwoSideTransom, platbandType);
                     result = singleDoorTwoSideTransom.toString();
                 }
@@ -312,8 +306,6 @@ public class DoorFactory {
 			        } else {
 				        armour4040SingleTwoSideAndTopTransomDoor.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
 			        }
-			        calcInnerDecoration(armour4040SingleTwoSideAndTopTransomDoor, innerDecoration);
-			        calcOuterDecoration(armour4040SingleTwoSideAndTopTransomDoor, outerDecoration);
 			        calcPlatband(armour4040SingleTwoSideAndTopTransomDoor, platbandType);
 			        result = armour4040SingleTwoSideAndTopTransomDoor.toString();
 		        }
@@ -339,8 +331,6 @@ public class DoorFactory {
 			        } else {
 				        armour4040DoubleTopTransomDoor.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
 			        }
-			        calcInnerDecoration(armour4040DoubleTopTransomDoor, innerDecoration);
-			        calcOuterDecoration(armour4040DoubleTopTransomDoor, outerDecoration);
 			        calcPlatband(armour4040DoubleTopTransomDoor, platbandType);
 			        result = armour4040DoubleTopTransomDoor.toString();
 		        }
@@ -367,8 +357,6 @@ public class DoorFactory {
 			        } else {
 				        armour4040SingleTwoSideTransomDoor.calcOuterDecorationWithoutTopTransom(outerDecorationTypeBySelectedItem(outerDecoration));
 			        }
-			        calcInnerDecoration(armour4040SingleTwoSideTransomDoor, innerDecoration);
-			        calcOuterDecoration(armour4040SingleTwoSideTransomDoor, outerDecoration);
 			        calcPlatband(armour4040SingleTwoSideTransomDoor, platbandType);
 			        result = armour4040SingleTwoSideTransomDoor.toString();
 		        }
@@ -484,8 +472,6 @@ public class DoorFactory {
                     } else {
                         doubleFrameSingleTwoSideAndTopTransomDoor.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
                     }
-                    calcInnerDecoration(doubleFrameSingleTwoSideAndTopTransomDoor, innerDecoration);
-                    calcOuterDecoration(doubleFrameSingleTwoSideAndTopTransomDoor, outerDecoration);
                     calcPlatband(doubleFrameSingleTwoSideAndTopTransomDoor, platbandType);
                     result = doubleFrameSingleTwoSideAndTopTransomDoor.toString();
                 }
@@ -511,8 +497,6 @@ public class DoorFactory {
                     } else {
                         doubleFrameDoubleTopTransomDoor.calcOuterDecorationWithoutTopSideTransom(outerDecorationTypeBySelectedItem(outerDecoration));
                     }
-                    calcInnerDecoration(doubleFrameDoubleTopTransomDoor, innerDecoration);
-                    calcOuterDecoration(doubleFrameDoubleTopTransomDoor, outerDecoration);
                     calcPlatband(doubleFrameDoubleTopTransomDoor, platbandType);
                     result = doubleFrameDoubleTopTransomDoor.toString();
                 }
@@ -539,8 +523,6 @@ public class DoorFactory {
                     } else {
                         doubleFrameSingleTwoSideTransomDoor.calcOuterDecorationWithoutTopTransom(outerDecorationTypeBySelectedItem(outerDecoration));
                     }
-                    calcInnerDecoration(doubleFrameSingleTwoSideTransomDoor, innerDecoration);
-                    calcOuterDecoration(doubleFrameSingleTwoSideTransomDoor, outerDecoration);
                     calcPlatband(doubleFrameSingleTwoSideTransomDoor, platbandType);
                     result = doubleFrameSingleTwoSideTransomDoor.toString();
                 }
