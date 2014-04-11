@@ -4,12 +4,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -670,12 +668,12 @@ public class Controller implements Initializable {
                 outerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
                 innerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
                 outerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
-                platbandTypeCombo.getSelectionModel().getSelectedItem()
-//                mainLockCombo.getSelectionModel().getSelectedItem(),
-//                secondaryLockCombo.getSelectionModel().getSelectedItem(),
-//                handleCombo.getSelectionModel().getSelectedItem(),
-//                armourStrapCombo.getSelectionModel().getSelectedItem(),
-//                spyHoleCombo.getSelectionModel().getSelectedItem()
+                platbandTypeCombo.getSelectionModel().getSelectedItem(),
+                mainLockCombo.getSelectionModel().getSelectedItem(),
+                secondaryLockCombo.getSelectionModel().getSelectedItem(),
+                handleCombo.getSelectionModel().getSelectedItem(),
+                armourStrapCombo.getSelectionModel().getSelectedItem(),
+                spyHoleCombo.getSelectionModel().getSelectedItem()
         );
 
         Stage stage = new Stage();

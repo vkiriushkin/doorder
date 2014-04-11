@@ -28,6 +28,4 @@ public interface FireProofDoor extends Door {
 	void calcInnerDecoration(InnerDecorationType innerDecorationType);
 
 	void calcPlatband(PlatbandType platbandType);
-
-	void calcAccessories();
 }
