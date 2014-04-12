@@ -13,15 +13,6 @@ public class Armour4040SingleInnerDecoration extends InnerDecoration {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(Armour4040SingleInnerDecoration.class);
 
-//	protected double plastic;
-//	protected double laminate;
-//	protected double mdf10;
-//	protected double mdf16;
-//	protected double paintingPF;
-//	protected double paintingShagreen;
-//	protected double paintingAntic;
-//	protected double totalInnerDecorationPrice;
-
 	public Armour4040SingleInnerDecoration() {
 	}
 

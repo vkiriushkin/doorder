@@ -1,12 +1,14 @@
 package sample.com.doorder.door.fireproof;
 
-import sample.com.doorder.door.fireproof.FireProofDoor;
+import sample.com.doorder.door.Accessories;
+import sample.com.doorder.door.types.AccessoriesType;
 
 public abstract class FireProofDoorImpl implements FireProofDoor {
 
 	private int x;
 	private int y;
 	private int x_1;
+    protected Accessories accessories;
 
 	protected double totalPrice;
 	protected double metalFramesPartsTotalPrice;
@@ -22,7 +24,11 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 	protected double outerDecorationPrice;
 	protected double innerDecorationPrice;
 	protected double platbandPrice;
-	protected double accessoriesPrice;
+    protected double mainLockPrice;
+    protected double secondaryLockPrice;
+    protected double handlePrice;
+    protected double protectorPrice;
+    protected double spyHolePrice;
 
 	public FireProofDoorImpl() {
 		totalPrice = 0;
@@ -39,8 +45,53 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 		outerDecorationPrice = 0;
 		innerDecorationPrice = 0;
 		platbandPrice = 0;
-		accessoriesPrice = 0;
+        this.mainLockPrice = 0;
+        this.secondaryLockPrice = 0;
+        this.handlePrice = 0;
+        this.protectorPrice = 0;
+        this.spyHolePrice = 0;
+        this.accessories = new Accessories();
 	}
+
+    @Override
+    public void calcMainLock(AccessoriesType mainLockType) {
+        totalPrice -= accessories.getMainLockPrice();
+        accessories.calcMainLock(mainLockType);
+        mainLockPrice = this.accessories.getMainLockPrice();
+        totalPrice += mainLockPrice;
+    }
+
+    @Override
+    public void calcSecondaryLock(AccessoriesType secondaryLockType) {
+        totalPrice -= accessories.getSecondaryLockPrice();
+        accessories.calcSecondaryLock(secondaryLockType);
+        secondaryLockPrice = this.accessories.getSecondaryLockPrice();
+        totalPrice += secondaryLockPrice;
+    }
+
+    @Override
+    public void calcHandle(AccessoriesType handleType) {
+        totalPrice -= accessories.getHandlePrice();
+        accessories.calcHandle(handleType);
+        handlePrice = this.accessories.getHandlePrice();
+        totalPrice += handlePrice;
+    }
+
+    @Override
+    public void calcProtector(AccessoriesType protectorType) {
+        totalPrice -= accessories.getProtectorPrice();
+        accessories.calcProtector(protectorType);
+        protectorPrice = this.accessories.getProtectorPrice();
+        totalPrice += protectorPrice;
+    }
+
+    @Override
+    public void calcSpyHole(AccessoriesType spyHoleType) {
+        totalPrice -= accessories.getSpyHolePrice();
+        accessories.calcSpyHolder(spyHoleType);
+        spyHolePrice = this.accessories.getSpyHolePrice();
+        totalPrice += spyHolePrice;
+    }
 
 	public int getX() {
 		return x;
@@ -178,14 +229,6 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 		this.platbandPrice = platbandPrice;
 	}
 
-	public double getAccessoriesPrice() {
-		return accessoriesPrice;
-	}
-
-	public void setAccessoriesPrice(double accessoriesPrice) {
-		this.accessoriesPrice = accessoriesPrice;
-	}
-
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
@@ -204,6 +247,11 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         sb.append("outerDecorationPrice=").append(outerDecorationPrice).append("\n");
         sb.append("innerDecorationPrice=").append(innerDecorationPrice).append("\n");
         sb.append("platbandPrice=").append(platbandPrice).append("\n");
+        sb.append("mainLockPrice=").append(mainLockPrice).append("\n");
+        sb.append("secondaryLockPrice=").append(secondaryLockPrice).append("\n");
+        sb.append("handlePrice=").append(handlePrice).append("\n");
+        sb.append("protectorPrice=").append(protectorPrice).append("\n");
+        sb.append("spyHolePrice=").append(spyHolePrice).append("\n");
         return sb.toString();
     }
 }

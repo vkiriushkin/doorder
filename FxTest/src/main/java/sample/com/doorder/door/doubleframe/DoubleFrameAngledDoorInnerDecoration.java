@@ -13,16 +13,6 @@ public class DoubleFrameAngledDoorInnerDecoration extends InnerDecoration{
 
     public static final Logger LOGGER = LoggerFactory.getLogger(DoubleFrameAngledDoorInnerDecoration.class);
 
-    protected double plastic;
-    protected double laminate;
-    protected double mdf10;
-    protected double mdf16;
-    private double withoutDecoration;
-    protected double paintingPF;
-    protected double paintingShagreen;
-    protected double paintingAntic;
-    protected double totalInnerDecorationPrice;
-
     public DoubleFrameAngledDoorInnerDecoration() {
     }
 

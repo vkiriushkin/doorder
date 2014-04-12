@@ -16,7 +16,7 @@ public class InnerDecoration {
     protected double laminate;
     protected double mdf10;
     protected double mdf16;
-    private double withoutDecoration;
+    protected double withoutDecoration;
     protected double paintingPF;
     protected double paintingShagreen;
     protected double paintingAntic;

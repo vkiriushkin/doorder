@@ -14,8 +14,8 @@ public abstract class Armour5030Door extends SimpleDoor {
     protected double hingePrice;
     protected double heaterPrice;
     protected double sealPrice;
-    protected double outerDecorationPrice;
-    protected double innerDecorationPrice;
+//    protected double outerDecorationPrice;
+//    protected double innerDecorationPrice;
     protected double platbandPrice;
     protected double mainLockPrice;
     protected double secondaryLockPrice;

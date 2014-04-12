@@ -304,9 +304,4 @@ public class DoubleFireProofDoor extends SingleFireProofDoor {
         totalPrice += platbandPrice;
     }
 
-    @Override
-    public void calcAccessories() {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
-
 }
