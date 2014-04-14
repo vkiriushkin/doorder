@@ -12,4 +12,6 @@ public interface Door {
 	void calcProtector(AccessoriesType protectorType);
 
 	void calcSpyHole(AccessoriesType spyHoleType);
+
+    void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded);
 }

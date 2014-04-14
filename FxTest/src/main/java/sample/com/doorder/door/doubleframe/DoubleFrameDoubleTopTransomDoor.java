@@ -29,7 +29,7 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
         super();
         this.innerDecoration = new DoubleFrameDoubleTopTransomDoorInnerDecoration();
         this.outerDecoration = new DoubleFrameDoubleTopTransomDoorOuterDecoration();
-        this.platband = new Platband();
+        this.platband = new DoubleFrameDoubleTopTransomPlatband();
     }
 
     @Override
@@ -385,6 +385,11 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
 
     @Override
     public void calcPlatband(PlatbandType platbandType) {
+        if ((platbandType.equals(PlatbandType.METAL_PAINTING_ANTIC)
+                || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
+                || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
+                && this.getY() > 3000)
+            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
         totalPrice -= platbandPrice;
         platband.clear();
         switch (platbandType) {

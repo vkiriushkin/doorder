@@ -59,6 +59,7 @@ public class Controller implements Initializable {
     public TextField y_1;
     public TextField x_2;
     public TextField x_3;
+    public Label wrongDimensionsLabel;
     public Label xDimensions;
     public Label yDimensions;
     public Label x1Dimensions;
@@ -189,6 +190,9 @@ public class Controller implements Initializable {
                 updateDoorImage();
             }
         });
+
+        //step2
+        initStep2();
 
         //step3
         initStep3();
@@ -336,6 +340,63 @@ public class Controller implements Initializable {
         step5VBox.setVisible(true);
     }
 
+    private void initStep2() {
+        x.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                updateDimensionsLabel();
+            }
+        });
+        x_1.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                updateDimensionsLabel();
+            }
+        });
+        x_2.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                updateDimensionsLabel();
+            }
+        });
+        x_3.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                updateDimensionsLabel();
+            }
+        });
+        y.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                updateDimensionsLabel();
+            }
+        });
+        y_1.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
+                updateDimensionsLabel();
+            }
+        });
+    }
+
+    private void updateDimensionsLabel() {
+        if (!x.getText().equals("") && Integer.parseInt(x.getText()) > 1000 && Integer.parseInt(x.getText()) % 10 != 0) {
+            wrongDimensionsLabel.setText("Значение x должно быть кратным 10");
+        } else if (!x_1.getText().equals("") && Integer.parseInt(x_1.getText()) > 1000 && Integer.parseInt(x_1.getText()) % 10 != 0) {
+            wrongDimensionsLabel.setText("Значение x1 должно быть кратным 10");
+        } else if (!x_2.getText().equals("") && Integer.parseInt(x_2.getText()) > 1000 && Integer.parseInt(x_2.getText()) % 10 != 0) {
+            wrongDimensionsLabel.setText("Значение x2 должно быть кратным 10");
+        } else if (!x_3.getText().equals("") && Integer.parseInt(x_3.getText()) > 1000 && Integer.parseInt(x_3.getText()) % 10 != 0) {
+            wrongDimensionsLabel.setText("Значение x3 должно быть кратным 10");
+        } else if (!y.getText().equals("") && Integer.parseInt(y.getText()) > 1000 && Integer.parseInt(y.getText()) % 10 != 0) {
+            wrongDimensionsLabel.setText("Значение y должно быть кратным 10");
+        } else if (!y_1.getText().equals("") && Integer.parseInt(y_1.getText()) > 1000 && Integer.parseInt(y_1.getText()) % 10 != 0) {
+            wrongDimensionsLabel.setText("Значение y1 должно быть кратным 10");
+        } else {
+            wrongDimensionsLabel.setText("");
+        }
+    }
+
     private void initStep3() {
         outerDecorationTypeCombo.getItems().setAll(
                 LabelNames.outerselfAdhesiveFilm,
@@ -427,16 +488,16 @@ public class Controller implements Initializable {
 
     private void initStep4() {
         mainLockCombo.getItems().setAll(
-                LabelNames.kale257,
-                LabelNames.kale189,
-                LabelNames.elbor
-        );
-
-        secondaryLockCombo.getItems().setAll(
                 LabelNames.kale252,
                 LabelNames.mottura,
                 LabelNames.apecs2200,
-                LabelNames.kale2000,
+                LabelNames.kale2000
+        );
+
+        secondaryLockCombo.getItems().setAll(
+                LabelNames.kale257,
+                LabelNames.kale189,
+                LabelNames.elbor,
                 LabelNames.noSecondaryLock
         );
 
@@ -673,7 +734,10 @@ public class Controller implements Initializable {
                 secondaryLockCombo.getSelectionModel().getSelectedItem(),
                 handleCombo.getSelectionModel().getSelectedItem(),
                 armourStrapCombo.getSelectionModel().getSelectedItem(),
-                spyHoleCombo.getSelectionModel().getSelectedItem()
+                spyHoleCombo.getSelectionModel().getSelectedItem(),
+                shippingCombo.getSelectionModel().getSelectedItem(),
+                packagingYes.isSelected(),
+                installationYes.isSelected()
         );
 
         Stage stage = new Stage();

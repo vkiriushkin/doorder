@@ -353,7 +353,10 @@ public class DoubleDoorTopTransom extends SingleDoorTopSideTransom {
 
     @Override
     public void calcPlatband(PlatbandType platbandType) {
-        if (this.getY() > 3000)
+        if ((platbandType.equals(PlatbandType.METAL_PAINTING_ANTIC)
+                || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
+                || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
+                && this.getY() > 3000)
             throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
         super.calcPlatband(platbandType);
     }

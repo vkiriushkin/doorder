@@ -319,6 +319,11 @@ public class Armour5030SingleTwoSideAndTopTransomDoor extends Armour5030Door {
 
     @Override
     public void calcPlatband(PlatbandType platbandType) {
+        if ((platbandType.equals(PlatbandType.METAL_PAINTING_ANTIC)
+                || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
+                || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
+                && this.getY() > 3000)
+            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
         totalPrice -= platbandPrice;
         platband.clear();
         switch (platbandType) {

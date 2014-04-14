@@ -20,6 +20,9 @@ public abstract class SimpleDoor implements MetalDoor {
     protected double handlePrice;
     protected double protectorPrice;
     protected double spyHolePrice;
+    protected double shippingPrice;
+    protected double packagePrice;
+    protected double installationPrice;
 
     private int x;
     private int y;
@@ -44,6 +47,11 @@ public abstract class SimpleDoor implements MetalDoor {
         this.heaterPrice = 0;
         this.totalPrice = 0;
         this.outerDecorationPrice = 0;
+    }
+
+    @Override
+    public void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded) {
+        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public int getX() {
@@ -140,6 +148,18 @@ public abstract class SimpleDoor implements MetalDoor {
 
     public double getSpyHolePrice() {
         return spyHolePrice;
+    }
+
+    public double getShippingPrice() {
+        return shippingPrice;
+    }
+
+    public double getPackagePrice() {
+        return packagePrice;
+    }
+
+    public double getInstallationPrice() {
+        return installationPrice;
     }
 
     @Override

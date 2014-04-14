@@ -1,7 +1,11 @@
 package sample.com.doorder.door.fireproof;
 
 import sample.com.doorder.door.Accessories;
+import sample.com.doorder.door.Price;
 import sample.com.doorder.door.types.AccessoriesType;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public abstract class FireProofDoorImpl implements FireProofDoor {
 
@@ -29,6 +33,9 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
     protected double handlePrice;
     protected double protectorPrice;
     protected double spyHolePrice;
+    protected double shippingPrice;
+    protected double packagePrice;
+    protected double installationPrice;
 
 	public FireProofDoorImpl() {
 		totalPrice = 0;
@@ -93,7 +100,30 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         totalPrice += spyHolePrice;
     }
 
-	public int getX() {
+    @Override
+    public void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded) {
+
+        //installation
+        if (installationNeeded) {
+            BigDecimal bd = new BigDecimal(totalPrice * 0.15);
+            bd.setScale(2, RoundingMode.HALF_UP);
+            installationPrice = bd.doubleValue();
+        } else {
+            installationPrice = 0.0;
+        }
+
+        //package
+        //TODO: add package in price and fill formula
+//        if (packagingNeeded) {
+//            BigDecimal bd = new BigDecimal(x * y * 2 * Price.PAINTING_PF.getPriceInUAH());
+//            bd.setScale(2, RoundingMode.HALF_UP);
+//            installationPrice = bd.doubleValue();
+//        } else {
+//            installationPrice = 0.0;
+//        }
+    }
+
+    public int getX() {
 		return x;
 	}
 
@@ -228,6 +258,18 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 	public void setPlatbandPrice(double platbandPrice) {
 		this.platbandPrice = platbandPrice;
 	}
+
+    public double getShippingPrice() {
+        return shippingPrice;
+    }
+
+    public double getPackagePrice() {
+        return packagePrice;
+    }
+
+    public double getInstallationPrice() {
+        return installationPrice;
+    }
 
     @Override
     public String toString() {

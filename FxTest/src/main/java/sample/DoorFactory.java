@@ -28,8 +28,8 @@ public class DoorFactory {
                                     String innerTransomDecoration, String outerTransomDecoration,
                                     String platbandType,
                                     String mainLockType, String secondaryLockType,
-                                    String handleType, String protectorType, String spyHoleType
-    ) {
+                                    String handleType, String protectorType, String spyHoleType,
+                                    String shipping, boolean packagingNeeded, boolean installationNeeded) {
         String result = null;
 
         if (doorType.equalsIgnoreCase(LabelNames.metalDoor)) {
@@ -961,25 +961,25 @@ public class DoorFactory {
     }
 
     private static void calcMainLock(Door angledDoor, String mainLock) {
-        if (mainLock.equalsIgnoreCase(LabelNames.kale257))
-            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_KALE_257L);
-        if (mainLock.equalsIgnoreCase(LabelNames.kale189))
-            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_KALE_1894);
-        if (mainLock.equalsIgnoreCase(LabelNames.elbor))
-            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_ELBOR);
+        if (mainLock.equalsIgnoreCase(LabelNames.kale252))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_KALE_25R);
+        if (mainLock.equalsIgnoreCase(LabelNames.mottura))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_MOTTURA_54797);
+        if (mainLock.equalsIgnoreCase(LabelNames.apecs2200))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_APECS_2200);
+        if (mainLock.equalsIgnoreCase(LabelNames.kale2000))
+            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_KALE_2000);
     }
 
     private static void calcSecondaryLock(Door angledDoor, String secondaryLock) {
         if (secondaryLock.equalsIgnoreCase(LabelNames.noSecondaryLock))
             angledDoor.calcSecondaryLock(AccessoriesType.NO_SECONDARY_LOCKER);
-        if (secondaryLock.equalsIgnoreCase(LabelNames.kale252))
-            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_KALE_25R);
-        if (secondaryLock.equalsIgnoreCase(LabelNames.mottura))
-            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_MOTTURA_54797);
-        if (secondaryLock.equalsIgnoreCase(LabelNames.apecs2200))
-            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_APECS_2200);
-        if (secondaryLock.equalsIgnoreCase(LabelNames.kale2000))
-            angledDoor.calcSecondaryLock(AccessoriesType.SECONDARY_LOCKER_KALE_2000);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.kale257))
+            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_KALE_257L);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.kale189))
+            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_KALE_1894);
+        if (secondaryLock.equalsIgnoreCase(LabelNames.elbor))
+            angledDoor.calcMainLock(AccessoriesType.MAIN_LOCKER_ELBOR);
     }
 
     private static void calcHandle(Door angledDoor, String handle) {
