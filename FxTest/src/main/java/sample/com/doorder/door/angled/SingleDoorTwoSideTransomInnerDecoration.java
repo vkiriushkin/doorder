@@ -76,9 +76,29 @@ public class SingleDoorTwoSideTransomInnerDecoration extends SingleDoorSideTrans
 		LOGGER.info("Finish calculating inner decoration, MDF_10 price:{}", mdf10);
 	}
 
-	public void calcMdf10WithoutTopTransom(int x, int y, int x_1) {
-		super.calcMdf10WithoutTopTransom(x, y, x_1);
-	}
+    public void calcMdf10WithoutTopTransom(int x, int y, int x_1) {
+        LOGGER.info("Start calculating inner decoration without top transom");
+        clear();
+        LOGGER.info("Checking dimensions for mdf10 without top transom");
+        if (y - 40 < 1000 || y - 40 > 2350)
+            throw new UnsupportedDimensions("MDF_10 without top transom", y, x);
+        LOGGER.info("MDF_10 without top transom: dimension OK");
+        if ((y - 40) >= 1000 && (y - 40) <= 2050) {
+            BigDecimal bd = new BigDecimal(((double)(y - 40) * (x_1 - 40)) / 1000000 * Price.MDF_10.getPriceInUAH()
+                    + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            mdf10 = bd.doubleValue();
+            totalInnerDecorationPrice += mdf10;
+        }
+        if ((y - 40) > 2050 && (y - 40) <= 2350) {
+            BigDecimal bd = new BigDecimal(((double)(y - 40) * (x_1 - 40)) / 1000000 * Price.MDF_10.getPriceInUAH() + 40
+                    + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            mdf10 = bd.doubleValue();
+            totalInnerDecorationPrice += mdf10;
+        }
+        LOGGER.info("Finish calculating inner decoration, MDF_10 price without top transom:{}", mdf10);
+    }
 
 	public void calcMdf16(int x, int y, int x_1) {
 		LOGGER.info("Start calculating inner decoration");
@@ -102,9 +122,29 @@ public class SingleDoorTwoSideTransomInnerDecoration extends SingleDoorSideTrans
 		LOGGER.info("Finish calculating inner decoration, MDF_16 price:{}", mdf16);
 	}
 
-	public void calcMdf16WithoutTopTransom(int x, int y, int x_1) {
-		super.calcMdf16WithoutTopTransom(x, y, x_1);
-	}
+    public void calcMdf16WithoutTopTransom(int x, int y, int x_1) {
+        LOGGER.info("Start calculating inner decoration without top transom");
+        clear();
+        LOGGER.info("Checking dimensions for mdf16 without top transom");
+        if (y - 40 < 1000 || y - 40 > 2350)
+            throw new UnsupportedDimensions("MDF_16 without top transom", y, x);
+        LOGGER.info("MDF_16 without top transom: dimension OK");
+        if ((y - 40) >= 1000 && (y - 40) <= 2050) {
+            BigDecimal bd = new BigDecimal(((double)(y - 40) * (x_1 - 40)) / 1000000 * Price.MDF_16.getPriceInUAH()
+                    + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            mdf16 = bd.doubleValue();
+            totalInnerDecorationPrice += mdf16;
+        }
+        if ((y - 40) > 2050 && (y - 40) <= 2350) {
+            BigDecimal bd = new BigDecimal(((double)(y - 40) * (x_1 - 40)) / 1000000 * Price.MDF_16.getPriceInUAH() + 40
+                    + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            mdf16 = bd.doubleValue();
+            totalInnerDecorationPrice += mdf16;
+        }
+        LOGGER.info("Finish calculating inner decoration, MDF_16 price without top transom:{}", mdf16);
+    }
 
 	public void calcPaintingPF(int x, int y, int x_1) {
 		LOGGER.info("Start calculating inner decoration");

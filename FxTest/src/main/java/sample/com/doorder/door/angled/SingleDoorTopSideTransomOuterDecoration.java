@@ -324,21 +324,21 @@ public class SingleDoorTopSideTransomOuterDecoration extends OuterDecoration {
 			throw new UnsupportedDimensions("MDF_16 without top transom", y, x);
 		LOGGER.info("MDF_16 without top transom: dimension OK");
 		if (y_1 >= 1000 && y_1 <= 2050) {
-			BigDecimal bd = new BigDecimal(((double) y_1 * x_1 / 1000000) * Price.MDF_16.getPriceInUAH()
-					+ (((double)y - y_1) * x
-					+ ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
-					+ (((double)x + y) * 2 * 0.1
-					+ ((double)x_1 + y_1) * 2 * 0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+			BigDecimal bd = new BigDecimal(((double)x_1 * y_1) / 1000000 * Price.MDF_16.getPriceInUAH()
+                    +(((double)y - y_1) * x
+                    +((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
+                    +(((double)x + y) * 2 * 0.1
+                    + ((double)x_1 + y_1) * 2 *0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf16 = bd.doubleValue();
 			totalOuterDecorationPrice += mdf16;
 		}
-		if (y >= 2051 && y <= 2350) {
-			BigDecimal bd = new BigDecimal(((double) y_1 * x_1 / 1000000) * Price.MDF_16.getPriceInUAH() + 40
-					+ (((double)y - y_1) * x
-					+ ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
-					+ (((double)x + y) * 2 * 0.1
-					+ ((double)x_1 + y_1) * 2 * 0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+		if (y_1 >= 2051 && y_1 <= 2350) {
+            BigDecimal bd = new BigDecimal(((double)x_1 * y_1) / 1000000 * Price.MDF_16.getPriceInUAH() + 40
+                    +(((double)y - y_1) * x
+                    +((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
+                    +(((double)x + y) * 2 * 0.1
+                    + ((double)x_1 + y_1) * 2 *0.16) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
 			bd = bd.setScale(2, RoundingMode.HALF_UP);
 			mdf16 = bd.doubleValue();
 			totalOuterDecorationPrice += mdf16;

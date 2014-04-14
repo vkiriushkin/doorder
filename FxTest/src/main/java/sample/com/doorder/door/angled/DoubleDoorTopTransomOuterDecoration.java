@@ -293,7 +293,7 @@ public class DoubleDoorTopTransomOuterDecoration extends SingleDoorTopSideTranso
 			mdf16 = bd.doubleValue();
 			totalOuterDecorationPrice += mdf16;
 		}
-		if (y >= 2051 && y <= 2350) {
+		if (y_1 >= 2051 && y_1 <= 2350) {
 			BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_16.getPriceInUAH() + 80
 					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
 					+ (((double)x + y) * 2 * 0.1 + (x_1 + 2 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);

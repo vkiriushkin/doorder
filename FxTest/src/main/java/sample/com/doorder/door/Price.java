@@ -36,7 +36,8 @@ public enum Price {
 	OGRASK(0, "ogr"),
 	DRYWALL(0, "gips"),
 	MINERAL_WOOL(0, "vata"),
-    //	PACKAGING(30),
+    PACKAGING(30, "package"),
+    SHIPPING(130, "shipping"),
 
 	//accessories
 	SPY_HOLE_200(0, "spy200"),

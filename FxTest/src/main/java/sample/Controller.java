@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -158,18 +159,19 @@ public class Controller implements Initializable {
         doorStructureTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
-                updateInnerDecorationComboBoxNoMDF(newValue);
+                if (newValue != null )
+                    updateInnerDecorationComboBoxNoMDF(newValue);
             }
         });
 
         doorComplexityCategoryCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> selected, String oldValue, String newValue) {
-                if (newValue.equalsIgnoreCase(LabelNames.singleDoorTopTransom)
+                if (newValue != null && (newValue.equalsIgnoreCase(LabelNames.singleDoorTopTransom)
                         || newValue.equalsIgnoreCase(LabelNames.singleDoorSideTransom)
                         || newValue.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)
                         || newValue.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)
-                        || newValue.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
+                        || newValue.equalsIgnoreCase(LabelNames.doubleDoorTopTransom))) {
                     outerTransomDecorationTypeCombo.setDisable(false);
                     innerTransomDecorationTypeCombo.setDisable(false);
                 } else {
@@ -442,15 +444,17 @@ public class Controller implements Initializable {
         innerDecorationTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
-                if (newValue.equals(LabelNames.innerPaintingPF)
-                        || newValue.equals(LabelNames.innerPaintingShagreen)
-                        || newValue.equals(LabelNames.innerPaintingAntic)) {
-                    innerColor.setDisable(false);
-                    innerConfiguration.setDisable(true);
-                } else if(newValue.equals(LabelNames.innermdf10)
-                        || newValue.equals(LabelNames.innermdf16)) {
-                    innerColor.setDisable(false);
-                    innerConfiguration.setDisable(false);
+                if (newValue != null) {
+                    if (newValue.equals(LabelNames.innerPaintingPF)
+                            || newValue.equals(LabelNames.innerPaintingShagreen)
+                            || newValue.equals(LabelNames.innerPaintingAntic)) {
+                        innerColor.setDisable(false);
+                        innerConfiguration.setDisable(true);
+                    } else if(newValue.equals(LabelNames.innermdf10)
+                            || newValue.equals(LabelNames.innermdf16)) {
+                        innerColor.setDisable(false);
+                        innerConfiguration.setDisable(false);
+                    }
                 }
             }
         });
@@ -471,11 +475,13 @@ public class Controller implements Initializable {
         platbandTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
-                if (newValue.equals(LabelNames.platbandMdf10)
-                        || newValue.equals(LabelNames.platbandMdf16)) {
-                    platbandWidth.setDisable(false);
-                } else
-                    platbandWidth.setDisable(true);
+                if (newValue != null) {
+                    if (newValue.equals(LabelNames.platbandMdf10)
+                            || newValue.equals(LabelNames.platbandMdf16)) {
+                        platbandWidth.setDisable(false);
+                    } else
+                        platbandWidth.setDisable(true);
+                }
             }
         });
 
@@ -533,6 +539,17 @@ public class Controller implements Initializable {
                 LabelNames.shippingVendor,
                 LabelNames.shippingCompany
         );
+        shippingCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
+                if (newValue != null) {
+                    if (newValue.equals(LabelNames.shippingCompany)) {
+                        shippingCostInput.setDisable(false);
+                    } else
+                        shippingCostInput.setDisable(true);
+                }
+            }
+        });
     }
 
     private void updateDoorStructureTypeComboBox() {
@@ -735,7 +752,7 @@ public class Controller implements Initializable {
                 handleCombo.getSelectionModel().getSelectedItem(),
                 armourStrapCombo.getSelectionModel().getSelectedItem(),
                 spyHoleCombo.getSelectionModel().getSelectedItem(),
-                shippingCombo.getSelectionModel().getSelectedItem(),
+                shippingCostInput.getText(),
                 packagingYes.isSelected(),
                 installationYes.isSelected()
         );
@@ -747,6 +764,126 @@ public class Controller implements Initializable {
         stage.setHeight(300);
         stage.setWidth(300);
         stage.setScene(new Scene(textArea));
+        stage.show();
+    }
+
+    public void showKale2000ZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("kale2000_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showKale189ZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("kale189_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showKale252rZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("kale252rOriginal.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showKale257ZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("kale257_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showMotturaZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("motturaOriginal.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showElborZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("elbor_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showApecsChromeZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("apecsChrome_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showApecsGoldZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("apecsGold_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showApecsPlankChromeZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("apecsPlankChrome_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showApecsPlankGoldZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("apecsPlankGold_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showAydemirBlackZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("aydemirBlack_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.show();
+    }
+
+    public void showAydemirBrownZoomedImage() {
+        Stage stage = new Stage();
+        Group root = new Group();
+        Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("aydemirBrown_Original.png"));
+        ImageView imageView = new ImageView(kale2000Zoomed);
+        root.getChildren().add(imageView);
+        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
         stage.show();
     }
 

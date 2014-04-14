@@ -1,6 +1,7 @@
 package sample.com.doorder.door.fireproof;
 
 import sample.com.doorder.door.Accessories;
+import sample.com.doorder.door.LabelNames;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.types.AccessoriesType;
 
@@ -114,13 +115,19 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 
         //package
         //TODO: add package in price and fill formula
-//        if (packagingNeeded) {
-//            BigDecimal bd = new BigDecimal(x * y * 2 * Price.PAINTING_PF.getPriceInUAH());
-//            bd.setScale(2, RoundingMode.HALF_UP);
-//            installationPrice = bd.doubleValue();
-//        } else {
-//            installationPrice = 0.0;
-//        }
+        if (packagingNeeded) {
+            BigDecimal bd = new BigDecimal((double)x * y * 2 * Price.PACKAGING.getPriceInUAH() / 1000000);
+            bd.setScale(2, RoundingMode.HALF_UP);
+            packagePrice = bd.doubleValue();
+        } else {
+            packagePrice = 0.0;
+        }
+
+        //shipping
+        if (shipping != null && !shipping.isEmpty())
+            shippingPrice = Double.parseDouble(shipping);
+        else
+            shippingPrice = 0.0;
     }
 
     public int getX() {
@@ -294,6 +301,9 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         sb.append("handlePrice=").append(handlePrice).append("\n");
         sb.append("protectorPrice=").append(protectorPrice).append("\n");
         sb.append("spyHolePrice=").append(spyHolePrice).append("\n");
+        sb.append("shippingPrice=").append(shippingPrice).append("\n");
+        sb.append("installationPrice=").append(installationPrice).append("\n");
+        sb.append("packagePrice=").append(packagePrice).append("\n");
         return sb.toString();
     }
 }

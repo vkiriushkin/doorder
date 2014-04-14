@@ -53,6 +53,7 @@ public class DoorFactory {
                     calcHandle(angledDoor, handleType);
                     calcProtector(angledDoor, protectorType);
                     calcSpyHole(angledDoor, spyHoleType);
+                    angledDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = angledDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
@@ -74,6 +75,7 @@ public class DoorFactory {
 	                calcHandle(doubleDoor, handleType);
 	                calcProtector(doubleDoor, protectorType);
 	                calcSpyHole(doubleDoor, spyHoleType);
+                    doubleDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorSideTransom)) {
@@ -103,6 +105,7 @@ public class DoorFactory {
 	                calcHandle(singleDoorSideTransom, handleType);
 	                calcProtector(singleDoorSideTransom, protectorType);
 	                calcSpyHole(singleDoorSideTransom, spyHoleType);
+                    singleDoorSideTransom.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = singleDoorSideTransom.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopTransom)) {
@@ -132,6 +135,7 @@ public class DoorFactory {
 	                calcHandle(singleDoorTopTransom, handleType);
 	                calcProtector(singleDoorTopTransom, protectorType);
 	                calcSpyHole(singleDoorTopTransom, spyHoleType);
+                    singleDoorTopTransom.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = singleDoorTopTransom.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)) {
@@ -164,6 +168,7 @@ public class DoorFactory {
 	                calcHandle(singleDoorTopSideTransom, handleType);
 	                calcProtector(singleDoorTopSideTransom, protectorType);
 	                calcSpyHole(singleDoorTopSideTransom, spyHoleType);
+                    singleDoorTopSideTransom.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = singleDoorTopSideTransom.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
@@ -195,6 +200,7 @@ public class DoorFactory {
 	                calcHandle(doubleDoorTopTransom, handleType);
 	                calcProtector(doubleDoorTopTransom, protectorType);
 	                calcSpyHole(doubleDoorTopTransom, spyHoleType);
+                    doubleDoorTopTransom.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleDoorTopTransom.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)) {
@@ -226,6 +232,7 @@ public class DoorFactory {
 	                calcHandle(singleDoorTwoSideTransom, handleType);
 	                calcProtector(singleDoorTwoSideTransom, protectorType);
 	                calcSpyHole(singleDoorTwoSideTransom, spyHoleType);
+                    singleDoorTwoSideTransom.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = singleDoorTwoSideTransom.toString();
                 }
             }
@@ -250,6 +257,7 @@ public class DoorFactory {
                     calcHandle(armour4040SingleDoor, handleType);
                     calcProtector(armour4040SingleDoor, protectorType);
                     calcSpyHole(armour4040SingleDoor, spyHoleType);
+                    armour4040SingleDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040SingleDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
@@ -271,6 +279,7 @@ public class DoorFactory {
 			        calcHandle(armour4040DoubleDoor, handleType);
 			        calcProtector(armour4040DoubleDoor, protectorType);
 			        calcSpyHole(armour4040DoubleDoor, spyHoleType);
+                    armour4040DoubleDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040DoubleDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorSideTransom)) {
@@ -300,6 +309,7 @@ public class DoorFactory {
 			        calcHandle(armour4040SingleSideTransomDoor, handleType);
 			        calcProtector(armour4040SingleSideTransomDoor, protectorType);
 			        calcSpyHole(armour4040SingleSideTransomDoor, spyHoleType);
+                    armour4040SingleSideTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040SingleSideTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopTransom)) {
@@ -329,6 +339,7 @@ public class DoorFactory {
 			        calcHandle(armour4040SingleTopTransomDoor, handleType);
 			        calcProtector(armour4040SingleTopTransomDoor, protectorType);
 			        calcSpyHole(armour4040SingleTopTransomDoor, spyHoleType);
+                    armour4040SingleTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040SingleTopTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)) {
@@ -361,6 +372,7 @@ public class DoorFactory {
 			        calcHandle(armour4040SingleTwoSideAndTopTransomDoor, handleType);
 			        calcProtector(armour4040SingleTwoSideAndTopTransomDoor, protectorType);
 			        calcSpyHole(armour4040SingleTwoSideAndTopTransomDoor, spyHoleType);
+                    armour4040SingleTwoSideAndTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040SingleTwoSideAndTopTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
@@ -391,6 +403,7 @@ public class DoorFactory {
 			        calcHandle(armour4040DoubleTopTransomDoor, handleType);
 			        calcProtector(armour4040DoubleTopTransomDoor, protectorType);
 			        calcSpyHole(armour4040DoubleTopTransomDoor, spyHoleType);
+                    armour4040DoubleTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040DoubleTopTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)) {
@@ -422,6 +435,7 @@ public class DoorFactory {
 			        calcHandle(armour4040SingleTwoSideTransomDoor, handleType);
 			        calcProtector(armour4040SingleTwoSideTransomDoor, protectorType);
 			        calcSpyHole(armour4040SingleTwoSideTransomDoor, spyHoleType);
+                    armour4040SingleTwoSideTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour4040SingleTwoSideTransomDoor.toString();
 		        }
 	        }
@@ -446,6 +460,7 @@ public class DoorFactory {
                     calcHandle(armour5030SingleDoor, handleType);
                     calcProtector(armour5030SingleDoor, protectorType);
                     calcSpyHole(armour5030SingleDoor, spyHoleType);
+                    armour5030SingleDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030SingleDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
@@ -467,6 +482,7 @@ public class DoorFactory {
 			        calcHandle(armour5030DoubleDoor, handleType);
 			        calcProtector(armour5030DoubleDoor, protectorType);
 			        calcSpyHole(armour5030DoubleDoor, spyHoleType);
+                    armour5030DoubleDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030DoubleDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorSideTransom)) {
@@ -496,6 +512,7 @@ public class DoorFactory {
 			        calcHandle(armour5030SingleSideTransomDoor, handleType);
 			        calcProtector(armour5030SingleSideTransomDoor, protectorType);
 			        calcSpyHole(armour5030SingleSideTransomDoor, spyHoleType);
+                    armour5030SingleSideTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030SingleSideTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopTransom)) {
@@ -525,6 +542,7 @@ public class DoorFactory {
 			        calcHandle(armour5030SingleTopTransomDoor, handleType);
 			        calcProtector(armour5030SingleTopTransomDoor, protectorType);
 			        calcSpyHole(armour5030SingleTopTransomDoor, spyHoleType);
+                    armour5030SingleTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030SingleTopTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)) {
@@ -557,6 +575,7 @@ public class DoorFactory {
 			        calcHandle(armour5030SingleTwoSideAndTopTransomDoor, handleType);
 			        calcProtector(armour5030SingleTwoSideAndTopTransomDoor, protectorType);
 			        calcSpyHole(armour5030SingleTwoSideAndTopTransomDoor, spyHoleType);
+                    armour5030SingleTwoSideAndTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030SingleTwoSideAndTopTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
@@ -587,6 +606,7 @@ public class DoorFactory {
 			        calcHandle(armour5030DoubleTopTransomDoor, handleType);
 			        calcProtector(armour5030DoubleTopTransomDoor, protectorType);
 			        calcSpyHole(armour5030DoubleTopTransomDoor, spyHoleType);
+                    armour5030DoubleTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030DoubleTopTransomDoor.toString();
 		        }
 		        if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)) {
@@ -618,6 +638,7 @@ public class DoorFactory {
 			        calcHandle(armour5030SingleTwoSideTransomDoor, handleType);
 			        calcProtector(armour5030SingleTwoSideTransomDoor, protectorType);
 			        calcSpyHole(armour5030SingleTwoSideTransomDoor, spyHoleType);
+                    armour5030SingleTwoSideTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
 			        result = armour5030SingleTwoSideTransomDoor.toString();
 		        }
 	        }
@@ -642,6 +663,7 @@ public class DoorFactory {
                     calcHandle(doubleFrameAngledDoor, handleType);
                     calcProtector(doubleFrameAngledDoor, protectorType);
                     calcSpyHole(doubleFrameAngledDoor, spyHoleType);
+                    doubleFrameAngledDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameAngledDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoor)) {
@@ -663,6 +685,7 @@ public class DoorFactory {
 	                calcHandle(doubleFrameDoubleDoor, handleType);
 	                calcProtector(doubleFrameDoubleDoor, protectorType);
 	                calcSpyHole(doubleFrameDoubleDoor, spyHoleType);
+                    doubleFrameDoubleDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameDoubleDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorSideTransom)) {
@@ -692,6 +715,7 @@ public class DoorFactory {
 	                calcHandle(doubleFrameSingleSideTransomDoor, handleType);
 	                calcProtector(doubleFrameSingleSideTransomDoor, protectorType);
 	                calcSpyHole(doubleFrameSingleSideTransomDoor, spyHoleType);
+                    doubleFrameSingleSideTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameSingleSideTransomDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopTransom)) {
@@ -721,6 +745,7 @@ public class DoorFactory {
 	                calcHandle(doubleFrameSingleTopTransomDoor, handleType);
 	                calcProtector(doubleFrameSingleTopTransomDoor, protectorType);
 	                calcSpyHole(doubleFrameSingleTopTransomDoor, spyHoleType);
+                    doubleFrameSingleTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameSingleTopTransomDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTopSideTransoms)) {
@@ -753,6 +778,7 @@ public class DoorFactory {
 	                calcHandle(doubleFrameSingleTwoSideAndTopTransomDoor, handleType);
 	                calcProtector(doubleFrameSingleTwoSideAndTopTransomDoor, protectorType);
 	                calcSpyHole(doubleFrameSingleTwoSideAndTopTransomDoor, spyHoleType);
+                    doubleFrameSingleTwoSideAndTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameSingleTwoSideAndTopTransomDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.doubleDoorTopTransom)) {
@@ -783,6 +809,7 @@ public class DoorFactory {
 	                calcHandle(doubleFrameDoubleTopTransomDoor, handleType);
 	                calcProtector(doubleFrameDoubleTopTransomDoor, protectorType);
 	                calcSpyHole(doubleFrameDoubleTopTransomDoor, spyHoleType);
+                    doubleFrameDoubleTopTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameDoubleTopTransomDoor.toString();
                 }
                 if (doorComplexity.equalsIgnoreCase(LabelNames.singleDoorTwoSideTransoms)) {
@@ -814,6 +841,7 @@ public class DoorFactory {
 	                calcHandle(doubleFrameSingleTwoSideTransomDoor, handleType);
 	                calcProtector(doubleFrameSingleTwoSideTransomDoor, protectorType);
 	                calcSpyHole(doubleFrameSingleTwoSideTransomDoor, spyHoleType);
+                    doubleFrameSingleTwoSideTransomDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                     result = doubleFrameSingleTwoSideTransomDoor.toString();
                 }
             }
@@ -840,6 +868,7 @@ public class DoorFactory {
 	            calcHandle(singleFireProofDoor, handleType);
 	            calcProtector(singleFireProofDoor, protectorType);
 	            calcSpyHole(singleFireProofDoor, spyHoleType);
+                singleFireProofDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                 result = singleFireProofDoor.toString();
             } else if (doorComplexity.equalsIgnoreCase(LabelNames.doubleFireProofDoor)) {
                 DoubleFireProofDoor doubleFireProofDoor = new DoubleFireProofDoor();
@@ -862,6 +891,7 @@ public class DoorFactory {
 	            calcHandle(doubleFireProofDoor, handleType);
 	            calcProtector(doubleFireProofDoor, protectorType);
 	            calcSpyHole(doubleFireProofDoor, spyHoleType);
+                doubleFireProofDoor.calcOptions(shipping, packagingNeeded, installationNeeded);
                 result = doubleFireProofDoor.toString();
             }
         }

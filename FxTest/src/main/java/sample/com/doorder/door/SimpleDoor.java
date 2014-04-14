@@ -1,5 +1,8 @@
 package sample.com.doorder.door;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public abstract class SimpleDoor implements MetalDoor {
 
     protected double totalPrice;
@@ -51,7 +54,30 @@ public abstract class SimpleDoor implements MetalDoor {
 
     @Override
     public void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        //installation
+        if (installationNeeded) {
+            BigDecimal bd = new BigDecimal(totalPrice * 0.15);
+            bd.setScale(2, RoundingMode.HALF_UP);
+            installationPrice = bd.doubleValue();
+        } else {
+            installationPrice = 0.0;
+        }
+
+        //package
+        //TODO: add package in price and fill formula
+        if (packagingNeeded) {
+            BigDecimal bd = new BigDecimal((double)x * y * 2 * Price.PACKAGING.getPriceInUAH() / 1000000);
+            bd.setScale(2, RoundingMode.HALF_UP);
+            packagePrice = bd.doubleValue();
+        } else {
+            packagePrice = 0.0;
+        }
+
+        //shipping
+        if (shipping != null && !shipping.isEmpty())
+            shippingPrice = Double.parseDouble(shipping);
+        else
+            shippingPrice = 0.0;
     }
 
     public int getX() {
@@ -185,6 +211,9 @@ public abstract class SimpleDoor implements MetalDoor {
         sb.append("handlePrice=").append(handlePrice).append("\n");
         sb.append("protectorPrice=").append(protectorPrice).append("\n");
         sb.append("spyHolePrice=").append(spyHolePrice).append("\n");
+        sb.append("shippingPrice=").append(shippingPrice).append("\n");
+        sb.append("installationPrice=").append(installationPrice).append("\n");
+        sb.append("packagePrice=").append(packagePrice).append("\n");
         return sb.toString();
     }
 }

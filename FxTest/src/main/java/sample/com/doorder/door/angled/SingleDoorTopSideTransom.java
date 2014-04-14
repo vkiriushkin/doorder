@@ -172,20 +172,24 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 			this.metalListPrice = bd.doubleValue();
 		} else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
 				&& this.getX_1() >= 500 && this.getX_1() <= 960) {
-			LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+            LOGGER.info("Metal list: Dimensions OK");
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
                     + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
                     + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metalListPrice = bd.doubleValue();
 		} else if (this.getY_1() >= 1000 && this.getY_1() <= 2030
 				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
-			LOGGER.info("Metal list: Dimensions OK");
-			this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+            LOGGER.info("Metal list: Dimensions OK");
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+                    + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+                    + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            this.metalListPrice = bd.doubleValue();
 		} else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
 				&& this.getX_1() >= 961 && this.getX_1() <= 1200) {
-			LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+            LOGGER.info("Metal list: Dimensions OK");
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
                     + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
                     + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
