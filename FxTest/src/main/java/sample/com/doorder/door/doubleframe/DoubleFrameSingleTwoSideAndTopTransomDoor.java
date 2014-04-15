@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
 import sample.com.doorder.door.types.PlatbandType;
@@ -200,7 +199,7 @@ public class DoubleFrameSingleTwoSideAndTopTransomDoor extends DoubleFrameDoor {
         } else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
                 && this.getX_1() >= 500 && this.getX_1() <= 960) {
             LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
                     + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
                     + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -208,15 +207,19 @@ public class DoubleFrameSingleTwoSideAndTopTransomDoor extends DoubleFrameDoor {
         } else if (this.getY_1() >= 1000 && this.getY_1() <= 2030
                 && this.getX_1() >= 961 && this.getX_1() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
-            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+	        BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+			        + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+			        + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        this.metalListPrice = bd.doubleValue();
         } else if (this.getY_1() >= 2031 && this.getY_1() <= 2450
                 && this.getX_1() >= 961 && this.getX_1() <= 1200) {
             LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
-                    + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
-                    + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metalListPrice = bd.doubleValue();
+	        BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+			        + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+			        + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        this.metalListPrice = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("Metal list", this.getY_1(), this.getX_1());
 

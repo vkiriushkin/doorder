@@ -188,11 +188,11 @@ public enum DoorType {
             0, 0, 0, 0),
     ARMOUR40_40_SINGLE_TWO_SIDE_LEFT(LabelNames.metalDoor,LabelNames.door40x40,LabelNames.singleDoorTwoSideTransoms,LabelNames.leftOpeningDoor,"singleTwoSideTransomLeft.png",
             800, 3000, 1000, 2450,
-            500, 1250, 0, 0,
+            500, 1200, 0, 0,
             150, 0, 150, 0),
     ARMOUR40_40_SINGLE_TWO_SIDE_RIGHT(LabelNames.metalDoor,LabelNames.door40x40,LabelNames.singleDoorTwoSideTransoms,LabelNames.rightOpeningDoor,"singleTwoSideTransomRight.png",
             800, 3000, 1000, 2450,
-            500, 1250, 0, 0,
+            500, 1200, 0, 0,
             150, 0, 150, 0),
 
     ARMOUR50_30_SINGLE_LEFT(LabelNames.metalDoor,LabelNames.door50x30,LabelNames.singleDoor,LabelNames.leftOpeningDoor,"singleLeft.png",

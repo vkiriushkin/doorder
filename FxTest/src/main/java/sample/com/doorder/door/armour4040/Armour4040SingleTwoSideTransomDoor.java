@@ -36,11 +36,22 @@ public class Armour4040SingleTwoSideTransomDoor extends Armour4040Door {
 	@Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
+		checkDimensions();
 		calcPipe40x40();
 		calcPipe40x20();
 		calcPipe20x20();
 		totalPrice += metalFramesPartsTotalPrice;
 		LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+	}
+
+	private void checkDimensions() {
+		if (x_2 < 150)
+			throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+		if (x_3 < 150)
+			throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+		if (this.getX() != (x_1 + x_2 + x_3))
+			throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
+					String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
 	}
 
 	private void calcPipe40x40() {
@@ -61,7 +72,7 @@ public class Armour4040SingleTwoSideTransomDoor extends Armour4040Door {
 
 	private void calcPipe40x20() {
 		LOGGER.info("Checking dimensions for pipe 40x20");
-		if (this.getY() >= 1000 && this.getY() <= 2550 && this.getX() >= 800 && this.getX() <= 3000
+		if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 3000
 				&& this.getX_1() >= 500 && this.getX_1() <= 1250) {
 			LOGGER.info("Pipe 40x20: Dimensions OK");
 			BigDecimal bd = new BigDecimal(((double)this.getY() + this.getX_1()) * 2 * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH());

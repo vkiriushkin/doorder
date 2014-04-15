@@ -315,7 +315,7 @@ public class Armour4040SingleTwoSideAndTopTransomDoorOuterDecoration extends Out
 			mdf16 = bd.doubleValue();
 			totalOuterDecorationPrice += mdf16;
 		}
-		if (y >= 2051 && y <= 2350) {
+		if (y_1 >= 2051 && y_1 <= 2350) {
 			BigDecimal bd = new BigDecimal(((double) y_1 * x_1 / 1000000) * Price.MDF_16.getPriceInUAH() + 40
 					+ (((double)y - y_1) * x
 					+ ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000

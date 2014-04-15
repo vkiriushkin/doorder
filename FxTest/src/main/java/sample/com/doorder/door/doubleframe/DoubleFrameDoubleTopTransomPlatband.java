@@ -4,10 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.DoubleDoorTopTransom;
 import sample.com.doorder.door.angled.Platband;
-import sample.com.doorder.door.angled.SingleDoorTopSideTransom;
-import sample.com.doorder.door.angled.SingleDoorTopTransom;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

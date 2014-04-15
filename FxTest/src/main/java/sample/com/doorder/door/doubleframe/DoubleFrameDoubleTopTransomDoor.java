@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
 import sample.com.doorder.door.types.PlatbandType;
@@ -22,7 +21,7 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
 
     protected DoubleFrameDoubleTopTransomDoorInnerDecoration innerDecoration;
     protected DoubleFrameDoubleTopTransomDoorOuterDecoration outerDecoration;
-    private Platband platband;
+    private DoubleFrameDoubleTopTransomPlatband platband;
 
 
     public DoubleFrameDoubleTopTransomDoor() {

@@ -199,7 +199,7 @@ public class DoubleFrameSingleTwoSideTransomDoorOuterDecoration extends OuterDec
         if (x_1 < 500 || x_1 > 1200)
             throw new UnsupportedDimensions("Anti layer without top transom", y, x);
         LOGGER.info("Anti layer: dimension OK without top transom");
-        if (x > 499 && x < 1201) {
+        if (x_1 > 499 && x_1 < 1201) {
             BigDecimal bd = new BigDecimal(1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
                     + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000
                     + (((double)x + y) * 2 * 0.07) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);

@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
-import sample.com.doorder.door.types.PlatbandType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -88,7 +86,7 @@ public class DoubleFrameSingleTwoSideTransomDoor extends DoubleFrameDoor {
         if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 3000
                 && this.getX_1() >= 500 && this.getX_1() <= 1250) {
             LOGGER.info("50x30: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double)this.getX_1() + this.getY()) * 2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(((double)this.getX_1() + this.getY()) * 2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             this.metal_50x30_Price = bd.doubleValue();
         } else

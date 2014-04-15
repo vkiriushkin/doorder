@@ -173,8 +173,8 @@ public class Armour4040DoubleTopTransomDoorOuterDecoration extends OuterDecorati
 		LOGGER.info("Anti layer: dimension OK without top transom");
 		if (x >= 800 && x <= 1200) {
 			double material = 1.25 * y_1 / 1000 * Price.ANTI_LAYER.getPriceInUAH()
-					+ (((double) y - y_1) * x + (x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
-					+ (((double) x + y) * 2 * 0.12 + (((double)x + 2 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
+					+ (((double)x + y) * 2 * 0.12 + (((double)x + 2 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
 			antiLayer = material;
 			totalOuterDecorationPrice += antiLayer;
 		}
@@ -280,7 +280,7 @@ public class Armour4040DoubleTopTransomDoorOuterDecoration extends OuterDecorati
 			mdf16 = bd.doubleValue();
 			totalOuterDecorationPrice += mdf16;
 		}
-		if (y >= 2051 && y <= 2350) {
+		if (y_1 >= 2051 && y_1 <= 2350) {
 			BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_16.getPriceInUAH() + 80
 					+ ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
 					+ (((double)x + y) * 2 * 0.12 + (((double)x + 2 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
