@@ -23,14 +23,14 @@ public class Armour5030SingleTwoSideTransomDoor extends Armour5030Door {
 
     protected Armour5030SingleTwoSideTransomDoorInnerDecoration innerDecoration;
     protected Armour5030SingleTwoSideTransomDoorOuterDecoration outerDecoration;
-    private Platband platband;
+    private Armour5030DoorPlatband platband;
 
 
     public Armour5030SingleTwoSideTransomDoor() {
         super();
         this.innerDecoration = new Armour5030SingleTwoSideTransomDoorInnerDecoration();
         this.outerDecoration = new Armour5030SingleTwoSideTransomDoorOuterDecoration();
-        this.platband = new Platband();
+        this.platband = new Armour5030DoorPlatband();
     }
 
     @Override

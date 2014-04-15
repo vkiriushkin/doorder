@@ -20,12 +20,12 @@ public class Armour5030SingleSideTransomDoor extends Armour5030Door {
     protected int x_1;
     private Armour5030SingleSideTransomDoorInnerDecoration innerDecoration;
     private Armour5030SingleSideTransomDoorOuterDecoration outerDecoration;
-    private Platband platband;
+    private Armour5030DoorPlatband platband;
 
     public Armour5030SingleSideTransomDoor() {
         this.innerDecoration = new Armour5030SingleSideTransomDoorInnerDecoration();
         this.outerDecoration = new Armour5030SingleSideTransomDoorOuterDecoration();
-        this.platband = new Platband();
+        this.platband = new Armour5030DoorPlatband();
     }
 
     @Override
@@ -169,25 +169,25 @@ public class Armour5030SingleSideTransomDoor extends Armour5030Door {
         outerDecoration.clear();
         switch (outerDecorationType) {
             case SELF_ADHESIVE_FILM:
-                this.outerDecoration.calcSelfAdhesiveFilm(this.getX(), this.getY());
+                this.outerDecoration.calcSelfAdhesiveFilm(this.getX(), this.getY(), this.getX_1());
                 break;
             case PAINTING_SHAGREEN:
-                this.outerDecoration.calcPaintingShagreen(this.getX(), this.getY());
+                this.outerDecoration.calcPaintingShagreen(this.getX(), this.getY(), this.getX_1());
                 break;
             case PAINTING_ANTIC:
-                this.outerDecoration.calcPaintingAntic(this.getX(), this.getY());
+                this.outerDecoration.calcPaintingAntic(this.getX(), this.getY(), this.getX_1());
                 break;
             case PAINTING_PF:
-                this.outerDecoration.calcPaintingPF(this.getX(), this.getY());
+                this.outerDecoration.calcPaintingPF(this.getX(), this.getY(), this.getX_1());
                 break;
             case ANTI_LAYER:
-                this.outerDecoration.calcAntiLayer(this.getX(), this.getY());
+                this.outerDecoration.calcAntiLayer(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF10:
-                this.outerDecoration.calcMdf10(this.getX(), this.getY());
+                this.outerDecoration.calcMdf10(this.getX(), this.getY(), this.getX_1());
                 break;
             case MDF16:
-                this.outerDecoration.calcMdf16(this.getX(), this.getY());
+                this.outerDecoration.calcMdf16(this.getX(), this.getY(), this.getX_1());
                 break;
         }
         outerDecorationPrice = this.outerDecoration.getTotalOuterDecorationPrice();
