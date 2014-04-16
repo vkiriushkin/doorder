@@ -28,6 +28,7 @@ public abstract class SimpleDoor implements MetalDoor {
     protected double installationPrice;
 	protected double productionPrice;
 	protected double profitPrice;
+	protected double fixedProductionPrice;
 
     private int x;
     private int y;
@@ -52,6 +53,7 @@ public abstract class SimpleDoor implements MetalDoor {
         this.heaterPrice = 0;
         this.totalPrice = 0;
         this.outerDecorationPrice = 0;
+	    this.fixedProductionPrice = 150;
     }
 
     @Override
@@ -198,6 +200,10 @@ public abstract class SimpleDoor implements MetalDoor {
 		return profitPrice;
 	}
 
+	public double getFixedProductionPrice() {
+		return fixedProductionPrice;
+	}
+
 	@Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
@@ -226,6 +232,7 @@ public abstract class SimpleDoor implements MetalDoor {
         sb.append("packagePrice=").append(packagePrice).append("\n");
 		sb.append("productionPrice=").append(productionPrice).append("\n");
 		sb.append("profitPrice=").append(profitPrice).append("\n");
+		sb.append("fixedProductionPrice=").append(fixedProductionPrice).append("\n");
         return sb.toString();
     }
 }

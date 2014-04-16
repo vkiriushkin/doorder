@@ -38,6 +38,8 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
     protected double installationPrice;
 	protected double productionPrice;
 	protected double profitPrice;
+	protected double fixedProductionPrice;
+
 
 	public FireProofDoorImpl() {
 		totalPrice = 0;
@@ -60,6 +62,7 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         this.protectorPrice = 0;
         this.spyHolePrice = 0;
         this.accessories = new Accessories();
+		this.fixedProductionPrice = 150;
 	}
 
     @Override
@@ -287,6 +290,10 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 		return productionPrice;
 	}
 
+	public double getFixedProductionPrice() {
+		return fixedProductionPrice;
+	}
+
 	@Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
@@ -315,6 +322,7 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         sb.append("packagePrice=").append(packagePrice).append("\n");
 	    sb.append("productionPrice=").append(productionPrice).append("\n");
 	    sb.append("profitPrice=").append(profitPrice).append("\n");
+	    sb.append("fixedProductionPrice=").append(fixedProductionPrice).append("\n");
 
         return sb.toString();
     }
