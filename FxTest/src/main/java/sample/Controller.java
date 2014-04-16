@@ -118,6 +118,12 @@ public class Controller implements Initializable {
     public Button createOrderButton;
     public static Label errorLabel;
 
+    //settings
+    public Pane settingsPane;
+    public TextField profitPercent;
+    public TextArea contactInformation;
+    public Button saveSettingsButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -773,7 +779,7 @@ public class Controller implements Initializable {
         Image kale2000Zoomed = new Image(Controller.class.getResourceAsStream("kale2000_Original.png"));
         ImageView imageView = new ImageView(kale2000Zoomed);
         root.getChildren().add(imageView);
-        stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
+        stage.setScene(new Scene(root, kale2000Zoomed.getWidth(), kale2000Zoomed.getHeight()));
         stage.show();
     }
 
@@ -885,6 +891,14 @@ public class Controller implements Initializable {
         root.getChildren().add(imageView);
         stage.setScene(new Scene(root,kale2000Zoomed.getWidth(),kale2000Zoomed.getHeight()));
         stage.show();
+    }
+
+    public void showSettingsPane(ActionEvent event) {
+        settingsPane.setVisible(true);
+    }
+
+    public void saveSettings(ActionEvent event) {
+        settingsPane.setVisible(false);
     }
 
 }

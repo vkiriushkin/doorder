@@ -197,6 +197,12 @@ public abstract class Armour5030Door extends SimpleDoor {
         sb.append("handlePrice=").append(handlePrice).append("\n");
         sb.append("protectorPrice=").append(protectorPrice).append("\n");
         sb.append("spyHolePrice=").append(spyHolePrice).append("\n");
+        sb.append("shippingPrice=").append(shippingPrice).append("\n");
+        sb.append("installationPrice=").append(installationPrice).append("\n");
+        sb.append("packagePrice=").append(packagePrice).append("\n");
+        sb.append("productionPrice=").append(productionPrice).append("\n");
+        sb.append("profitPrice=").append(profitPrice).append("\n");
+        sb.append("fixedProductionPrice=").append(fixedProductionPrice).append("\n");
         return sb.toString();
     }
 }

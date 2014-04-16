@@ -28,7 +28,15 @@
         </Button>
         <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showLockerTypesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор замков" VBox.margin="$x1" />
         <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showAccessoriesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1">
+          <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#showSettingsPane" text="Настройки" />
+              </items>
+            </ContextMenu>
+          </contextMenu>
+        </Button>
       </children>
     </VBox>
     <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -883,6 +891,20 @@
             </AnchorPane>
           </children>
         </Pane>
+      </children>
+    </Pane>
+    <Pane id="accessoriesPane" fx:id="settingsPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <Pane id="separateHandlersPane" layoutX="0.0" layoutY="50.0" prefHeight="460.0" prefWidth="610.0" visible="false">
+          <children>
+            <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="439.0" prefWidth="600.0" />
+          </children>
+        </Pane>
+        <Label layoutX="35.0" layoutY="61.0" prefHeight="30.0" prefWidth="165.0" text="Процент прибыли" />
+        <Label layoutX="35.0" layoutY="115.0" prefHeight="30.0" prefWidth="165.0" text="Контактная информация" />
+        <TextField fx:id="profitPercent" layoutX="214.0" layoutY="65.0" prefWidth="107.0" />
+        <TextArea fx:id="contactInformation" layoutX="214.0" layoutY="115.0" prefHeight="124.0" prefWidth="372.0" wrapText="true" />
+        <Button fx:id="saveSettingsButton" layoutX="214.0" layoutY="251.0" mnemonicParsing="false" onAction="#saveSettings" prefHeight="30.0" prefWidth="124.0" text="Сохранить" />
       </children>
     </Pane>
   </children>
