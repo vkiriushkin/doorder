@@ -23,7 +23,7 @@ public class Armour5030DoubleTopTransomDoorInnerDecoration extends InnerDecorati
     public void calcPlasticWithoutTopSideTransom(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating inner decoration without top transom");
         clear();
-        BigDecimal bd = new BigDecimal((2 * (double)x + 4 * y) * 1.1 * Price.START.getPriceInUAH() / 1000
+        BigDecimal bd = new BigDecimal((2 * (double)x + 4 * y_1) * 1.1 * Price.START.getPriceInUAH() / 1000
                 + ((double)x * y_1) * 1.1 * Price.PLASTIC.getPriceInUAH() / 1000000
                 + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -46,7 +46,7 @@ public class Armour5030DoubleTopTransomDoorInnerDecoration extends InnerDecorati
     public void calcLaminateWithoutTopSideTransom(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating inner decoratio nwithout top transom");
         clear();
-        BigDecimal bd = new BigDecimal((2 * (double)x + 4 * y) * 1.1 * Price.START.getPriceInUAH() / 1000
+        BigDecimal bd = new BigDecimal((2 * (double)x + 4 * y_1) * 1.1 * Price.START.getPriceInUAH() / 1000
                 + ((double)x * y_1) * 1.1 * Price.LAMINATED_PLASTIC.getPriceInUAH() / 1000000
                 + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
@@ -433,17 +433,15 @@ public class Armour5030DoubleTopTransomDoorInnerDecoration extends InnerDecorati
             throw new UnsupportedDimensions("MDF_10 without top transom", y, x);
         LOGGER.info("MDF_10 without top transom: dimension OK");
         if ((y_1 - 30) >= 1000 && (y_1 - 30) <= 2050) {
-            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x_1 - 30)) / 1000000 * Price.MDF_10.getPriceInUAH()
-                    + (((double) y - y_1) * x
-                    + ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x - 30)) / 1000000 * Price.MDF_10.getPriceInUAH()
+                    + (((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000));
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalInnerDecorationPrice += mdf10;
         }
         if ((y_1 - 30) > 2050 && (y_1 - 30) <= 2350) {
-            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x_1 - 30)) / 1000000 * Price.MDF_10.getPriceInUAH() + 120
-                    + (((double) y - y_1) * x
-                    + ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x - 30)) / 1000000 * Price.MDF_10.getPriceInUAH() + 80
+                    + (((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000));
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalInnerDecorationPrice += mdf10;
@@ -481,17 +479,15 @@ public class Armour5030DoubleTopTransomDoorInnerDecoration extends InnerDecorati
             throw new UnsupportedDimensions("MDF_16 without top transom", y, x);
         LOGGER.info("MDF_16 without top transom: dimension OK");
         if ((y_1 - 30) >= 1000 && (y_1 - 30) <= 2050) {
-            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x_1 - 30)) / 1000000 * Price.MDF_16.getPriceInUAH()
-                    + (((double) y - y_1) * x
-                    + ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x - 30)) / 1000000 * Price.MDF_16.getPriceInUAH()
+                    + (((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000));
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf16 = bd.doubleValue();
             totalInnerDecorationPrice += mdf16;
         }
         if ((y_1 - 30) > 2050 && (y_1 - 30) <= 2350) {
-            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x_1 - 30)) / 1000000 * Price.MDF_16.getPriceInUAH() + 120
-                    + (((double) y - y_1) * x
-                    + ((double)x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+            BigDecimal bd = new BigDecimal(((double) (y_1 - 30) * (x - 30)) / 1000000 * Price.MDF_16.getPriceInUAH() + 80
+                    + (((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000));
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf16 = bd.doubleValue();
             totalInnerDecorationPrice += mdf16;

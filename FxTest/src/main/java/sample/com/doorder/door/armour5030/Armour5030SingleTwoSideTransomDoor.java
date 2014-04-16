@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
 import sample.com.doorder.door.types.PlatbandType;
@@ -36,11 +35,22 @@ public class Armour5030SingleTwoSideTransomDoor extends Armour5030Door {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+	    checkDimensions();
         calcPipe50x30();
         calcPipe20x20();
         totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
     }
+
+	private void checkDimensions() {
+		if (x_2 < 150)
+			throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+		if (x_3 < 150)
+			throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+		if (this.getX() != (x_1 + x_2 + x_3))
+			throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
+					String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
+	}
 
     private void calcPipe50x30() {
         LOGGER.info("Checking dimensions for pipe 50x30");

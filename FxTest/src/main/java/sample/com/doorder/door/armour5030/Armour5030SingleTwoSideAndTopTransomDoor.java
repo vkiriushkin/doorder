@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
 import sample.com.doorder.door.types.PlatbandType;
@@ -37,11 +36,22 @@ public class Armour5030SingleTwoSideAndTopTransomDoor extends Armour5030Door {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+	    checkDimensions();
         calcPipe50x30();
         calcPipe20x20();
         totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
     }
+
+	private void checkDimensions() {
+		if (x_2 < 150)
+			throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+		if (x_3 < 150)
+			throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+		if (this.getX() != (x_1 + x_2 + x_3))
+			throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
+					String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
+	}
 
     private void calcPipe50x30() {
         LOGGER.info("Checking dimensions for pipe 50x30");
@@ -136,19 +146,23 @@ public class Armour5030SingleTwoSideAndTopTransomDoor extends Armour5030Door {
         } else if (this.getY_1() >= 1951 && this.getY_1() <= 2450
                 && this.getX_1() >= 500 && this.getX_1() <= 950) {
             LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
-                    + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
-                    + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
-            bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metalListPrice = bd.doubleValue();
+	        BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+			        + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+			        + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        this.metalListPrice = bd.doubleValue();
         } else if (this.getY_1() >= 1000 && this.getY_1() <= 1950
                 && this.getX_1() >= 951 && this.getX_1() <= 1250) {
             LOGGER.info("Metal list: Dimensions OK");
-            this.metalListPrice = Price.LIST_1_25x2_5.getPriceInUAH();
+	        BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
+			        + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
+			        + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
+	        bd = bd.setScale(2, RoundingMode.HALF_UP);
+	        this.metalListPrice = bd.doubleValue();
         } else if (this.getY_1() >= 1951 && this.getY_1() <= 2450
                 && this.getX_1() >= 951 && this.getX_1() <= 1250) {
             LOGGER.info("Metal list: Dimensions OK");
-            BigDecimal bd = new BigDecimal(Price.LIST_1x2.getPriceInUAH()
+            BigDecimal bd = new BigDecimal(Price.LIST_1_25x2_5.getPriceInUAH()
                     + ((double)this.getY() - y_1) * this.getX() * Price.LIST_M2.getPriceInUAH() / 1000000
                     + ((double)this.getX() - x_1) * y_1 * Price.LIST_M2.getPriceInUAH() / 1000000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);

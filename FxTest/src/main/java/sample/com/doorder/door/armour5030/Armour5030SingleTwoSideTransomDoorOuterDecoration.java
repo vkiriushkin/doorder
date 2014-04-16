@@ -83,7 +83,7 @@ public class Armour5030SingleTwoSideTransomDoorOuterDecoration extends OuterDeco
     public void calcPaintingShagreen(int x, int y, int x_1) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal((((double) x_1 * y) / 1000000
+        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000
                 + ((double)x + y) * 4 * 0.18 / 1000 + (4 * (double)y + 2 * x_1) * 0.08 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingShagreen = bd.doubleValue();
@@ -185,7 +185,7 @@ public class Armour5030SingleTwoSideTransomDoorOuterDecoration extends OuterDeco
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 2401 && x <= 3000) {
-            BigDecimal bd = new BigDecimal(1.4 * 2 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
+            BigDecimal bd = new BigDecimal(1.25 * 3 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
                     + (((double)x + y) * 4 * 0.18 + (2 * (double)x_1 + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             antiLayer = bd.doubleValue();
@@ -201,7 +201,7 @@ public class Armour5030SingleTwoSideTransomDoorOuterDecoration extends OuterDeco
         if (x_1 < 500 || x_1 > 1200)
             throw new UnsupportedDimensions("Anti layer without top transom", y, x);
         LOGGER.info("Anti layer: dimension OK without top transom");
-        if (x > 499 && x < 1201) {
+        if (x_1 > 499 && x_1 < 1201) {
             BigDecimal bd = new BigDecimal(1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
                     + ((double)x - x_1) * y * Price.PAINTING_PF.getPriceInUAH() / 1000000
                     + (((double)x + y) * 4 * 0.18 + (2 * (double)x_1 + 4 * y) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);

@@ -41,13 +41,13 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         LOGGER.info("Start calculating outer decoration without top transom");
         clear();
         LOGGER.info("Checking dimensions for self adhesive film without top transom");
-        if (x < 500 || x > 1950)
+        if (x < 500 || x > 2000)
             throw new UnsupportedDimensions("Self adhesive film, without top transom", y, x);
         LOGGER.info("Self adhesive film, without top transom: dimension OK");
         if (x >= 800 && x <= 1200) {
             BigDecimal bd = new BigDecimal(1.1 * 1.5 * (double)y_1 / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
                     + ((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double) x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double) x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1)* 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
@@ -55,15 +55,15 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         if (x >= 1201 && x <= 1400) {
             BigDecimal bd = new BigDecimal(1.1 * 2 * (double)y_1 / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
                     + ((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double) x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double) x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
-        if (x >= 1401 && x <= 1950) {
+        if (x >= 1401 && x <= 2000) {
             BigDecimal bd = new BigDecimal(1.1 * 3 * (double)y_1 / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH()
                     + ((double) y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double) x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double) x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
@@ -74,7 +74,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
     public void calcPaintingShagreen(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000 + ((double)x + y) * 2 * 0.18 / 1000 + (3 * (double)x + 4 * y_1) * 2 * 0.08 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH());
+        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000 + ((double)x + y) * 2 * 0.18 / 1000 + (3 * (double)x + 4 * y_1) * 0.08 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingShagreen = bd.doubleValue();
         totalOuterDecorationPrice += paintingShagreen;
@@ -84,7 +84,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
     public void calcPaintingShagreenWithoutTopSideTransom(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating outer decoration without top transom");
         clear();
-        BigDecimal bd = new BigDecimal((((double) y_1 * x) / 1000000 + (x + y_1) * 2 * 0.18 / 1000 + (4 * y_1 + 2 * x) * 0.08 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH()
+        BigDecimal bd = new BigDecimal((((double) y_1 * x) / 1000000 + (x + y_1) * 2 * 0.18 / 1000 + (4 * y_1 + 3 * x) * 0.08 / 1000) * Price.PAINTING_SHAGREEN.getPriceInUAH()
                 + (((double) y - y_1) * x) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingShagreen = bd.doubleValue();
@@ -95,7 +95,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
     public void calcPaintingAntic(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000 + ((double)x + y) * 2 * 0.18 / 1000 + (3 * (double)x + 4 * y_1) * 2 * 0.08 / 1000) * Price.PAINTING_ANTIC.getPriceInUAH());
+        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000 + ((double)x + y) * 2 * 0.18 / 1000 + (3 * (double)x + 4 * y_1) * 0.08 / 1000) * Price.PAINTING_ANTIC.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingAntic = bd.doubleValue();
         totalOuterDecorationPrice += paintingAntic;
@@ -105,7 +105,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
     public void calcPaintingAnticWithoutTopSideTransom(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating outer decoration without top transom");
         clear();
-        BigDecimal bd = new BigDecimal((((double) y_1 * x) / 1000000 + (x + y_1) * 2 * 0.18 / 1000 + (4 * y_1 + 2 * x) * 0.08 / 1000) * Price.PAINTING_ANTIC.getPriceInUAH()
+        BigDecimal bd = new BigDecimal((((double) y_1 * x) / 1000000 + (x + y_1) * 2 * 0.18 / 1000 + (4 * y_1 + 3 * x) * 0.08 / 1000) * Price.PAINTING_ANTIC.getPriceInUAH()
                 + (((double) y - y_1) * x) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingAntic = bd.doubleValue();
@@ -116,7 +116,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
     public void calcPaintingPF(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating outer decoration");
         clear();
-        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000 + ((double)x + y) * 2 * 0.18 / 1000 + (3 * (double)x + 4 * y_1) * 2 * 0.08 / 1000) * Price.PAINTING_PF.getPriceInUAH());
+        BigDecimal bd = new BigDecimal((((double) x * y) / 1000000 + ((double)x + y) * 2 * 0.18 / 1000 + (3 * (double)x + 4 * y_1) * 0.08 / 1000) * Price.PAINTING_PF.getPriceInUAH());
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingPF = bd.doubleValue();
         totalOuterDecorationPrice += paintingPF;
@@ -126,7 +126,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
     public void calcPaintingPFWithoutTopSideTransom(int x, int y, int x_1, int y_1) {
         LOGGER.info("Start calculating outer decoration without top transom");
         clear();
-        BigDecimal bd = new BigDecimal((((double) y_1 * x) / 1000000 + (x + y_1) * 2 * 0.18 / 1000 + (4 * y_1 + 2 * x) * 0.08 / 1000) * Price.PAINTING_PF.getPriceInUAH() + (((double) y - y_1) * x) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
+        BigDecimal bd = new BigDecimal((((double) y_1 * x) / 1000000 + (x + y_1) * 2 * 0.18 / 1000 + (4 * y_1 + 3 * x) * 0.08 / 1000) * Price.PAINTING_PF.getPriceInUAH() + (((double) y - y_1) * x) * Price.PAINTING_PF.getPriceInUAH() / 1000000);
         bd = bd.setScale(2, RoundingMode.HALF_UP);
         paintingPF = bd.doubleValue();
         totalOuterDecorationPrice += paintingPF;
@@ -142,21 +142,21 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         LOGGER.info("Anti layer: dimension OK");
         if (x >= 800 && x <= 1200) {
             BigDecimal bd = new BigDecimal(1.25 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 1201 && x <= 1400) {
             BigDecimal bd = new BigDecimal(1.4 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1)  * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 1401 && x <= 2000) {
             BigDecimal bd = new BigDecimal(1.25 * 2 * (double)y / 1000 * Price.ANTI_LAYER.getPriceInUAH()
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             antiLayer = bd.doubleValue();
             totalOuterDecorationPrice += antiLayer;
@@ -174,21 +174,21 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         if (x >= 800 && x <= 1200) {
             double material = 1.25 * y_1 / 1000 * Price.ANTI_LAYER.getPriceInUAH()
                     + (((double) y - y_1) * x + (x - x_1) * y_1) * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double) x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+                    + (((double) x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
             antiLayer = material;
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 1201 && x <= 1400) {
             double material = 1.4 * y_1 / 1000 * Price.ANTI_LAYER.getPriceInUAH()
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
             antiLayer = material;
             totalOuterDecorationPrice += antiLayer;
         }
         if (x >= 1401 && x <= 2000) {
             double material = 1.25 * 2 * y_1 / 1000 * Price.ANTI_LAYER.getPriceInUAH()
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000;
             antiLayer = material;
             totalOuterDecorationPrice += antiLayer;
         }
@@ -203,13 +203,13 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
             throw new UnsupportedDimensions("MDF_10", y, x);
         LOGGER.info("MDF_10: dimension OK");
         if (y_1 >= 100 && y_1 <= 2050) {
-            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
         }
         if (y_1 > 2050 && y_1 <= 2350) {
-            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH() + 80 + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH() + 80 + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
@@ -227,7 +227,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         if (y_1 >= 1000 && y_1 <= 2050) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_10.getPriceInUAH()
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
@@ -235,7 +235,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         if (y_1 >= 2051 && y_1 <= 2350) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_10.getPriceInUAH() + 80
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf10 = bd.doubleValue();
             totalOuterDecorationPrice += mdf10;
@@ -251,13 +251,13 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
             throw new UnsupportedDimensions("MDF_16", y, x);
         LOGGER.info("MDF_16: dimension OK");
         if (y_1 >= 1000 && y_1 <= 2050) {
-            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
         }
         if (y_1 >= 2051 && y_1 <= 2350) {
-            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH() + 80 + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH() + 80 + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
@@ -275,7 +275,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         if (y_1 >= 1000 && y_1 <= 2050) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_16.getPriceInUAH()
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
@@ -283,7 +283,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         if (y >= 2051 && y <= 2350) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_16.getPriceInUAH() + 80
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
-                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 2 * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+                    + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
