@@ -30,6 +30,8 @@ public class Armour5030SingleTwoSideTransomDoor extends Armour5030Door {
         this.innerDecoration = new Armour5030SingleTwoSideTransomDoorInnerDecoration();
         this.outerDecoration = new Armour5030SingleTwoSideTransomDoorOuterDecoration();
         this.platband = new Armour5030DoorPlatband();
+	    this.productionPrice = 110;
+	    this.profitPrice = 500;
     }
 
     @Override

@@ -22,6 +22,8 @@ public class SingleDoorTopTransom extends AngledDoor {
 	public SingleDoorTopTransom() {
 		this.innerDecoration = new SingleDoorInnerDecoration();
 		this.outerDecoration = new OuterDecoration();
+		this.productionPrice = 70;
+		this.profitPrice = 350;
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package sample.com.doorder.door.fireproof;
 
 import sample.com.doorder.door.Accessories;
-import sample.com.doorder.door.LabelNames;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.types.AccessoriesType;
 
@@ -37,6 +36,8 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
     protected double shippingPrice;
     protected double packagePrice;
     protected double installationPrice;
+	protected double productionPrice;
+	protected double profitPrice;
 
 	public FireProofDoorImpl() {
 		totalPrice = 0;
@@ -278,7 +279,15 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         return installationPrice;
     }
 
-    @Override
+	public double getProfitPrice() {
+		return profitPrice;
+	}
+
+	public double getProductionPrice() {
+		return productionPrice;
+	}
+
+	@Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
         sb.append("x=").append(x).append("\n");
@@ -304,6 +313,9 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         sb.append("shippingPrice=").append(shippingPrice).append("\n");
         sb.append("installationPrice=").append(installationPrice).append("\n");
         sb.append("packagePrice=").append(packagePrice).append("\n");
+	    sb.append("productionPrice=").append(productionPrice).append("\n");
+	    sb.append("profitPrice=").append(profitPrice).append("\n");
+
         return sb.toString();
     }
 }

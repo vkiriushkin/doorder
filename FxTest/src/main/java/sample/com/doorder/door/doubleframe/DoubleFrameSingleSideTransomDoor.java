@@ -22,6 +22,8 @@ public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
     public DoubleFrameSingleSideTransomDoor() {
         this.outerDecoration = new DoubleFrameSingleSideTransomDoorOuterDecoration();
         this.innerDecoration = new DoubleFrameSingleSideTransomDoorInnerDecoration();
+	    this.productionPrice = 85;
+	    this.profitPrice = 400;
     }
 
     @Override

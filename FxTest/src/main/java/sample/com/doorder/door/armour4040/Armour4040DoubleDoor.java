@@ -27,6 +27,8 @@ public class Armour4040DoubleDoor extends Armour4040Door {
 		this.innerDecoration = new Armour4040DoubleDoorInnerDecoration();
 		this.outerDecoration = new Armour4040DoubleDoorOuterDecoration();
 		this.platband = new Platband();
+		this.productionPrice = 75;
+		this.profitPrice = 400;
 	}
 
 	@Override

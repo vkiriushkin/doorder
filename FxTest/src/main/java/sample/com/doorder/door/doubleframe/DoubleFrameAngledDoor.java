@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
-import sample.com.doorder.door.types.PlatbandType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -24,6 +22,8 @@ public class DoubleFrameAngledDoor extends DoubleFrameDoor {
         super();
         this.innerDecoration = new DoubleFrameAngledDoorInnerDecoration();
         this.outerDecoration = new DoubleFrameAngledDoorOuterDecoration();
+	    this.productionPrice = 70;
+	    this.profitPrice = 300;
     }
 
     @Override

@@ -24,6 +24,8 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 	public SingleDoorTwoSideTransom() {
 		this.outerDecoration = new SingleDoorTwoSideTransomOuterDecoration();
 		this.innerDecoration = new SingleDoorTwoSideTransomInnerDecoration();
+		this.productionPrice = 100;
+		this.profitPrice = 500;
 	}
 	@Override
 	public void calcMetalFrameParts() {

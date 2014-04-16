@@ -4,9 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import sample.com.doorder.door.Price;
 import sample.com.doorder.door.UnsupportedDimensions;
-import sample.com.doorder.door.angled.Platband;
-import sample.com.doorder.door.armour4040.Armour4040DoubleDoorInnerDecoration;
-import sample.com.doorder.door.armour4040.Armour4040DoubleDoorOuterDecoration;
 import sample.com.doorder.door.types.InnerDecorationType;
 import sample.com.doorder.door.types.OuterDecorationType;
 import sample.com.doorder.door.types.PlatbandType;
@@ -29,6 +26,8 @@ public class Armour5030DoubleDoor extends Armour5030Door {
         this.innerDecoration = new Armour5030DoubleDoorInnerDecoration();
         this.outerDecoration = new Armour5030DoubleDoorOuterDecoration();
         this.platband = new Armour5030DoorPlatband();
+	    this.productionPrice = 85;
+	    this.profitPrice = 400;
     }
 
     @Override

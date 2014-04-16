@@ -29,6 +29,8 @@ public class DoubleFrameSingleTwoSideAndTopTransomDoor extends DoubleFrameDoor {
         super();
         this.innerDecoration = new DoubleFrameSingleTwoSideAndTopTransomInnerDecoration();
         this.outerDecoration = new DoubleFrameSingleTwoSideAndTopTransomDoorOuterDecoration();
+	    this.productionPrice = 120;
+	    this.profitPrice = 550;
     }
 
     @Override

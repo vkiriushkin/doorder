@@ -27,6 +27,8 @@ public class AngledDoor extends SimpleDoor {
 	    this.outerDecoration = new OuterDecoration();
 	    this.platband = new Platband();
         this.accessories = new Accessories();
+	    this.productionPrice = 60;
+	    this.profitPrice = 300;
     }
 
     @Override

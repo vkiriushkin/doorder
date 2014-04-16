@@ -26,6 +26,8 @@ public class DoubleFireProofDoor extends SingleFireProofDoor {
         this.innerDecoration = new DoubleFireProofInnerDecoration();
         this.outerDecoration = new DoubleFireProofOuterDecoration();
         this.platband = new Platband();
+	    this.productionPrice = 75;
+	    this.profitPrice = 1000;
     }
 
     @Override

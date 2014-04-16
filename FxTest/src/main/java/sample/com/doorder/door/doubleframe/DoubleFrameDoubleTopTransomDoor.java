@@ -29,6 +29,8 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
         this.innerDecoration = new DoubleFrameDoubleTopTransomDoorInnerDecoration();
         this.outerDecoration = new DoubleFrameDoubleTopTransomDoorOuterDecoration();
         this.platband = new DoubleFrameDoubleTopTransomPlatband();
+	    this.productionPrice = 95;
+	    this.profitPrice = 450;
     }
 
     @Override

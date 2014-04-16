@@ -25,6 +25,8 @@ public class Armour5030SingleDoor extends Armour5030Door {
         this.innerDecoration = new Armour5030SingleInnerDecoration();
         this.outerDecoration = new Armour5030SingleOuterDecoration();
         this.platband = new Armour5030DoorPlatband();
+	    this.productionPrice = 70;
+	    this.profitPrice = 300;
     }
 
     @Override

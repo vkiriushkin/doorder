@@ -23,6 +23,8 @@ public class DoubleDoorTopTransom extends SingleDoorTopSideTransom {
 		super();
 		innerDecoration = new DoubleDoorTopTransomInnerDecoration();
 		outerDecoration = new DoubleDoorTopTransomOuterDecoration();
+		this.productionPrice = 85;
+		this.profitPrice = 450;
 	}
 
 	@Override
