@@ -6,45 +6,45 @@ import sample.com.doorder.door.types.AccessoriesType;
 
 public abstract class Armour5030Door extends SimpleDoor {
 
-    protected double totalPrice;
-    protected double metalFramesPartsTotalPrice;
+//    protected double totalPrice;
+//    protected double metalFramesPartsTotalPrice;
     protected double metal_50x30_Price;
-    protected double metal_20x20_Price;
-    protected double metalListPrice;
-    protected double hingePrice;
-    protected double heaterPrice;
-    protected double sealPrice;
+//    protected double metal_20x20_Price;
+//    protected double metalListPrice;
+//    protected double hingePrice;
+//    protected double heaterPrice;
+//    protected double sealPrice;
 //    protected double outerDecorationPrice;
 //    protected double innerDecorationPrice;
-    protected double platbandPrice;
-    protected double mainLockPrice;
-    protected double secondaryLockPrice;
-    protected double handlePrice;
-    protected double protectorPrice;
-    protected double spyHolePrice;
+//    protected double platbandPrice;
+//    protected double mainLockPrice;
+//    protected double secondaryLockPrice;
+//    protected double handlePrice;
+//    protected double protectorPrice;
+//    protected double spyHolePrice;
 
-    private int x;
-    private int y;
-    private int z;
+//    private int x;
+//    private int y;
+//    private int z;
     protected Accessories accessories;
 
     public Armour5030Door() {
-        this.hingePrice = 0;
-        this.metalFramesPartsTotalPrice = 0;
+//        this.hingePrice = 0;
+//        this.metalFramesPartsTotalPrice = 0;
         this.metal_50x30_Price = 0;
-        this.metal_20x20_Price = 0;
-        this.metalListPrice = 0;
-        this.innerDecorationPrice = 0;
-        this.mainLockPrice = 0;
-        this.secondaryLockPrice = 0;
-        this.handlePrice = 0;
-        this.protectorPrice = 0;
-        this.spyHolePrice = 0;
-        this.sealPrice = 0;
-        this.platbandPrice = 0;
-        this.heaterPrice = 0;
-        this.totalPrice = 0;
-        this.outerDecorationPrice = 0;
+//        this.metal_20x20_Price = 0;
+//        this.metalListPrice = 0;
+//        this.innerDecorationPrice = 0;
+//        this.mainLockPrice = 0;
+//        this.secondaryLockPrice = 0;
+//        this.handlePrice = 0;
+//        this.protectorPrice = 0;
+//        this.spyHolePrice = 0;
+//        this.sealPrice = 0;
+//        this.platbandPrice = 0;
+//        this.heaterPrice = 0;
+//        this.totalPrice = 0;
+//        this.outerDecorationPrice = 0;
         this.accessories = new Accessories();
     }
 
@@ -88,100 +88,100 @@ public abstract class Armour5030Door extends SimpleDoor {
         totalPrice += spyHolePrice;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getZ() {
-        return z;
-    }
-
-    public void setZ(int z) {
-        this.z = z;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public double getMetalFramesPartsTotalPrice() {
-        return metalFramesPartsTotalPrice;
-    }
-
+//    public int getX() {
+//        return x;
+//    }
+//
+//    public void setX(int x) {
+//        this.x = x;
+//    }
+//
+//    public int getY() {
+//        return y;
+//    }
+//
+//    public void setY(int y) {
+//        this.y = y;
+//    }
+//
+//    public int getZ() {
+//        return z;
+//    }
+//
+//    public void setZ(int z) {
+//        this.z = z;
+//    }
+//
+//    public double getTotalPrice() {
+//        return totalPrice;
+//    }
+//
+//    public double getMetalFramesPartsTotalPrice() {
+//        return metalFramesPartsTotalPrice;
+//    }
+//
     public double getMetal_50x30_Price() {
         return metal_50x30_Price;
     }
-
-    public double getMetal_20x20_Price() {
-        return metal_20x20_Price;
-    }
-
-    public double getMetalListPrice() {
-        return metalListPrice;
-    }
-
-    public double getHingePrice() {
-        return hingePrice;
-    }
-
-    public double getHeaterPrice() {
-        return heaterPrice;
-    }
-
-    public double getSealPrice() {
-        return sealPrice;
-    }
-
-    public double getOuterDecorationPrice() {
-        return outerDecorationPrice;
-    }
-
-    public double getInnerDecorationPrice() {
-        return innerDecorationPrice;
-    }
-
-    public double getPlatbandPrice() {
-        return platbandPrice;
-    }
-
-    public double getMainLockPrice() {
-        return mainLockPrice;
-    }
-
-    public double getSecondaryLockPrice() {
-        return secondaryLockPrice;
-    }
-
-    public double getHandlePrice() {
-        return handlePrice;
-    }
-
-    public double getProtectorPrice() {
-        return protectorPrice;
-    }
-
-    public double getSpyHolePrice() {
-        return spyHolePrice;
-    }
-
+//
+//    public double getMetal_20x20_Price() {
+//        return metal_20x20_Price;
+//    }
+//
+//    public double getMetalListPrice() {
+//        return metalListPrice;
+//    }
+//
+//    public double getHingePrice() {
+//        return hingePrice;
+//    }
+//
+//    public double getHeaterPrice() {
+//        return heaterPrice;
+//    }
+//
+//    public double getSealPrice() {
+//        return sealPrice;
+//    }
+//
+//    public double getOuterDecorationPrice() {
+//        return outerDecorationPrice;
+//    }
+//
+//    public double getInnerDecorationPrice() {
+//        return innerDecorationPrice;
+//    }
+//
+//    public double getPlatbandPrice() {
+//        return platbandPrice;
+//    }
+//
+//    public double getMainLockPrice() {
+//        return mainLockPrice;
+//    }
+//
+//    public double getSecondaryLockPrice() {
+//        return secondaryLockPrice;
+//    }
+//
+//    public double getHandlePrice() {
+//        return handlePrice;
+//    }
+//
+//    public double getProtectorPrice() {
+//        return protectorPrice;
+//    }
+//
+//    public double getSpyHolePrice() {
+//        return spyHolePrice;
+//    }
+//
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer();
-        sb.append("x=").append(x).append("\n");
-        sb.append("y=").append(y).append("\n");
-        sb.append("z=").append(z).append("\n");
+        sb.append("x=").append(this.getX()).append("\n");
+        sb.append("y=").append(this.getY()).append("\n");
+        sb.append("z=").append(this.getZ()).append("\n");
         sb.append("metalFramesPartsTotalPrice=").append(metalFramesPartsTotalPrice).append("\n");
         sb.append("metal_50x30_Price=").append(metal_50x30_Price).append("\n");
         sb.append("metal_20x20_Price=").append(metal_20x20_Price).append("\n");

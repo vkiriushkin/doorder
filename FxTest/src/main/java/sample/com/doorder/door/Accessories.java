@@ -1,7 +1,6 @@
 package sample.com.doorder.door;
 
 import sample.com.doorder.door.types.AccessoriesType;
-import sample.com.doorder.door.Price;
 
 public class Accessories {
 
@@ -31,15 +30,18 @@ public class Accessories {
 	public void calcMainLock(AccessoriesType mainLockType) {
 		totalAccessoriesPrice -= mainLockPrice;
 		switch (mainLockType) {
-			case MAIN_LOCKER_KALE_257L:
-				mainLockPrice = Price.TOP_LOCKER_KALE_257L.getPriceInUAH();
-				break;
-			case MAIN_LOCKER_KALE_1894:
-				mainLockPrice = Price.TOP_LOCKER_KALE_1894.getPriceInUAH();
-				break;
-			case MAIN_LOCKER_ELBOR:
-				mainLockPrice = Price.TOP_LOCKER_ELBOR.getPriceInUAH();
-				break;
+            case MAIN_LOCKER_KALE_25R:
+                mainLockPrice = Price.BOTTOM_LOCKER_KALE_25R.getPriceInUAH();
+                break;
+            case MAIN_LOCKER_MOTTURA_54797:
+                mainLockPrice = Price.BOTTOM_LOCKER_MOTTURA_54797.getPriceInUAH();
+                break;
+            case MAIN_LOCKER_APECS_2200:
+                mainLockPrice = Price.BOTTOM_LOCKER_APECS_2200.getPriceInUAH();
+                break;
+            case MAIN_LOCKER_KALE_2000:
+                mainLockPrice = Price.BOTTOM_LOCKER_KALE_2000.getPriceInUAH();
+                break;
 		}
 		totalAccessoriesPrice += mainLockPrice;
 	}
@@ -47,18 +49,15 @@ public class Accessories {
 	public void calcSecondaryLock(AccessoriesType secondaryLockType) {
 		totalAccessoriesPrice -= secondaryLockPrice;
 		switch (secondaryLockType) {
-			case SECONDARY_LOCKER_KALE_25R:
-				secondaryLockPrice = Price.BOTTOM_LOCKER_KALE_25R.getPriceInUAH();
-				break;
-			case SECONDARY_LOCKER_MOTTURA_54797:
-				secondaryLockPrice = Price.BOTTOM_LOCKER_MOTTURA_54797.getPriceInUAH();
-				break;
-			case SECONDARY_LOCKER_APECS_2200:
-				secondaryLockPrice = Price.BOTTOM_LOCKER_APECS_2200.getPriceInUAH();
-				break;
-			case SECONDARY_LOCKER_KALE_2000:
-				secondaryLockPrice = Price.BOTTOM_LOCKER_KALE_2000.getPriceInUAH();
-				break;
+            case SECONDARY_LOCKER_KALE_257L:
+                secondaryLockPrice = Price.TOP_LOCKER_KALE_257L.getPriceInUAH();
+                break;
+            case SECONDARY_LOCKER_KALE_1894:
+                secondaryLockPrice = Price.TOP_LOCKER_KALE_1894.getPriceInUAH();
+                break;
+            case SECONDARY_LOCKER_ELBOR:
+                secondaryLockPrice = Price.TOP_LOCKER_ELBOR.getPriceInUAH();
+                break;
             case NO_SECONDARY_LOCKER:
                 secondaryLockPrice = 0;
                 break;

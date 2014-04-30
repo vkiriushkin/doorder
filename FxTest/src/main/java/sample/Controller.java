@@ -388,17 +388,17 @@ public class Controller implements Initializable {
     }
 
     private void updateDimensionsLabel() {
-        if (!x.getText().equals("") && Integer.parseInt(x.getText()) > 1000 && Integer.parseInt(x.getText()) % 10 != 0) {
+        if (!x.getText().equals("") && Integer.parseInt(x.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение x должно быть кратным 10");
-        } else if (!x_1.getText().equals("") && Integer.parseInt(x_1.getText()) > 1000 && Integer.parseInt(x_1.getText()) % 10 != 0) {
+        } else if (!x_1.getText().equals("") && Integer.parseInt(x_1.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение x1 должно быть кратным 10");
-        } else if (!x_2.getText().equals("") && Integer.parseInt(x_2.getText()) > 1000 && Integer.parseInt(x_2.getText()) % 10 != 0) {
+        } else if (!x_2.getText().equals("") && Integer.parseInt(x_2.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение x2 должно быть кратным 10");
-        } else if (!x_3.getText().equals("") && Integer.parseInt(x_3.getText()) > 1000 && Integer.parseInt(x_3.getText()) % 10 != 0) {
+        } else if (!x_3.getText().equals("") && Integer.parseInt(x_3.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение x3 должно быть кратным 10");
-        } else if (!y.getText().equals("") && Integer.parseInt(y.getText()) > 1000 && Integer.parseInt(y.getText()) % 10 != 0) {
+        } else if (!y.getText().equals("") && Integer.parseInt(y.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение y должно быть кратным 10");
-        } else if (!y_1.getText().equals("") && Integer.parseInt(y_1.getText()) > 1000 && Integer.parseInt(y_1.getText()) % 10 != 0) {
+        } else if (!y_1.getText().equals("") && Integer.parseInt(y_1.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение y1 должно быть кратным 10");
         } else {
             wrongDimensionsLabel.setText("");
@@ -476,7 +476,8 @@ public class Controller implements Initializable {
                 LabelNames.platbandPF,
                 LabelNames.platbendAntic,
                 LabelNames.platbandMdf10,
-                LabelNames.platbandMdf16
+                LabelNames.platbandMdf16,
+                LabelNames.noPlatband
         );
         platbandTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -649,14 +650,16 @@ public class Controller implements Initializable {
                     LabelNames.platbandPF,
                     LabelNames.platbendAntic,
                     LabelNames.platbandMdf10,
-                    LabelNames.platbandMdf16
+                    LabelNames.platbandMdf16,
+                    LabelNames.noPlatband
             );
         } else if (doorType.equalsIgnoreCase(LabelNames.fireproofDoor)) {
             platbandTypeCombo.getItems().clear();
             platbandTypeCombo.getItems().setAll(
                     LabelNames.platbandShagreen,
                     LabelNames.platbandPF,
-                    LabelNames.platbendAntic
+                    LabelNames.platbendAntic,
+                    LabelNames.noPlatband
             );
         }
     }

@@ -255,6 +255,9 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
             case METAL_PAINTING_ANTIC:
                 this.platband.calcMetalPlatbandPaintingAntic(this.getX(), this.getY(), this.getClass());
                 break;
+            case NO_PLATBAND:
+                this.platband.calcNoPlatband(this.getX(), this.getY(), 0, this.getClass());
+                break;
         }
         platbandPrice = this.platband.getTotalPlatbandPrice();
         totalPrice += platbandPrice;

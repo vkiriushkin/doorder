@@ -12,10 +12,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         Controller.primaryStage = primaryStage;
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Выбор и заказ дверей");
         Scene scene = new Scene(root, 800, 600);
         scene.getStylesheets().add(this.getClass().getResource("doors.css").toExternalForm());
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

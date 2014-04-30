@@ -50,28 +50,29 @@ public class LabelNames {
     public static final String platbendAntic = "Мет. Наличник покраска антик";
     public static final String platbandMdf10 = "МДФ наличник 10";
     public static final String platbandMdf16 = "МДФ наличник 16";
+    public static final String noPlatband = "Без наличника";
 
     public static final String shippingSelf = "самовывоз";
     public static final String shippingVendor = "доставка автоперевозчиком";
     public static final String shippingCompany = "доставка транспортом предприятия";
 
-    public static final String kale257 = "Замок \"KALE\" 257L верхн/шт";
-    public static final String kale189 = "Замок \"KALE\" 189 4 MF верхн/шт";
-    public static final String elbor = "Замок Эльбор \"Кремень\" 1.04.02.К верхн/шт";
+    public static final String kale257 = "Замок \"KALE\" 257L ("+Price.TOP_LOCKER_KALE_257L.getPriceInUAH()+" грн)";
+    public static final String kale189 = "Замок \"KALE\" 189 4 MF ("+Price.TOP_LOCKER_KALE_1894.getPriceInUAH()+" грн)";
+    public static final String elbor = "Замок Эльбор \"Кремень\" 1.04.02.К ("+Price.TOP_LOCKER_ELBOR.getPriceInUAH()+" грн)";
     public static final String noSecondaryLock = "Без замка";
-    public static final String kale252 = "Замок \"KALE\" 252R нижн/шт";
-    public static final String mottura = "Замок \"MOTTURA\" 54797 нижн/шт";
-    public static final String apecs2200 = "Замок \"Apecs\" 2200 нижн/шт";
-    public static final String kale2000 = "Замок \"KALE\" 2000 нижн/шт";
-    public static final String apecsProtector = "Броненакладка Apecs Protector/шт";
+    public static final String kale252 = "Замок \"KALE\" 252R ("+Price.BOTTOM_LOCKER_KALE_25R.getPriceInUAH()+" грн)";
+    public static final String mottura = "Замок \"MOTTURA\" 54797 ("+Price.BOTTOM_LOCKER_MOTTURA_54797.getPriceInUAH()+" грн)";
+    public static final String apecs2200 = "Замок \"Apecs\" 2200 ("+Price.BOTTOM_LOCKER_APECS_2200.getPriceInUAH()+" грн)";
+    public static final String kale2000 = "Замок \"KALE\" 2000 ("+Price.BOTTOM_LOCKER_KALE_2000.getPriceInUAH()+" грн)";
+    public static final String apecsProtector = "Броненакладка Apecs Protector ("+Price.PROTECTOR_APECS.getPriceInUAH()+" грн)";
     public static final String noProtector = "Без броненакладки";
-    public static final String apecsCrome = "Ручки раздельные \"Apecs\" хром/комплект";
-    public static final String apecsGold = "Ручки раздельные \"Apecs\" золото/комплект";
-    public static final String apecsCromePlank = "Ручки на планке \"Apecs\" хром/комплект";
-    public static final String apecsGoldPlank = "Ручки на планке \"Apecs\" золото/комплект";
-    public static final String aydemirBrown = "Ручки \"Aydemir\" коричневые/комплект";
-    public static final String aydemirBlack = "Ручки \"Aydemir\" черные/комплект";
+    public static final String apecsCrome = "Ручки раздельные \"Apecs\" хром/комплект ("+Price.HANDLE_APECS_CHROME.getPriceInUAH()+" грн)";
+    public static final String apecsGold = "Ручки раздельные \"Apecs\" золото/комплект ("+Price.HANDLE_APECS_GOLD.getPriceInUAH()+" грн)";
+    public static final String apecsCromePlank = "Ручки на планке \"Apecs\" хром/комплект ("+Price.HANDLE_APECS_PLAT_CHROME.getPriceInUAH()+" грн)";
+    public static final String apecsGoldPlank = "Ручки на планке \"Apecs\" золото/комплект ("+Price.HANDLE_APECS_PLAT_GOLD.getPriceInUAH()+" грн)";
+    public static final String aydemirBrown = "Ручки \"Aydemir\" коричневые/комплект ("+Price.HANDLE_AYDEMIR_BROWN.getPriceInUAH()+" грн)";
+    public static final String aydemirBlack = "Ручки \"Aydemir\" черные/комплект ("+Price.HANDLE_AYDEMIR_BLACK.getPriceInUAH()+" грн)";
     public static final String noSpy = "Без глазка";
-    public static final String spy200 = "Глазок ГДШ 200/шт";
-    public static final String spy10200 = "Глазок ГДШ 10-200/шт";
+    public static final String spy200 = "Глазок ГДШ 200 объемный ("+Price.SPY_HOLE_200.getPriceInUAH()+" грн)";
+    public static final String spy10200 = "Глазок ГДШ 10-200 зеркальный ("+Price.SPY_HOLE_10_200.getPriceInUAH()+" грн)";
 }

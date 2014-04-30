@@ -14,6 +14,23 @@ public class DoubleFrameDoubleTopTransomPlatband extends Platband {
     public static final Logger LOGGER = LoggerFactory.getLogger(DoubleFrameDoubleTopTransomPlatband.class);
 
     @Override
+    public void calcWoodenPlatband(int x, int y, Class caller) {
+        LOGGER.info("Start calculating platband");
+        clear();
+        LOGGER.info("Checking dimensions for wooden platband");
+        if (y < 1000 || y > 2150)
+            throw new UnsupportedDimensions("Wooden platband", y, x);
+        LOGGER.info("Wooden platband: dimension OK");
+        if (y >= 1000 && y <= 2150) {
+            BigDecimal bd = new BigDecimal((2 * y + x) / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH());
+            bd = bd.setScale(2, RoundingMode.HALF_UP);
+            woodenPlatband = bd.doubleValue();
+            totalPlatbandPrice += woodenPlatband;
+        }
+        LOGGER.info("Finish calculating platband, wooden platband price:{}", woodenPlatband);
+    }
+
+    @Override
     public void calcMetalPlatbandPaintingPF(int x, int y, Class caller) {
         LOGGER.info("Start calculating platband");
         clear();

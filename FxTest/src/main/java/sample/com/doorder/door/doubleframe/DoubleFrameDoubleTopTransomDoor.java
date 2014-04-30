@@ -412,6 +412,9 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
             case MDF16:
                 this.platband.calcMdf16Platband(this.getX(), this.getY(), this.getZ(), this.getClass());
                 break;
+            case NO_PLATBAND:
+                this.platband.calcNoPlatband(this.getX(), this.getY(), this.getZ(), this.getClass());
+                break;
         }
         platbandPrice = this.platband.getTotalPlatbandPrice();
         totalPrice += platbandPrice;

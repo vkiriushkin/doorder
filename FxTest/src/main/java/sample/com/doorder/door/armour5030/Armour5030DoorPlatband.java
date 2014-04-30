@@ -20,7 +20,7 @@ public class Armour5030DoorPlatband extends Platband {
             throw new UnsupportedDimensions("Wooden platband", y, x);
         LOGGER.info("Wooden platband: dimension OK");
         if (y >= 1000 && y <= 2150) {
-            BigDecimal bd = new BigDecimal((2 * y + x) / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH());
+            BigDecimal bd = new BigDecimal((2 * (double)y + x) / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             woodenPlatband = bd.doubleValue();
             totalPlatbandPrice += woodenPlatband;

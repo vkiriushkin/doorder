@@ -7,5 +7,6 @@ public enum PlatbandType {
 	METAL_PAINTING_SHAGREEN,
 	METAL_PAINTING_ANTIC,
 	MDF10,
-	MDF16;
+	MDF16,
+    NO_PLATBAND;
 }

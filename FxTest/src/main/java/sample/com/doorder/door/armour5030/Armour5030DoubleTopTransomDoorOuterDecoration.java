@@ -17,19 +17,19 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
             throw new UnsupportedDimensions("Self adhesive film", y, x);
         LOGGER.info("Self adhesive film: dimension OK");
         if (x >= 800 && x <= 1200) {
-            BigDecimal bd = new BigDecimal(1.1 * 1.5 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal(1.1 * 1.5 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         if (x >= 1201 && x <= 1400) {
-            BigDecimal bd = new BigDecimal(1.1 * 2 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal(1.1 * 2 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
         }
         if (x >= 1401 && x <= 2000) {
-            BigDecimal bd = new BigDecimal(1.1 * 3 * y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 2 * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
+            BigDecimal bd = new BigDecimal(1.1 * 3 * (double)y / 1000 * Price.SELF_ADHESIVE_FILM.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + (3 * (double)x + 4 * y_1) * 0.08) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
             bd = bd.setScale(2, RoundingMode.HALF_UP);
             selfAdhesiveFilm = bd.doubleValue();
             totalOuterDecorationPrice += selfAdhesiveFilm;
@@ -280,7 +280,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
             mdf16 = bd.doubleValue();
             totalOuterDecorationPrice += mdf16;
         }
-        if (y >= 2051 && y <= 2350) {
+        if (y_1 >= 2051 && y_1 <= 2350) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_16.getPriceInUAH() + 80
                     + ((double)y - y_1) * x * Price.PAINTING_PF.getPriceInUAH() / 1000000
                     + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);

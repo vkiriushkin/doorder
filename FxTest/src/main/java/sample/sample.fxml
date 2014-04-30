@@ -18,7 +18,7 @@
   <children>
     <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
       <children>
-        <Button id="welcome-button" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showDoorTypesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор конструкции" VBox.vgrow="ALWAYS">
+        <Button id="welcome-button" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showDoorTypesPane" prefHeight="75.0" prefWidth="200.0" text="Выбор конструкции" VBox.vgrow="ALWAYS">
           <font>
             <Font size="15.0" fx:id="x3" />
           </font>
@@ -26,9 +26,14 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
           </VBox.margin>
         </Button>
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showLockerTypesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор замков" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showAccessoriesPane" prefHeight="100.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="100.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1">
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showLockerTypesPane" prefHeight="75.0" prefWidth="200.0" text="Выбор замков" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showAccessoriesPane" prefHeight="75.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Выбор отделки">
+          <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </VBox.margin>
+        </Button>
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="75.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1">
           <contextMenu>
             <ContextMenu>
               <items>
@@ -44,7 +49,7 @@
         <Image url="@logo.png" />
       </image>
     </ImageView>
-    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" text="Some information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+    <Label alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" text="" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
       <font>
         <Font size="20.0" fx:id="x2" />
       </font>
@@ -628,11 +633,11 @@
                 <Button id="goToPreviousStep2Button" fx:id="goToPreviousStep3Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep3" prefHeight="30.0" prefWidth="144.0" text="Назад" />
                 <Button id="goToNextStep4Button" fx:id="goToNextStep5Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep5" prefHeight="30.0" prefWidth="144.0" text="Далее" />
                 <Label layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="214.0" text="Выбырите основной замок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="secondaryLockCombo" layoutX="242.0" layoutY="48.0" prefWidth="343.999977929685" />
+                <ComboBox fx:id="secondaryLockCombo" layoutX="242.0" layoutY="48.0" prefWidth="343.999977929685" />
                 <Label layoutX="14.0" layoutY="44.0" prefHeight="30.0" prefWidth="228.0" text="Выберите дополнительный замок" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="mainLockCombo" layoutX="242.0" layoutY="18.0" prefWidth="343.999977929685" />
+                <ComboBox fx:id="mainLockCombo" layoutX="242.0" layoutY="18.0" prefWidth="343.999977929685" />
                 <Label layoutX="14.0" layoutY="74.0" prefHeight="30.0" prefWidth="214.0" text="Выберите ручку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="handleCombo" layoutX="242.0" layoutY="78.0" prefWidth="343.999977929685" />
+                <ComboBox fx:id="handleCombo" layoutX="242.0" layoutY="78.0" prefWidth="343.999977929685" />
                 <Label layoutX="14.0" layoutY="104.0" prefHeight="30.0" prefWidth="214.0" text="Выберите глазок" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="spyHoleCombo" layoutX="242.0" layoutY="108.0" prefWidth="343.999977929685" />
                 <Label layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="214.0" text="Выберите броненакладку" wrapText="false" />
