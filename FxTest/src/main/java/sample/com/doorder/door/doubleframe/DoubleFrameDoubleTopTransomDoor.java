@@ -21,14 +21,14 @@ public class DoubleFrameDoubleTopTransomDoor extends DoubleFrameDoor {
 
     protected DoubleFrameDoubleTopTransomDoorInnerDecoration innerDecoration;
     protected DoubleFrameDoubleTopTransomDoorOuterDecoration outerDecoration;
-    private DoubleFrameDoubleTopTransomPlatband platband;
+    private DoubleFrameDoorPlatband platband;
 
 
     public DoubleFrameDoubleTopTransomDoor() {
         super();
         this.innerDecoration = new DoubleFrameDoubleTopTransomDoorInnerDecoration();
         this.outerDecoration = new DoubleFrameDoubleTopTransomDoorOuterDecoration();
-        this.platband = new DoubleFrameDoubleTopTransomPlatband();
+        this.platband = new DoubleFrameDoorPlatband();
 	    this.productionPrice = 95;
 	    this.profitPrice = 450;
     }

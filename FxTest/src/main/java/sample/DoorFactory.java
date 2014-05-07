@@ -39,7 +39,7 @@ public class DoorFactory {
                     AngledDoor angledDoor = new AngledDoor();
                     angledDoor.setX(Integer.parseInt(x.getText()));
                     angledDoor.setY(Integer.parseInt(y.getText()));
-                    angledDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    angledDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     angledDoor.calcMetalFrameParts();
                     angledDoor.calcMetalList();
                     angledDoor.calcSeal(true);
@@ -61,7 +61,7 @@ public class DoorFactory {
                     doubleDoor.setX(Integer.parseInt(x.getText()));
                     doubleDoor.setX_1(Integer.parseInt(x_1.getText()));
                     doubleDoor.setY(Integer.parseInt(y.getText()));
-                    doubleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleDoor.calcMetalFrameParts();
                     doubleDoor.calcMetalList();
                     doubleDoor.calcSeal(true);
@@ -83,7 +83,7 @@ public class DoorFactory {
                     singleDoorSideTransom.setX(Integer.parseInt(x.getText()));
                     singleDoorSideTransom.setX_1(Integer.parseInt(x_1.getText()));
                     singleDoorSideTransom.setY(Integer.parseInt(y.getText()));
-                    singleDoorSideTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorSideTransom.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     singleDoorSideTransom.calcMetalFrameParts();
                     singleDoorSideTransom.calcMetalList();
                     singleDoorSideTransom.calcSeal(true);
@@ -113,7 +113,7 @@ public class DoorFactory {
                     singleDoorTopTransom.setX(Integer.parseInt(x.getText()));
                     singleDoorTopTransom.setY(Integer.parseInt(y.getText()));
                     singleDoorTopTransom.setY_1(Integer.parseInt(y_1.getText()));
-                    singleDoorTopTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorTopTransom.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     singleDoorTopTransom.calcMetalFrameParts();
                     singleDoorTopTransom.calcMetalList();
                     singleDoorTopTransom.calcSeal(true);
@@ -144,7 +144,7 @@ public class DoorFactory {
                     singleDoorTopSideTransom.setX_1(Integer.parseInt(x_1.getText()));
                     singleDoorTopSideTransom.setY(Integer.parseInt(y.getText()));
                     singleDoorTopSideTransom.setY_1(Integer.parseInt(y_1.getText()));
-                    singleDoorTopSideTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorTopSideTransom.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     singleDoorTopSideTransom.setX_2(Integer.parseInt(x_2.getText()));
                     singleDoorTopSideTransom.setX_3(Integer.parseInt(x_3.getText()));
                     singleDoorTopSideTransom.calcMetalFrameParts();
@@ -177,7 +177,7 @@ public class DoorFactory {
                     doubleDoorTopTransom.setX_1(Integer.parseInt(x_1.getText()));
                     doubleDoorTopTransom.setY(Integer.parseInt(y.getText()));
                     doubleDoorTopTransom.setY_1(Integer.parseInt(y_1.getText()));
-                    doubleDoorTopTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleDoorTopTransom.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleDoorTopTransom.calcMetalFrameParts();
                     doubleDoorTopTransom.calcMetalList();
                     doubleDoorTopTransom.calcSeal(true);
@@ -208,7 +208,7 @@ public class DoorFactory {
                     singleDoorTwoSideTransom.setX(Integer.parseInt(x.getText()));
                     singleDoorTwoSideTransom.setX_1(Integer.parseInt(x_1.getText()));
                     singleDoorTwoSideTransom.setY(Integer.parseInt(y.getText()));
-                    singleDoorTwoSideTransom.setZ(Integer.parseInt(platbandWidth.getText()));
+                    singleDoorTwoSideTransom.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     singleDoorTwoSideTransom.setX_2(Integer.parseInt(x_2.getText()));
                     singleDoorTwoSideTransom.setX_3(Integer.parseInt(x_3.getText()));
                     singleDoorTwoSideTransom.calcMetalFrameParts();
@@ -243,7 +243,7 @@ public class DoorFactory {
 			        Armour4040SingleDoor armour4040SingleDoor = new Armour4040SingleDoor();
 			        armour4040SingleDoor.setX(Integer.parseInt(x.getText()));
 			        armour4040SingleDoor.setY(Integer.parseInt(y.getText()));
-			        armour4040SingleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040SingleDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040SingleDoor.calcMetalFrameParts();
 			        armour4040SingleDoor.calcMetalList();
 			        armour4040SingleDoor.calcSeal(true);
@@ -265,7 +265,7 @@ public class DoorFactory {
 			        armour4040DoubleDoor.setX(Integer.parseInt(x.getText()));
 			        armour4040DoubleDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour4040DoubleDoor.setY(Integer.parseInt(y.getText()));
-			        armour4040DoubleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040DoubleDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040DoubleDoor.calcMetalFrameParts();
 			        armour4040DoubleDoor.calcMetalList();
 			        armour4040DoubleDoor.calcSeal(true);
@@ -287,7 +287,7 @@ public class DoorFactory {
 			        armour4040SingleSideTransomDoor.setX(Integer.parseInt(x.getText()));
 			        armour4040SingleSideTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour4040SingleSideTransomDoor.setY(Integer.parseInt(y.getText()));
-			        armour4040SingleSideTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040SingleSideTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040SingleSideTransomDoor.calcMetalFrameParts();
 			        armour4040SingleSideTransomDoor.calcMetalList();
 			        armour4040SingleSideTransomDoor.calcSeal(true);
@@ -317,7 +317,7 @@ public class DoorFactory {
 			        armour4040SingleTopTransomDoor.setX(Integer.parseInt(x.getText()));
 			        armour4040SingleTopTransomDoor.setY(Integer.parseInt(y.getText()));
 			        armour4040SingleTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-			        armour4040SingleTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040SingleTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040SingleTopTransomDoor.calcMetalFrameParts();
 			        armour4040SingleTopTransomDoor.calcMetalList();
 			        armour4040SingleTopTransomDoor.calcSeal(true);
@@ -348,7 +348,7 @@ public class DoorFactory {
 			        armour4040SingleTwoSideAndTopTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour4040SingleTwoSideAndTopTransomDoor.setY(Integer.parseInt(y.getText()));
 			        armour4040SingleTwoSideAndTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-			        armour4040SingleTwoSideAndTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040SingleTwoSideAndTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040SingleTwoSideAndTopTransomDoor.setX_2(Integer.parseInt(x_2.getText()));
 			        armour4040SingleTwoSideAndTopTransomDoor.setX_3(Integer.parseInt(x_3.getText()));
 			        armour4040SingleTwoSideAndTopTransomDoor.calcMetalFrameParts();
@@ -381,7 +381,7 @@ public class DoorFactory {
 			        armour4040DoubleTopTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour4040DoubleTopTransomDoor.setY(Integer.parseInt(y.getText()));
 			        armour4040DoubleTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-			        armour4040DoubleTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040DoubleTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040DoubleTopTransomDoor.calcMetalFrameParts();
 			        armour4040DoubleTopTransomDoor.calcMetalList();
 			        armour4040DoubleTopTransomDoor.calcSeal(true);
@@ -411,7 +411,7 @@ public class DoorFactory {
 			        armour4040SingleTwoSideTransomDoor.setX(Integer.parseInt(x.getText()));
 			        armour4040SingleTwoSideTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour4040SingleTwoSideTransomDoor.setY(Integer.parseInt(y.getText()));
-			        armour4040SingleTwoSideTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour4040SingleTwoSideTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour4040SingleTwoSideTransomDoor.setX_2(Integer.parseInt(x_2.getText()));
 			        armour4040SingleTwoSideTransomDoor.setX_3(Integer.parseInt(x_3.getText()));
 			        armour4040SingleTwoSideTransomDoor.calcMetalFrameParts();
@@ -446,7 +446,7 @@ public class DoorFactory {
 			        Armour5030SingleDoor armour5030SingleDoor = new Armour5030SingleDoor();
 			        armour5030SingleDoor.setX(Integer.parseInt(x.getText()));
 			        armour5030SingleDoor.setY(Integer.parseInt(y.getText()));
-			        armour5030SingleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030SingleDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030SingleDoor.calcMetalFrameParts();
 			        armour5030SingleDoor.calcMetalList();
 			        armour5030SingleDoor.calcSeal(true);
@@ -468,7 +468,7 @@ public class DoorFactory {
 			        armour5030DoubleDoor.setX(Integer.parseInt(x.getText()));
 			        armour5030DoubleDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour5030DoubleDoor.setY(Integer.parseInt(y.getText()));
-			        armour5030DoubleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030DoubleDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030DoubleDoor.calcMetalFrameParts();
 			        armour5030DoubleDoor.calcMetalList();
 			        armour5030DoubleDoor.calcSeal(true);
@@ -490,7 +490,7 @@ public class DoorFactory {
 			        armour5030SingleSideTransomDoor.setX(Integer.parseInt(x.getText()));
 			        armour5030SingleSideTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour5030SingleSideTransomDoor.setY(Integer.parseInt(y.getText()));
-			        armour5030SingleSideTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030SingleSideTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030SingleSideTransomDoor.calcMetalFrameParts();
 			        armour5030SingleSideTransomDoor.calcMetalList();
 			        armour5030SingleSideTransomDoor.calcSeal(true);
@@ -520,7 +520,7 @@ public class DoorFactory {
 			        armour5030SingleTopTransomDoor.setX(Integer.parseInt(x.getText()));
 			        armour5030SingleTopTransomDoor.setY(Integer.parseInt(y.getText()));
 			        armour5030SingleTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-			        armour5030SingleTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030SingleTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030SingleTopTransomDoor.calcMetalFrameParts();
 			        armour5030SingleTopTransomDoor.calcMetalList();
 			        armour5030SingleTopTransomDoor.calcSeal(true);
@@ -551,7 +551,7 @@ public class DoorFactory {
 			        armour5030SingleTwoSideAndTopTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour5030SingleTwoSideAndTopTransomDoor.setY(Integer.parseInt(y.getText()));
 			        armour5030SingleTwoSideAndTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-			        armour5030SingleTwoSideAndTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030SingleTwoSideAndTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030SingleTwoSideAndTopTransomDoor.setX_2(Integer.parseInt(x_2.getText()));
 			        armour5030SingleTwoSideAndTopTransomDoor.setX_3(Integer.parseInt(x_3.getText()));
 			        armour5030SingleTwoSideAndTopTransomDoor.calcMetalFrameParts();
@@ -584,7 +584,7 @@ public class DoorFactory {
 			        armour5030DoubleTopTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour5030DoubleTopTransomDoor.setY(Integer.parseInt(y.getText()));
 			        armour5030DoubleTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-			        armour5030DoubleTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030DoubleTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030DoubleTopTransomDoor.calcMetalFrameParts();
 			        armour5030DoubleTopTransomDoor.calcMetalList();
 			        armour5030DoubleTopTransomDoor.calcSeal(true);
@@ -614,7 +614,7 @@ public class DoorFactory {
 			        armour5030SingleTwoSideTransomDoor.setX(Integer.parseInt(x.getText()));
 			        armour5030SingleTwoSideTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
 			        armour5030SingleTwoSideTransomDoor.setY(Integer.parseInt(y.getText()));
-			        armour5030SingleTwoSideTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+			        armour5030SingleTwoSideTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
 			        armour5030SingleTwoSideTransomDoor.setX_2(Integer.parseInt(x_2.getText()));
 			        armour5030SingleTwoSideTransomDoor.setX_3(Integer.parseInt(x_3.getText()));
 			        armour5030SingleTwoSideTransomDoor.calcMetalFrameParts();
@@ -649,7 +649,7 @@ public class DoorFactory {
                     DoubleFrameAngledDoor doubleFrameAngledDoor = new DoubleFrameAngledDoor();
                     doubleFrameAngledDoor.setX(Integer.parseInt(x.getText()));
                     doubleFrameAngledDoor.setY(Integer.parseInt(y.getText()));
-                    doubleFrameAngledDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameAngledDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameAngledDoor.calcMetalFrameParts();
                     doubleFrameAngledDoor.calcMetalList();
                     doubleFrameAngledDoor.calcSeal(true);
@@ -671,7 +671,7 @@ public class DoorFactory {
                     doubleFrameDoubleDoor.setX(Integer.parseInt(x.getText()));
                     doubleFrameDoubleDoor.setX_1(Integer.parseInt(x_1.getText()));
                     doubleFrameDoubleDoor.setY(Integer.parseInt(y.getText()));
-                    doubleFrameDoubleDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameDoubleDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameDoubleDoor.calcMetalFrameParts();
                     doubleFrameDoubleDoor.calcMetalList();
                     doubleFrameDoubleDoor.calcSeal(true);
@@ -693,7 +693,7 @@ public class DoorFactory {
                     doubleFrameSingleSideTransomDoor.setX(Integer.parseInt(x.getText()));
                     doubleFrameSingleSideTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
                     doubleFrameSingleSideTransomDoor.setY(Integer.parseInt(y.getText()));
-                    doubleFrameSingleSideTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameSingleSideTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameSingleSideTransomDoor.calcMetalFrameParts();
                     doubleFrameSingleSideTransomDoor.calcMetalList();
                     doubleFrameSingleSideTransomDoor.calcSeal(true);
@@ -723,7 +723,7 @@ public class DoorFactory {
                     doubleFrameSingleTopTransomDoor.setX(Integer.parseInt(x.getText()));
                     doubleFrameSingleTopTransomDoor.setY(Integer.parseInt(y.getText()));
                     doubleFrameSingleTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-                    doubleFrameSingleTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameSingleTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameSingleTopTransomDoor.calcMetalFrameParts();
                     doubleFrameSingleTopTransomDoor.calcMetalList();
                     doubleFrameSingleTopTransomDoor.calcSeal(true);
@@ -754,7 +754,7 @@ public class DoorFactory {
                     doubleFrameSingleTwoSideAndTopTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
                     doubleFrameSingleTwoSideAndTopTransomDoor.setY(Integer.parseInt(y.getText()));
                     doubleFrameSingleTwoSideAndTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-                    doubleFrameSingleTwoSideAndTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameSingleTwoSideAndTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameSingleTwoSideAndTopTransomDoor.setX_2(Integer.parseInt(x_2.getText()));
                     doubleFrameSingleTwoSideAndTopTransomDoor.setX_3(Integer.parseInt(x_3.getText()));
                     doubleFrameSingleTwoSideAndTopTransomDoor.calcMetalFrameParts();
@@ -787,7 +787,7 @@ public class DoorFactory {
                     doubleFrameDoubleTopTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
                     doubleFrameDoubleTopTransomDoor.setY(Integer.parseInt(y.getText()));
                     doubleFrameDoubleTopTransomDoor.setY_1(Integer.parseInt(y_1.getText()));
-                    doubleFrameDoubleTopTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameDoubleTopTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameDoubleTopTransomDoor.calcMetalFrameParts();
                     doubleFrameDoubleTopTransomDoor.calcMetalList();
                     doubleFrameDoubleTopTransomDoor.calcSeal(true);
@@ -817,7 +817,7 @@ public class DoorFactory {
                     doubleFrameSingleTwoSideTransomDoor.setX(Integer.parseInt(x.getText()));
                     doubleFrameSingleTwoSideTransomDoor.setX_1(Integer.parseInt(x_1.getText()));
                     doubleFrameSingleTwoSideTransomDoor.setY(Integer.parseInt(y.getText()));
-                    doubleFrameSingleTwoSideTransomDoor.setZ(Integer.parseInt(platbandWidth.getText()));
+                    doubleFrameSingleTwoSideTransomDoor.setZ(platbandWidth.getText().equals("") ? 0 : Integer.parseInt(platbandWidth.getText()));
                     doubleFrameSingleTwoSideTransomDoor.setX_2(Integer.parseInt(x_2.getText()));
                     doubleFrameSingleTwoSideTransomDoor.setX_3(Integer.parseInt(x_3.getText()));
                     doubleFrameSingleTwoSideTransomDoor.calcMetalFrameParts();
@@ -1032,7 +1032,7 @@ public class DoorFactory {
     private static void calcProtector(Door angledDoor, String protector) {
         if (protector.equalsIgnoreCase(LabelNames.noProtector))
             angledDoor.calcProtector(AccessoriesType.NO_PROTECTOR);
-        if (protector.equalsIgnoreCase(LabelNames.apecsProtector))
+        if (protector.equalsIgnoreCase(LabelNames.apecsProtectorCrome) || protector.equalsIgnoreCase(LabelNames.apecsProtectorGold))
             angledDoor.calcProtector(AccessoriesType.PROTECTOR_APECS);
     }
 

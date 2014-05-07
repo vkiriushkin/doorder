@@ -34,9 +34,9 @@ public class DoubleFrameDoorPlatband extends Platband {
         LOGGER.info("Start calculating platband");
         clear();
         LOGGER.info("Checking dimensions for metal platband painting PF");
-        if (caller.equals(SingleDoorTopTransom.class)
-                || caller.equals(DoubleDoorTopTransom.class)
-                || caller.equals(SingleDoorTopSideTransom.class)) {
+        if (caller.equals(DoubleFrameSingleTopTransomDoor.class)
+                || caller.equals(DoubleFrameDoubleTopTransomDoor.class)
+                || caller.equals(DoubleFrameSingleTwoSideAndTopTransomDoor.class)) {
             if (y < 1000 || y > 3000)
                 throw new UnsupportedDimensions("Metal platband painting PF", y, x);
             LOGGER.info("Metal platband painting PF: dimension OK");
@@ -67,9 +67,9 @@ public class DoubleFrameDoorPlatband extends Platband {
         LOGGER.info("Start calculating platband");
         clear();
         LOGGER.info("Checking dimensions for metal platband painting shagreen");
-        if (caller.equals(SingleDoorTopTransom.class)
-                || caller.equals(DoubleDoorTopTransom.class)
-                || caller.equals(SingleDoorTopSideTransom.class)) {
+        if (caller.equals(DoubleFrameSingleTopTransomDoor.class)
+                || caller.equals(DoubleFrameDoubleTopTransomDoor.class)
+                || caller.equals(DoubleFrameSingleTwoSideAndTopTransomDoor.class)) {
             if (y < 1000 || y > 3000)
                 throw new UnsupportedDimensions("Metal platband painting shagreen", y, x);
             LOGGER.info("Metal platband painting shagreen: dimension OK");
@@ -100,9 +100,9 @@ public class DoubleFrameDoorPlatband extends Platband {
         LOGGER.info("Start calculating platband");
         clear();
         LOGGER.info("Checking dimensions for metal platband painting antic");
-        if (caller.equals(SingleDoorTopTransom.class)
-                || caller.equals(DoubleDoorTopTransom.class)
-                || caller.equals(SingleDoorTopSideTransom.class)) {
+        if (caller.equals(DoubleFrameSingleTopTransomDoor.class)
+                || caller.equals(DoubleFrameDoubleTopTransomDoor.class)
+                || caller.equals(DoubleFrameSingleTwoSideAndTopTransomDoor.class)) {
             if (y < 1000 || y > 3000)
                 throw new UnsupportedDimensions("Metal platband painting antic", y, x);
             LOGGER.info("Metal platband painting antic: dimension OK");

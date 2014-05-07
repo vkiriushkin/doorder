@@ -9,7 +9,7 @@ import sample.com.doorder.door.types.PlatbandType;
 public abstract class DoubleFrameDoor extends SimpleDoor {
 
     protected Accessories accessories;
-    protected Platband platband;
+    protected DoubleFrameDoorPlatband platband;
     protected double metal_50x30_Price;
     protected double metal_25x25_Price;
 

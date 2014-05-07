@@ -24,14 +24,14 @@ public class Armour4040SingleTwoSideAndTopTransomDoor extends Armour4040Door {
 
 	protected Armour4040SingleTwoSideAndTopTransomDoorInnerDecoration innerDecoration;
 	protected Armour4040SingleTwoSideAndTopTransomDoorOuterDecoration outerDecoration;
-	private Platband platband;
+	private Armour4040DoorPlatband platband;
 
 
 	public Armour4040SingleTwoSideAndTopTransomDoor() {
 		super();
 		this.innerDecoration = new Armour4040SingleTwoSideAndTopTransomDoorInnerDecoration();
 		this.outerDecoration = new Armour4040SingleTwoSideAndTopTransomDoorOuterDecoration();
-		this.platband = new Platband();
+		this.platband = new Armour4040DoorPlatband();
 		this.productionPrice = 110;
 		this.profitPrice = 550;
 	}

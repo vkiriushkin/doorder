@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Text?>
 
@@ -28,12 +29,12 @@
         </Button>
         <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showLockerTypesPane" prefHeight="75.0" prefWidth="200.0" text="Выбор замков" VBox.margin="$x1" />
         <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showAccessoriesPane" prefHeight="75.0" prefWidth="200.0" text="Выбор фурнитуры" VBox.margin="$x1" />
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" prefHeight="75.0" prefWidth="200.0" text="Выбор отделки">
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showDecorationTypesPane" prefHeight="75.0" prefWidth="200.0" text="Выбор отделки">
           <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
           </VBox.margin>
         </Button>
-        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="75.0" prefWidth="200.0" text="Оформление заказа" VBox.margin="$x1">
+        <Button contentDisplay="CENTER" focusTraversable="false" font="$x3" mnemonicParsing="false" onAction="#showOrderPane" prefHeight="75.0" prefWidth="200.0" text="Оформление заказа">
           <contextMenu>
             <ContextMenu>
               <items>
@@ -41,6 +42,9 @@
               </items>
             </ContextMenu>
           </contextMenu>
+          <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </VBox.margin>
         </Button>
       </children>
     </VBox>
@@ -81,12 +85,12 @@
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                        <ImageView fitHeight="74.0" fitWidth="453.0" layoutX="74.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="74.0" fitWidth="453.0" layoutX="74.0" layoutY="28.0" onMouseClicked="#showAngledDoorZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@angledDoor.png" />
                           </image>
                         </ImageView>
-                        <ImageView fitHeight="74.0" fitWidth="452.0" layoutX="74.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="74.0" fitWidth="452.0" layoutX="74.0" layoutY="204.0" onMouseClicked="#showAngledWithTwoDoorZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@angledWithTwo.png" />
                           </image>
@@ -111,12 +115,12 @@
                         <TextArea layoutX="14.0" layoutY="103.0" prefHeight="108.0" prefWidth="577.0" text="&#9;Такая конструкция нужна в случаях, когда есть возможность  в  сужении дверного проема . Дверная коробка  изготавливается из стальной квадратной трубы 40x40*2. Дверное полотно и ребра жесткости выполнены из профильной трубы 40*20*2 мм.Преимущество данной конструкции в том, что дверная коробка  и полотно металлических дверей имеют цельно замкнутый контур из профильных труб, тем самым намного увеличивая жесткость конструкции." wrapText="true" />
                         <Label alignment="CENTER" contentDisplay="CENTER" font="$x6" layoutX="94.0" layoutY="216.0" prefHeight="22.0" prefWidth="413.0" text="Бронедверь  из профильной  трубы с двойным притвором" />
                         <Label alignment="CENTER" contentDisplay="CENTER" font="$x6" layoutX="100.0" layoutY="3.0" prefHeight="22.0" prefWidth="400.0" text="Бронедверь  из профильной  трубы" textAlignment="CENTER" />
-                        <ImageView fitHeight="70.0" fitWidth="452.0" layoutX="74.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="70.0" fitWidth="452.0" layoutX="74.0" layoutY="28.0" onMouseClicked="#showProfilePipeDoorZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@profilePipeDoor.png" />
                           </image>
                         </ImageView>
-                        <ImageView fitHeight="90.0" fitWidth="450.0" layoutX="75.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="90.0" fitWidth="450.0" layoutX="75.0" layoutY="237.0" onMouseClicked="#showProfilePipeWithTwoDoorZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@profilePipeWithTwoDoor.png" />
                           </image>
@@ -151,7 +155,7 @@
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
                         <TextArea layoutX="10.0" layoutY="192.0" prefHeight="225.0" prefWidth="581.0" text="&#9;Данная конструкция имеет толщину дверного полотна 43 мм. Дверная коробка изготавливается из профильной трубы 40х40мм. Сам корпус дверного полотна производится из 2-х листов металла толщиной 1,5 мм, сваренных между собой. По всему периметру используется уплотнитель &quot;Огракс&quot;, который под воздействием высокой температуры имеет способность расширяться, блокируя таким образом доступ огня в соседние помещения. Внутри дверь заполнена специальным теплоизоляционным наполнением. Вес  1 кв.м двери со степенью огнестойкости 30 минут - 50 кг.&#10;&#9;Противопожарные входные двери поставляются в следующей комплектации:Дверное полотно, коробка, замок с ручками, доводчик, комплект ключей, завесы, уплотнитель, огракс. В дополнительную комплектацию входит наличник по желанию заказчика. Дверные блоки поставляются огрунтованными (в серый цвет), упакованными, маркированными. По согласованию двери могут быть окрашены в другой цвет по RAL катологу." wrapText="true" />
-                        <ImageView fitHeight="71.0" fitWidth="452.0" layoutX="74.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="71.0" fitWidth="452.0" layoutX="74.0" layoutY="116.0" onMouseClicked="#showFireProofDoorZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@fireProofDoor.png" />
                           </image>
@@ -204,7 +208,7 @@
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                        <ImageView fitHeight="233.0" fitWidth="305.0" layoutX="294.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="233.0" fitWidth="305.0" layoutX="294.0" layoutY="0.0" onMouseClicked="#showApecs2200ZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@apecs2200.png" />
                           </image>
@@ -264,6 +268,14 @@
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="331.0" prefHeight="26.0" prefWidth="109.0" text="Хром" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="322.0" layoutY="349.0" prefHeight="26.0" prefWidth="169.0" text="Тип защелки" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="487.0" layoutY="349.0" prefHeight="26.0" prefWidth="109.0" text="Универсальная" textAlignment="CENTER" />
+                        <Label fx:id="apecs2200PriceLabel" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:">
+                          <font>
+                            <Font name="System Bold" size="15.0" fx:id="x9" />
+                          </font>
+                          <textFill>
+                            <Color blue="0.000" green="0.800" red="0.255" fx:id="x11" />
+                          </textFill>
+                        </Label>
                       </children>
                     </AnchorPane>
                   </content>
@@ -280,23 +292,24 @@
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="66.0" layoutY="225.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="259.0" prefHeight="26.0" prefWidth="159.0" text="Тип замка  " textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="277.0" prefHeight="26.0" prefWidth="145.0" text="Класс безопасности  " textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="259.0" prefHeight="26.0" prefWidth="159.0" text="цилиндровый" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="277.0" prefHeight="26.0" prefWidth="145.0" text="2" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="259.0" prefHeight="26.0" prefWidth="159.0" text="цилиндровый" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="277.0" prefHeight="26.0" prefWidth="145.0" text="2" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="294.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="312.0" prefHeight="26.0" prefWidth="145.0" text="Бексет, мм  " textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="294.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="312.0" prefHeight="26.0" prefWidth="145.0" text="45 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="294.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="312.0" prefHeight="26.0" prefWidth="145.0" text="45 мм" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="330.0" prefHeight="26.0" prefWidth="159.0" text="Наличие защелки  " textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="348.0" prefHeight="26.0" prefWidth="169.0" text="Цвет" textAlignment="LEFT" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="330.0" prefHeight="26.0" prefWidth="159.0" text="да" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="348.0" prefHeight="26.0" prefWidth="145.0" text="латунь, хром" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="330.0" prefHeight="26.0" prefWidth="159.0" text="да" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="348.0" prefHeight="26.0" prefWidth="145.0" text="латунь, хром" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="46.0" layoutY="368.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="228.0" layoutY="368.0" prefHeight="26.0" prefWidth="159.0" text="зависит от цил. механизма" textAlignment="CENTER" />
-                        <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="443.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="205.0" layoutY="368.0" prefHeight="26.0" prefWidth="159.0" text="зависит от цил. механизма" textAlignment="CENTER" />
+                        <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="443.0" layoutY="32.0" onMouseClicked="#showKale2000LockZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@kale2000_1.png" />
                           </image>
                         </ImageView>
+                        <Label fx:id="kale2000PriceLabel" font="$x9" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -313,25 +326,26 @@
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Тип замка  " textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Класс безопасности  " textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="цилиндровый" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="4 высший " textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="цилиндровый" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="4 высший " textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество ригелей" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Диаметр ригелей, мм " textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="16" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="3" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="16" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Наличие защелки  " textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="343.0" prefHeight="26.0" prefWidth="169.0" text="Цвет" textAlignment="LEFT" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="да" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="343.0" prefHeight="26.0" prefWidth="145.0" text="никель" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="да" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="343.0" prefHeight="26.0" prefWidth="145.0" text="никель" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="зависит от цил. механизма" textAlignment="CENTER" />
-                        <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="452.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="зависит от цил. механизма" textAlignment="CENTER" />
+                        <ImageView fitHeight="293.0" fitWidth="94.0" layoutX="452.0" layoutY="41.0" onMouseClicked="#showKale252rLockZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@kale252r_1.png" />
                           </image>
                         </ImageView>
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="Количество ключей" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="202.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                        <Label fx:id="kale252PriceLabel" font="$x9" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -340,7 +354,7 @@
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                        <ImageView fitHeight="152.99998474121094" fitWidth="236.33033072321132" layoutX="294.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="152.99998474121094" fitWidth="236.33033072321132" layoutX="294.0" layoutY="0.0" onMouseClicked="#showMotturaLockZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@mottura_1.png" />
                           </image>
@@ -395,6 +409,7 @@
                             <Image url="@mottura_2.png" />
                           </image>
                         </ImageView>
+                        <Label fx:id="motturaPriceLabel" font="$x9" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -431,13 +446,14 @@
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="343.0" prefHeight="26.0" prefWidth="145.0" text="латунь" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="Тип ключа" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="крестообразный " textAlignment="CENTER" />
-                        <ImageView fitHeight="277.0" fitWidth="127.0" layoutX="452.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="277.0" fitWidth="127.0" layoutX="452.0" layoutY="72.0" onMouseClicked="#showKale189LockZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@kale189_1.png" />
                           </image>
                         </ImageView>
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="Количество ключей" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
+                        <Label fx:id="kale189PriceLabel" font="$x9" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -451,28 +467,29 @@
                             <Image url="@elbor_2.png" />
                           </image>
                         </ImageView>
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Габаритные размеры" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Механизм секретности" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="255.0" prefHeight="26.0" prefWidth="159.0" text="109,5х104х18 мм" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="273.0" prefHeight="26.0" prefWidth="145.0" text="сувальдный" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество сувальд" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Диаметр стержня" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="290.0" prefHeight="26.0" prefWidth="159.0" text="6 шт" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="308.0" prefHeight="26.0" prefWidth="145.0" text="14 мм" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Выход стержней" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="347.0" prefHeight="26.0" prefWidth="169.0" text="Общая площадь поперечного &#10;сечения стержней" textAlignment="LEFT" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="326.0" prefHeight="26.0" prefWidth="159.0" text="21,5 мм" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="348.0" prefHeight="26.0" prefWidth="145.0" text="461,58 мм2" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="367.0" prefHeight="26.0" prefWidth="159.0" text="Класс замка" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="368.0" prefHeight="26.0" prefWidth="184.0" text="3 класс по ГОСТ Р 52582-2006" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="388.0" prefHeight="26.0" prefWidth="159.0" text="Масса брутто одного замка" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="282.0" layoutY="389.0" prefHeight="26.0" prefWidth="159.0" text="0.89 кг" textAlignment="CENTER" />
-                        <ImageView fitHeight="257.0" fitWidth="187.0" layoutX="394.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="41.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="254.0" prefHeight="26.0" prefWidth="159.0" text="Габаритные размеры" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="272.0" prefHeight="26.0" prefWidth="145.0" text="Механизм секретности" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="255.0" prefHeight="26.0" prefWidth="159.0" text="109,5х104х18 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="273.0" prefHeight="26.0" prefWidth="145.0" text="сувальдный" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="289.0" prefHeight="26.0" prefWidth="159.0" text="Количество сувальд" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="307.0" prefHeight="26.0" prefWidth="145.0" text="Диаметр стержня" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="290.0" prefHeight="26.0" prefWidth="159.0" text="6 шт" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="308.0" prefHeight="26.0" prefWidth="145.0" text="14 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="325.0" prefHeight="26.0" prefWidth="159.0" text="Выход стержней" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="347.0" prefHeight="26.0" prefWidth="169.0" text="Общая площадь поперечного &#10;сечения стержней" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="326.0" prefHeight="26.0" prefWidth="159.0" text="21,5 мм" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="348.0" prefHeight="26.0" prefWidth="145.0" text="461,58 мм2" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="367.0" prefHeight="26.0" prefWidth="159.0" text="Класс замка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="368.0" prefHeight="26.0" prefWidth="184.0" text="3 класс по ГОСТ Р 52582-2006" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="21.0" layoutY="388.0" prefHeight="26.0" prefWidth="159.0" text="Масса брутто одного замка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="201.0" layoutY="389.0" prefHeight="26.0" prefWidth="159.0" text="0.89 кг" textAlignment="CENTER" />
+                        <ImageView fitHeight="257.0" fitWidth="187.0" layoutX="394.0" layoutY="58.0" onMouseClicked="#showElborLockZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@elbor_1.png" />
                           </image>
                         </ImageView>
+                        <Label fx:id="elborPriceLabel" font="$x9" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -483,7 +500,7 @@
                       <children>
                         <ImageView fitHeight="230.0" fitWidth="382.0" layoutX="56.0" layoutY="9.0" onMouseClicked="#showKale257ZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
-                            <Image url="@kale_257_2.png" />
+                            <Image url="@kale257_2.png" />
                           </image>
                         </ImageView>
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="75.0" layoutY="229.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
@@ -503,11 +520,12 @@
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="363.0" prefHeight="26.0" prefWidth="159.0" text="сувальдный" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="55.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="Количество ключей" textAlignment="CENTER" />
                         <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x8" layoutX="237.0" layoutY="384.0" prefHeight="26.0" prefWidth="159.0" text="5" textAlignment="CENTER" />
-                        <ImageView fitHeight="259.0" fitWidth="173.0" layoutX="382.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="259.0" fitWidth="173.0" layoutX="382.0" layoutY="81.0" onMouseClicked="#showKale257LockZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
-                            <Image url="@kale_257_1.png" />
+                            <Image url="@kale257_1.png" />
                           </image>
                         </ImageView>
+                        <Label fx:id="kale257PriceLabel" font="$x9" layoutX="380.0" layoutY="380.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -525,9 +543,9 @@
             <Label id="step" fx:id="step1Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Конструкция" textAlignment="CENTER" />
             <Label id="step" fx:id="step2Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Размеры" textAlignment="CENTER" />
             <Label id="step" fx:id="step3Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Отделка" textAlignment="CENTER" />
-            <Label id="step" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Фурнитура" textAlignment="CENTER" />
             <Label id="step" fx:id="step4Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Доставка и &#10;установка" textAlignment="CENTER" />
-            <Label id="step" fx:id="step5Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Данные &#10;заказчика" textAlignment="CENTER" />
+            <Label id="step" fx:id="step5Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Фурнитура" textAlignment="CENTER" />
+            <Label id="step" fx:id="step6Label" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Данные &#10;заказчика" textAlignment="CENTER" />
           </children>
         </HBox>
         <VBox id="s" fx:id="step1VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
@@ -546,6 +564,7 @@
                     <Font name="System Bold" size="20.0" />
                   </font>
                 </Label>
+                <Label fx:id="doorTypeErrorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="154.0" prefHeight="30.0" prefWidth="572.0" text="" textAlignment="CENTER" textFill="#ff3333" wrapText="false" />
               </children>
             </Pane>
           </children>
@@ -588,6 +607,7 @@
                 <Label fx:id="x2Dimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="186.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
                 <Label fx:id="x3Dimensions" alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="351.0" layoutY="216.0" prefHeight="30.0" prefWidth="120.0" text="от - до -" textAlignment="LEFT" wrapText="false" />
                 <Label fx:id="wrongDimensionsLabel" layoutX="228.0" layoutY="273.0" prefHeight="30.0" prefWidth="286.0000999999975" text="" wrapText="false" />
+                <Label fx:id="doorDimensionsErrorLabel" alignment="CENTER" layoutX="14.0" layoutY="324.0" prefHeight="30.0" prefWidth="572.0" text="" textFill="RED" wrapText="false" />
               </children>
             </Pane>
           </children>
@@ -596,37 +616,38 @@
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null" visible="true">
               <children>
-                <Label font="$x6" layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наружную отделку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="outerDecorationTypeCombo" layoutX="140.0" layoutY="40.0" prefWidth="199.99997792968497" />
+                <Label font="$x6" layoutX="14.0" layoutY="-6.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наружную отделку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="outerDecorationTypeCombo" layoutX="140.0" layoutY="24.0" prefWidth="199.99997792968497" />
                 <Button fx:id="goToPreviousStep2Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep2" prefHeight="30.0" prefWidth="144.0" text="Назад" />
                 <Button fx:id="goToNextStep4Button" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToNextStep4" prefHeight="30.0" prefWidth="144.0" text="Далее" />
-                <Label layoutX="14.0" layoutY="95.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
-                <Label layoutX="14.0" layoutY="66.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
-                <TextField fx:id="outerColor" layoutX="140.0" layoutY="70.0" prefWidth="200.0" />
-                <TextField fx:id="outerConfiguration" layoutX="140.0" layoutY="99.0" prefWidth="200.0" />
-                <Label font="$x6" layoutX="14.0" layoutY="160.0" prefHeight="30.0" prefWidth="214.0" text="Выберите внутреннею отделку" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="innerDecorationTypeCombo" layoutX="140.0" layoutY="194.0" prefWidth="199.99997792968497" />
-                <Label layoutX="14.0" layoutY="245.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
-                <Label layoutX="14.0" layoutY="218.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
-                <TextField fx:id="innerColor" layoutX="140.0" layoutY="222.0" prefWidth="200.0" />
-                <TextField fx:id="innerConfiguration" layoutX="140.0" layoutY="249.0" prefWidth="200.0" />
-                <Label layoutX="14.0" layoutY="362.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
-                <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="140.0" layoutY="366.0" prefWidth="100.0" text="0" />
-                <Label layoutX="246.0" layoutY="362.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
-                <Label font="$x6" layoutX="14.0" layoutY="305.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="140.0" layoutY="336.0" prefWidth="199.99997792968497" />
-                <Label layoutX="14.0" layoutY="40.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="outerTransomDecorationTypeCombo" layoutX="140.0" layoutY="129.0" prefWidth="199.99997792968497" />
-                <Label layoutX="14.0" layoutY="125.0" prefHeight="30.0" prefWidth="126.0" text="Отделка фрамуги" wrapText="false" />
-                <Label layoutX="14.0" layoutY="190.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
-                <ComboBox id="doorTypeCombo" fx:id="innerTransomDecorationTypeCombo" layoutX="140.0" layoutY="279.0" prefWidth="199.99997792968497" />
-                <Label layoutX="14.0" layoutY="275.0" prefHeight="30.0" prefWidth="126.0" text="Отделка фрамуги" wrapText="false" />
-                <Label layoutX="14.0" layoutY="332.0" prefHeight="30.0" prefWidth="100.0" text="Вид наличника" wrapText="false" />
+                <Label layoutX="14.0" layoutY="79.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
+                <Label layoutX="14.0" layoutY="50.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
+                <TextField fx:id="outerColor" layoutX="140.0" layoutY="54.0" prefWidth="200.0" />
+                <TextField fx:id="outerConfiguration" layoutX="140.0" layoutY="83.0" prefWidth="200.0" />
+                <Label font="$x6" layoutX="14.0" layoutY="144.0" prefHeight="30.0" prefWidth="214.0" text="Выберите внутреннею отделку" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="innerDecorationTypeCombo" layoutX="140.0" layoutY="178.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="229.0" prefHeight="30.0" prefWidth="100.0" text="Конфигурация" wrapText="false" />
+                <Label layoutX="14.0" layoutY="202.0" prefHeight="30.0" prefWidth="100.0" text="Цвет отделки" wrapText="false" />
+                <TextField fx:id="innerColor" layoutX="140.0" layoutY="206.0" prefWidth="200.0" />
+                <TextField fx:id="innerConfiguration" layoutX="140.0" layoutY="233.0" prefWidth="200.0" />
+                <Label layoutX="14.0" layoutY="346.0" prefHeight="30.0" prefWidth="126.0" text="Ширина наличника" wrapText="false" />
+                <TextField id="innerConfiguration" fx:id="platbandWidth" layoutX="140.0" layoutY="350.0" prefWidth="100.0" text="0" />
+                <Label layoutX="246.0" layoutY="346.0" prefHeight="30.0" prefWidth="26.0" text="мм" wrapText="false" />
+                <Label font="$x6" layoutX="14.0" layoutY="289.0" prefHeight="30.0" prefWidth="214.0" text="Выберите наличник" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="platbandTypeCombo" layoutX="140.0" layoutY="320.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="24.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="outerTransomDecorationTypeCombo" layoutX="140.0" layoutY="113.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="109.0" prefHeight="30.0" prefWidth="126.0" text="Отделка фрамуги" wrapText="false" />
+                <Label layoutX="14.0" layoutY="174.0" prefHeight="30.0" prefWidth="100.0" text="Вид отделки" wrapText="false" />
+                <ComboBox id="doorTypeCombo" fx:id="innerTransomDecorationTypeCombo" layoutX="140.0" layoutY="263.0" prefWidth="199.99997792968497" />
+                <Label layoutX="14.0" layoutY="259.0" prefHeight="30.0" prefWidth="126.0" text="Отделка фрамуги" wrapText="false" />
+                <Label layoutX="14.0" layoutY="316.0" prefHeight="30.0" prefWidth="100.0" text="Вид наличника" wrapText="false" />
+                <Label fx:id="decorationTypeErrorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="376.0" prefHeight="30.0" prefWidth="572.0" text="" textFill="RED" wrapText="false" />
               </children>
             </Pane>
           </children>
         </VBox>
-        <VBox id="s" fx:id="step4VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="true">
+        <VBox id="s" fx:id="step4VBox" alignment="TOP_LEFT" fillWidth="true" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
           <children>
             <Pane id="" prefHeight="436.0" prefWidth="600.0" styleClass="null" visible="true">
               <children>
@@ -642,6 +663,7 @@
                 <ComboBox id="doorTypeCombo" fx:id="spyHoleCombo" layoutX="242.0" layoutY="108.0" prefWidth="343.999977929685" />
                 <Label layoutX="14.0" layoutY="134.0" prefHeight="30.0" prefWidth="214.0" text="Выберите броненакладку" wrapText="false" />
                 <ComboBox id="doorTypeCombo" fx:id="armourStrapCombo" layoutX="242.0" layoutY="138.0" prefWidth="343.999977929685" />
+                <Label fx:id="accessoriesErrorLabel" alignment="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="30.0" prefWidth="572.0" text="" textFill="RED" wrapText="false" />
               </children>
             </Pane>
           </children>
@@ -664,6 +686,7 @@
                 <RadioButton fx:id="installationNo" layoutX="150.0" layoutY="189.0" mnemonicParsing="false" text="Нет" />
                 <Button layoutX="150.0" layoutY="236.0" mnemonicParsing="false" onAction="#calculateDoorPrice" prefHeight="30.0" prefWidth="150.0" text="Просчитать" />
                 <Label fx:id="errorLabel" layoutX="14.0" layoutY="293.0" prefHeight="30.0" prefWidth="572.0" text="" wrapText="false" />
+                <Label fx:id="optionalServicesErrorlabel" alignment="CENTER" layoutX="14.0" layoutY="293.0" prefHeight="30.0" prefWidth="572.0" text="" textFill="RED" wrapText="false" />
               </children>
             </Pane>
           </children>
@@ -675,14 +698,15 @@
                 <Label layoutX="14.0" layoutY="10.0" prefHeight="30.0" prefWidth="114.0" text="Данные клиента" wrapText="false" />
                 <Button id="goToPreviousStep4Button" fx:id="goToPreviousStep5Button" layoutX="14.0" layoutY="406.0" mnemonicParsing="false" onAction="#goToPreviousStep5" prefHeight="30.0" prefWidth="144.0" text="Назад" />
                 <Button fx:id="createOrderButton" layoutX="442.0" layoutY="406.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="144.0" text="Оформить заказ" />
-                <Label layoutX="38.0" layoutY="55.0" prefHeight="30.0" prefWidth="70.0" text="ФИО" wrapText="false" />
-                <TextField id="outerColor" fx:id="personalName" disable="false" editable="true" layoutX="128.0" layoutY="59.0" prefWidth="314.0" />
-                <Label layoutX="38.0" layoutY="100.0" prefHeight="30.0" prefWidth="70.0" text="Адрес" wrapText="false" />
-                <TextArea fx:id="personalAddress" layoutX="128.0" layoutY="100.0" prefHeight="100.0" prefWidth="314.0" wrapText="true" />
-                <Label layoutX="38.0" layoutY="217.0" prefHeight="30.0" prefWidth="70.0" text="Телефон" wrapText="false" />
-                <TextField id="outerColor" fx:id="personalPhone" disable="false" editable="true" layoutX="128.0" layoutY="221.0" prefWidth="314.0" />
-                <Label layoutX="38.0" layoutY="269.0" prefHeight="30.0" prefWidth="90.0" text="Комментарии" wrapText="false" />
-                <TextArea fx:id="personalNotes" layoutX="128.0" layoutY="269.0" prefHeight="100.0" prefWidth="314.0" wrapText="true" />
+                <Label layoutX="38.0" layoutY="38.0" prefHeight="30.0" prefWidth="70.0" text="ФИО" wrapText="false" />
+                <TextField id="outerColor" fx:id="personalName" disable="false" editable="true" layoutX="128.0" layoutY="42.0" prefWidth="314.0" />
+                <Label layoutX="38.0" layoutY="83.0" prefHeight="30.0" prefWidth="70.0" text="Адрес" wrapText="false" />
+                <TextArea fx:id="personalAddress" layoutX="128.0" layoutY="83.0" prefHeight="100.0" prefWidth="314.0" wrapText="true" />
+                <Label layoutX="38.0" layoutY="200.0" prefHeight="30.0" prefWidth="70.0" text="Телефон" wrapText="false" />
+                <TextField id="outerColor" fx:id="personalPhone" disable="false" editable="true" layoutX="128.0" layoutY="204.0" prefWidth="314.0" />
+                <Label layoutX="38.0" layoutY="252.0" prefHeight="30.0" prefWidth="90.0" text="Комментарии" wrapText="false" />
+                <TextArea fx:id="personalNotes" layoutX="128.0" layoutY="252.0" prefHeight="100.0" prefWidth="314.0" wrapText="true" />
+                <Label fx:id="customerInformationErrorLabel" alignment="CENTER" layoutX="14.0" layoutY="363.0" prefHeight="30.0" prefWidth="572.0" text="" textFill="RED" wrapText="false" />
               </children>
             </Pane>
           </children>
@@ -715,7 +739,7 @@
             </Button>
           </children>
         </HBox>
-        <Pane fx:id="separateHandlersPane" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="false">
+        <Pane fx:id="separateHandlersPane" layoutX="0.0" layoutY="50.0" prefHeight="450.0" prefWidth="600.0" visible="true">
           <children>
             <AnchorPane layoutX="0.0" layoutY="0.0" prefHeight="439.0" prefWidth="600.0">
               <children>
@@ -744,6 +768,8 @@
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="337.0" prefHeight="26.0" prefWidth="200.0" text="Гальваника" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="231.0" layoutY="363.0" prefHeight="26.0" prefWidth="200.0" text="Хром/Золото" textAlignment="CENTER" />
                 <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="232.0" layoutY="389.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+                <Label id="apecs2200PriceLabel" fx:id="apecsCromePrice" alignment="CENTER" font="$x9" layoutX="71.0" layoutY="190.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
+                <Label id="apecs2200PriceLabel" fx:id="apecsGoldPrice" alignment="CENTER" font="$x9" layoutX="365.0" layoutY="190.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
               </children>
             </AnchorPane>
           </children>
@@ -756,33 +782,35 @@
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="100.0" layoutY="10.0" onMouseClicked="#showAydemirBrownZoomedImage" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="100.0" layoutY="1.0" onMouseClicked="#showAydemirBrownZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@handlerPlankBrown.png" />
                           </image>
                         </ImageView>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="350.0" layoutY="10.0" onMouseClicked="#showAydemirBlackZoomedImage" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="350.0" layoutY="1.0" onMouseClicked="#showAydemirBlackZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@handlerPlankBlack.png" />
                           </image>
                         </ImageView>
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="209.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Способ установки ручки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Тип планки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Тип упаковки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="Межосевое" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="14.0" layoutY="311.0" prefHeight="39.0" prefWidth="233.0" text="Дополнительное запирание&#10;изнутри" textAlignment="LEFT" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Саморезы" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Отверстие для ЦМ" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Коробка" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="85" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="Напыление" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Коричневый/Черный" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="217.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="243.0" prefHeight="26.0" prefWidth="200.0" text="Способ установки ручки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="262.0" prefHeight="26.0" prefWidth="200.0" text="Тип планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="281.0" prefHeight="26.0" prefWidth="200.0" text="Тип упаковки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="300.0" prefHeight="26.0" prefWidth="200.0" text="Межосевое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="14.0" layoutY="319.0" prefHeight="39.0" prefWidth="233.0" text="Дополнительное запирание&#10;изнутри" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="354.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="243.0" prefHeight="26.0" prefWidth="200.0" text="Саморезы" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="262.0" prefHeight="26.0" prefWidth="200.0" text="Отверстие для ЦМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="281.0" prefHeight="26.0" prefWidth="200.0" text="Коробка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="300.0" prefHeight="26.0" prefWidth="200.0" text="85" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="319.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="354.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="373.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="373.0" prefHeight="26.0" prefWidth="200.0" text="Напыление" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="391.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="391.0" prefHeight="26.0" prefWidth="200.0" text="Коричневый/Черный" textAlignment="CENTER" />
+                        <Label id="apecs2200PriceLabel" fx:id="aydemirBrownPrice" alignment="CENTER" font="$x9" layoutX="38.0" layoutY="201.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
+                        <Label id="apecs2200PriceLabel" fx:id="aydemirBlackPrice" alignment="CENTER" font="$x9" layoutX="300.0" layoutY="201.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -791,33 +819,35 @@
                   <content>
                     <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                       <children>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="10.0" onMouseClicked="#showApecsPlankChromeZoomedImage" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="1.0" onMouseClicked="#showApecsPlankChromeZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@handlerPlankChrome.png" />
                           </image>
                         </ImageView>
-                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="300.0" layoutY="10.0" onMouseClicked="#showApecsPlankGoldZoomedImage" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="300.0" layoutY="0.0" onMouseClicked="#showApecsPlankGoldZoomedImage" pickOnBounds="true" preserveRatio="true">
                           <image>
                             <Image url="@handlerPlankGold.png" />
                           </image>
                         </ImageView>
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="209.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Способ установки ручки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Тип планки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Тип упаковки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="Межосевое" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="14.0" layoutY="311.0" prefHeight="39.0" prefWidth="233.0" text="Дополнительное запирание&#10;изнутри" textAlignment="LEFT" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="235.0" prefHeight="26.0" prefWidth="200.0" text="Стяжки" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="254.0" prefHeight="26.0" prefWidth="200.0" text="Отверстие для ЦМ" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="273.0" prefHeight="26.0" prefWidth="200.0" text="Коробка" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="292.0" prefHeight="26.0" prefWidth="200.0" text="85" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="311.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="346.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="365.0" prefHeight="26.0" prefWidth="200.0" text="PVD" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
-                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="383.0" prefHeight="26.0" prefWidth="200.0" text="Хром/Золото" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x6" layoutX="15.0" layoutY="215.0" prefHeight="39.0" prefWidth="215.0" text="Технические характеристики" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="241.0" prefHeight="26.0" prefWidth="200.0" text="Способ установки ручки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="260.0" prefHeight="26.0" prefWidth="200.0" text="Тип планки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="279.0" prefHeight="26.0" prefWidth="200.0" text="Тип упаковки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="298.0" prefHeight="26.0" prefWidth="200.0" text="Межосевое" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="LEFT" layoutX="14.0" layoutY="317.0" prefHeight="39.0" prefWidth="233.0" text="Дополнительное запирание&#10;изнутри" textAlignment="LEFT" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="352.0" prefHeight="26.0" prefWidth="200.0" text="Материал" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="241.0" prefHeight="26.0" prefWidth="200.0" text="Стяжки" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="260.0" prefHeight="26.0" prefWidth="200.0" text="Отверстие для ЦМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="279.0" prefHeight="26.0" prefWidth="200.0" text="Коробка" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="298.0" prefHeight="26.0" prefWidth="200.0" text="85" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="246.0" layoutY="317.0" prefHeight="26.0" prefWidth="200.0" text="Нет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="352.0" prefHeight="26.0" prefWidth="200.0" text="ЦАМ" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="371.0" prefHeight="26.0" prefWidth="200.0" text="Покрытие" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="371.0" prefHeight="26.0" prefWidth="200.0" text="PVD" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="15.0" layoutY="389.0" prefHeight="26.0" prefWidth="200.0" text="Цвет" textAlignment="CENTER" />
+                        <Label alignment="CENTER_LEFT" contentDisplay="CENTER" layoutX="247.0" layoutY="389.0" prefHeight="26.0" prefWidth="200.0" text="Хром/Золото" textAlignment="CENTER" />
+                        <Label id="apecs2200PriceLabel" fx:id="apecsCromePlankPrice" alignment="CENTER" font="$x9" layoutX="38.0" layoutY="201.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
+                        <Label id="apecs2200PriceLabel" fx:id="apecsGoldPlankPrice" alignment="CENTER" font="$x9" layoutX="290.0" layoutY="201.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
                       </children>
                     </AnchorPane>
                   </content>
@@ -842,6 +872,7 @@
                 </ImageView>
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="294.0" layoutY="22.0" prefHeight="39.0" prefWidth="272.0" text="Броненакладка Apecs Protector золото" textAlignment="CENTER" />
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="22.0" prefHeight="39.0" prefWidth="272.0" text="Броненакладка Apecs Protector хром" textAlignment="CENTER" />
+                <Label id="apecs2200PriceLabel" fx:id="apecsProtectorPrice" alignment="CENTER" font="$x9" layoutX="215.0" layoutY="270.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
               </children>
             </AnchorPane>
           </children>
@@ -881,17 +912,19 @@
                 <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="367.0" prefHeight="26.0" prefWidth="199.9998779296875" text="оптическое стекло" textAlignment="CENTER" />
                 <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="386.0" prefHeight="26.0" prefWidth="199.9998779296875" text="под золото" textAlignment="CENTER" />
                 <Label alignment="CENTER" contentDisplay="CENTER" font="$x5" layoutX="386.0" layoutY="404.0" prefHeight="26.0" prefWidth="199.9998779296875" text="0,022" textAlignment="CENTER" />
-                <ImageView fitHeight="97.0" fitWidth="113.0" layoutX="219.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+                <TextArea editable="false" focusTraversable="true" layoutX="13.0" layoutY="14.0" prefHeight="136.0" prefWidth="573.0" text="&#9;Глазки дверные широкоугольные с заслонкой ГДШ предназначены для рассматривания пространства перед дверью помещения и устанавливается в дверь с толщиной полотна 35-100 мм. &#10;&#9;Высококачественная стеклянная и стеклянно-полимерная оптика глазка обеспечивает прекрасный и практически полный обзор (порядка 200°) наблюдаемого пространства перед дверью. Наличие стопорного устройства предохраняют глазок от вывинчивания с наружной стороны двери." wrapText="true" />
+                <ImageView fitHeight="97.0" fitWidth="113.0" layoutX="219.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@spyHole200.png" />
                   </image>
                 </ImageView>
-                <ImageView fitHeight="97.0" fitWidth="113.0" layoutX="429.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="97.0" fitWidth="113.0" layoutX="429.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@spyHole10-200.png" />
                   </image>
                 </ImageView>
-                <TextArea editable="false" focusTraversable="true" layoutX="13.0" layoutY="14.0" prefHeight="136.0" prefWidth="573.0" style="-fx-border-color: none;" text="&#9;Глазки дверные широкоугольные с заслонкой ГДШ предназначены для рассматривания пространства перед дверью помещения и устанавливается в дверь с толщиной полотна 35-100 мм. &#10;&#9;Высококачественная стеклянная и стеклянно-полимерная оптика глазка обеспечивает прекрасный и практически полный обзор (порядка 200°) наблюдаемого пространства перед дверью. Наличие стопорного устройства предохраняют глазок от вывинчивания с наружной стороны двери." wrapText="true" />
+                <Label id="apecs2200PriceLabel" fx:id="spy200Price" alignment="CENTER" font="$x9" layoutX="190.0" layoutY="226.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
+                <Label id="apecs2200PriceLabel" fx:id="spy10200Price" alignment="CENTER" font="$x9" layoutX="401.0" layoutY="226.0" prefHeight="30.0" prefWidth="170.0" text="Цена:" textFill="$x11" />
               </children>
             </AnchorPane>
           </children>
@@ -910,6 +943,103 @@
         <TextField fx:id="profitPercent" layoutX="214.0" layoutY="65.0" prefWidth="107.0" />
         <TextArea fx:id="contactInformation" layoutX="214.0" layoutY="115.0" prefHeight="124.0" prefWidth="372.0" wrapText="true" />
         <Button fx:id="saveSettingsButton" layoutX="214.0" layoutY="251.0" mnemonicParsing="false" onAction="#saveSettings" prefHeight="30.0" prefWidth="124.0" text="Сохранить" />
+      </children>
+    </Pane>
+    <Pane id="accessoriesPane" fx:id="decorationTypesPane" prefHeight="500.0" prefWidth="600.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <children>
+        <HBox layoutX="0.0" layoutY="0.0" prefHeight="50.0" prefWidth="600.0">
+          <children>
+            <Button font="$x4" mnemonicParsing="false" onAction="#showOuterDecorationTypesPane" prefHeight="40.0" prefWidth="280.0" text="Наружная отделка">
+              <HBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+              </HBox.margin>
+            </Button>
+            <Button font="$x4" mnemonicParsing="false" onAction="#showInnerDecorationTypesPane" prefHeight="40.0" prefWidth="280.0" text="Внутренняя отделка">
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+              </HBox.margin>
+            </Button>
+          </children>
+        </HBox>
+        <Pane id="angledDoorsPane" fx:id="outerDecorationTypesPane" layoutX="0.0" layoutY="50.0" prefHeight="452.0" prefWidth="610.0" visible="false">
+          <children>
+            <TabPane layoutX="0.0" layoutY="0.0" prefHeight="452.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" text="Пленка самоклеющаяся">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="388.0" prefWidth="572.0" text="&#9;В производстве металлических дверей для декорирования наружной поверхности металла дверного полотна нередко используют самоклеящуюся пленку. Благодаря своим характеристикам самоклеящаяся пленка имеет практически неограниченные возможности для применения и реализации разнообразных дизайнерских решений. Самоклеящаяся пленка - водонепроницаемый материал, способный выдерживать перепады температуры, что важно при использовании пленки для декора входных с улицы металлических дверей. Важно также отметить, что пленка абсолютно безопасна для здоровья, долговечна и имеет достаточно невысокую цену." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Пленка антивандальная">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="386.0" prefWidth="572.0" text="&#9;Антивандальные двери  (металлические двери с антивандальной пленкой) станут не только надежной защитой дома, но и стильным украшением.&#10;&#9;Антивандальная израильская пленка ПВХ (термопленка) – современная, практичная, очень популярная отделка стальных дверей. Пленка ПВХ не боится огня зажигалки, имеет хорошую стойкость против ударов острыми предметами и выдерживает значительные перепады температур, не реагирует на влажность. За все эти качества пленка ПВХ носит название антивандальная, или термопленка. Данный вид покрытия бронедверей, по сравнению с другими вариантами отделки, являясь одним из самых сверхпрочных и износостойких, просто идеален для металлических дверей, имеющих контакт с окружающей средой. Благодаря своим великолепным эксплуатационным свойствам, антивандальная пленка рекомендуется в качестве отделки входных металлических дверей выходящих на улицу, дверей офисных зданий и др., то есть, дверей с повышенным уровнем нагрузки.&#10;&#9;Антивандальное покрытие, применяемое для отделки металлических дверей, бывает любых цветов и фактур: глянцевое, матовое, имитирует различные цвета, объемную текстуру натурального дерева дорогих пород, а также придает дверям привлекательный внешний вид. Пленка ПВХ легко моется простыми чистящими средствами." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Порошковая покраска шагрень и антик">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="388.0" prefWidth="572.0" text="&#9;Двери с порошковым покрытием считаются одними из самых универсальных среди входных дверей – их можно установить в офисном или жилом помещении, обеспечить с их помощью уличную (внешнюю) и внутреннюю защиту. Порошковое покрытие – это безопасный, экологичный и относительно бюджетный вид декора, пользующийся неизменной популярностью среди наших заказчиков.10 преимуществ порошковой окраски дверейВы никогда не спутаете металлические двери с порошковым напылением с дверями, окрашенными по иной технологии, например, нитроэмалью. Порошковое покрытие отличается эффектной рельефной фактурой, более того, оно значительно увеличивает долговечность дверей, защищая их от коррозии.&#10;&#9;Почему вам стоит выбрать входные двери с порошковым напылением?&#10;1.&#9;Высокая устойчивость покрытия к механическим повреждениям – ему нипочем даже острые предметы.&#10;2.&#9;Устойчивость к внешним природным воздействиям – перепадам влажности и температуры, прямому попаданию осадков, ультрафиолетовому излучению.&#10;3.&#9;Химическая инертность – невосприимчивость к растворам кислот, щелочей, к органическим растворителям и другим соединениям.&#10;4.&#9;Отличные электроизоляционные характеристики конструкции в целом.&#10;5.&#9;Возможность эксплуатировать железные двери с порошковым напылением в широком диапазоне температур  от -60 до +130°С.&#10;6.&#9;Низкая горючесть, вот почему двери стальные порошковые могут выступать в качестве противопожарных.&#10;7.&#9;Легкость в уходе – пылегрязеотталкивающие свойства покрытия дают возможность без труда справиться с загрязнением с помощью моющих средств или обычной воды.&#10;8.&#9;Экологическая безопасность, которой характеризуется дверь металлическая. Порошковое напыление не имеет в своем составе вредных органических соединений.&#10;9.&#9;Практически полное отсутствие химического запаха. Через некоторое время после начала эксплуатации он исчезает совершенно бесследно." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Покраска ПФ">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="388.0" prefWidth="572.0" text="&#9;Нанесение на поверхность стальной двери обычной эмали  ПФ - это самый простой, удобный и экономичный способ покраски. Эмаль наносят пульверизатором на предварительно грунтованную металлическую дверь. Покраска  быстро сохнет, обладает красивым блеском и твердостью покрытия. Это позволяет не затрачивать на покраску двери много времени, но при этом покрытие обеспечивает высокую защиту от коррозии, и вместе с тем станет приемлемым эстетическим решением. Помимо этого, такую дверь в дальнейшем можно легко покрыть любым отделочным материалом, если владельцу надоест ее внешний вид. Недостатком эмалевого покрытия можно отметить достаточно низкую стойкость к механическим и термическим воздействиям." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Панели МДФ">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="388.0" prefWidth="572.0" text="&#9;Если вам нужны красивые, износостойкие входные двери, пригодные к эксплуатации как в помещении, так и на улице, остановите ваш выбор на входных дверях МДФ. Панели МДФ для металлических дверей на сегодняшний день — это самый популярный вид отделки, и количество заказчиков, предпочитающих именно такое оформление входной группы, все время растет. &#10;&#9;Почему потребители все чаще выбирают металлические двери с отделкой МДФ? Дело в том, что такие металлические двери сочетают в себе надежность, долговечность и роскошный внешний вид. Ознакомьтесь вперечнем преимуществ таких дверей, и вы убедитесь, что входная дверь с отделкой МДФ панелями — лучшее решение из всех возможных.&#10;1. Длительный срок службы как в качестве внутриподъездной, так и наружной двери.&#10;2. Высокая стойкость к воздействию влаги, которая обеспечивается специальной пленкой (Vinorit) МДФ панелей на металлические двери.&#10;3. Высокая степень пожаробезопасности. МДФ — трудновозгораемый материал, препятствующий распространению огня.&#10;4. Высокая устойчивость к механическим ударам. Специальная защитная пленка еще больше увеличивает антивандальные свойства дверей.&#10;5. Разнообразие фактур и насыщенных цветов отделки. Возможность дизайнерской обработки. &#10;6. Легкость в уходе, быстрое удаление различного рода загрязнений.." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
+        <Pane id="angledDoorsPane" fx:id="innerDecorationTypesPane" layoutX="-5.0" layoutY="50.0" prefHeight="462.0000999999975" prefWidth="624.9999000000025" visible="false">
+          <children>
+            <TabPane layoutX="5.0" layoutY="-5.0" prefHeight="457.0" prefWidth="595.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Пластик">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="391.0" prefWidth="567.0" text="&#9;Пластик представляет собой панели из поливинилхлорида (ПХВ) которые применяют для отделки металлических дверей. Несмотря на распространенное мнение, что этот вид материала в процессе эксплуатации быстро приходит в негодность, он является качественным отделочным материалом.&#10;&#9;По сравнению с панелями МДФ, ПХВ отличается высокой водостойкостью. При контакте с водой и ее парами он не разбухает и не коробится. Есть много различных материалов, с помощью которых можно отделать металлические двери. Но большинство из них не обладают таким количеством достоинств как пластик. Пластиковые панели — это долговечный и влагонепроницаемый материал. Пластик не подвержен гниению, может выдерживать большие перепады температур. Изза того, что элементы крепятся плотно друг к другу и зазоры между ними практически не видны, отделка дверей и ворот пластиковыми панелями смотрится как сплошная монолитная поверхность.&#10;&#9;На рынке строительных материалов представлено огромное разнообразие цветов, размеров и фактур этого облицовочного материала. Пластиковые панели – слабогорючий и самозатухающий материал, они горят только при постоянной подпитке огнем. &#10;&#9;Панели ПВХ легко моются, не портятся от воды, на них не задерживается пыль. Для обычной уборки достаточно влажной салфетки. При сильном загрязнении используйте моющие средства без абразивных компонентов, чтобы не поцарапать пластиковую панель. Срок службы панелей ПВХ в нормальных условиях эксплуатации – десятилетия." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Ламинат">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <children>
+                        <TextArea layoutX="14.0" layoutY="14.0" prefHeight="391.0" prefWidth="567.0" text="&#9;Какие возможности дает ламинат? Входные двери, покрытые им, отличаются эстетической привлекательностью, практичностью, стойкостью к повреждениям, доступной стоимостью, разнообразием внешних проявлений. Каким бы роскошным ни был интерьер вашего дома, двери под ламинат не нарушат его гармонию.&#10;&#9;Почему ламинат?&#10;&#9;Если вы хотите получить эффектные, надежные, стойкие к внешним воздействиям входные двери — то ламинат в качестве внешней отделки подойдет вам больше всего. Оптимальное сочетание важнейших характеристик делает двери под ламинат идеальным выбором для практичных заказчиков:&#10;1. Экологическая безопасность материала. Все ответственные производители, а мы сотрудничаем только с такими, обязательно проводят специальные испытания на токсичность готовой продукции и исключают использование в производстве опасных для здоровья сырьевых материалов.&#10;2. Стойкость к воздействию ультрафиолета, влажностно-температурным перепадам. Однако, длительное воздействие влаги дверям под ламинат строго противопоказано, поэтому их нельзя использовать в качестве уличных.&#10;3. Прочность и износостойкость. Твердость и инертность к слабоагрессивным средам.&#10;4. Гигиеничность. Ламинатнеприхотлив в уходе, не впитывает грязь, легко поддается уборке и чистке." wrapText="true" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+          </children>
+        </Pane>
       </children>
     </Pane>
   </children>
