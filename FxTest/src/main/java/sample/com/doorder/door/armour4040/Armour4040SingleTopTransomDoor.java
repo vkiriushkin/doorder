@@ -33,12 +33,18 @@ public class Armour4040SingleTopTransomDoor extends Armour4040Door {
 	@Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
 		calcPipe40x40();
 		calcPipe40x20();
 		calcPipe20x20();
 		totalPrice += metalFramesPartsTotalPrice;
 		LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
 	}
+
+    private void checkDimensions() {
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
+    }
 
 	private void calcPipe40x40() {
 		LOGGER.info("Checking dimensions for pipe 40x40");
@@ -54,7 +60,6 @@ public class Armour4040SingleTopTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x40_Price;
-		totalPrice += metal_40x40_Price;
 		LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
 	}
 
@@ -71,7 +76,6 @@ public class Armour4040SingleTopTransomDoor extends Armour4040Door {
 		} else
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 		metalFramesPartsTotalPrice += metal_40x20_Price;
-		totalPrice += metal_40x20_Price;
 		LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
 	}
 
@@ -117,7 +121,6 @@ public class Armour4040SingleTopTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_20x20_Price;
-		totalPrice += metal_20x20_Price;
 		LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
 	}
 
@@ -324,7 +327,7 @@ public class Armour4040SingleTopTransomDoor extends Armour4040Door {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         totalPrice -= platbandPrice;
 		platband.clear();
 		switch (platbandType) {

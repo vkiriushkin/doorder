@@ -71,8 +71,8 @@ public class LabelNames {
     public static final String apecs2200Price = "Цена: "+Price.BOTTOM_LOCKER_APECS_2200.getPriceInUAH()+" грн";
     public static final String kale2000 = "Замок \"KALE\" 2000 ("+Price.BOTTOM_LOCKER_KALE_2000.getPriceInUAH()+" грн)";
     public static final String kale2000Price = "Цена: "+Price.BOTTOM_LOCKER_KALE_2000.getPriceInUAH()+" грн";
-    public static final String apecsProtectorCrome = "Броненакладка Apecs Protector Crome ("+Price.PROTECTOR_APECS.getPriceInUAH()+" грн)";
-    public static final String apecsProtectorGold = "Броненакладка Apecs Protector Gold ("+Price.PROTECTOR_APECS.getPriceInUAH()+" грн)";
+    public static final String apecsProtectorCrome = "Броненакладка Apecs Protector хром ("+Price.PROTECTOR_APECS.getPriceInUAH()+" грн)";
+    public static final String apecsProtectorGold = "Броненакладка Apecs Protector золото ("+Price.PROTECTOR_APECS.getPriceInUAH()+" грн)";
     public static final String apecsProtectorPrice = "Цена: "+Price.PROTECTOR_APECS.getPriceInUAH()+" грн";
     public static final String noProtector = "Без броненакладки";
     public static final String apecsCrome = "Ручки раздельные \"Apecs\" хром/комплект ("+Price.HANDLE_APECS_CHROME.getPriceInUAH()+" грн)";

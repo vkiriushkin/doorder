@@ -94,7 +94,7 @@ public class FireProofOuterDecoration extends OuterDecoration {
         clear();
         LOGGER.info("Checking dimensions for mdf10");
         if (y < 1000 || y > 2350)
-            throw new UnsupportedDimensions("MDF_10", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наружной отделки (максимальная высота для МДФ 2350мм)");
         LOGGER.info("MDF_10: dimension OK");
         if (y >= 1000 && y <= 2050) {
 	        BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH()
@@ -119,7 +119,7 @@ public class FireProofOuterDecoration extends OuterDecoration {
         clear();
         LOGGER.info("Checking dimensions for mdf16");
         if (y < 1000 || y > 2350)
-            throw new UnsupportedDimensions("MDF_16", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наружной отделки (максимальная высота для МДФ 2350мм)");
         LOGGER.info("MDF_16: dimension OK");
         if (y >= 1000 && y <= 2050) {
 	        BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH()

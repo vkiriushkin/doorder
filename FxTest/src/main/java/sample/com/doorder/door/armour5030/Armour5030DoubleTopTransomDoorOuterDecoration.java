@@ -200,7 +200,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         clear();
         LOGGER.info("Checking dimensions for mdf10");
         if (y_1 < 1000 || y_1 > 2350)
-            throw new UnsupportedDimensions("MDF_10", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наружной отделки (максимальная высота для МДФ 2350мм)");
         LOGGER.info("MDF_10: dimension OK");
         if (y_1 >= 100 && y_1 <= 2050) {
             BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_10.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
@@ -222,7 +222,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         clear();
         LOGGER.info("Checking dimensions for mdf10 without top transom");
         if (y_1 < 1000 || y_1 > 2350)
-            throw new UnsupportedDimensions("MDF_10 without top transom", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наружной отделки (максимальная высота для МДФ 2350мм)");
         LOGGER.info("MDF_10 without top transom: dimension OK");
         if (y_1 >= 1000 && y_1 <= 2050) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_10.getPriceInUAH()
@@ -248,7 +248,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         clear();
         LOGGER.info("Checking dimensions for mdf16");
         if (y_1 < 1000 || y_1 > 2350)
-            throw new UnsupportedDimensions("MDF_16", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наружной отделки (максимальная высота для МДФ 2350мм)");
         LOGGER.info("MDF_16: dimension OK");
         if (y_1 >= 1000 && y_1 <= 2050) {
             BigDecimal bd = new BigDecimal((double) x * y / 1000000 * Price.MDF_16.getPriceInUAH() + (((double)x + y) * 2 * 0.18 + ((3 * (double)x + 4 * y_1) * 0.08)) * Price.PAINTING_SHAGREEN.getPriceInUAH() / 1000);
@@ -270,7 +270,7 @@ public class Armour5030DoubleTopTransomDoorOuterDecoration extends OuterDecorati
         clear();
         LOGGER.info("Checking dimensions for mdf16 without top transom");
         if (y_1 < 1000 || y_1 > 2350)
-            throw new UnsupportedDimensions("MDF_16 without top transom", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наружной отделки (максимальная высота для МДФ 2350мм)");
         LOGGER.info("MDF_16 without top transom: dimension OK");
         if (y_1 >= 1000 && y_1 <= 2050) {
             BigDecimal bd = new BigDecimal((double) y_1 * x / 1000000 * Price.MDF_16.getPriceInUAH()

@@ -6,6 +6,9 @@ import sample.com.doorder.door.types.AccessoriesType;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public abstract class FireProofDoorImpl implements FireProofDoor {
 
@@ -62,7 +65,7 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
         this.protectorPrice = 0;
         this.spyHolePrice = 0;
         this.accessories = new Accessories();
-		this.fixedProductionPrice = 150;
+		this.fixedProductionPrice = Price.MANUFACTURINGCOSTS.getPriceInUAH();
 	}
 
     @Override
@@ -106,32 +109,46 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
     }
 
     @Override
-    public void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded) {
+    public void calcOptions(boolean shippingNeeded, String shipping, boolean packagingNeeded, boolean installationNeeded, String installPrice,
+                            double profit, double workCost, int profitPercent) {
+
+        totalPrice += profit;
+        totalPrice += workCost;
+        totalPrice += fixedProductionPrice;
+
+        totalPrice += Price.CLOSER.getPriceInUAH();
 
         //installation
         if (installationNeeded) {
-            BigDecimal bd = new BigDecimal(totalPrice * 0.15);
+            BigDecimal bd = new BigDecimal(totalPrice * (1 + Price.FIREPROOFINSTALLATION.getPriceInUAH() / 100));
             bd.setScale(2, RoundingMode.HALF_UP);
-            installationPrice = bd.doubleValue();
+            totalPrice = bd.doubleValue();
         } else {
             installationPrice = 0.0;
         }
 
         //package
-        //TODO: add package in price and fill formula
         if (packagingNeeded) {
             BigDecimal bd = new BigDecimal((double)x * y * 2 * Price.PACKAGING.getPriceInUAH() / 1000000);
             bd.setScale(2, RoundingMode.HALF_UP);
             packagePrice = bd.doubleValue();
+            totalPrice += packagePrice;
         } else {
             packagePrice = 0.0;
         }
 
         //shipping
-        if (shipping != null && !shipping.isEmpty())
+        if (shippingNeeded) {
             shippingPrice = Double.parseDouble(shipping);
+            totalPrice += shippingPrice;
+        }
         else
             shippingPrice = 0.0;
+
+        //add profit percent
+        BigDecimal bd = new BigDecimal(totalPrice).add(new BigDecimal(totalPrice).multiply(new BigDecimal(profitPercent)).divide(new BigDecimal(100)));
+        bd.setScale(2, RoundingMode.HALF_UP);
+        totalPrice = bd.doubleValue();
     }
 
     public int getX() {
@@ -159,7 +176,13 @@ public abstract class FireProofDoorImpl implements FireProofDoor {
 	}
 
 	public double getTotalPrice() {
-		return totalPrice;
+        Locale locale  = new Locale("en", "UK");
+        String pattern = "###.##";
+        DecimalFormat decimalFormat = (DecimalFormat)
+                NumberFormat.getNumberInstance(locale);
+        decimalFormat.applyPattern(pattern);
+        decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+        return Double.valueOf(decimalFormat.format(totalPrice));
 	}
 
 	public void setTotalPrice(double totalPrice) {

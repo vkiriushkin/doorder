@@ -48,12 +48,12 @@ public class Armour4040SingleTwoSideTransomDoor extends Armour4040Door {
 
 	private void checkDimensions() {
 		if (x_2 < 150)
-			throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+			throw new UnsupportedDimensions("Значение х2 должно быть больше или равно 150 мм");
+
 		if (x_3 < 150)
-			throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+			throw new UnsupportedDimensions("Значение х3 должно быть больше или равно 150 мм");
 		if (this.getX() != (x_1 + x_2 + x_3))
-			throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
-					String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
+            throw new UnsupportedDimensions("Должно выполнятся условие: х = х1 + х2 + х3");
 	}
 
 	private void calcPipe40x40() {
@@ -68,7 +68,6 @@ public class Armour4040SingleTwoSideTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x40_Price;
-		totalPrice += metal_40x40_Price;
 		LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
 	}
 
@@ -83,7 +82,6 @@ public class Armour4040SingleTwoSideTransomDoor extends Armour4040Door {
 		} else
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 		metalFramesPartsTotalPrice += metal_40x20_Price;
-		totalPrice += metal_40x20_Price;
 		LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
 	}
 
@@ -122,7 +120,6 @@ public class Armour4040SingleTwoSideTransomDoor extends Armour4040Door {
 
 		this.metal_20x20_Price = part1.add(part2).multiply(new BigDecimal(Price.PIPE_20x20.getPriceInUAH())).setScale(2, RoundingMode.HALF_UP).doubleValue();
 		metalFramesPartsTotalPrice += metal_20x20_Price;
-		totalPrice += metal_20x20_Price;
 		LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
 	}
 

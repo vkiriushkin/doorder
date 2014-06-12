@@ -30,12 +30,18 @@ public class DoubleDoorTopTransom extends SingleDoorTopSideTransom {
 	@Override
 	public void calcMetalFrameParts() {
 		LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
 		calcL50x4Part();
 		calcPipe40x40();
 		calcPipe40x20();
 		calcPipe20x20();
 		LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
 	}
+
+    private void checkDimensions() {
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
+    }
 
 	private void calcPipe20x20() {
 		double part1 = 0;
@@ -359,7 +365,7 @@ public class DoubleDoorTopTransom extends SingleDoorTopSideTransom {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         super.calcPlatband(platbandType);
     }
 }

@@ -33,7 +33,7 @@ public class DoubleFrameDoubleDoor extends DoubleFrameDoor {
         LOGGER.info("Start calculating metal frame parts");
         calcL50x4Part();
         calcPipe40x40();
-        calcPipe50x30();
+        calcPipe40x20();
         calcPipe20x20();
         calcPipe25x25();
         totalPrice += metalFramesPartsTotalPrice;
@@ -64,21 +64,21 @@ public class DoubleFrameDoubleDoor extends DoubleFrameDoor {
         LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
     }
 
-    private void calcPipe50x30() {
-        LOGGER.info("Checking dimensions for 50x30");
+    private void calcPipe40x20() {
+        LOGGER.info("Checking dimensions for 40x20");
         if (this.getY() >= 1000 && this.getY() <= 2450
                 && this.getX() >= 800 && this.getX() <= 1950
                 && this.getX_1() >= getX() / 2 && this.getX_1() <= 1200
                 && this.getX() - this.getX_1() >= 150) {
-            LOGGER.info("50x30: Dimensions OK");
-            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            LOGGER.info("40x20: Dimensions OK");
+            BigDecimal bd = new BigDecimal((2 * (double) this.getX() + 4 * this.getY()) * 1.1 / 1000 * Price.PIPE_40x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_50x30_Price = bd.doubleValue();
+            this.metal_40x20_Price = bd.doubleValue();
         } else
-            throw new UnsupportedDimensions("50x30", this.getY(), this.getX());
+            throw new UnsupportedDimensions("40x20", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_L50x4_Price;
-        LOGGER.info("Finish calculating metal 50x30 parts, price: {}, total price: {}", metal_50x30_Price, totalPrice);
+        LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
     }
 
     private void calcPipe20x20() {

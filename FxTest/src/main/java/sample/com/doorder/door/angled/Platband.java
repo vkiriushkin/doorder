@@ -35,7 +35,7 @@ public class Platband {
         clear();
         LOGGER.info("Checking dimensions for wooden platband");
         if (y < 1000 || y > 2150)
-            throw new UnsupportedDimensions("Wooden platband", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наличника (высота деревянного наличника < 2150мм)");
         LOGGER.info("Wooden platband: dimension OK");
         if (y >= 1000 && y <= 2150) {
             BigDecimal bd = new BigDecimal((2 * y + x) * 1.1 / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH());
@@ -159,11 +159,14 @@ public class Platband {
         LOGGER.info("Start calculating platband");
         clear();
         LOGGER.info("Checking dimensions for platband mdf10");
+        if (y < 1000 || y > 2350)
+            throw new UnsupportedDimensions("Выберите другой вид наличника (высота МДФ10 наличника < 2350мм)");
+
         if (caller.equals(SingleDoorTopTransom.class)
                 || caller.equals(DoubleDoorTopTransom.class)
                 || caller.equals(SingleDoorTopSideTransom.class)) {
             if (y < 1000 || y > 3000)
-                throw new UnsupportedDimensions("Platband mdf10", y, x);
+                throw new UnsupportedDimensions("Наличник МДФ_10", y, x);
             LOGGER.info("Platband mdf10: dimension OK");
             if (y >= 100 && y <= 3000) {
                 if (z >= 30 && z <= 60) {
@@ -175,12 +178,10 @@ public class Platband {
                     bd = bd.setScale(2, RoundingMode.HALF_UP);
                     mdf10Platband = bd.doubleValue();
                 } else
-                    throw new UnsupportedDimensions("Platband mdf10 (platband)", 0, z);
+                    throw new UnsupportedDimensions("Допустимая ширина наличника МДФ10: от 30 до 100 мм");
                 totalPlatbandPrice += mdf10Platband;
             }
         } else {
-            if (y < 1000 || y > 2350)
-                throw new UnsupportedDimensions("Platband mdf10", y, x);
             LOGGER.info("Platband mdf10: dimension OK");
             if (y >= 100 && y <= 2350) {
                 if (z >= 30 && z <= 60) {
@@ -192,7 +193,7 @@ public class Platband {
                     bd = bd.setScale(2, RoundingMode.HALF_UP);
                     mdf10Platband = bd.doubleValue();
                 } else
-                    throw new UnsupportedDimensions("Platband mdf10 (platband)", 0, z);
+                    throw new UnsupportedDimensions("Допустимая ширина наличника МДФ10: от 30 до 100 мм");
                 totalPlatbandPrice += mdf10Platband;
             }
         }
@@ -203,6 +204,8 @@ public class Platband {
         LOGGER.info("Start calculating platband");
         clear();
         LOGGER.info("Checking dimensions for platband mdf16");
+        if (y < 1000 || y > 2350)
+            throw new UnsupportedDimensions("Выберите другой вид наличника (высота МДФ16 наличника < 2350мм)");
         if (caller.equals(SingleDoorTopTransom.class)
                 || caller.equals(DoubleDoorTopTransom.class)
                 || caller.equals(SingleDoorTopSideTransom.class)) {
@@ -219,12 +222,10 @@ public class Platband {
                     bd = bd.setScale(2, RoundingMode.HALF_UP);
                     mdf16Platband = bd.doubleValue();
                 } else
-                    throw new UnsupportedDimensions("Platband mdf16 (platband)", 0, z);
+                    throw new UnsupportedDimensions("Допустимая ширина наличника МДФ16: от 30 до 100 мм");
                 totalPlatbandPrice += mdf16Platband;
             }
         } else {
-            if (y < 1000 || y > 2350)
-                throw new UnsupportedDimensions("Platband mdf16", y, x);
             LOGGER.info("Platband mdf16: dimension OK");
             if (y >= 1000 && y <= 2350) {
                 if (z >= 30 && z <= 60) {
@@ -236,7 +237,7 @@ public class Platband {
                     bd = bd.setScale(2, RoundingMode.HALF_UP);
                     mdf16Platband = bd.doubleValue();
                 } else
-                    throw new UnsupportedDimensions("Platband mdf16 (platband)", 0, z);
+                    throw new UnsupportedDimensions("Допустимая ширина наличника МДФ16: от 30 до 100 мм");
                 totalPlatbandPrice += mdf16Platband;
             }
         }

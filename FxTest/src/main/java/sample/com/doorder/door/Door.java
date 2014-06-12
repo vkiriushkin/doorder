@@ -13,5 +13,8 @@ public interface Door {
 
 	void calcSpyHole(AccessoriesType spyHoleType);
 
-    void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded);
+    void calcOptions(boolean shippingNeeded, String shipping,
+                     boolean packagingNeeded,
+                     boolean installationNeeded, String installNeeded,
+                     double profit, double workCost, int profitPercent);
 }

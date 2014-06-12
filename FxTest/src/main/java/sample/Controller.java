@@ -1,5 +1,6 @@
 package sample;
 
+import com.itextpdf.text.DocumentException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -13,18 +14,29 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import pdf.BlankOrder;
 import price.Decryptor;
 import sample.com.doorder.door.LabelNames;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class Controller implements Initializable {
 
     public static Stage primaryStage;
+    private File inputPrice;
+    private int todayOrders = 1;
 
     public Pane doorTypesPane;
     public Pane angledDoorsPane;
@@ -103,14 +115,16 @@ public class Controller implements Initializable {
     public Label step5Label;
     public ComboBox<String> shippingCombo;
     public TextField shippingCostInput;
-    public ToggleGroup packagingGroup = new ToggleGroup();
+    public ToggleGroup packagingGroup;
     public RadioButton packagingYes;
     public RadioButton packagingNo;
-    public ToggleGroup installationGroup = new ToggleGroup();
+    public ToggleGroup installationGroup;
     public RadioButton installationYes;
     public RadioButton installationNo;
+    public TextField installationCostInput;
     public Button goToPreviousStep4Button;
     public Button goToNextStep6Button;
+    public Label draftPriceLabel;
 
     public VBox step6VBox;
     public Label step6Label;
@@ -122,11 +136,14 @@ public class Controller implements Initializable {
 
     public Button createOrderButton;
     public static Label errorLabel;
+    public static Label errorLabelOrderPane;
 
     //settings
     public Pane settingsPane;
     public TextField profitPercent;
+    private String profitPercentValue;
     public TextArea contactInformation;
+    private String contactInformationValue;
     public Button saveSettingsButton;
 
     //errorLabels
@@ -280,16 +297,28 @@ public class Controller implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open price");
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
+        inputPrice = selectedFile;
         if (selectedFile != null) {
             try {
-                Scanner scanner = new Scanner(selectedFile);
+                Scanner scanner = new Scanner(selectedFile, StandardCharsets.UTF_8.name());
                 while (scanner.hasNext()) {
                     String encryptedString = scanner.nextLine();
-                    String key = encryptedString.substring(0, 24);
-                    String prices = encryptedString.substring(24, encryptedString.length());
-                    System.out.println(key);
-                    System.out.println(prices);
-                    Decryptor.decrypt(key, prices);
+                    if (!encryptedString.contains("profitPercent") && !encryptedString.contains("contactInfo")
+                            && !encryptedString.contains("todayOrders")) {
+                        String key = encryptedString.substring(0, 24);
+                        String prices = encryptedString.substring(24, encryptedString.length());
+                        System.out.println(key);
+                        System.out.println(prices);
+                        Decryptor.decrypt(key, prices);
+                    } else if (encryptedString.contains("profitPercent")) {
+                        profitPercent.setText(encryptedString.split("=")[1].toString());
+                    } else if (encryptedString.contains("contactInfo")) {
+                        String formatted = encryptedString.split("=")[1].toString().replace("/n", "\n");
+                        contactInformation.setText(formatted);
+                    } else if (encryptedString.contains("todayOrders")) {
+                        String formatted = encryptedString.split("=")[1].toString();
+                        todayOrders = Integer.parseInt(formatted);
+                    }
 
                 }
             } catch (FileNotFoundException e) {
@@ -299,13 +328,13 @@ public class Controller implements Initializable {
     }
 
     public void goToNextStep2() {
-        step1Label.setStyle("-fx-background-color: #e39a20");
-        step2Label.setStyle("-fx-background-color: #8bc8ef");
         doorTypeErrorLabel.setText("");
         ComboBox<String> wrongCombobox = step1ValuesValidated();
         if (wrongCombobox == null) {
             step1VBox.setVisible(false);
             step2VBox.setVisible(true);
+        step1Label.setStyle("-fx-background-color: #e39a20");
+        step2Label.setStyle("-fx-background-color: #8bc8ef");
             //set proper picture of the door
             updateDoorImage();
             //set dimensions limits
@@ -370,14 +399,14 @@ public class Controller implements Initializable {
             x_2.setDisable(true);
         else {
             x_2.setDisable(false);
-            x2Dimensions.setText("От " + doorType.getMinX2() + " до " + doorType.getMaxX2());
+            x2Dimensions.setText("От " + doorType.getMinX2());
         }
 
         if (doorType.getMinX3() == 0 && doorType.getMaxX3() == 0)
             x_3.setDisable(true);
         else {
             x_3.setDisable(false);
-            x3Dimensions.setText("От " + doorType.getMinX3() + " до " + doorType.getMaxX3());
+            x3Dimensions.setText("От " + doorType.getMinX3());
         }
 
         if (doorType.equals(DoorType.ANGLED_SINGLE_TWO_SIDE_LEFT)
@@ -398,13 +427,13 @@ public class Controller implements Initializable {
     }
 
     public void goToNextStep3() {
-        step2Label.setStyle("-fx-background-color: #e39a20");
-        step3Label.setStyle("-fx-background-color: #8bc8ef");
-        doorDimensionsErrorLabel.setText("");
         TextField wrongTextField = step2ValuesValidated();
-        if (checkSum() && wrongTextField == null) {
+        if (checkSum() && wrongTextField == null && wrongDimensionsLabel.getText().equals("")) {
             step2VBox.setVisible(false);
             step3VBox.setVisible(true);
+            step2Label.setStyle("-fx-background-color: #e39a20");
+            step3Label.setStyle("-fx-background-color: #8bc8ef");
+            doorDimensionsErrorLabel.setText("");
         } else {
             if (wrongTextField == x)
                 doorDimensionsErrorLabel.setText("Неверное значени Х");
@@ -412,10 +441,6 @@ public class Controller implements Initializable {
                 doorDimensionsErrorLabel.setText("Неверное значени Y");
             if (wrongTextField == x_1)
                 doorDimensionsErrorLabel.setText("Неверное значени Х_1");
-            if (wrongTextField == x_2)
-                doorDimensionsErrorLabel.setText("Неверное значени Х_2");
-            if (wrongTextField == x_3)
-                doorDimensionsErrorLabel.setText("Неверное значени Х_3");
             if (wrongTextField == y_1)
                 doorDimensionsErrorLabel.setText("Неверное значени Y_1");
         }
@@ -466,14 +491,14 @@ public class Controller implements Initializable {
     }
 
     public void goToNextStep4() {
-        step3Label.setStyle("-fx-background-color: #e39a20");
-        step4Label.setStyle("-fx-background-color: #8bc8ef");
-        decorationTypeErrorLabel.setText("");
         ComboBox<String> wrongCombobox = step3ValuesValidated();
         TextField wrongTextField = step3TextFieldsValidated();
         if (wrongCombobox == null && wrongTextField == null) {
             step3VBox.setVisible(false);
             step4VBox.setVisible(true);
+            step3Label.setStyle("-fx-background-color: #e39a20");
+            step4Label.setStyle("-fx-background-color: #8bc8ef");
+            decorationTypeErrorLabel.setText("");
         } else {
             if (wrongCombobox == outerDecorationTypeCombo)
                 decorationTypeErrorLabel.setText("Не выбрано значение вида наружной отделки");
@@ -529,13 +554,13 @@ public class Controller implements Initializable {
     }
 
     public void goToNextStep5() {
-        step4Label.setStyle("-fx-background-color: #e39a20");
-        step5Label.setStyle("-fx-background-color: #8bc8ef");
-        accessoriesErrorLabel.setText("");
         ComboBox<String> wrongCombobox = step4ValuesValidated();
         if (wrongCombobox == null) {
             step4VBox.setVisible(false);
             step5VBox.setVisible(true);
+            step4Label.setStyle("-fx-background-color: #e39a20");
+            step5Label.setStyle("-fx-background-color: #8bc8ef");
+            accessoriesErrorLabel.setText("");
         } else {
             if (wrongCombobox == mainLockCombo)
                 accessoriesErrorLabel.setText("Не выбран основной замок");
@@ -566,9 +591,6 @@ public class Controller implements Initializable {
     }
 
     public void goToNextStep6() {
-        step5Label.setStyle("-fx-background-color: #e39a20");
-        step6Label.setStyle("-fx-background-color: #8bc8ef");
-        optionalServicesErrorlabel.setText("");
         if (shippingCombo.getSelectionModel().getSelectedItem() == null)
             optionalServicesErrorlabel.setText("Не выбран способ доставки");
         else if(!shippingCostInput.isDisabled() && shippingCostInput.getText().equals(""))
@@ -580,6 +602,9 @@ public class Controller implements Initializable {
         else {
             step5VBox.setVisible(false);
             step6VBox.setVisible(true);
+            step5Label.setStyle("-fx-background-color: #e39a20");
+            step6Label.setStyle("-fx-background-color: #8bc8ef");
+            optionalServicesErrorlabel.setText("");
         }
     }
     public void goToPreviousStep1() {
@@ -627,18 +652,6 @@ public class Controller implements Initializable {
                 updateDimensionsLabel();
             }
         });
-        x_2.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
-                updateDimensionsLabel();
-            }
-        });
-        x_3.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
-                updateDimensionsLabel();
-            }
-        });
         y.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
@@ -658,10 +671,6 @@ public class Controller implements Initializable {
             wrongDimensionsLabel.setText("Значение x должно быть кратным 10");
         } else if (!x_1.getText().equals("") && Integer.parseInt(x_1.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение x1 должно быть кратным 10");
-        } else if (!x_2.getText().equals("") && Integer.parseInt(x_2.getText()) % 10 != 0) {
-            wrongDimensionsLabel.setText("Значение x2 должно быть кратным 10");
-        } else if (!x_3.getText().equals("") && Integer.parseInt(x_3.getText()) % 10 != 0) {
-            wrongDimensionsLabel.setText("Значение x3 должно быть кратным 10");
         } else if (!y.getText().equals("") && Integer.parseInt(y.getText()) % 10 != 0) {
             wrongDimensionsLabel.setText("Значение y должно быть кратным 10");
         } else if (!y_1.getText().equals("") && Integer.parseInt(y_1.getText()) % 10 != 0) {
@@ -692,7 +701,9 @@ public class Controller implements Initializable {
                             || newValue.equals(LabelNames.outerpaintingAntic)
                             || newValue.equals(LabelNames.outerpaintingPF)) {
                         outerColor.setDisable(false);
+                        outerColor.setText("");
                         outerConfiguration.setDisable(true);
+                        outerConfiguration.setText("");
                     } else if(newValue.equals(LabelNames.outermdf10)
                             || newValue.equals(LabelNames.outermdf16)) {
                         outerColor.setDisable(false);
@@ -708,16 +719,40 @@ public class Controller implements Initializable {
             LabelNames.outerNoTransomDecoration
         );
 
-        innerDecorationTypeCombo.getItems().clear();
-        innerDecorationTypeCombo.getItems().setAll(
-                LabelNames.innerPlastic,
-                LabelNames.innerLaminatedPlastic,
-                LabelNames.innerPaintingPF,
-                LabelNames.innerPaintingShagreen,
-                LabelNames.innerPaintingAntic,
-                LabelNames.innermdf10,
-                LabelNames.innermdf16
-        );
+        if (doorTypeCombo.getSelectionModel().getSelectedItem() != null) {
+            if (doorTypeCombo.getSelectionModel().getSelectedItem().equals(LabelNames.metalDoor)) {
+                innerDecorationTypeCombo.getItems().clear();
+                innerDecorationTypeCombo.getItems().setAll(
+                        LabelNames.innerPlastic,
+                        LabelNames.innerLaminatedPlastic,
+                        LabelNames.innerPaintingPF,
+                        LabelNames.innerPaintingShagreen,
+                        LabelNames.innerPaintingAntic,
+                        LabelNames.innermdf10,
+                        LabelNames.innermdf16
+                );
+            } else if (doorTypeCombo.getSelectionModel().getSelectedItem().equals(LabelNames.fireproofDoor)) {
+                innerDecorationTypeCombo.getItems().clear();
+                innerDecorationTypeCombo.getItems().setAll(
+                        LabelNames.innerPaintingPF,
+                        LabelNames.innerPaintingShagreen,
+                        LabelNames.innerPaintingAntic,
+                        LabelNames.innermdf10,
+                        LabelNames.innermdf16
+                );
+            }
+        } else {
+            innerDecorationTypeCombo.getItems().clear();
+            innerDecorationTypeCombo.getItems().setAll(
+                    LabelNames.innerPlastic,
+                    LabelNames.innerLaminatedPlastic,
+                    LabelNames.innerPaintingPF,
+                    LabelNames.innerPaintingShagreen,
+                    LabelNames.innerPaintingAntic,
+                    LabelNames.innermdf10,
+                    LabelNames.innermdf16
+            );
+        }
         innerDecorationTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
@@ -727,10 +762,16 @@ public class Controller implements Initializable {
                             || newValue.equals(LabelNames.innerPaintingAntic)) {
                         innerColor.setDisable(false);
                         innerConfiguration.setDisable(true);
+                        innerConfiguration.setText("");
                     } else if(newValue.equals(LabelNames.innermdf10)
                             || newValue.equals(LabelNames.innermdf16)) {
                         innerColor.setDisable(false);
                         innerConfiguration.setDisable(false);
+                    } else {
+                        innerColor.setDisable(true);
+                        innerColor.setText("");
+                        innerConfiguration.setDisable(true);
+                        innerConfiguration.setText("");
                     }
                 }
             }
@@ -742,16 +783,40 @@ public class Controller implements Initializable {
                 LabelNames.innerNoTransomDecoration
         );
 
-        platbandTypeCombo.getItems().clear();
-        platbandTypeCombo.getItems().setAll(
-                LabelNames.platbandWooden,
-                LabelNames.platbandShagreen,
-                LabelNames.platbandPF,
-                LabelNames.platbendAntic,
-                LabelNames.platbandMdf10,
-                LabelNames.platbandMdf16,
-                LabelNames.noPlatband
-        );
+        if (doorTypeCombo.getSelectionModel().getSelectedItem() != null) {
+            if (doorTypeCombo.getSelectionModel().getSelectedItem().equalsIgnoreCase(LabelNames.metalDoor)) {
+                platbandTypeCombo.getItems().clear();
+                platbandTypeCombo.getItems().setAll(
+                        LabelNames.platbandWooden,
+                        LabelNames.platbandShagreen,
+                        LabelNames.platbandPF,
+                        LabelNames.platbendAntic,
+                        LabelNames.platbandMdf10,
+                        LabelNames.platbandMdf16,
+                        LabelNames.noPlatband
+                );
+            } else if (doorTypeCombo.getSelectionModel().getSelectedItem().equalsIgnoreCase(LabelNames.fireproofDoor)) {
+                platbandTypeCombo.getItems().clear();
+                platbandTypeCombo.getItems().setAll(
+                        LabelNames.platbandShagreen,
+                        LabelNames.platbandPF,
+                        LabelNames.platbendAntic,
+                        LabelNames.noPlatband
+                );
+            }
+        } else {
+            platbandTypeCombo.getItems().clear();
+            platbandTypeCombo.getItems().setAll(
+                    LabelNames.platbandWooden,
+                    LabelNames.platbandShagreen,
+                    LabelNames.platbandPF,
+                    LabelNames.platbendAntic,
+                    LabelNames.platbandMdf10,
+                    LabelNames.platbandMdf16,
+                    LabelNames.noPlatband
+            );
+        }
+
         platbandTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
@@ -759,8 +824,10 @@ public class Controller implements Initializable {
                     if (newValue.equals(LabelNames.platbandMdf10)
                             || newValue.equals(LabelNames.platbandMdf16)) {
                         platbandWidth.setDisable(false);
-                    } else
+                    } else {
                         platbandWidth.setDisable(true);
+                        platbandWidth.setText("");
+                    }
                 }
             }
         });
@@ -845,10 +912,27 @@ public class Controller implements Initializable {
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
                 if (newValue != null) {
                     if (newValue.equals(LabelNames.apecsCromePlank)
-                            || newValue.equals(LabelNames.apecsGoldPlank)) {
+                            || newValue.equals(LabelNames.apecsGoldPlank)
+                            || newValue.equals(LabelNames.aydemirBlack)
+                            || newValue.equals(LabelNames.aydemirBrown)) {
                         armourStrapCombo.setDisable(true);
                     } else
                         armourStrapCombo.setDisable(false);
+                    if (newValue.equals(LabelNames.apecsCrome)
+                            || newValue.equals(LabelNames.apecsGold)) {
+                        armourStrapCombo.getItems().clear();
+                        armourStrapCombo.getItems().setAll(
+                                LabelNames.apecsProtectorCrome,
+                                LabelNames.apecsProtectorGold
+                        );
+                    } else {
+                        armourStrapCombo.getItems().clear();
+                        armourStrapCombo.getItems().setAll(
+                                LabelNames.apecsProtectorCrome,
+                                LabelNames.apecsProtectorGold,
+                                LabelNames.noProtector
+                        );
+                    }
                 }
             }
         });
@@ -869,12 +953,35 @@ public class Controller implements Initializable {
     }
 
     private void initStep5() {
+        packagingGroup = new ToggleGroup();
         packagingYes.setToggleGroup(packagingGroup);
+        packagingYes.setSelected(false);
         packagingNo.setToggleGroup(packagingGroup);
+        packagingNo.setSelected(false);
+        installationGroup = new ToggleGroup();
         installationYes.setToggleGroup(installationGroup);
+        installationYes.setSelected(false);
         installationNo.setToggleGroup(installationGroup);
-        shippingCostInput.setText("");
+        installationNo.setSelected(false);
+        installationCostInput.setText("");
+        installationCostInput.setDisable(true);
+        installationGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+            public void changed(ObservableValue<? extends Toggle> ov,
+                                Toggle old_toggle, Toggle new_toggle) {
+                if (installationGroup.getSelectedToggle() != null) {
+                    if(doorTypeCombo.getSelectionModel().getSelectedItem().equals(LabelNames.metalDoor)
+                            && installationGroup.getSelectedToggle().equals(installationYes)) {
+                        installationCostInput.setDisable(false);
+                    } else {
+                        installationCostInput.setDisable(true);
+                        installationCostInput.setText("");
+                    }
+                }
+            }
+        });
+
         shippingCostInput.setDisable(true);
+        shippingCostInput.setText("");
 
         shippingCombo.getItems().clear();
         shippingCombo.getItems().setAll(
@@ -888,8 +995,10 @@ public class Controller implements Initializable {
                 if (newValue != null) {
                     if (newValue.equals(LabelNames.shippingCompany)) {
                         shippingCostInput.setDisable(false);
-                    } else
+                    } else {
                         shippingCostInput.setDisable(true);
+                        shippingCostInput.setText("");
+                    }
                 }
             }
         });
@@ -1001,6 +1110,7 @@ public class Controller implements Initializable {
     }
 
     public void showLockerTypesPane(ActionEvent actionEvent) {
+        settingsPane.setVisible(false);
         orderPane.setVisible(false);
         doorTypesPane.setVisible(false);
         accessoriesPane.setVisible(false);
@@ -1023,6 +1133,7 @@ public class Controller implements Initializable {
     }
 
     public void showDoorTypesPane(ActionEvent actionEvent) {
+        settingsPane.setVisible(false);
         orderPane.setVisible(false);
         accessoriesPane.setVisible(false);
         lockerTypesPane.setVisible(false);
@@ -1041,6 +1152,7 @@ public class Controller implements Initializable {
     }
 
     public void showOrderPane(ActionEvent actionEvent) {
+        settingsPane.setVisible(false);
         lockerTypesPane.setVisible(false);
         accessoriesPane.setVisible(false);
         doorTypesPane.setVisible(false);
@@ -1049,6 +1161,7 @@ public class Controller implements Initializable {
     }
 
     public void showAccessoriesPane(ActionEvent actionEvent) {
+        settingsPane.setVisible(false);
         lockerTypesPane.setVisible(false);
         doorTypesPane.setVisible(false);
         orderPane.setVisible(false);
@@ -1085,6 +1198,7 @@ public class Controller implements Initializable {
     }
 
     public void showDecorationTypesPane(ActionEvent actionEvent) {
+        settingsPane.setVisible(false);
         orderPane.setVisible(false);
         accessoriesPane.setVisible(false);
         lockerTypesPane.setVisible(false);
@@ -1104,7 +1218,67 @@ public class Controller implements Initializable {
 
     public void calculateDoorPrice(ActionEvent actionEvent) {
         errorLabel.setText("");
-        String resultString = DoorFactory.createDoor(
+        errorLabelOrderPane.setText("");
+
+        DoorType doorType = DoorType.selectDoorBy(doorTypeCombo.getSelectionModel().getSelectedItem(),
+                doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
+                doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
+                doorOpeningSideCombo.getSelectionModel().getSelectedItem());
+
+        if (profitPercent.getText() == null) {
+            errorLabel.setText("Настройки не установлены");
+            errorLabelOrderPane.setText("Настройки не установлены");
+        } else {
+            String resultString = DoorFactory.createDoor(
+                    doorTypeCombo.getSelectionModel().getSelectedItem(),
+                    doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
+                    doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
+                    x, y, x_1, y_1, x_2, x_3, platbandWidth,
+                    innerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                    outerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                    innerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                    outerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                    platbandTypeCombo.getSelectionModel().getSelectedItem(),
+                    mainLockCombo.getSelectionModel().getSelectedItem(),
+                    secondaryLockCombo.getSelectionModel().getSelectedItem(),
+                    handleCombo.getSelectionModel().getSelectedItem(),
+                    armourStrapCombo.getSelectionModel().getSelectedItem(),
+                    spyHoleCombo.getSelectionModel().getSelectedItem(),
+                    shippingCombo.getSelectionModel().getSelectedItem().equals(LabelNames.shippingCompany),
+                    shippingCostInput.getText(),
+                    packagingYes.isSelected(),
+                    installationYes.isSelected(),
+                    installationCostInput.getText(),
+                    doorType.getProfit(),
+                    doorType.getWorkCost(),
+                    Integer.parseInt(profitPercent.getText())
+            );
+            draftPriceLabel.setText(resultString.split("details:")[0] + " грн");
+            Stage stage = new Stage();
+            TextArea textArea = new TextArea(resultString.split("details:")[1]);
+            textArea.setPrefWidth(300);
+            textArea.setPrefHeight(300);
+            stage.setHeight(400);
+            stage.setWidth(300);
+            stage.setScene(new Scene(textArea));
+            stage.show();
+        }
+
+    }
+
+    public void generatePDF(ActionEvent actionEvent) throws IOException, DocumentException {
+        errorLabel.setText("");
+        errorLabelOrderPane.setText("");
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        String orderDate = dateFormat.format(date);
+
+        DoorType doorType = DoorType.selectDoorBy(doorTypeCombo.getSelectionModel().getSelectedItem(),
+                doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
+                doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
+                doorOpeningSideCombo.getSelectionModel().getSelectedItem());
+
+        String price = DoorFactory.createDoor(
                 doorTypeCombo.getSelectionModel().getSelectedItem(),
                 doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
                 doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
@@ -1119,19 +1293,58 @@ public class Controller implements Initializable {
                 handleCombo.getSelectionModel().getSelectedItem(),
                 armourStrapCombo.getSelectionModel().getSelectedItem(),
                 spyHoleCombo.getSelectionModel().getSelectedItem(),
+                shippingCombo.getSelectionModel().getSelectedItem().equals(LabelNames.shippingCompany),
                 shippingCostInput.getText(),
                 packagingYes.isSelected(),
-                installationYes.isSelected()
+                installationYes.isSelected(),
+                installationCostInput.getText(),
+                doorType.getProfit(),
+                doorType.getWorkCost(),
+                Integer.parseInt(profitPercent.getText())
         );
 
-        Stage stage = new Stage();
-        TextArea textArea = new TextArea(resultString);
-        textArea.setPrefWidth(300);
-        textArea.setPrefHeight(300);
-        stage.setHeight(300);
-        stage.setWidth(300);
-        stage.setScene(new Scene(textArea));
-        stage.show();
+        BlankOrder blankOrder = new BlankOrder(actionEvent, doorType.getDoorType().equals(LabelNames.fireproofDoor),
+                personalName.getText(),
+                personalPhone.getText(),
+                personalAddress.getText(),
+
+                contactInformation.getText(),
+                profitPercent.getText(),
+
+                x.getText(), y.getText(),
+                x_1.getText(), y_1.getText(),
+                x_2.getText(), x_3.getText(),
+
+                doorStructureTypeCombo.getSelectionModel().getSelectedItem(),
+                doorComplexityCategoryCombo.getSelectionModel().getSelectedItem(),
+                doorType.getDoorImageName(),
+
+                outerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                outerColor.getText(),
+                outerConfiguration.getText(),
+                outerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+
+                innerDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+                innerColor.getText(),
+                innerConfiguration.getText(),
+                innerTransomDecorationTypeCombo.getSelectionModel().getSelectedItem(),
+
+                mainLockCombo.getSelectionModel().getSelectedItem(),
+                secondaryLockCombo.getSelectionModel().getSelectedItem(),
+                handleCombo.getSelectionModel().getSelectedItem(),
+                armourStrapCombo.getSelectionModel().getSelectedItem(),
+                spyHoleCombo.getSelectionModel().getSelectedItem(),
+
+                platbandTypeCombo.getSelectionModel().getSelectedItem(),
+                platbandWidth.getText(),
+
+                packagingYes.isSelected() ? "Да" : "Нет",
+                shippingCombo.getSelectionModel().getSelectedItem(),
+                installationYes.isSelected() ? "Да" : "Нет",
+                personalNotes.getText(),
+                price.split("details:")[0],
+                orderDate);
+        blankOrder.createTestDocument(this);
     }
 
     public void showApecs2200ZoomedImage() {
@@ -1375,11 +1588,56 @@ public class Controller implements Initializable {
     }
 
     public void showSettingsPane(ActionEvent event) {
+        orderPane.setVisible(false);
+        doorTypesPane.setVisible(false);
+        accessoriesPane.setVisible(false);
+        decorationTypesPane.setVisible(false);
+        lockerTypesPane.setVisible(false);
         settingsPane.setVisible(true);
+        profitPercentValue = profitPercent.getText();
+        contactInformationValue = contactInformation.getText().replace("\n","/n");
     }
 
-    public void saveSettings(ActionEvent event) {
+    public void saveSettings(ActionEvent event) throws IOException {
+        Path path = Paths.get(inputPrice.getPath());
+        Charset charset = StandardCharsets.UTF_8;
+        String content = new String(Files.readAllBytes(path), charset);
+        if (content.contains("profitPercent")) {
+            content = content.replaceAll("profitPercent="+profitPercentValue, "profitPercent="+profitPercent.getText());
+        } else {
+            content = content.concat("\nprofitPercent=" + profitPercent.getText());
+        }
+
+        if (content.contains("contactInfo")) {
+            String toReplace = String.valueOf("contactInfo=").concat(contactInformation.getText().replace("\n","/n"));
+            content = content.replaceAll("contactInfo="+contactInformationValue, toReplace);
+        } else {
+            String formatted = contactInformation.getText().replace("\n","/n");
+            content = content.concat("\ncontactInfo=" + formatted);
+        }
+
+        Files.write(path, content.getBytes(charset));
+
         settingsPane.setVisible(false);
+    }
+
+    public int getTodayOrderCount() {
+        return todayOrders;
+    }
+
+    public void incrementTodayOrders() throws IOException {
+        todayOrders++;
+        Path path = Paths.get(inputPrice.getPath());
+        Charset charset = StandardCharsets.UTF_8;
+        String content = new String(Files.readAllBytes(path), charset);
+        if (content.contains("todayOrders")) {
+            String toReplace = String.valueOf("todayOrders=" + todayOrders);
+            content = content.replaceAll("todayOrders=".concat(String.valueOf(todayOrders - 1)), toReplace);
+        } else {
+            content = content.concat("\ntodayOrders=" + todayOrders);
+        }
+
+        Files.write(path, content.getBytes(charset));
     }
 
     private void clearAllSteps() {

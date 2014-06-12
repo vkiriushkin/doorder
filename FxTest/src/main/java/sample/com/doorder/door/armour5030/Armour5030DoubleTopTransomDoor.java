@@ -38,10 +38,15 @@ public class Armour5030DoubleTopTransomDoor extends Armour5030Door {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
         calcPipe50x30();
         calcPipe20x20();
-        totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+    }
+
+    private void checkDimensions() {
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
     }
 
     private void calcPipe50x30() {
@@ -329,7 +334,7 @@ public class Armour5030DoubleTopTransomDoor extends Armour5030Door {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         totalPrice -= platbandPrice;
         platband.clear();
         switch (platbandType) {

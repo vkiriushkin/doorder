@@ -49,12 +49,14 @@ public class Armour4040SingleTwoSideAndTopTransomDoor extends Armour4040Door {
 
 	private void checkDimensions() {
 		if (x_2 < 150)
-			throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+			throw new UnsupportedDimensions("Значение х2 должно быть больше или равно 150 мм");
+
 		if (x_3 < 150)
-			throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+			throw new UnsupportedDimensions("Значение х3 должно быть больше или равно 150 мм");
 		if (this.getX() != (x_1 + x_2 + x_3))
-			throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
-					String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
+            throw new UnsupportedDimensions("Должно выполнятся условие: х = х1 + х2 + х3");
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
 	}
 
 	private void calcPipe40x40() {
@@ -71,7 +73,6 @@ public class Armour4040SingleTwoSideAndTopTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x40_Price;
-		totalPrice += metal_40x40_Price;
 		LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
 	}
 
@@ -89,7 +90,6 @@ public class Armour4040SingleTwoSideAndTopTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x20_Price;
-		totalPrice += metal_40x20_Price;
 		LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
 	}
 
@@ -149,7 +149,6 @@ public class Armour4040SingleTwoSideAndTopTransomDoor extends Armour4040Door {
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		this.metal_20x20_Price = bd.doubleValue();
 		metalFramesPartsTotalPrice += metal_20x20_Price;
-		totalPrice += metal_20x20_Price;
 		LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
 	}
 
@@ -359,7 +358,7 @@ public class Armour4040SingleTwoSideAndTopTransomDoor extends Armour4040Door {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         totalPrice -= platbandPrice;
 		platband.clear();
 		switch (platbandType) {

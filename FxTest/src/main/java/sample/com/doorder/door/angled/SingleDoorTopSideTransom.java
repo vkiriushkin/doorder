@@ -38,13 +38,18 @@ public class SingleDoorTopSideTransom extends AngledDoor {
 	}
 
     private void checkDimensions() {
+        if ((this.getX() - x_1) < 150)
+            throw new UnsupportedDimensions("Значение (x-x1) должно быть больше или равно 150 мм");
+        if (x_1 < this.getX() / 2)
+            throw new UnsupportedDimensions("Значение x1 должно быть больше или равно (х/2)");
         if (x_2 < 150)
-            throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+            throw new UnsupportedDimensions("Значение х2 должно быть больше или равно 150 мм");
         if (x_3 < 150)
-            throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+            throw new UnsupportedDimensions("Значение х3 должно быть больше или равно 150 мм");
         if (this.getX() != (x_1 + x_2 + x_3))
-            throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
-                    String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
+            throw new UnsupportedDimensions("Должно выполнятся условие: х = х1 + х2 + х3");
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
     }
 
     private void calcPipe20x20() {
@@ -358,7 +363,7 @@ public class SingleDoorTopSideTransom extends AngledDoor {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         super.calcPlatband(platbandType);
     }
 

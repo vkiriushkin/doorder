@@ -31,7 +31,7 @@ public class DoubleFrameAngledDoor extends DoubleFrameDoor {
         LOGGER.info("Start calculating metal frame parts");
         calcL50x4Part();
         calcPipe40x40();
-        calcPipe50x30();
+        calcPipe40x20();
         calcPipe20x20();
         calcPipe25x25();
         totalPrice += metalFramesPartsTotalPrice;
@@ -60,19 +60,19 @@ public class DoubleFrameAngledDoor extends DoubleFrameDoor {
         LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
     }
 
-    private void calcPipe50x30() {
-        LOGGER.info("Checking dimensions for 50x30");
+    private void calcPipe40x20() {
+        LOGGER.info("Checking dimensions for 40x20");
         if (this.getY() >= 1000 && this.getY() <= 2450
                 && this.getX() >= 500 && this.getX() <= 1200) {
-            LOGGER.info("50x30: Dimensions OK");
-            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            LOGGER.info("40x20: Dimensions OK");
+            BigDecimal bd = new BigDecimal(((double)this.getX() + this.getY()) * 2.2 / 1000 * Price.PIPE_40x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_50x30_Price = bd.doubleValue();
+            this.metal_40x20_Price = bd.doubleValue();
         } else
-            throw new UnsupportedDimensions("50x30", this.getY(), this.getX());
+            throw new UnsupportedDimensions("40x20", this.getY(), this.getX());
 
-        metalFramesPartsTotalPrice += metal_50x30_Price;
-        LOGGER.info("Finish calculating metal 50x30 parts, price: {}, total price: {}", metal_50x30_Price, totalPrice);
+        metalFramesPartsTotalPrice += metal_40x20_Price;
+        LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
     }
 
     private void calcPipe20x20() {
@@ -171,6 +171,8 @@ public class DoubleFrameAngledDoor extends DoubleFrameDoor {
             this.heaterPrice = price ;
         } else
             throw new UnsupportedDimensions("Heater", this.getY(), this.getX());
+        totalPrice += heaterPrice;
+        LOGGER.info("Finish calculating heater, price: {}, total price: {}", heaterPrice, totalPrice);
 
     }
 

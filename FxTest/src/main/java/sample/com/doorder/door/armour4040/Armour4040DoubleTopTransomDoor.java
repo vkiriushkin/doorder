@@ -49,7 +49,9 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 
     private void checkDimensions() {
         if (x_1 > this.getX() - 150)
-            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+            throw new UnsupportedDimensions("Значение x1 должно быть больше (x - 150)");
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
     }
 
 	private void calcPipe40x40() {
@@ -67,7 +69,6 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x40_Price;
-		totalPrice += metal_40x40_Price;
 		LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
 	}
 
@@ -86,7 +87,6 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x20_Price;
-		totalPrice += metal_40x20_Price;
 		LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
 	}
 
@@ -134,7 +134,6 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
 
 		this.metal_20x20_Price = (part1 + part2) * Price.PIPE_20x20.getPriceInUAH();
 		metalFramesPartsTotalPrice += metal_20x20_Price;
-		totalPrice += metal_20x20_Price;
 		LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
 	}
 
@@ -356,7 +355,7 @@ public class Armour4040DoubleTopTransomDoor extends Armour4040Door {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         totalPrice -= platbandPrice;
 		platband.clear();
 		switch (platbandType) {

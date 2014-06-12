@@ -42,8 +42,10 @@ public class Armour4040SingleSideTransomDoor extends Armour4040Door {
 	}
 
     private void checkDimensions() {
+        if ((this.getX() - x_1) < 150)
+            throw new UnsupportedDimensions("Значение (x-x1) должно быть больше или равно 150 мм");
         if (x_1 < this.getX() / 2)
-            throw new UnsupportedDimensions("Metal parts", "x1 < x/2", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+            throw new UnsupportedDimensions("Значение x1 должно быть больше или равно (х/2)");
     }
 
 	private void calcPipe40x40() {
@@ -58,7 +60,6 @@ public class Armour4040SingleSideTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_40x40_Price;
-		totalPrice += metal_40x40_Price;
 		LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
 	}
 
@@ -73,7 +74,6 @@ public class Armour4040SingleSideTransomDoor extends Armour4040Door {
 		} else
 			throw new UnsupportedDimensions("Pipe 40x20", this.getY(), this.getX());
 		metalFramesPartsTotalPrice += metal_40x20_Price;
-		totalPrice += metal_40x20_Price;
 		LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
 	}
 
@@ -119,7 +119,6 @@ public class Armour4040SingleSideTransomDoor extends Armour4040Door {
 			throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
 		metalFramesPartsTotalPrice += metal_20x20_Price;
-		totalPrice += metal_20x20_Price;
 		LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
 	}
 

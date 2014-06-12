@@ -40,12 +40,12 @@ public class SingleDoorTwoSideTransom extends SingleDoorSideTransom {
 
     private void checkDimensions() {
         if (x_2 < 150)
-            throw new UnsupportedDimensions("Metal parts", "x2 < 150", String.valueOf(x_2));
+            throw new UnsupportedDimensions("Значение х2 должно быть больше или равно 150 мм");
+
         if (x_3 < 150)
-            throw new UnsupportedDimensions("Metal parts", "x3 < 150", String.valueOf(x_3));
+            throw new UnsupportedDimensions("Значение х3 должно быть больше или равно 150 мм");
         if (this.getX() != (x_1 + x_2 + x_3))
-            throw new UnsupportedDimensions("Metal parts", "x =! x1+x2+x3",
-                    String.valueOf("x:" + this.getX() + ",x1:"+x_1 + ",x2:"+x_2 + ",x3:"+x_3));
+            throw new UnsupportedDimensions("Должно выполнятся условие: х = х1 + х2 + х3");
     }
 
 	private void calcPipe20x20() {

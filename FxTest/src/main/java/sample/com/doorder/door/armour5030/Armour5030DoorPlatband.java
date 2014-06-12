@@ -17,7 +17,7 @@ public class Armour5030DoorPlatband extends Platband {
         clear();
         LOGGER.info("Checking dimensions for wooden platband");
         if (y < 1000 || y > 2150)
-            throw new UnsupportedDimensions("Wooden platband", y, x);
+            throw new UnsupportedDimensions("Выберите другой вид наличника (высота деревянного наличника < 2150мм)");
         LOGGER.info("Wooden platband: dimension OK");
         if (y >= 1000 && y <= 2150) {
             BigDecimal bd = new BigDecimal((2 * (double)y + x) / 1000 * Price.PLATBAND_WOODEN.getPriceInUAH());

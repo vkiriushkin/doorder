@@ -32,10 +32,17 @@ public class Armour5030SingleSideTransomDoor extends Armour5030Door {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
         calcPipe50x30();
         calcPipe20x20();
-        totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+    }
+
+    private void checkDimensions() {
+        if ((this.getX() - x_1) < 150)
+            throw new UnsupportedDimensions("Значение (x-x1) должно быть больше или равно 150 мм");
+        if (x_1 < this.getX() / 2)
+            throw new UnsupportedDimensions("Значение x1 должно быть больше или равно (х/2)");
     }
 
     private void calcPipe50x30() {

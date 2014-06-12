@@ -29,7 +29,10 @@ public class Decryptor {
             for (int i = 0; i < pricesArray.length; i++) {
                 String shortName = pricesArray[i].split(":")[0];
                 String value = pricesArray[i].split(":")[1];
-                Price.lookupPriceByShortName(shortName).setPriceInUAH(Double.parseDouble(value));
+                Price price = Price.lookupPriceByShortName(shortName);
+                if (price != null) {
+                    price.setPriceInUAH(Double.parseDouble(value));
+                }
             }
 
             for (Price price : Price.values()) {

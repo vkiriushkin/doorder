@@ -26,8 +26,8 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
         this.innerDecoration = new FireProofInnerDecoration();
         this.outerDecoration = new FireProofOuterDecoration();
         this.platband = new Platband();
-	    this.productionPrice = 60;
-	    this.profitPrice = 800;
+	    this.productionPrice = 0;
+	    this.profitPrice = 0;
     }
 
     @Override
@@ -183,8 +183,6 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 
 	@Override
 	public void calcOuterDecoration(OuterDecorationType outerDecorationType) {
-        if (outerDecorationType.equals(InnerDecorationType.MDF10) || outerDecorationType.equals(InnerDecorationType.MDF16) && this.getY() > 2350)
-            throw new UnsupportedDimensions("Outer decoration", "Can't apply MDF decoration", String.valueOf(this.getY()));
         totalPrice -= outerDecorationPrice;
         outerDecoration.clear();
         switch (outerDecorationType) {
@@ -216,8 +214,6 @@ public class SingleFireProofDoor extends FireProofDoorImpl {
 
 	@Override
 	public void calcInnerDecoration(InnerDecorationType innerDecorationType) {
-        if (innerDecorationType.equals(InnerDecorationType.MDF10) || innerDecorationType.equals(InnerDecorationType.MDF16) && this.getY() > 2350)
-            throw new UnsupportedDimensions("Inner decoration", "Can't apply MDF decoration", String.valueOf(this.getY()));
         totalPrice -= innerDecorationPrice;
         innerDecoration.clear();
         switch (innerDecorationType) {

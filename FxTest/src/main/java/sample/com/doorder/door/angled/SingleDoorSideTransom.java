@@ -37,8 +37,10 @@ public class SingleDoorSideTransom extends AngledDoor {
     }
 
     private void checkDimensions() {
-        if (x_1 > this.getX() - 150)
-            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + "x: " + this.getX()));
+        if ((this.getX() - x_1) < 150)
+            throw new UnsupportedDimensions("Значение (x-x1) должно быть больше или равно 150 мм");
+        if (x_1 < this.getX() / 2)
+            throw new UnsupportedDimensions("Значение x1 должно быть больше или равно (х/2)");
     }
 
     private void calcPipe20x20() {

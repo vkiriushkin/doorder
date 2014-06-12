@@ -10,14 +10,14 @@ public abstract class DoubleFrameDoor extends SimpleDoor {
 
     protected Accessories accessories;
     protected DoubleFrameDoorPlatband platband;
-    protected double metal_50x30_Price;
+    protected double metal_40x20_Price;
     protected double metal_25x25_Price;
 
     protected DoubleFrameDoor() {
         super();
         this.accessories = new Accessories();
         this.platband = new DoubleFrameDoorPlatband();
-        this.metal_50x30_Price = 0;
+        this.metal_40x20_Price = 0;
         this.metal_25x25_Price = 0;
     }
 
@@ -60,8 +60,8 @@ public abstract class DoubleFrameDoor extends SimpleDoor {
         spyHolePrice = this.accessories.getSpyHolePrice();
         totalPrice += spyHolePrice;
     }
-    public double getMetal_50x30_Price() {
-        return metal_50x30_Price;
+    public double getMetal_40x20_Price() {
+        return metal_40x20_Price;
     }
 
     public double getMetal_25x25_Price() {
@@ -108,7 +108,7 @@ public abstract class DoubleFrameDoor extends SimpleDoor {
         sb.append("metalFramesPartsTotalPrice=").append(metalFramesPartsTotalPrice).append("\n");
         sb.append("metal_L50x4_Price=").append(metal_L50x4_Price).append("\n");
         sb.append("metal_40x40_Price=").append(metal_40x40_Price).append("\n");
-        sb.append("metal_50x30_Price=").append(metal_50x30_Price).append("\n");
+        sb.append("metal_40x20_Price=").append(metal_40x20_Price).append("\n");
         sb.append("metal_20x20_Price=").append(metal_20x20_Price).append("\n");
         sb.append("metal_25x25_Price=").append(metal_25x25_Price).append("\n");
         sb.append("metalListPrice=").append(metalListPrice).append("\n");

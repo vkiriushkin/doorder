@@ -32,17 +32,18 @@ public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
         checkDimensions();
         calcL50x4Part();
         calcPipe40x40();
-        calcPipe50x30();
+        calcPipe40x20();
         calcPipe20x20();
         calcPipe25x25();
+        totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
     }
 
     private void checkDimensions() {
-        if (x_1 > this.getX() - 150)
-            throw new UnsupportedDimensions("Metal parts", "x1 > x - 150", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+        if ((this.getX() - x_1) < 150)
+            throw new UnsupportedDimensions("Значение (x-x1) должно быть больше или равно 150 мм");
         if (x_1 < this.getX() / 2)
-            throw new UnsupportedDimensions("Metal parts", "x1 < x/2", String.valueOf("x1: " + x_1 + ", x: " + this.getX()));
+            throw new UnsupportedDimensions("Значение x1 должно быть больше или равно (х/2)");
     }
 
     private void calcL50x4Part() {
@@ -57,7 +58,6 @@ public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_L50x4_Price;
-        totalPrice += metal_L50x4_Price;
         LOGGER.info("Finish calculating metal L50x4 parts, price: {}, total price: {}", metal_L50x4_Price, totalPrice);
     }
 
@@ -72,23 +72,22 @@ public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_40x40_Price;
-        totalPrice += metal_40x40_Price;
         LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
     }
 
-    private void calcPipe50x30() {
-        LOGGER.info("Checking dimensions for 50x30");
+    private void calcPipe40x20() {
+        LOGGER.info("Checking dimensions for 40x20");
         if (this.getY() >= 1000 && this.getY() <= 2450 && this.getX() >= 800 && this.getX() <= 1950
                 && this.getX_1() <= this.getX() - 150 && this.getX_1() <= 1200) {
-            LOGGER.info("50x30: Dimensions OK");
-            BigDecimal bd = new BigDecimal(((double) this.getX_1() + this.getY()) * 2.2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            LOGGER.info("40x20: Dimensions OK");
+            BigDecimal bd = new BigDecimal(((double) this.getX_1() + this.getY()) * 2.2 / 1000 * Price.PIPE_40x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_50x30_Price = bd.doubleValue();
+            this.metal_40x20_Price = bd.doubleValue();
         } else
-            throw new UnsupportedDimensions("50x30", this.getY(), this.getX());
+            throw new UnsupportedDimensions("40x20", this.getY(), this.getX());
 
-        metalFramesPartsTotalPrice += metal_50x30_Price;
-        LOGGER.info("Finish calculating metal 50x30 parts, price: {}, total price: {}", metal_50x30_Price, totalPrice);
+        metalFramesPartsTotalPrice += metal_40x20_Price;
+        LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
     }
 
     private void calcPipe20x20() {
@@ -133,7 +132,6 @@ public class DoubleFrameSingleSideTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_20x20_Price;
-        totalPrice += metal_20x20_Price;
         LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
     }
 

@@ -2,6 +2,9 @@ package sample.com.doorder.door;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public abstract class SimpleDoor implements MetalDoor {
 
@@ -53,35 +56,50 @@ public abstract class SimpleDoor implements MetalDoor {
         this.heaterPrice = 0;
         this.totalPrice = 0;
         this.outerDecorationPrice = 0;
-	    this.fixedProductionPrice = 150;
+	    this.fixedProductionPrice = Price.MANUFACTURINGCOSTS.getPriceInUAH();
     }
 
     @Override
-    public void calcOptions(String shipping, boolean packagingNeeded, boolean installationNeeded) {
+    public void calcOptions(boolean shippingNeeded, String shipping, boolean packagingNeeded, boolean installationNeeded, String installPrice,
+                            double profit, double workCost, int profitPercent) {
+
+        this.profitPrice = profit;
+        this.productionPrice = workCost;
+        totalPrice += profit;
+        totalPrice += workCost;
+        totalPrice += fixedProductionPrice;
+
         //installation
         if (installationNeeded) {
-            BigDecimal bd = new BigDecimal(totalPrice * 0.15);
+            BigDecimal bd = new BigDecimal(installPrice);
             bd.setScale(2, RoundingMode.HALF_UP);
-            installationPrice = bd.doubleValue();
+            this.installationPrice = bd.doubleValue();
+            totalPrice += this.installationPrice;
         } else {
-            installationPrice = 0.0;
+            this.installationPrice = 0.0;
         }
 
         //package
-        //TODO: add package in price and fill formula
         if (packagingNeeded) {
             BigDecimal bd = new BigDecimal((double)x * y * 2 * Price.PACKAGING.getPriceInUAH() / 1000000);
             bd.setScale(2, RoundingMode.HALF_UP);
             packagePrice = bd.doubleValue();
+            totalPrice += packagePrice;
         } else {
             packagePrice = 0.0;
         }
 
         //shipping
-        if (shipping != null && !shipping.isEmpty())
+        if (shippingNeeded) {
             shippingPrice = Double.parseDouble(shipping);
-        else
+            totalPrice += shippingPrice;
+        } else
             shippingPrice = 0.0;
+
+        //add profit percent
+        BigDecimal bd = new BigDecimal(totalPrice).add(new BigDecimal(totalPrice).multiply(new BigDecimal(profitPercent)).divide(new BigDecimal(100)));
+        bd.setScale(2, RoundingMode.HALF_UP);
+        totalPrice = bd.doubleValue();
     }
 
     public int getX() {
@@ -109,7 +127,14 @@ public abstract class SimpleDoor implements MetalDoor {
 	}
 
 	public double getTotalPrice() {
-        return totalPrice;
+        Locale locale  = new Locale("en", "UK");
+        String pattern = "###.##";
+        DecimalFormat decimalFormat = (DecimalFormat)
+                NumberFormat.getNumberInstance(locale);
+        decimalFormat.applyPattern(pattern);
+        decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
+        return Double.valueOf(decimalFormat.format(totalPrice));
+//        return totalPrice;
     }
 
     public double getMetalFramesPartsTotalPrice() {
@@ -230,8 +255,8 @@ public abstract class SimpleDoor implements MetalDoor {
         sb.append("shippingPrice=").append(shippingPrice).append("\n");
         sb.append("installationPrice=").append(installationPrice).append("\n");
         sb.append("packagePrice=").append(packagePrice).append("\n");
-		sb.append("productionPrice=").append(productionPrice).append("\n");
-		sb.append("profitPrice=").append(profitPrice).append("\n");
+		sb.append("productionPrice=").append(this.productionPrice).append("\n");
+		sb.append("profitPrice=").append(this.profitPrice).append("\n");
 		sb.append("fixedProductionPrice=").append(fixedProductionPrice).append("\n");
         return sb.toString();
     }

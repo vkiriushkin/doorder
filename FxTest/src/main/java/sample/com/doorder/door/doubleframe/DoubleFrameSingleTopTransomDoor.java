@@ -29,13 +29,19 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
     @Override
     public void calcMetalFrameParts() {
         LOGGER.info("Start calculating metal frame parts");
+        checkDimensions();
         calcL50x4Part();
         calcPipe40x40();
-        calcPipe50x30();
+        calcPipe40x20();
         calcPipe20x20();
         calcPipe25x25();
         totalPrice += metalFramesPartsTotalPrice;
         LOGGER.info("Finish calculating metal frame parts, price: {}, total price: {}", metalFramesPartsTotalPrice, totalPrice);
+    }
+
+    private void checkDimensions() {
+        if (this.getY() - this.getY_1() < 60 || this.getY() - this.getY_1() > 1000)
+            throw new UnsupportedDimensions("Значение (y - y1) должно быть от 60 до 1000");
     }
 
     private void calcL50x4Part() {
@@ -52,7 +58,6 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_L50x4_Price;
-        totalPrice += metal_L50x4_Price;
         LOGGER.info("Finish calculating metal L50x4 parts, price: {}, total price: {}", metal_L50x4_Price, totalPrice);
     }
 
@@ -70,26 +75,24 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("Pipe 40x40", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_40x40_Price;
-        totalPrice += metal_40x40_Price;
         LOGGER.info("Finish calculating metal 40x40 parts, price: {}, total price: {}", metal_40x40_Price, totalPrice);
     }
 
-    private void calcPipe50x30() {
-        LOGGER.info("Checking dimensions for 50x30");
+    private void calcPipe40x20() {
+        LOGGER.info("Checking dimensions for 40x20");
         if (this.getY() >= 1000 && this.getY() <= 3000
                 && this.getX() >= 500 && this.getX() <= 1200
                 && (this.getY() - this.getY_1()) >= 60 && (this.getY() - this.getY_1()) <= 1000
                 && this.getY_1() >= 1000 && this.getY_1() <= 2450) {
             LOGGER.info("L50x4: Dimensions OK");
-            BigDecimal bd = new BigDecimal(((double) this.getX() + this.getY_1()) * 2.2 / 1000 * Price.PIPE_50x30.getPriceInUAH());
+            BigDecimal bd = new BigDecimal(((double) this.getX() + this.getY_1()) * 2.2 / 1000 * Price.PIPE_40x20.getPriceInUAH());
             bd = bd.setScale(2, RoundingMode.HALF_UP);
-            this.metal_50x30_Price = bd.doubleValue();
+            this.metal_40x20_Price = bd.doubleValue();
         } else
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
-        metalFramesPartsTotalPrice += metal_50x30_Price;
-        totalPrice += metal_50x30_Price;
-        LOGGER.info("Finish calculating metal 50x30 parts, price: {}, total price: {}", metal_50x30_Price, totalPrice);
+        metalFramesPartsTotalPrice += metal_40x20_Price;
+        LOGGER.info("Finish calculating metal 40x20 parts, price: {}, total price: {}", metal_40x20_Price, totalPrice);
     }
 
     private void calcPipe20x20() {
@@ -134,7 +137,6 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("Pipe 20x20", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_20x20_Price;
-        totalPrice += metal_20x20_Price;
         LOGGER.info("Finish calculating metal 20x20 parts, price: {}, total price: {}", metal_20x20_Price, totalPrice);
     }
 
@@ -152,7 +154,6 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
             throw new UnsupportedDimensions("L50x4", this.getY(), this.getX());
 
         metalFramesPartsTotalPrice += metal_25x25_Price;
-        totalPrice += metal_25x25_Price;
         LOGGER.info("Finish calculating metal 25x25 parts, price: {}, total price: {}", metal_25x25_Price, totalPrice);
     }
 
@@ -337,7 +338,7 @@ public class DoubleFrameSingleTopTransomDoor extends DoubleFrameAngledDoor {
                 || platbandType.equals(PlatbandType.METAL_PAINTING_PF)
                 || platbandType.equals(PlatbandType.METAL_PAINTING_SHAGREEN))
                 && this.getY() > 3000)
-            throw new UnsupportedDimensions("Platband", "Platband can't be applied for such height", "y:" + this.getY());
+            throw new UnsupportedDimensions("Значение y должно быть меньше или равно 3000 мм");
         super.calcPlatband(platbandType);
     }
 

@@ -36,7 +36,6 @@ public enum Price {
 	OGRASK(0, "ogr"),
 	DRYWALL(0, "gips"),
 	MINERAL_WOOL(0, "vata"),
-    PACKAGING(30, "package"),
     SHIPPING(130, "shipping"),
 
 	//accessories
@@ -59,7 +58,82 @@ public enum Price {
 	HANDLE_APECS_PLAT_CHROME(0, "apecsCromePlank"),
 	HANDLE_APECS_PLAT_GOLD(0, "apecsGoldPlank"),
 	HANDLE_AYDEMIR_BROWN(0, "aydemirBrown"),
-	HANDLE_AYDEMIR_BLACK(0, "aydemirBlack")
+	HANDLE_AYDEMIR_BLACK(0, "aydemirBlack"),
+
+    MANUFACTURINGCOSTS(0, "manufacturingCosts"),
+    PACKAGING(0, "packaging"),
+    FIREPROOFINSTALLATION(0, "fireproofInstallation"),
+    CLOSER(0, "closer"),
+
+    ANGLEDSINGLE(0, "angledSingle"),
+    ANGLEDSINGLETOP(0, "angledSingleTop"),
+    ANGLEDSINGLESIDE(0, "angledSingleSide"),
+    ANGLEDSINGLETWOSIDE(0, "angledSingleTwoSide"),
+    ANGLEDSINGLETOPSIDE(0, "angledSingleTopSide"),
+    ANGLEDDOUBLE(0, "angledDouble"),
+    ANGLEDDOUBLETOP(0, "angledDoubleTop"),
+
+    DOUBLEFRAMESINGLE(0, "doubleFrameSingle"),
+    DOUBLEFRAMESINGLETOP(0, "doubleFrameSingleTop"),
+    DOUBLEFRAMESINGLESIDE(0, "doubleFrameSingleSide"),
+    DOUBLEFRAMESINGLETWOSIDE(0, "doubleFrameSingleTwoSide"),
+    DOUBLEFRAMESINGLETOPSIDE(0, "doubleFrameSingleTopSide"),
+    DOUBLEFRAMEDOUBLE(0, "doubleFrameDouble"),
+    DOUBLEFRAMEDOUBLETOP(0, "doubleFrameDoubleTop"),
+
+    ANGLED40X40SINGLE(0, "angled40x40Single"),
+    ANGLED40X40SINGLETOP(0, "angled40x40SingleTop"),
+    ANGLED40X40SINGLESIDE(0, "angled40x40SingleSide"),
+    ANGLED40X40SINGLETWOSIDE(0, "angled40x40SingleTwoSide"),
+    ANGLED40X40SINGLETOPSIDE(0, "angled40x40SingleTopSide"),
+    ANGLED40X40DOUBLE(0, "angled40x40Double"),
+    ANGLED40X40DOUBLETOP(0, "angled40x40DoubleTop"),
+
+    ANGLED50X30SINGLE(0, "angled50x30Single"),
+    ANGLED50X30SINGLETOP(0, "angled50x30SingleTop"),
+    ANGLED50X30SINGLESIDE(0, "angled50x30SingleSide"),
+    ANGLED50X30SINGLETWOSIDE(0, "angled50x30SingleTwoSide"),
+    ANGLED50X30SINGLETOPSIDE(0, "angled50x30SingleTopSide"),
+    ANGLED50X30DOUBLE(0, "angled50x30Double"),
+    ANGLED50X30DOUBLETOP(0, "angled50x30DoubleTop"),
+
+    FIREPROOFSINGLE(0, "fireproofSingle"),
+    FIREPROOFDOUBLE(0, "fireproofDouble"),
+
+    ANGLEDSINGLEWORK(0, "angledSingleWork"),
+    ANGLEDSINGLETOPWORK(0, "angledSingleTopWork"),
+    ANGLEDSINGLESIDEWORK(0, "angledSingleSideWork"),
+    ANGLEDSINGLETWOSIDEWORK(0, "angledSingleTwoSideWork"),
+    ANGLEDSINGLETOPSIDEWORK(0, "angledSingleTopSideWork"),
+    ANGLEDDOUBLEWORK(0, "angledDoubleWork"),
+    ANGLEDDOUBLETOPWORK(0, "angledDoubleTopWork"),
+
+    DOUBLEFRAMESINGLEWORK(0, "doubleFrameSingleWork"),
+    DOUBLEFRAMESINGLETOPWORK(0, "doubleFrameSingleTopWork"),
+    DOUBLEFRAMESINGLESIDEWORK(0, "doubleFrameSingleSideWork"),
+    DOUBLEFRAMESINGLETWOSIDEWORK(0, "doubleFrameSingleTwoSideWork"),
+    DOUBLEFRAMESINGLETOPSIDEWORK(0, "doubleFrameSingleTopSideWork"),
+    DOUBLEFRAMEDOUBLEWORK(0, "doubleFrameDoubleWork"),
+    DOUBLEFRAMEDOUBLETOPWORK(0, "doubleFrameDoubleTopWork"),
+
+    ANGLED40X40SINGLEWORK(0, "angled40x40SingleWork"),
+    ANGLED40X40SINGLETOPWORK(0, "angled40x40SingleTopWork"),
+    ANGLED40X40SINGLESIDEWORK(0, "angled40x40SingleSideWork"),
+    ANGLED40X40SINGLETWOSIDEWORK(0, "angled40x40SingleTwoSideWork"),
+    ANGLED40X40SINGLETOPSIDEWORK(0, "angled40x40SingleTopSideWork"),
+    ANGLED40X40DOUBLEWORK(0, "angled40x40DoubleWork"),
+    ANGLED40X40DOUBLETOPWORK(0, "angled40x40DoubleTopWork"),
+
+    ANGLED50X30SINGLEWORK(0, "angled50x30SingleWork"),
+    ANGLED50X30SINGLETOPWORK(0, "angled50x30SingleTopWork"),
+    ANGLED50X30SINGLESIDEWORK(0, "angled50x30SingleSideWork"),
+    ANGLED50X30SINGLETWOSIDEWORK(0, "angled50x30SingleTwoSideWork"),
+    ANGLED50X30SINGLETOPSIDEWORK(0, "angled50x30SingleTopSideWork"),
+    ANGLED50X30DOUBLEWORK(0, "angled50x30DoubleWork"),
+    ANGLED50X30DOUBLETOPWORK(0, "angled50x30DoubleTopWork"),
+
+    FIREPROOFSINGLEWORK(0, "fireproofSingleWork"),
+    FIREPROOFDOUBLEWORK(0, "fireproofDoubleWork")
     ;
 
 	private double priceInUAH;
